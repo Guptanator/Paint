@@ -5,17 +5,6 @@
 # 2 Implementation of selected color into the drawing stream.
 
 --------------------------------------------------------------------------
-TYPE     : USER STORY 1 : UTORID
-NAME     : Draw Circle
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : user
-I WANT   : To click the center of the circle, drag, and release to specify
-           a circle to be drawn in the current style.
-SO THAT  : I can add circles to my canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 2 : UTORID
 NAME     : Draw Circle Feedback
 OWNER    : 
@@ -176,16 +165,6 @@ ESTIMATE :
 ISSUE    : Squiggles are connected to each other by a straight line. Each drag
 		   of the mouse should be a separate squiggle. Possibly
            the issue is with the representation of the squiggles in the Model.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 6 : UTORID
-NAME     : Circle drawing is broken
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-ISSUE    : The first click should specify the center of the circle, with
-           a drag for the radius. This is not the case in the current
-           implementation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 8 : UTORID

@@ -2,8 +2,29 @@
 # to the appropriate Sprint below, after the 
 # Sprint Planning Meeting.
 
-# Sprint 1 Dec 28, 2018
+# Sprint 1 October 28, 2018
 # Sprint 1 Backlog UserStories go below
+--------------------------------------------------------------------------
+TYPE     : USER STORY 1 : chowd460
+NAME     : Draw Circle
+OWNER    : @professor rosenbloom
+PRIORITY : low
+ESTIMATE : 5 minutes
+AS A     : user
+I WANT   : To click the center of the circle, drag, and release to specify
+           a circle to be drawn in the current style.
+SO THAT  : I can add circles to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 6 : chowd460
+NAME     : Circle drawing is broken
+OWNER    : @professor rosenbloom
+PRIORITY : low
+ESTIMATE : 15 minutes
+ISSUE    : The first click should specify the center of the circle, with
+           a drag for the radius. This is not the case in the current
+           implementation.
+--------------------------------------------------------------------------
 
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below
