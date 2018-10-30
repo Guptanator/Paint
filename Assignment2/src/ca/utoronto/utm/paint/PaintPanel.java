@@ -63,9 +63,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		ArrayList<Circle> circles = this.model.getCircles();
 		for (Circle c : circles) {
 			int radius = c.getRadius();
-			int x = c.getCentre().getX()-(radius/2);
-			int y = c.getCentre().getY()-(radius/2);
-			g.strokeOval(x, y, radius, radius);
+			int x = c.getCentre().getX()-(radius);
+			int y = c.getCentre().getY()-(radius);
+			g.strokeOval(x, y, radius*2, radius*2);
 		}
 	}
 
