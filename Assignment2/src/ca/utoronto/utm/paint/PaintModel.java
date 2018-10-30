@@ -7,6 +7,7 @@ public class PaintModel extends Observable {
 
 	private ArrayList<Point> points = new ArrayList<Point>();
 	private ArrayList<Circle> circles = new ArrayList<Circle>();
+	private int length;
 
 	public void addPoint(Point p) {
 		this.points.add(p);
@@ -26,5 +27,15 @@ public class PaintModel extends Observable {
 
 	public ArrayList<Circle> getCircles() {
 		return circles;
+	}
+	
+	public int getLength() {
+		return this.length;
+	}
+	
+	public void setLength(int i) {
+		this.length = i;
+		this.setChanged();
+		this.notifyObservers();
 	}
 }
