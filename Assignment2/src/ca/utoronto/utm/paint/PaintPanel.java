@@ -19,7 +19,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private View view; // So we can talk to our parent or other components of the view
 
 	private String mode; // modifies how we interpret input (could be better?)
-	private Circle circle; // the circle we are building
+	private Drawable shape; // the circle we are building
 
 	private Canvas canvas;
 
@@ -56,7 +56,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		Stack<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
-		if (this.circle != null) {this.circle.draw(g);}
+		g.strokeRect(1, 1, 15, 15);
+		if (this.shape != null) {this.shape.draw(g);}
 		while (!allObjects.empty()) {
 			Drawable current = allObjects.pop();
 			if (current.type()=="Point") {
@@ -67,6 +68,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 				previousPoint = (Point)current;
 			}
 			if (current.type()=="Circle") {
+				current.draw(g);
+			}
+			if (current.type()=="Rectangle") {
 				current.draw(g);
 			}
 		}
@@ -118,11 +122,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		if (this.mode == "Squiggle") {
 			this.model.addDrawable(new Point((int) e.getX(), (int) e.getY()));
 		} else if (this.mode == "Circle") {
-			if (this.circle != null) {
-				int horizontal = Math.abs((int) this.circle.getCentre().getX() - (int) e.getX());
-				int vertical = Math.abs((int) this.circle.getCentre().getY() - (int) e.getY());
+			if (this.shape != null) {
+				int horizontal = Math.abs((int) ((Circle)this.shape).getCentre().getX() - (int) e.getX());
+				int vertical = Math.abs((int) ((Circle)this.shape).getCentre().getY() - (int) e.getY());
 				int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
-				this.circle.setRadius(radius);
+				((Circle)this.shape).setRadius(radius);
 				this.model.setCurrent(radius);;
 			}
 		}
@@ -132,9 +136,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		if (this.mode == "Squiggle") {
 
 		} else if (this.mode == "Circle") {
-				
-
-		}
+		} else if (this.mode == "Rectangle");
 	}
 
 	private void mousePressed(MouseEvent e) {
@@ -144,7 +146,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			// Problematic notion of radius and centre!!
 			Point centre = new Point((int) e.getX(), (int) e.getY());
 			int radius = 0;
-			this.circle = new Circle(centre, radius);
+			this.shape = new Circle(centre, radius);
+		} else if (this.mode == "Rectangle") {
+			Point corner = new Point((int) e.getX(), (int) e.getY());
+			int length = 0;
+			this.shape = new Rectangle(corner, length, length);
 		}
 	}
 
@@ -152,14 +158,20 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		if (this.mode == "Squiggle") {
 			this.model.addDrawable(new Point((int) e.getX(), (int) e.getY(),true));
 		} else if (this.mode == "Circle") {
-			if (this.circle != null) {
-				// Problematic notion of radius and centre!!
-				int horizontal = Math.abs((int) this.circle.getCentre().getX() - (int) e.getX());
-				int vertical = Math.abs((int) this.circle.getCentre().getY() - (int) e.getY());
+			if (this.shape != null) {
+				int horizontal = Math.abs((int) ((Circle)this.shape).getCentre().getX() - (int) e.getX());
+				int vertical = Math.abs((int) ((Circle)this.shape).getCentre().getY() - (int) e.getY());
 				int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
-				this.circle.setRadius(radius);
-				this.model.addDrawable(this.circle);
-				this.circle = null;
+				((Circle)this.shape).setRadius(radius);
+				this.model.addDrawable(this.shape);
+				this.shape = null;
+			} else if (this.mode == "Rectangle") {
+					if (this.shape != null) {
+						((Rectangle)this.shape).setHeight(((Rectangle)this.shape).getCorner().getY()- (int) e.getY());
+						((Rectangle)this.shape).setWidth(((Rectangle)this.shape).getCorner().getX()- (int) e.getX());
+						this.model.addDrawable(this.shape);
+						this.shape = null;
+			}
 			}
 		}
 

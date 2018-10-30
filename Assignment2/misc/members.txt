@@ -4,9 +4,9 @@ Member 1: chowd460
 Name: Krish
 Email: krish.chowdhary@mail.utoronto.ca
 
-Member 2:
-Name:
-Email:
+Member 2: phamjus1
+Name: Justin
+Email: justinon.pham@mail.utoronto.ca
 
 Member 3:
 Name:

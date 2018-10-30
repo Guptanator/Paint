@@ -6,7 +6,7 @@
 
 
 --------------------------------------------------------------------------
-TYPE     : USER STORY 3 : UTORID
+TYPE     : USER STORY 3 : phamjus1
 NAME     : Draw Rectangle
 OWNER    : 
 PRIORITY :
@@ -17,7 +17,7 @@ I WANT   : To click on one corner of a rectangle, drag, and release to
 SO THAT  : I can add rectangles to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 4 : UTORID
+TYPE     : USER STORY 4 : phamjus1
 NAME     : Draw Rectangle Feedback
 OWNER    : 
 PRIORITY :
@@ -27,7 +27,7 @@ I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid const
 SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 5 : UTORID
+TYPE     : USER STORY 5 : leejon79
 NAME     : Color selector
 OWNER    : 
 PRIORITY :
@@ -51,7 +51,7 @@ I WANT   : To be able to select the current drawing color, to be applied
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 6 : UTORID
+TYPE     : USER STORY 6 : leejon79
 NAME     : Fill style selector
 OWNER    : 
 PRIORITY :
@@ -75,7 +75,7 @@ I WANT   : To be able to select the current drawing style (filled or outline), t
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 7 : UTORID
+TYPE     : USER STORY 7 : guptaary
 NAME     : Line thickness selector
 OWNER    : 
 PRIORITY :
@@ -100,7 +100,7 @@ I WANT   : To be able to select the current line thickness, to be applied
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 1 : UTORID
+TYPE     : BUG 1 : chowd460
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
 PRIORITY :
@@ -108,7 +108,7 @@ ESTIMATE :
 ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 2 : UTORID
+TYPE     : BUG 2 : chowd460
 NAME     : Drawing selection mode not indicated
 OWNER    : 
 PRIORITY :
@@ -118,7 +118,7 @@ ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
            to highlight the currently selected mode?
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 3 : UTORID
+TYPE     : BUG 3 : chowd460
 NAME     : Architecture behind choosing selection mode is poor
 OWNER    : 
 PRIORITY :
@@ -130,11 +130,11 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            'if' blocks in the PaintPanel mouse event code.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 4 : UTORID
+TYPE     : BUG 4 : chowd460
 NAME     : Architecture behind Model is poor
 OWNER    : 
 PRIORITY :
-ESTIMATE : 
+ESTIMATE : idk soon?
 ISSUE    : Having a list of different types of drawable things in the
            model is cumbersome. In fact, it is currently incorrect, with
            Squiggle's not drawing properly. Need to re-architect the Model
@@ -143,7 +143,7 @@ ISSUE    : Having a list of different types of drawable things in the
            here.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 5 : UTORID
+TYPE     : BUG 5 : guptaary
 NAME     : Squiggle is broken
 OWNER    : 
 PRIORITY :
@@ -153,7 +153,7 @@ ISSUE    : Squiggles are connected to each other by a straight line. Each drag
            the issue is with the representation of the squiggles in the Model.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 8 : UTORID
+TYPE     : USER STORY 8 : leejon79
 NAME     : Implement Poly Line
 OWNER    : 
 PRIORITY :
@@ -161,7 +161,7 @@ ESTIMATE :
 ISSUE    : YOU FILL THIS ONE IN!!
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 7 : UTORID
+TYPE     : BUG 7 : chowd460
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : 
 PRIORITY :
@@ -210,13 +210,13 @@ PaintModel.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 8 : UTORID
+TYPE     : BUG 8 : guptaary/leejon79
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
 PRIORITY :
 ESTIMATE : 
 ISSUE    : The architecture can be improved if we implement the Command Design 
-Pattern to handle changes to the graphics contex such as changing drawing 
+Pattern to handle changes to the graphics context such as changing drawing 
 color, stroke width etc. You can accomplished this by wrapping the changes
 to the graphics context in a DrawingCommand. This way these changes can be
 added to the Bug 2.1 DrawingCommand list. That is, these new types of 
@@ -224,7 +224,7 @@ DrawingCommands appear on PaintPanel's list right along side
 the Shape type DrawingCommands.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 9 : UTORID
+TYPE     : BUG 9 : chowd460
 NAME     : Architecture behind choosing drawing mode is poor
 OWNER    : 
 PRIORITY :
@@ -241,7 +241,7 @@ display an ImageIcon. The string attached to the button causes the right choice
 of object creation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 10 : UTORID
+TYPE     : BUG 10 : phamjus1
 NAME     : Architecture behind creating shape instances is poor
 OWNER    : 
 PRIORITY :
