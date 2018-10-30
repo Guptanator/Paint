@@ -285,6 +285,27 @@ simply switching the PaintPanel's event handlers as appropriate.
 --------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
+--------------------------------------------------------------------------
+TYPE     : USER STORY 1 : chowd460
+NAME     : Draw Circle
+OWNER    : @professor rosenbloom
+PRIORITY : low
+ESTIMATE : 5 minutes
+AS A     : user
+I WANT   : To click the center of the circle, drag, and release to specify
+           a circle to be drawn in the current style.
+SO THAT  : I can add circles to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 6 : chowd460
+NAME     : Circle drawing is broken
+OWNER    : @professor rosenbloom
+PRIORITY : low
+ESTIMATE : 15 minutes
+ISSUE    : The first click should specify the center of the circle, with
+           a drag for the radius. This is not the case in the current
+           implementation.
+--------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
