@@ -12,6 +12,7 @@ public class PaintModel extends Observable {
 
 	private Stack<Drawable> allObjects = new Stack<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
+	private int current = 0;
 	
 	public void addDrawable(Drawable d) {
 		this.allObjects.push(d);
@@ -33,5 +34,15 @@ public class PaintModel extends Observable {
 	public Stack<Drawable> getObjects() {
 		Stack<Drawable> newStack = (Stack<Drawable>)this.allObjects.clone();
 		return newStack;
+	}
+	
+	public int getCurrent() {
+		return this.current;
+	}
+	
+	public void setCurrent(int current) {
+		this.current = current;
+		this.setChanged();
+		this.notifyObservers();
 	}
 }

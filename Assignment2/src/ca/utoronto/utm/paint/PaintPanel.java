@@ -56,6 +56,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		Stack<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
+		if (this.circle != null) {this.circle.draw(g);}
 		while (!allObjects.empty()) {
 			Drawable current = allObjects.pop();
 			if (current.type()=="Point") {
@@ -122,6 +123,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 				int vertical = Math.abs((int) this.circle.getCentre().getY() - (int) e.getY());
 				int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
 				this.circle.setRadius(radius);
+				this.model.setCurrent(radius);;
 			}
 		}
 	}
