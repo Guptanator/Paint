@@ -1,6 +1,8 @@
 package ca.utoronto.utm.paint;
 
-public class Circle {
+import javafx.scene.canvas.GraphicsContext;
+
+public class Circle extends Drawable {
 	
 	private Point centre;
 	private int radius;
@@ -24,6 +26,20 @@ public class Circle {
 
 	public void setRadius(int radius) {
 		this.radius = radius;
+	}
+
+	@Override
+	public void draw(GraphicsContext g) {
+		int radius = this.getRadius();
+		int x = this.getCentre().getX()-(radius);
+		int y = this.getCentre().getY()-(radius);
+		g.strokeOval(x, y, radius*2, radius*2);
+	}
+
+	@Override
+	public String type() {
+		// TODO Auto-generated method stub
+		return "Circle";
 	}
 
 }
