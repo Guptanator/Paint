@@ -21,14 +21,18 @@ public class PaintModel extends Observable {
 	}
 	
 	public void Undo() {
-		this.undone.addFirst(allObjects.pop());
-		this.setChanged();
-		this.notifyObservers();
+		if (!allObjects.empty()) {
+			this.undone.addFirst(allObjects.pop());
+			this.setChanged();
+			this.notifyObservers();
+		}
 	}
 	public void Redo() {
-		this.allObjects.push(undone.removeFirst());
-		this.setChanged();
-		this.notifyObservers();
+		if (!undone.isEmpty()) {
+			this.allObjects.push(undone.removeFirst());
+			this.setChanged();
+			this.notifyObservers();
+		}
 	}
 
 	public Stack<Drawable> getObjects() {
