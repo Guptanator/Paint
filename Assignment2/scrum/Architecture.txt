@@ -39,7 +39,7 @@ DESIGN PATTERNS USED
 	the code. I see at least two that would greatly improve code. 
 		
 	Strategy:
-	Command: 
+	Command: added invoker, draws every Drawable object
 	Singleton:
 	Composite:
 	Factory:

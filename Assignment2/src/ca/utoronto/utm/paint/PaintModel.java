@@ -1,41 +1,37 @@
 package ca.utoronto.utm.paint;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Observable;
+import java.util.Stack;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 public class PaintModel extends Observable {
 
-	private ArrayList<Point> points = new ArrayList<Point>();
-	private ArrayList<Circle> circles = new ArrayList<Circle>();
-	private int length;
-
-	public void addPoint(Point p) {
-		this.points.add(p);
+	private Stack<Drawable> allObjects = new Stack<Drawable>();
+	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
+	
+	public void addDrawable(Drawable d) {
+		this.allObjects.push(d);
 		this.setChanged();
 		this.notifyObservers();
-	}
-
-	public ArrayList<Point> getPoints() {
-		return points;
-	}
-
-	public void addCircle(Circle c) {
-		this.circles.add(c);
-		this.setChanged();
-		this.notifyObservers();
-	}
-
-	public ArrayList<Circle> getCircles() {
-		return circles;
 	}
 	
-	public int getLength() {
-		return this.length;
-	}
-	
-	public void setLength(int i) {
-		this.length = i;
+	public void Undo() {
+		this.undone.addFirst(allObjects.pop());
 		this.setChanged();
 		this.notifyObservers();
+	}
+	public void Redo() {
+		this.allObjects.push(undone.removeFirst());
+		this.setChanged();
+		this.notifyObservers();
+	}
+
+	public Stack<Drawable> getObjects() {
+		Stack<Drawable> newStack = (Stack<Drawable>)this.allObjects.clone();
+		return newStack;
 	}
 }

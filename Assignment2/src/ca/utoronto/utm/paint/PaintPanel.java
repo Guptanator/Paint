@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Stack;
 
 class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
 
@@ -52,22 +53,21 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		i = i + 1;
 
 		// Draw Lines
-		ArrayList<Point> points = this.model.getPoints();
-		for (int i = 0; i < points.size() - 1; i++) {
-			Point p1 = points.get(i);
-			Point p2 = points.get(i + 1);
-			g.strokeLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-		}
 
-		// Draw Circles
-		ArrayList<Circle> circles = this.model.getCircles();
-		if (circle != null) {g.strokeOval(circle.getCentre().getX()-this.model.getLength(),circle.getCentre().getY()-
-				this.model.getLength(), this.model.getLength() * 2, this.model.getLength() * 2);}
-		for (Circle c : circles) {
-			int radius = c.getRadius();
-			int x = c.getCentre().getX()-(radius);
-			int y = c.getCentre().getY()-(radius);
-			g.strokeOval(x, y, radius*2, radius*2);
+		Stack<Drawable> allObjects = this.model.getObjects();
+		Point previousPoint = null;
+		while (!allObjects.empty()) {
+			Drawable current = allObjects.pop();
+			if (current.type()=="Point") {
+				Point p1 = (Point)(current);
+				if (previousPoint != null) {
+					p1.draw(g, previousPoint);
+				}
+				previousPoint = (Point)current;
+			}
+			if (current.type()=="Circle") {
+				current.draw(g);
+			}
 		}
 	}
 
@@ -115,13 +115,13 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 	private void mouseDragged(MouseEvent e) {
 		if (this.mode == "Squiggle") {
-			this.model.addPoint(new Point((int) e.getX(), (int) e.getY()));
+			this.model.addDrawable(new Point((int) e.getX(), (int) e.getY()));
 		} else if (this.mode == "Circle") {
 			if (this.circle != null) {
 				int horizontal = Math.abs((int) this.circle.getCentre().getX() - (int) e.getX());
 				int vertical = Math.abs((int) this.circle.getCentre().getY() - (int) e.getY());
 				int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
-				this.model.setLength(radius);
+				this.circle.setRadius(radius);
 			}
 		}
 	}
@@ -148,7 +148,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 	private void mouseReleased(MouseEvent e) {
 		if (this.mode == "Squiggle") {
-
+			this.model.addDrawable(new Point((int) e.getX(), (int) e.getY(),true));
 		} else if (this.mode == "Circle") {
 			if (this.circle != null) {
 				// Problematic notion of radius and centre!!
@@ -156,9 +156,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 				int vertical = Math.abs((int) this.circle.getCentre().getY() - (int) e.getY());
 				int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
 				this.circle.setRadius(radius);
-				this.model.addCircle(this.circle);
+				this.model.addDrawable(this.circle);
 				this.circle = null;
-				this.model.setLength(0);
 			}
 		}
 
