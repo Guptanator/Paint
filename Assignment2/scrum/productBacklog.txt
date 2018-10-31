@@ -104,7 +104,7 @@ TYPE     : BUG 1 : chowd460
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
 PRIORITY :
-ESTIMATE : 
+ESTIMATE : On hold pending BUG 9 
 ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
