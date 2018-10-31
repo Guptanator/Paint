@@ -187,11 +187,21 @@ ESTIMATE : 8 hours
 ISSUE    : YOU FILL THIS ONE IN!!
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 9 : chowd460
+NAME     : Undo and redo functionality
+OWNER    : chowd460
+PRIORITY : 1
+ESTIMATE : 8 hours 45 minutes
+AS A     : user
+I WANT   : To be able to undo and redo operations while painting
+SO THAT  : I can correct my mistakes and undo those corrections
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 7 : chowd460
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
+PRIORITY :
+ESTIMATE : 6 hours
 ISSUE    : The architecture can be improved if we implement the Command Design 
 Pattern to draw shapes as follows:
 

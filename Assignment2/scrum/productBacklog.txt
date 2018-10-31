@@ -296,6 +296,14 @@ I WANT   : To click on one corner of a rectangle, drag, and release to
 		   The rectangle will be displayed mid construction.
 SO THAT  : I can add rectangles to my canvas
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : USER STORY 9 : chowd460
+NAME     : Undo and redo functionality
+OWNER    : chowd460
+PRIORITY : 45 minutes
+AS A     : user
+I WANT   : To be able to undo and redo operations while painting
+SO THAT  : I can correct my mistakes and undo those corrections
+--------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
