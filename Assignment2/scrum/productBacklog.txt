@@ -307,6 +307,14 @@ I WANT   : As a user is specifying a Circle, during the drag, a 'current'
 SO THAT  : I can see the circle I am about to build on release of the mouse
            button.
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : USER STORY 8 : chowd460
+NAME     : Undo and redo functionality
+OWNER    : chowd460
+PRIORITY : 45 minutes
+AS A     : user
+I WANT   : To be able to undo and redo operations while painting
+SO THAT  : I can correct my mistakes and undo those corrections
+--------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
