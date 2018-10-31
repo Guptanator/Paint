@@ -3,35 +3,12 @@
 # For example, the color chooser user story involves: 
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
-
-
---------------------------------------------------------------------------
-TYPE     : USER STORY 3 : phamjus1
-NAME     : Draw Rectangle
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : user
-I WANT   : To click on one corner of a rectangle, drag, and release to 
-		   specify two corners of a rectangle to be drawn in the current style.
-SO THAT  : I can add rectangles to my canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 4 : phamjus1
-NAME     : Draw Rectangle Feedback
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
-AS A     : user
-I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
-SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
---------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 5 : leejon79
 NAME     : Color selector
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 1
+ESTIMATE : 4 hours
 AS A     : user
 I WANT   : To be able to select the current drawing color, to be applied
            to subsequent shapes. Example: 
@@ -54,8 +31,8 @@ SO THAT  :
 TYPE     : USER STORY 6 : leejon79
 NAME     : Fill style selector
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 1
+ESTIMATE : 4 hours
 AS A     : user
 I WANT   : To be able to select the current drawing style (filled or outline), to be applied
            to subsequent shapes. Example: 
@@ -78,8 +55,8 @@ SO THAT  :
 TYPE     : USER STORY 7 : guptaary
 NAME     : Line thickness selector
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 1
+ESTIMATE : 2 hours
 AS A     : user
 I WANT   : To be able to select the current line thickness, to be applied
            to subsequent shapes. Example:
@@ -103,16 +80,16 @@ SO THAT  :
 TYPE     : BUG 1 : chowd460
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 1
+ESTIMATE : 2 hours
 ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2 : chowd460
 NAME     : Drawing selection mode not indicated
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 1
+ESTIMATE : 1 hour
 ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
            is currently selected. Is JButton correct, is there a way
            to highlight the currently selected mode?
@@ -121,8 +98,8 @@ ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
 TYPE     : BUG 3 : chowd460
 NAME     : Architecture behind choosing selection mode is poor
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 2
+ESTIMATE : 3 hours
 ISSUE    : Code is not modular and is difficult to expand. Need a better
            architecture behind selecting a drawing mode, and handling
            the drawing events. Consider some design patterns here.
@@ -133,8 +110,8 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
 TYPE     : BUG 4 : chowd460
 NAME     : Architecture behind Model is poor
 OWNER    : 
-PRIORITY :
-ESTIMATE : idk soon?
+PRIORITY : 2
+ESTIMATE : 2 hours
 ISSUE    : Having a list of different types of drawable things in the
            model is cumbersome. In fact, it is currently incorrect, with
            Squiggle's not drawing properly. Need to re-architect the Model
@@ -146,8 +123,8 @@ ISSUE    : Having a list of different types of drawable things in the
 TYPE     : BUG 5 : guptaary
 NAME     : Squiggle is broken
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 1
+ESTIMATE : 4 hours
 ISSUE    : Squiggles are connected to each other by a straight line. Each drag
 		   of the mouse should be a separate squiggle. Possibly
            the issue is with the representation of the squiggles in the Model.
@@ -156,16 +133,16 @@ ISSUE    : Squiggles are connected to each other by a straight line. Each drag
 TYPE     : USER STORY 8 : leejon79
 NAME     : Implement Poly Line
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 3
+ESTIMATE : 8 hours
 ISSUE    : YOU FILL THIS ONE IN!!
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 7 : chowd460
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 2
+ESTIMATE : 4 hours
 ISSUE    : The architecture can be improved if we implement the Command Design 
 Pattern to draw shapes as follows:
 
@@ -213,8 +190,8 @@ PaintModel.
 TYPE     : BUG 8 : guptaary/leejon79
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 3
+ESTIMATE : 4 hours
 ISSUE    : The architecture can be improved if we implement the Command Design 
 Pattern to handle changes to the graphics context such as changing drawing 
 color, stroke width etc. You can accomplished this by wrapping the changes
@@ -227,8 +204,8 @@ the Shape type DrawingCommands.
 TYPE     : BUG 9 : chowd460
 NAME     : Architecture behind choosing drawing mode is poor
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 3
+ESTIMATE : 4 hours
 ISSUE    : A better architecture behind selecting a drawing mode can be created 
 by implementing the Factory Design Pattern as follows:
 
@@ -244,8 +221,8 @@ of object creation.
 TYPE     : BUG 10 : phamjus1
 NAME     : Architecture behind creating shape instances is poor
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 2
+ESTIMATE : 8 hours 
 ISSUE    : A better architecture for creating shape instances so that it is 
 more flexible, and easier to work with can be created using the Strategy Design 
 pattern as follows:
@@ -275,19 +252,19 @@ simply switching the PaintPanel's event handlers as appropriate.
 TYPE     : USER STORY 1 : chowd460
 NAME     : Draw Circle
 OWNER    : @professor rosenbloom
-PRIORITY : low
-ESTIMATE : 5 minutes
+PRIORITY : 1
+ESTIMATE : 1 hour
 AS A     : user
 I WANT   : To click the center of the circle, drag, and release to specify
            a circle to be drawn in the current style.
 SO THAT  : I can add circles to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 6 : chowd460
+TYPE     : BUG 6 : phamjus1
 NAME     : Circle drawing is broken
 OWNER    : @professor rosenbloom
-PRIORITY : low
-ESTIMATE : 15 minutes
+PRIORITY : 2
+ESTIMATE : 1 hour
 ISSUE    : The first click should specify the center of the circle, with
            a drag for the radius. This is not the case in the current
            implementation.
@@ -296,8 +273,8 @@ ISSUE    : The first click should specify the center of the circle, with
 TYPE     : USER STORY 2 : phamjus1
 NAME     : Draw Circle Feedback
 OWNER    : 
-PRIORITY :
-ESTIMATE : 
+PRIORITY : 1
+ESTIMATE : 2 hours
 AS A     : user
 I WANT   : As a user is specifying a Circle, during the drag, a 'current'
            circle should be on display. As the user drags, the 'current'
@@ -306,6 +283,18 @@ I WANT   : As a user is specifying a Circle, during the drag, a 'current'
            the current dragged mouse position.
 SO THAT  : I can see the circle I am about to build on release of the mouse
            button.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 3 : phamjus1
+NAME     : Draw Rectangle
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To click on one corner of a rectangle, drag, and release to 
+		   specify two corners of a rectangle to be drawn in the current style.
+		   The rectangle will be displayed mid construction.
+SO THAT  : I can add rectangles to my canvas
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
