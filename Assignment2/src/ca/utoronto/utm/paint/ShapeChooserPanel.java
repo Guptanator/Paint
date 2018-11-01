@@ -7,7 +7,7 @@ import javafx.scene.layout.GridPane;
 public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEvent> {
 
 	private View view; // So we can talk to our parent or other components of the view
-
+	private shapeChooserButton lastPressed = null;
 	public ShapeChooserPanel(View view) {
 
 		this.view = view;
@@ -25,8 +25,14 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 
 	@Override
 	public void handle(ActionEvent event) {
-		String command = ((shapeChooserButton)(event.getSource())).currentMode();
+		shapeChooserButton source = (shapeChooserButton)(event.getSource());
+		if (lastPressed != null) {
+			lastPressed.setInactive();
+		}
+		source.setActive();
+		String command = source.currentMode();
 		this.view.getPaintPanel().setMode(command);
 		System.out.println(command);
+		lastPressed = source;
 	}
 }

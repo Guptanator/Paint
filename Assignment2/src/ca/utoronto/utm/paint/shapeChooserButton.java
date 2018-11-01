@@ -1,12 +1,11 @@
 package ca.utoronto.utm.paint;
 
-import java.net.URL;
-
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class shapeChooserButton extends Button {
+public class shapeChooserButton extends ToggleButton  {
 	String currentType;
 	public shapeChooserButton(String name) {
 		super(name);
@@ -35,5 +34,11 @@ public class shapeChooserButton extends Button {
 			currentImage = new Image("file:polygon.png",20,20,true,true);
 		}
 		this.setGraphic(new ImageView(currentImage));
+	}
+	public void setInactive() {
+		this.setSelected(false);
+	}
+	public void setActive() {
+		this.setSelected(true);
 	}
 }
