@@ -305,5 +305,13 @@ AS A     : user
 I WANT   : To be able to undo and redo operations while painting
 SO THAT  : I can correct my mistakes and undo those corrections
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 1 : chowd460
+NAME     : Icons instead of text for drawing mode selection
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
+--------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 

@@ -126,14 +126,6 @@ I WANT   : To be able to select the current line thickness, to be applied
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 1 : chowd460
-NAME     : Icons instead of text for drawing mode selection
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 2 hours
-ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 2 : chowd460
 NAME     : Drawing selection mode not indicated
 OWNER    : 
