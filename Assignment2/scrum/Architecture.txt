@@ -39,7 +39,10 @@ DESIGN PATTERNS USED
 	the code. I see at least two that would greatly improve code. 
 		
 	Strategy:
-	Command: added invoker, draws every Drawable object
+	Command:
+		Utilizing command design pattern with Drawable abstract class, which ensures every drawable object
+		must have the draw() method.
+		  
 	Singleton:
 	Composite:
 	Factory:

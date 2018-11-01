@@ -17,7 +17,6 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private int i = 0;
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
-
 	private String mode; // modifies how we interpret input (could be better?)
 	private Drawable shape; // the circle we are building
 

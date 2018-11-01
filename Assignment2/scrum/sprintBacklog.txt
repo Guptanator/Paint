@@ -305,7 +305,6 @@ events forwarded through PaintPanel into the current strategy, or by
 simply switching the PaintPanel's event handlers as appropriate.
 
 --------------------------------------------------------------------------
-
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below
 
