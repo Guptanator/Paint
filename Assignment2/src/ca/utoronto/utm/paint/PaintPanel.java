@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
+
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -22,6 +23,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Drawable shape; // the circle we are building
 
 	private Canvas canvas;
+	private String thickness;
 
 	public PaintPanel(PaintModel model, View view) {
 
@@ -47,12 +49,15 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
-
+				
 		g.setStroke(Color.WHITE);
 		g.strokeText("i=" + i, 50, 75);
 		i = i + 1;
 
+		
 		// Draw Lines
+		
+		
 
 		Stack<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
@@ -72,10 +77,12 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			}
 			if (current.type()=="Rectangle") {
 				current.draw(g);
+			
 			}
 		}
 	}
 
+	
 	@Override
 	public void update(Observable o, Object arg) {
 
@@ -89,6 +96,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	public void setMode(String mode) {
 		this.mode = mode;
 	}
+	
+	public void setThickness(String thickness) {
+		if this.thickness = thickness; 
+	}
+	
 
 	@Override
 	public void handle(MouseEvent event) {
@@ -153,6 +165,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			this.shape = new Rectangle(corner, length, length);
 		}
 	}
+
 
 	private void mouseReleased(MouseEvent e) {
 		if (this.mode == "Squiggle") {

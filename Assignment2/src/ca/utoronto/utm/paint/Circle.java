@@ -34,6 +34,7 @@ public class Circle extends Drawable {
 		int x = this.getCentre().getX()-(radius);
 		int y = this.getCentre().getY()-(radius);
 		g.strokeOval(x, y, radius*2, radius*2);
+		g.setLineWidth(size);
 	}
 
 	@Override

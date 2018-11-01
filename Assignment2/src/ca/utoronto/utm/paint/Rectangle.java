@@ -42,6 +42,7 @@ public class Rectangle extends Drawable{
 	public void draw(GraphicsContext g) {
 		// TODO Auto-generated method stub
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
+		g.setLineWidth(size);
 		
 	}
 

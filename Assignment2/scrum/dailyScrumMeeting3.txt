@@ -12,13 +12,13 @@ Oct 29, 2018
 
 Oct 30, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     :Got the assignment, divided work.
+	Obstacles :Just a conflict of who wants to do what, and whether or not everyone has their desired load of work.
 
 Oct 31, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :I got assigned to create the line thickness selector, which is user story 7.
+	Today     :Working on creating the line thickness selector. Plan is to take about 2 hours to finish this story.
+	Obstacles :Decided that we would like to create a pop up which selects the line thickness. However I am having trouble implementing this thing properly, without changing too much starting code. 
 
 Nov 1, 2018
 	Yesterday :
