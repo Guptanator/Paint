@@ -25,9 +25,11 @@ Oct 30, 2018
 				Getting my mind wrapped around ShapeManipulatorStrategies
 
 Oct 31, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Burned hand in boiling water
+				So couldn't get much work done on ShapeManipulatorStrategies
+	Today     : One of the merges was not handled correctly and reverted the changes I had pushed
+				Created a new BUG to fix said change
+	Obstacles : 
 
 Nov 1, 2018
 	Yesterday :

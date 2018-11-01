@@ -297,6 +297,15 @@ events forwarded through PaintPanel into the current strategy, or by
 simply switching the PaintPanel's event handlers as appropriate.
 
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11 : phamjus1
+NAME     : Re-implement Rectangle and Circle Changes
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Changes from US2-4 have been reverted and have caused that
+functionality to stop working.
+--------------------------------------------------------------------------
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below
 
