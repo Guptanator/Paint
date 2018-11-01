@@ -1,6 +1,7 @@
 package ca.utoronto.utm.paint;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 
 public class Point extends Drawable {
 	int x, y;
@@ -49,5 +50,10 @@ public class Point extends Drawable {
 	public String type() {
 		// TODO Auto-generated method stub
 		return "Point";
+	}
+	@Override
+	public void update(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
