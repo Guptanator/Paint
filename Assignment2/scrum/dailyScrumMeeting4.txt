@@ -22,13 +22,13 @@ Oct 31, 2018
 
 Nov 1, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     : Started working on the user story 5, trying to create a new window from a drop down menu option so that there's a seperate window to select shape colors.
+	Obstacles : Had some difficulty with getting a second window to open from another window. Is something that needs to be worked on. Also need to figure out how to pass values from a child window to a parent window.
 
 Nov 2, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Started working on user story 5 yesterday, was struggling with how to open a second window.
+	Today     : Managed to create a child window that is dedicated to setting colors, with 3 different sliders in place to decide RGB values and a select button that changes color to reflect the color given by the slider. This window is now capable of sending the desired RGB value to each individual drawable item so that each thing drawn has its own color.
+	Obstacles : Small bug in that I don't know how to change the color when the shape is still being formed (i.e. when dragging), something to fix in the future.
 
 Nov 3, 2018
 	Yesterday :
