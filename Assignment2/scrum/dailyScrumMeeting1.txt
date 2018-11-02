@@ -1,5 +1,5 @@
 # Fill in, commit and push each day.
-# Group Member: FILL THIS IN
+# Group Member: 1
 Oct 28, 2018
 	Yesterday :
 	Today     :
@@ -12,17 +12,17 @@ Oct 29, 2018
 
 Oct 30, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     : Began working on the project components as a group, distributed user stories
+	Obstacles : Start working on first sprint items
 
 Oct 31, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Began working on the project components as a group, distributed user stories
+	Today     : Met as group, further planned and clarified individual responsibilities
 	Obstacles :
 
 Nov 1, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Met as group, further planned and clarified individual responsibilities
+	Today     : Didn't work on A2, was studying for STA256, CSC236 and actual work-work
 	Obstacles :
 
 Nov 2, 2018

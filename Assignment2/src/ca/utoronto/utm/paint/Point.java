@@ -3,6 +3,7 @@ package ca.utoronto.utm.paint;
 import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 
 public class Point extends Drawable {
 	int x, y;
@@ -62,5 +63,8 @@ public class Point extends Drawable {
 	public Color getColor() {
 		// TODO Auto-generated method stub
 		return color;
+	}
+	public void update(MouseEvent e) {
+		// TODO Auto-generated method stub
 	}
 }

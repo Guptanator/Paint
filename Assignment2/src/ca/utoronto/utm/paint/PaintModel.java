@@ -1,6 +1,7 @@
 package ca.utoronto.utm.paint;
 
 import java.awt.Color;
+
 import java.awt.GridLayout;
 import java.awt.TextField;
 import java.awt.event.ActionListener;
@@ -40,14 +41,18 @@ public class PaintModel extends Observable {
 		return color;
 	}
 	public void Undo() {
-		this.undone.addFirst(allObjects.pop());
-		this.setChanged();
-		this.notifyObservers();
+		if (!allObjects.empty()) {
+			this.undone.addFirst(allObjects.pop());
+			this.setChanged();
+			this.notifyObservers();
+		}
 	}
 	public void Redo() {
-		this.allObjects.push(undone.removeFirst());
-		this.setChanged();
-		this.notifyObservers();
+		if (!undone.isEmpty()) {
+			this.allObjects.push(undone.removeFirst());
+			this.setChanged();
+			this.notifyObservers();
+		}
 	}
 
 	public Stack<Drawable> getObjects() {
@@ -112,5 +117,9 @@ public class PaintModel extends Observable {
 		colorFrame.getContentPane().add(choose_color);
 		colorFrame.pack();
 		colorFrame.setVisible(true);
+	}
+	public void update() {
+		this.setChanged();
+		this.notifyObservers();
 	}
 }
