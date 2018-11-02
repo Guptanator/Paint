@@ -65,8 +65,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		}
 		while (!allObjects.empty()) {
 			Drawable current = allObjects.pop();
-			color = current.getColor();
-			g.setStroke(Paint.valueOf("#"+Integer.toHexString(color.getRGB()).substring(2)));
+			//color = current.getColor();
+			//g.setStroke(Paint.valueOf("#"+Integer.toHexString(color.getRGB()).substring(2)));
 			if (current.type()=="Point") {
 				Point p1 = (Point)(current);
 				if (previousPoint != null) {
@@ -145,11 +145,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		if (this.mode == "Squiggle") {
 
 		} else if (this.mode == "Circle") {
-			this.shape.setColor(this.color);
 		} else if (this.mode == "Rectangle");
 	}
 
 	private void mousePressed(MouseEvent e) {
+		this.color = this.model.getColor();
 		if (this.mode == "Squiggle") {
 			
 		} else if (this.mode == "Circle") {
@@ -157,10 +157,12 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			Point centre = new Point((int) e.getX(), (int) e.getY());
 			int radius = 0;
 			this.shape = new Circle(centre, radius);
+			this.shape.setColor(this.color);
 		} else if (this.mode == "Rectangle") {
 			Point corner = new Point((int) e.getX(), (int) e.getY());
 			int length = 0;
 			this.shape = new Rectangle(corner, length, length);
+			this.shape.setColor(this.color);
 		}
 	}
 
