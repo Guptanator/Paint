@@ -17,7 +17,6 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private int i = 0;
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
-
 	private String mode; // modifies how we interpret input (could be better?)
 	private Drawable shape; // the circle we are building
 
@@ -56,7 +55,6 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		Stack<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
-		g.strokeRect(1, 1, 15, 15);
 		if (this.shape != null) {this.shape.draw(g);}
 		while (!allObjects.empty()) {
 			Drawable current = allObjects.pop();
@@ -123,11 +121,13 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			this.model.addDrawable(new Point((int) e.getX(), (int) e.getY()));
 		} else if (this.mode == "Circle") {
 			if (this.shape != null) {
-				int horizontal = Math.abs((int) ((Circle)this.shape).getCentre().getX() - (int) e.getX());
-				int vertical = Math.abs((int) ((Circle)this.shape).getCentre().getY() - (int) e.getY());
-				int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
-				((Circle)this.shape).setRadius(radius);
-				this.model.setCurrent(radius);;
+				this.shape.update(e);
+				this.model.update();
+			}
+		} else if (this.mode == "Rectangle") {
+			if (this.shape != null) {
+				this.shape.update(e);
+				this.model.update();
 			}
 		}
 	}
@@ -159,23 +159,18 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			this.model.addDrawable(new Point((int) e.getX(), (int) e.getY(),true));
 		} else if (this.mode == "Circle") {
 			if (this.shape != null) {
-				int horizontal = Math.abs((int) ((Circle)this.shape).getCentre().getX() - (int) e.getX());
-				int vertical = Math.abs((int) ((Circle)this.shape).getCentre().getY() - (int) e.getY());
-				int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
-				((Circle)this.shape).setRadius(radius);
+				this.shape.update(e);
 				this.model.addDrawable(this.shape);
 				this.shape = null;
-			} else if (this.mode == "Rectangle") {
-					if (this.shape != null) {
-						((Rectangle)this.shape).setHeight(((Rectangle)this.shape).getCorner().getY()- (int) e.getY());
-						((Rectangle)this.shape).setWidth(((Rectangle)this.shape).getCorner().getX()- (int) e.getX());
-						this.model.addDrawable(this.shape);
-						this.shape = null;
 			}
+		} else if (this.mode == "Rectangle") {
+			if (this.shape != null) {
+				this.shape.update(e);
+				this.model.addDrawable(this.shape);
+				this.shape = null;
 			}
-		}
-
 	}
+}
 
 	private void mouseEntered(MouseEvent e) {
 		if (this.mode == "Squiggle") {

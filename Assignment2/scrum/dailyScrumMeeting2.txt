@@ -1,30 +1,40 @@
 # Fill in, commit and push each day.
-# Group Member: FILL THIS IN
+# Group Member: Justin Pham
 Oct 28, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : 
+	Today     : Assignment Not Yet Posted
+	Obstacles : None
 
 Oct 29, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Assignment Not yet Posted
+	Today     : Scheduled First Team meeting for Tuesday
+	Obstacles : None
 
 Oct 30, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Read the Provided materials for the Assignment
+	Today     : Meeting with Group
+				Divided User stories up between members
+				Briefly Worked on coding in the meeting
+	Obstacles : Understanding which User Stories depended on one another
+				Making sure everyone was on the same page
 
 Oct 31, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Finished User Story 2, 3 & 4
+	Today     : Talked about How to Use git and organize our work going forward
+				Organized the backlogs
+				Talked with Arnold about how to structure work in the team
+				Talked with Arnold about implementation of BUG10 and Strategy Design pattern
+				Started Strategy Design pattern
+	Obstacles : Updating everyone on the procedures we should be performing as a group so that they understood
+				why it was important and why we needed to change our work habits
+				Getting my mind wrapped around ShapeManipulatorStrategies
 
 Nov 1, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
+	Yesterday : Burned hand in boiling water
+				So couldn't get much work done on ShapeManipulatorStrategies
+	Today     : One of the merges was not handled correctly and reverted the changes I had pushed
+				Created a new BUG to fix said change
+	Obstacles : Had to type one handed due to burns.
 Nov 2, 2018
 	Yesterday :
 	Today     :

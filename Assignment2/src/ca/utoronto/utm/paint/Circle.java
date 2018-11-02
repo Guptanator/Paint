@@ -1,6 +1,7 @@
 package ca.utoronto.utm.paint;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 
 public class Circle extends Drawable {
 	
@@ -25,6 +26,13 @@ public class Circle extends Drawable {
 	}
 
 	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+	
+	public void update(MouseEvent e) {
+		int horizontal = Math.abs((int) this.centre.getX() - (int) e.getX());
+		int vertical = Math.abs((int) this.centre.getY() - (int) e.getY());
+		int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
 		this.radius = radius;
 	}
 
