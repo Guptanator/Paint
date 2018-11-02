@@ -131,10 +131,10 @@ public class View implements EventHandler<ActionEvent> {
 		else if (((MenuItem)event.getSource()).getText()=="Redo") {
 			model.Redo();
 		}
-		else if (((MenuItem)event.getSource()).getText()=="Line Color") {
+		else if (((MenuItem)event.getSource()).getText()=="Color") {
 			model.createColorWindow("line");
 		}
-		else if (((MenuItem)event.getSource()).getText()=="Fill Color") {
+		else if (((MenuItem)event.getSource()).getText()=="Fill?") {
 			model.Redo();
 		}
 	}
