@@ -21,9 +21,9 @@ Oct 31, 2018
 	Obstacles :Decided that we would like to create a pop up which selects the line thickness. However I am having trouble implementing this thing properly, without changing too much starting code. 
 
 Nov 1, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :Worked on Line thickness selector, created the selector button on the right column, and also figured out a way to change the line thickness, just have to make the button do something to the line now. 
+	Today     :No meaningful update has been made to the code.
+	Obstacles :Time constraints, have CSC236 due tomorrow, MAT232 due Sunday, MAT232 quiz Monday, and STA256 Tuesday, somehow have to manage time for and get everything done. 
 
 Nov 2, 2018
 	Yesterday :

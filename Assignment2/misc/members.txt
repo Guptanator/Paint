@@ -8,9 +8,9 @@ Member 2: phamjus1
 Name: Justin
 Email: justinon.pham@mail.utoronto.ca
 
-Member 3:
-Name:
-Email:
+Member 3: guptaary
+Name: Aryaman
+Email: aryaman.gupta@mail.utoronto.ca
 
 Member 4:
 Name:
