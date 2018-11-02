@@ -12,6 +12,6 @@ Member 3:
 Name:
 Email:
 
-Member 4:
-Name:
-Email:
+Member 4: leejon79
+Name: Daniel Lee
+Email: danieljonghyeonlee.lee@mail.utoronto.ca
