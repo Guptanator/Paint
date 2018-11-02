@@ -6,6 +6,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.util.ArrayList;
 import java.util.Observable;
@@ -22,6 +23,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Drawable shape; // the circle we are building
 
 	private Canvas canvas;
+	
+	private java.awt.Color color;
 
 	public PaintPanel(PaintModel model, View view) {
 
@@ -34,10 +37,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.addEventHandler(MouseEvent.ANY, this);
 
 		this.mode = "Circle"; // bad code here?
-
+		
 		this.model = model;
+		
 		this.model.addObserver(this);
-
+		
 		this.view = view;
 	}
 
@@ -47,8 +51,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
-
-		g.setStroke(Color.WHITE);
+		
 		g.strokeText("i=" + i, 50, 75);
 		i = i + 1;
 
@@ -60,6 +63,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		if (this.shape != null) {this.shape.draw(g);}
 		while (!allObjects.empty()) {
 			Drawable current = allObjects.pop();
+			color = current.getColor();
+			g.setStroke(Paint.valueOf("#"+Integer.toHexString(color.getRGB()).substring(2)));
 			if (current.type()=="Point") {
 				Point p1 = (Point)(current);
 				if (previousPoint != null) {
@@ -141,7 +146,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 	private void mousePressed(MouseEvent e) {
 		if (this.mode == "Squiggle") {
-
+			
 		} else if (this.mode == "Circle") {
 			// Problematic notion of radius and centre!!
 			Point centre = new Point((int) e.getX(), (int) e.getY());

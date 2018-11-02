@@ -1,10 +1,13 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
+
 import javafx.scene.canvas.GraphicsContext;
 
 public class Point extends Drawable {
 	int x, y;
 	boolean segment;
+	private Color color;
 	Point(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -49,5 +52,15 @@ public class Point extends Drawable {
 	public String type() {
 		// TODO Auto-generated method stub
 		return "Point";
+	}
+	@Override
+	public void setColor(Color c) {
+		// TODO Auto-generated method stub
+		this.color = c;
+	}
+	@Override
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return color;
 	}
 }
