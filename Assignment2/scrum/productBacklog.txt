@@ -237,7 +237,15 @@ NAME     : Color window class
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 1 hours
-ISSUE    : Code for color window is ugly, should seperate it into it's own class
+ISSUE    : Code for color window is ugly, should separate it into it's own class
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 13 : chowd460
+NAME     : Objects being drawn in the incorrect order
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -316,7 +324,7 @@ SO THAT  : I can add rectangles to my canvas
 TYPE     : USER STORY 9 : chowd460
 NAME     : Undo and redo functionality
 OWNER    : chowd460
-PRIORITY : 45 minutes
+PRIORITY : 2 hours
 AS A     : user
 I WANT   : To be able to undo and redo operations while painting
 SO THAT  : I can correct my mistakes and undo those corrections

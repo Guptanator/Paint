@@ -312,7 +312,15 @@ NAME     : Color window class
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 1 hours
-ISSUE    : Code for color window is ugly, should seperate it into it's own class
+ISSUE    : Code for color window is ugly, should separate it into it's own class
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 13 : chowd460
+NAME     : Objects being drawn in the incorrect order
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below
