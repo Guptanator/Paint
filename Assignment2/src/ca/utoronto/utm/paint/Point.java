@@ -67,4 +67,8 @@ public class Point extends Drawable {
 	public void update(MouseEvent e) {
 		// TODO Auto-generated method stub
 	}
+	@Override
+	public void toFill(boolean fill) {
+		return;
+	}
 }

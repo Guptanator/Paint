@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Stack;
 
 import java.awt.Color;
 
@@ -26,6 +27,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Canvas canvas;
 	
 	private Color color= new Color(0, 0, 0);
+	
+	private double thickness;
+	private String thick;
 
 	public PaintPanel(PaintModel model, View view) {
 
@@ -33,7 +37,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.getChildren().add(this.canvas);
 		// The canvas is transparent, so the background color of the
 		// containing pane serves as the background color of the canvas.
-		this.setStyle("-fx-background-color: white");
+		this.setStyle("-fx-background-color: blue");
 
 		this.addEventHandler(MouseEvent.ANY, this);
 
@@ -64,9 +68,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			this.shape.draw(g);
 		}
 		while (!allObjects.isEmpty()) {
-			Drawable current = allObjects.removeFirst();
-			//color = current.getColor();
-			//g.setStroke(Paint.valueOf("#"+Integer.toHexString(color.getRGB()).substring(2)));
+			Drawable current = allObjects.pop();
 			if (current.type()=="Point") {
 				Point p1 = (Point)(current);
 				if (previousPoint != null) {
@@ -149,23 +151,39 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	}
 
 	private void mousePressed(MouseEvent e) {
-		this.color = this.model.getColor();
 		if (this.mode == "Squiggle") {
 			
 		} else if (this.mode == "Circle") {
+			this.color = this.model.getColor();
 			// Problematic notion of radius and centre!!
 			Point centre = new Point((int) e.getX(), (int) e.getY());
 			int radius = 0;
 			this.shape = new Circle(centre, radius);
 			this.shape.setColor(this.color);
+			this.shape.toFill(this.model.IwillFill());
 		} else if (this.mode == "Rectangle") {
+			this.color = this.model.getColor();
 			Point corner = new Point((int) e.getX(), (int) e.getY());
 			int length = 0;
 			this.shape = new Rectangle(corner, length, length);
 			this.shape.setColor(this.color);
+			this.shape.toFill(this.model.IwillFill());
+		}
+		if (this.thick == "Normal") {
+			this.thickness = 5.0;
+			
+		} else if (this.thick == "Thin") {
+			this.thickness = 1.0;
+		
+		} else if (this.thick == "Thick") {
+			this.thickness = 10.0;
 		}
 	}
 
+	public void setThickness(String command) {
+		this.thick = command;
+	}
+	
 	private void mouseReleased(MouseEvent e) {
 		if (this.mode == "Squiggle") {
 			this.model.addDrawable(new Point((int) e.getX(), (int) e.getY(),true));

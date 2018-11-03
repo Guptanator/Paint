@@ -135,7 +135,7 @@ public class View implements EventHandler<ActionEvent> {
 			model.createColorWindow("line");
 		}
 		else if (((MenuItem)event.getSource()).getText()=="Fill?") {
-			model.Redo();
+			model.shouldFill();
 		}
 	}
 }

@@ -247,6 +247,14 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 13 : leejon79
+NAME     : Coloring rectangles
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 5 minutes
+ISSUE    : Small error with not setting color to rectangle properly.
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -361,5 +369,14 @@ I WANT   : To be able to select the current drawing color, to be applied
            	two green rectangles and a green squiggle
 SO THAT  : I can create shapes and squiggles with different line colors.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 13 : leejon79
+NAME     : Coloring rectangles
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 5 minutes
+ISSUE    : Small error with not setting color to rectangle properly.
+--------------------------------------------------------------------------
+
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 

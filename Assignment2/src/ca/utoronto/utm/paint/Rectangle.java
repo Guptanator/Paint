@@ -4,16 +4,20 @@ import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 
 public class Rectangle extends Drawable{
 	
 	private int height;
 	private int width;
+	private boolean fill;
 	private Point corner;
 	private Color color;
 	private Point start;
 	
 	public Rectangle(Point c, int h, int w) {
+		this.color = new Color(0, 0, 0);
+		this.fill = false;
 		this.height = h;
 		this.width = w;
 		this.corner = c;
@@ -67,6 +71,10 @@ public class Rectangle extends Drawable{
 	public void draw(GraphicsContext g) {
 		// TODO Auto-generated method stub
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
+		if(fill)
+		{
+			g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
+		}
 		
 	}
 
@@ -86,5 +94,8 @@ public class Rectangle extends Drawable{
 		// TODO Auto-generated method stub
 		return color;
 	}
-
+	public void toFill(boolean shouldFill)
+	{
+		this.fill = shouldFill;
+	}
 }
