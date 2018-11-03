@@ -23,7 +23,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Drawable shape; // the circle we are building
 
 	private Canvas canvas;
-	private String thickness;
+	private String thick;
+	private double thickness;
 
 	public PaintPanel(PaintModel model, View view) {
 
@@ -47,6 +48,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		GraphicsContext g = this.canvas.getGraphicsContext2D();
 
+		
 		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
 				
@@ -62,25 +64,28 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		Stack<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
 		g.strokeRect(1, 1, 15, 15);
-		if (this.shape != null) {this.shape.draw(g);}
+		if (this.shape != null) {this.shape.draw(g, this.thickness);}
 		while (!allObjects.empty()) {
 			Drawable current = allObjects.pop();
 			if (current.type()=="Point") {
 				Point p1 = (Point)(current);
 				if (previousPoint != null) {
-					p1.draw(g, previousPoint);
+					p1.draw(g, previousPoint, this.thickness);
 				}
 				previousPoint = (Point)current;
 			}
 			if (current.type()=="Circle") {
-				current.draw(g);
+				current.draw(g, this.thickness);
 			}
 			if (current.type()=="Rectangle") {
-				current.draw(g);
+				current.draw(g, this.thickness);
 			
 			}
+
 		}
+	g.setLineWidth(1.0);	
 	}
+
 
 	
 	@Override
@@ -97,10 +102,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.mode = mode;
 	}
 	
-	public void setThickness(String thickness) {
-		if this.thickness = thickness; 
+	public void setThickness(String command) {
+		this.thick = command;
 	}
-	
 
 	@Override
 	public void handle(MouseEvent event) {
@@ -163,9 +167,18 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			Point corner = new Point((int) e.getX(), (int) e.getY());
 			int length = 0;
 			this.shape = new Rectangle(corner, length, length);
-		}
-	}
+		}		
 
+		if (this.thick == "Normal") {
+			this.thickness = 5.0;
+			
+		} else if (this.thick == "Thin") {
+			this.thickness = 1.0;
+		
+		} else if (this.thick == "Thick") {
+			this.thickness = 10.0;
+	}
+	}
 
 	private void mouseReleased(MouseEvent e) {
 		if (this.mode == "Squiggle") {
@@ -205,4 +218,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		}
 	}
-}
+
+
+	}
+

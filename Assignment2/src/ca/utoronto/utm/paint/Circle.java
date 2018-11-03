@@ -6,10 +6,12 @@ public class Circle extends Drawable {
 	
 	private Point centre;
 	private int radius;
+	
 
 	public Circle(Point centre, int radius) {
 		this.centre = centre;
 		this.radius = radius;
+		
 	}
 
 	public Point getCentre() {
@@ -29,12 +31,12 @@ public class Circle extends Drawable {
 	}
 
 	@Override
-	public void draw(GraphicsContext g) {
+	public void draw(GraphicsContext g, double thickness) {
 		int radius = this.getRadius();
 		int x = this.getCentre().getX()-(radius);
 		int y = this.getCentre().getY()-(radius);
 		g.strokeOval(x, y, radius*2, radius*2);
-		g.setLineWidth(size);
+		g.setLineWidth(thickness);
 	}
 
 	@Override

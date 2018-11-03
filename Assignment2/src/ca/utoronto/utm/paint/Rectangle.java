@@ -39,10 +39,10 @@ public class Rectangle extends Drawable{
 	}
 
 	@Override
-	public void draw(GraphicsContext g) {
+	public void draw(GraphicsContext g, double thickness) {
 		// TODO Auto-generated method stub
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
-		g.setLineWidth(size);
+		g.setLineWidth(thickness);
 		
 	}
 

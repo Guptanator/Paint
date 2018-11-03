@@ -26,14 +26,14 @@ Nov 1, 2018
 	Obstacles :Time constraints, have CSC236 due tomorrow, MAT232 due Sunday, MAT232 quiz Monday, and STA256 Tuesday, somehow have to manage time for and get everything done. 
 
 Nov 2, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :No meaningful update to the code.
+	Today     :Got somewhere, made a separate class for a thickness selector, sort of similar to shape selector.
+	Obstacles :Still don't know  how to implement it.
 
 Nov 3, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :Created separate class for line thickness selector.
+	Today     :Implemented line thickness selector. Created sizes of thickness each of them work.
+	Obstacles :Very minor bug, the counter implemented in the starter code also gets an increased thickness with the selection of the line thickness
 
 Nov 4, 2018
 	Yesterday :
