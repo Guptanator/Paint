@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 
 public class Rectangle extends Drawable{
 	
@@ -13,11 +14,16 @@ public class Rectangle extends Drawable{
 	private Color color;
 	private Point start;
 	
-	public Rectangle(Point c, int h, int w) {
+	public Rectangle(Point c, int h, int w, Color color) {
 		this.height = h;
 		this.width = w;
 		this.corner = c;
+		this.color = color;
 		this.start = new Point(c.getX(), c.getY());
+	}
+	
+	public Point getStart() {
+		return this.start;
 	}
 	
 	public Point getCorner() {
@@ -44,30 +50,11 @@ public class Rectangle extends Drawable{
 		this.width = w;
 	}
 	
-	public void update(MouseEvent e) {
-		int h = start.getY()- (int) e.getY();
-		int w = start.getX()- (int) e.getX();
-		if (h < 0) {
-			this.height = Math.abs(h);
-		} else if (h >= 0) {
-			this.corner.setY((int) e.getY());
-			this.height = h;
-			
-		}
-		if (w < 0) {
-			this.width = Math.abs(w);
-		} else if (w >= 0) {
-			this.corner.setX((int) e.getX());
-			this.width = w;
-			
-		}
-	}
 
 	@Override
 	public void draw(GraphicsContext g) {
-		// TODO Auto-generated method stub
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
-		
 	}
 
 	@Override

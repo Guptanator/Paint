@@ -14,8 +14,8 @@ public class Circle extends Drawable {
 	private int radius;
 	private Color color;
 
-	public Circle(Point centre, int radius) {
-		this.color = new Color(0, 0, 0);
+	public Circle(Point centre, int radius, Color color) {
+		this.color = color;
 		this.centre = centre;
 		this.radius = radius;
 	}

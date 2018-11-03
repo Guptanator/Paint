@@ -21,7 +21,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
 	private String mode; // modifies how we interpret input (could be better?)
-	private Drawable shape; // the circle we are building
+	private Drawable shape; // the shape we are building
+	private ShapeManipulatorStrategy strategy = new CircleStrategy(); // the Strategy for the shape we are building
 
 	private Canvas canvas;
 	
@@ -60,9 +61,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		Stack<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
-		if (this.shape != null) {
-			this.shape.draw(g);
-		}
+		if (this.strategy.getShape() != null) {this.strategy.getShape().draw(g);}
 		while (!allObjects.empty()) {
 			Drawable current = allObjects.pop();
 			//color = current.getColor();
@@ -96,6 +95,10 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	public void setMode(String mode) {
 		this.mode = mode;
 	}
+	
+	public void setStrategy(ShapeManipulatorStrategy s) {
+		this.strategy = s;
+	}
 
 	@Override
 	public void handle(MouseEvent event) {
@@ -126,63 +129,23 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	}
 
 	private void mouseDragged(MouseEvent e) {
-		if (this.mode == "Squiggle") {
-			this.model.addDrawable(new Point((int) e.getX(), (int) e.getY()));
-		} else if (this.mode == "Circle") {
-			if (this.shape != null) {
-				this.shape.update(e);
-				this.model.update();
-			}
-		} else if (this.mode == "Rectangle") {
-			if (this.shape != null) {
-				this.shape.update(e);
-				this.model.update();
-			}
-		}
+		this.strategy.changeShape(e, this.model);
 	}
 
 	private void mouseClicked(MouseEvent e) {
 		if (this.mode == "Squiggle") {
-
 		} else if (this.mode == "Circle") {
 		} else if (this.mode == "Rectangle");
 	}
 
 	private void mousePressed(MouseEvent e) {
 		this.color = this.model.getColor();
-		if (this.mode == "Squiggle") {
-			
-		} else if (this.mode == "Circle") {
-			// Problematic notion of radius and centre!!
-			Point centre = new Point((int) e.getX(), (int) e.getY());
-			int radius = 0;
-			this.shape = new Circle(centre, radius);
-			this.shape.setColor(this.color);
-		} else if (this.mode == "Rectangle") {
-			Point corner = new Point((int) e.getX(), (int) e.getY());
-			int length = 0;
-			this.shape = new Rectangle(corner, length, length);
-			this.shape.setColor(this.color);
-		}
+		this.strategy.makeShape(e, this.color);
 	}
 
 	private void mouseReleased(MouseEvent e) {
-		if (this.mode == "Squiggle") {
-			this.model.addDrawable(new Point((int) e.getX(), (int) e.getY(),true));
-		} else if (this.mode == "Circle") {
-			if (this.shape != null) {
-				this.shape.update(e);
-				this.model.addDrawable(this.shape);
-				this.shape = null;
-			}
-		} else if (this.mode == "Rectangle") {
-			if (this.shape != null) {
-				this.shape.update(e);
-				this.model.addDrawable(this.shape);
-				this.shape = null;
-			}
+		this.model.addDrawable(this.strategy.getShape());
 	}
-}
 
 	private void mouseEntered(MouseEvent e) {
 		if (this.mode == "Squiggle") {

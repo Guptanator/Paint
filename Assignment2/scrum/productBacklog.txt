@@ -223,15 +223,6 @@ simply switching the PaintPanel's event handlers as appropriate.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 11 : phamjus1
-NAME     : Re-implement Rectangle and Circle Changes
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : Changes from US2-4 have been reverted and have caused that
-functionality to stop working.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 12 : leejon79
 NAME     : Color window class
 OWNER    : 
@@ -352,6 +343,15 @@ I WANT   : To be able to select the current drawing color, to be applied
            	results in two red circles and a red rectangle as well as
            	two green rectangles and a green squiggle
 SO THAT  : I can create shapes and squiggles with different line colors.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11 : phamjus1
+NAME     : Re-implement Rectangle and Circle Changes
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Changes from US2-4 have been reverted and have caused that
+functionality to stop working.
 --------------------------------------------------------------------------
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
