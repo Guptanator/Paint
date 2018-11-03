@@ -22,17 +22,17 @@ Oct 31, 2018
 
 Nov 1, 2018
 	Yesterday : Met as group, further planned and clarified individual responsibilities
-	Today     : Met with Dan, helped him fix a small bug that he was facing while developing User_story 5
+	Today     : Studied for STA256, CSC236
 	Obstacles :
 
 Nov 2, 2018
-	Yesterday : Met with Dan, helped him fix a small bug that he was facing while developing User_story 5
-	Today     : Dan brought to my attention a bug with the order of how objects were being drawn.
+	Yesterday : Studied for STA256, CSC236
+	Today     : Met with Dan, helped him fix a small bug that he was facing while developing User_story 5
 	Obstacles :
 
 Nov 3, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Met with Dan, helped him fix a small bug that he was facing while developing User_story 5
+	Today     : Dan brought to my attention a bug with the order of how objects were being drawn.
 	Obstacles :
 
 Nov 4, 2018

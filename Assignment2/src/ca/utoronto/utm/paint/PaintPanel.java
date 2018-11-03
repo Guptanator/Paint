@@ -9,9 +9,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Stack;
 
 import java.awt.Color;
 
@@ -33,7 +33,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.getChildren().add(this.canvas);
 		// The canvas is transparent, so the background color of the
 		// containing pane serves as the background color of the canvas.
-		this.setStyle("-fx-background-color: blue");
+		this.setStyle("-fx-background-color: white");
 
 		this.addEventHandler(MouseEvent.ANY, this);
 
@@ -58,13 +58,13 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		// Draw Lines
 
-		Stack<Drawable> allObjects = this.model.getObjects();
+		LinkedList<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
 		if (this.shape != null) {
 			this.shape.draw(g);
 		}
-		while (!allObjects.empty()) {
-			Drawable current = allObjects.pop();
+		while (!allObjects.isEmpty()) {
+			Drawable current = allObjects.removeFirst();
 			//color = current.getColor();
 			//g.setStroke(Paint.valueOf("#"+Integer.toHexString(color.getRGB()).substring(2)));
 			if (current.type()=="Point") {
