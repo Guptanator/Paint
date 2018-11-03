@@ -1,16 +1,19 @@
 package ca.utoronto.utm.paint;
 
 import javafx.event.EventHandler;
+
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Stack;
+
+import java.awt.Color;
 
 class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
 
@@ -21,6 +24,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Drawable shape; // the circle we are building
 
 	private Canvas canvas;
+	
+	private Color color= new Color(0, 0, 0);
 
 	public PaintPanel(PaintModel model, View view) {
 
@@ -28,15 +33,16 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.getChildren().add(this.canvas);
 		// The canvas is transparent, so the background color of the
 		// containing pane serves as the background color of the canvas.
-		this.setStyle("-fx-background-color: blue");
+		this.setStyle("-fx-background-color: white");
 
 		this.addEventHandler(MouseEvent.ANY, this);
 
 		this.mode = "Circle"; // bad code here?
-
+		
 		this.model = model;
+		
 		this.model.addObserver(this);
-
+		
 		this.view = view;
 	}
 
@@ -46,18 +52,21 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
-
-		g.setStroke(Color.WHITE);
+		
 		g.strokeText("i=" + i, 50, 75);
 		i = i + 1;
 
 		// Draw Lines
 
-		Stack<Drawable> allObjects = this.model.getObjects();
+		LinkedList<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
-		if (this.shape != null) {this.shape.draw(g);}
-		while (!allObjects.empty()) {
-			Drawable current = allObjects.pop();
+		if (this.shape != null) {
+			this.shape.draw(g);
+		}
+		while (!allObjects.isEmpty()) {
+			Drawable current = allObjects.removeFirst();
+			//color = current.getColor();
+			//g.setStroke(Paint.valueOf("#"+Integer.toHexString(color.getRGB()).substring(2)));
 			if (current.type()=="Point") {
 				Point p1 = (Point)(current);
 				if (previousPoint != null) {
@@ -140,17 +149,20 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	}
 
 	private void mousePressed(MouseEvent e) {
+		this.color = this.model.getColor();
 		if (this.mode == "Squiggle") {
-
+			
 		} else if (this.mode == "Circle") {
 			// Problematic notion of radius and centre!!
 			Point centre = new Point((int) e.getX(), (int) e.getY());
 			int radius = 0;
 			this.shape = new Circle(centre, radius);
+			this.shape.setColor(this.color);
 		} else if (this.mode == "Rectangle") {
 			Point corner = new Point((int) e.getX(), (int) e.getY());
 			int length = 0;
 			this.shape = new Rectangle(corner, length, length);
+			this.shape.setColor(this.color);
 		}
 	}
 

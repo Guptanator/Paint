@@ -12,6 +12,6 @@ Member 3: guptaary
 Name: Aryaman
 Email: aryaman.gupta@mail.utoronto.ca
 
-Member 4:
-Name:
-Email:
+Member 4: leejon79
+Name: Daniel Lee
+Email: danieljonghyeonlee.lee@mail.utoronto.ca

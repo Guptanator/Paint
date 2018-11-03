@@ -1,5 +1,7 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 
@@ -8,6 +10,7 @@ public class Rectangle extends Drawable{
 	private int height;
 	private int width;
 	private Point corner;
+	private Color color;
 	private Point start;
 	
 	public Rectangle(Point c, int h, int w) {
@@ -70,6 +73,18 @@ public class Rectangle extends Drawable{
 	@Override
 	public String type() {
 		return "Rectangle";
+	}
+
+	@Override
+	public void setColor(Color c) {
+		// TODO Auto-generated method stub
+		this.color = c;
+	}
+
+	@Override
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return color;
 	}
 
 }

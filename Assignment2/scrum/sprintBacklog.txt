@@ -74,7 +74,7 @@ I WANT   : To be able to select the current drawing color, to be applied
            		draw a squiggle
            	results in two red circles and a red rectangle as well as
            	two green rectangles and a green squiggle
-SO THAT  : 
+SO THAT  : I can create shapes and squiggles with different line colors.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 6 : leejon79
@@ -305,6 +305,22 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Changes from US2-4 have been reverted and have caused that
 functionality to stop working.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 12 : leejon79
+NAME     : Color window class
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Code for color window is ugly, should separate it into it's own class
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 13 : chowd460
+NAME     : Objects being drawn in the incorrect order
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below

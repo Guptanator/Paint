@@ -1,11 +1,14 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 
 public class Point extends Drawable {
 	int x, y;
 	boolean segment;
+	private Color color;
 	Point(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -52,8 +55,16 @@ public class Point extends Drawable {
 		return "Point";
 	}
 	@Override
+	public void setColor(Color c) {
+		// TODO Auto-generated method stub
+		this.color = c;
+	}
+	@Override
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return color;
+	}
 	public void update(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 }

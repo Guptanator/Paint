@@ -1,14 +1,21 @@
 package ca.utoronto.utm.paint;
 
+import java.awt.Color;
+
+import java.awt.Graphics;
+
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Paint;
 import javafx.scene.input.MouseEvent;
 
 public class Circle extends Drawable {
 	
 	private Point centre;
 	private int radius;
+	private Color color;
 
 	public Circle(Point centre, int radius) {
+		this.color = new Color(0, 0, 0);
 		this.centre = centre;
 		this.radius = radius;
 	}
@@ -41,13 +48,22 @@ public class Circle extends Drawable {
 		int radius = this.getRadius();
 		int x = this.getCentre().getX()-(radius);
 		int y = this.getCentre().getY()-(radius);
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeOval(x, y, radius*2, radius*2);
 	}
 
 	@Override
 	public String type() {
-		// TODO Auto-generated method stub
 		return "Circle";
 	}
 
+	@Override
+	public void setColor(Color c) {
+		this.color = c;
+	}
+
+	@Override
+	public Color getColor() {
+		return this.color;
+	}
 }
