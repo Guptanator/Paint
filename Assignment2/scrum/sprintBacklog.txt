@@ -123,7 +123,7 @@ I WANT   : To be able to select the current line thickness, to be applied
            		draw a squiggle
            	results in two thinly outlined circles and a thinly outlined 
            	rectangle as well as two thickly outlined rectangles and a thick squiggle
-SO THAT  : 
+SO THAT  : I can change the line thickness for each thing I draw.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 2 : chowd460
@@ -321,6 +321,14 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 13 : leejon79
+NAME     : Coloring rectangles
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 5 minutes
+ISSUE    : Small error with not setting color to rectangle properly.
 --------------------------------------------------------------------------
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below

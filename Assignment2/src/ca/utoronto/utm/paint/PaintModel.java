@@ -27,17 +27,35 @@ public class PaintModel extends Observable {
 	private LinkedList<Drawable> allObjects = new LinkedList<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
 	private int current = 0;
+	private boolean fill = false;
 	private Color color = new Color(0, 0, 0);
 	
 	public void addDrawable(Drawable d) {
 		d.setColor(color);
 		this.allObjects.addLast(d);
+		d.toFill(fill);
+		this.allObjects.push(d);
 		this.setChanged();
 		this.notifyObservers();
 	}
 	public Color getColor()
 	{
 		return color;
+	}
+	public boolean IwillFill()
+	{
+		return this.fill;
+	}
+	public void shouldFill()
+	{
+		if(this.fill)
+		{
+			this.fill = false;
+		}
+		else
+		{
+			this.fill = true;
+		}
 	}
 	public void Undo() {
 		if (!allObjects.isEmpty()) {
@@ -68,6 +86,7 @@ public class PaintModel extends Observable {
 		this.setChanged();
 		this.notifyObservers();
 	}
+	
 	public void createColorWindow(String colorFor)
 	{
 		JFrame colorFrame = new JFrame("Choose Color!");
