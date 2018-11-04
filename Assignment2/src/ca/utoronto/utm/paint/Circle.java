@@ -13,9 +13,11 @@ public class Circle extends Drawable {
 	private Point centre;
 	private int radius;
 	private Color color;
+	private boolean fill;
 
 	public Circle(Point centre, int radius, Color color) {
 		this.color = color;
+		this.fill = false;
 		this.centre = centre;
 		this.radius = radius;
 	}
@@ -35,13 +37,6 @@ public class Circle extends Drawable {
 	public void setRadius(int radius) {
 		this.radius = radius;
 	}
-	
-	public void update(MouseEvent e) {
-		int horizontal = Math.abs((int) this.centre.getX() - (int) e.getX());
-		int vertical = Math.abs((int) this.centre.getY() - (int) e.getY());
-		int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
-		this.radius = radius;
-	}
 
 	@Override
 	public void draw(GraphicsContext g) {
@@ -50,6 +45,11 @@ public class Circle extends Drawable {
 		int y = this.getCentre().getY()-(radius);
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeOval(x, y, radius*2, radius*2);
+		if(fill)
+		{
+			g.setFill(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+			g.fillOval(x, y, radius*2, radius*2);
+		}
 	}
 
 	@Override
@@ -65,5 +65,9 @@ public class Circle extends Drawable {
 	@Override
 	public Color getColor() {
 		return this.color;
+	}
+	public void toFill(boolean shouldFill)
+	{
+		this.fill = shouldFill;
 	}
 }

@@ -1,39 +1,29 @@
 # Fill in, commit and push each day.
 # Group Member: FILL THIS IN
-Oct 28, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Oct 29, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
 Oct 30, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     :Got the assignment, divided work.
+	Obstacles :Just a conflict of who wants to do what, and whether or not everyone has their desired load of work.
 
 Oct 31, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :I got assigned to create the line thickness selector, which is user story 7.
+	Today     :Working on creating the line thickness selector. Plan is to take about 2 hours to finish this story.
+	Obstacles :Decided that we would like to create a pop up which selects the line thickness. However I am having trouble implementing this thing properly, without changing too much starting code. 
 
 Nov 1, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :Worked on Line thickness selector, created the selector button on the right column, and also figured out a way to change the line thickness, just have to make the button do something to the line now. 
+	Today     :No meaningful update has been made to the code.
+	Obstacles :Time constraints, have CSC236 due tomorrow, MAT232 due Sunday, MAT232 quiz Monday, and STA256 Tuesday, somehow have to manage time for and get everything done. 
 
 Nov 2, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :No meaningful update to the code.
+	Today     :Got somewhere, made a separate class for a thickness selector, sort of similar to shape selector.
+	Obstacles :Still don't know  how to implement it.
 
 Nov 3, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :Created separate class for line thickness selector.
+	Today     :Implemented line thickness selector. Created sizes of thickness each of them work.
+	Obstacles :Very minor bug, the counter implemented in the starter code also gets an increased thickness with the selection of the line thickness
 
 Nov 4, 2018
 	Yesterday :

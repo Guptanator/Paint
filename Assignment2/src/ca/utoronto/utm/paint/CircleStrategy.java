@@ -13,9 +13,11 @@ public class CircleStrategy implements ShapeManipulatorStrategy{
 	public void makeShape(MouseEvent e, Color c) {
 		Point centre = new Point((int) e.getX(), (int) e.getY());
 		this.shape = new Circle(centre, 0, c);
+		
 	}
 	@Override
 	public void changeShape(MouseEvent e, PaintModel p) {
+		this.shape.toFill(p.IwillFill());
 		int horizontal = Math.abs((int) this.shape.getCentre().getX() - (int) e.getX());
 		int vertical = Math.abs((int) this.shape.getCentre().getY() - (int) e.getY());
 		int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));

@@ -7,7 +7,6 @@ import java.awt.TextField;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.Observable;
-import java.util.Stack;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,13 +24,16 @@ import javafx.stage.Stage;
 
 public class PaintModel extends Observable {
 
-	private Stack<Drawable> allObjects = new Stack<Drawable>();
+	private LinkedList<Drawable> allObjects = new LinkedList<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
 	private int current = 0;
+	private boolean fill = false;
 	private Color color = new Color(0, 0, 0);
 	
 	public void addDrawable(Drawable d) {
 		d.setColor(color);
+		this.allObjects.addLast(d);
+		d.toFill(fill);
 		this.allObjects.push(d);
 		this.setChanged();
 		this.notifyObservers();
@@ -40,24 +42,39 @@ public class PaintModel extends Observable {
 	{
 		return color;
 	}
+	public boolean IwillFill()
+	{
+		return this.fill;
+	}
+	public void shouldFill()
+	{
+		if(this.fill)
+		{
+			this.fill = false;
+		}
+		else
+		{
+			this.fill = true;
+		}
+	}
 	public void Undo() {
-		if (!allObjects.empty()) {
-			this.undone.addFirst(allObjects.pop());
+		if (!allObjects.isEmpty()) {
+			this.undone.addFirst(allObjects.removeLast());
 			this.setChanged();
 			this.notifyObservers();
 		}
 	}
 	public void Redo() {
 		if (!undone.isEmpty()) {
-			this.allObjects.push(undone.removeFirst());
+			this.allObjects.addLast(undone.removeFirst());
 			this.setChanged();
 			this.notifyObservers();
 		}
 	}
 
-	public Stack<Drawable> getObjects() {
-		Stack<Drawable> newStack = (Stack<Drawable>)this.allObjects.clone();
-		return newStack;
+	public LinkedList<Drawable> getObjects() {
+		LinkedList<Drawable> newList = (LinkedList<Drawable>)this.allObjects.clone();
+		return newList;
 	}
 	
 	public int getCurrent() {
@@ -69,6 +86,7 @@ public class PaintModel extends Observable {
 		this.setChanged();
 		this.notifyObservers();
 	}
+	
 	public void createColorWindow(String colorFor)
 	{
 		JFrame colorFrame = new JFrame("Choose Color!");

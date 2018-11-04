@@ -16,7 +16,7 @@ public class RectangleStrategy implements ShapeManipulatorStrategy {
 
 	@Override
 	public void changeShape(MouseEvent e, PaintModel p) {
-		// TODO Auto-generated method stub
+		this.shape.toFill(p.IwillFill());
 		int h = this.shape.getStart().getY()- (int) e.getY();
 		int w = this.shape.getStart().getX()- (int) e.getX();
 		if (h < 0) {

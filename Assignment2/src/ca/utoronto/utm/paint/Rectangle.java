@@ -10,6 +10,7 @@ public class Rectangle extends Drawable{
 	
 	private int height;
 	private int width;
+	private boolean fill;
 	private Point corner;
 	private Color color;
 	private Point start;
@@ -55,6 +56,11 @@ public class Rectangle extends Drawable{
 	public void draw(GraphicsContext g) {
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
+		if(fill)
+		{
+			g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
+		}
+		
 	}
 
 	@Override
@@ -72,6 +78,10 @@ public class Rectangle extends Drawable{
 	public Color getColor() {
 		// TODO Auto-generated method stub
 		return color;
+	}
+	public void toFill(boolean shouldFill)
+	{
+		this.fill = shouldFill;
 	}
 
 }

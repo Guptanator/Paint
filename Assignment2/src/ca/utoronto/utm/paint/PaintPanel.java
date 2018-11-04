@@ -9,6 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Stack;
@@ -27,6 +28,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Canvas canvas;
 	
 	private Color color= new Color(0, 0, 0);
+	
+	private double thickness;
+	private String thick;
 
 	public PaintPanel(PaintModel model, View view) {
 
@@ -59,13 +63,12 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		// Draw Lines
 
-		Stack<Drawable> allObjects = this.model.getObjects();
+		LinkedList<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
+
 		if (this.strategy.getShape() != null) {this.strategy.getShape().draw(g);}
-		while (!allObjects.empty()) {
+		while (!allObjects.isEmpty()) {
 			Drawable current = allObjects.pop();
-			//color = current.getColor();
-			//g.setStroke(Paint.valueOf("#"+Integer.toHexString(color.getRGB()).substring(2)));
 			if (current.type()=="Point") {
 				Point p1 = (Point)(current);
 				if (previousPoint != null) {
@@ -141,8 +144,22 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private void mousePressed(MouseEvent e) {
 		this.color = this.model.getColor();
 		this.strategy.makeShape(e, this.color);
+
+		if (this.thick == "Normal") {
+			this.thickness = 5.0;
+			
+		} else if (this.thick == "Thin") {
+			this.thickness = 1.0;
+		
+		} else if (this.thick == "Thick") {
+			this.thickness = 10.0;
+		}
 	}
 
+	public void setThickness(String command) {
+		this.thick = command;
+	}
+	
 	private void mouseReleased(MouseEvent e) {
 		this.model.addDrawable(this.strategy.getShape());
 	}
