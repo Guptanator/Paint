@@ -53,12 +53,35 @@ I WANT   : To be able to select the current line thickness, to be applied
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 8 : leejon79
+TYPE     : USER STORY 8 : phamjus1
 NAME     : Implement Poly Line
 OWNER    : 
 PRIORITY : 3
 ESTIMATE : 8 hours
-ISSUE    : YOU FILL THIS ONE IN!!
+AS A     : user
+I WANT   : To be able draw lines draw poly lines in the current style. After 
+		   selecting the Poly line button, I should be click on the canvas to make points
+		   those points will be joined by line segments and painted. Also, during the
+		   drawing process, I should be able to see a feedback line to show me
+		   what the line will look like before I click.
+		   During the second click, I should be able to drag my mouse to
+           define a curve and release to set the curve.
+           The line prior to the second click and the curve during the drag
+           will be displayed mid construction.
+		   Continued Construction of Poly lines should terminate on right click
+SO THAT  : I can add poly line to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 10 : phamjus1
+NAME     : Draw Square
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : To click on one corner of a square, drag, and release to 
+		   specify a side length to be drawn in the current style.
+		   The square will be displayed mid construction.
+SO THAT  : I can add square to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 4 : chowd460
@@ -343,6 +366,8 @@ ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
+
+--------------------------------------------------------------------------
 TYPE     : USER STORY 4 : phamjus
 NAME     : Draw Rectangle Feedback
 OWNER    : 
@@ -352,6 +377,7 @@ AS A     : user
 I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
 SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
 REASONING: Was implemented as part of User Story 3 
+--------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 3 : phamjus1
 NAME     : Architecture behind choosing selection mode is poor
