@@ -322,14 +322,7 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 13 : leejon79
-NAME     : Coloring rectangles
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 5 minutes
-ISSUE    : Small error with not setting color to rectangle properly.
---------------------------------------------------------------------------
+
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below
 
