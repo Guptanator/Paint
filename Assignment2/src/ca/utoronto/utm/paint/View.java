@@ -16,6 +16,7 @@ public class View implements EventHandler<ActionEvent> {
 
 	private PaintPanel paintPanel;
 	private ShapeChooserPanel shapeChooserPanel;
+	private thicknessPopup thicknessPopup;
 
 	public View(PaintModel model, Stage stage) {
 
@@ -27,11 +28,13 @@ public class View implements EventHandler<ActionEvent> {
 
 		this.paintPanel = new PaintPanel(this.model, this);
 		this.shapeChooserPanel = new ShapeChooserPanel(this);
+		this.thicknessPopup = new thicknessPopup(this);
 
 		BorderPane root = new BorderPane();
 		root.setTop(createMenuBar());
 		root.setCenter(this.paintPanel);
 		root.setLeft(this.shapeChooserPanel);
+		root.setRight(this.thicknessPopup);
 
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
@@ -45,6 +48,10 @@ public class View implements EventHandler<ActionEvent> {
 
 	public ShapeChooserPanel getShapeChooserPanel() {
 		return shapeChooserPanel;
+	}
+	
+	public thicknessPopup getthicknessPopup() {
+		return thicknessPopup;
 	}
 
 	private MenuBar createMenuBar() {

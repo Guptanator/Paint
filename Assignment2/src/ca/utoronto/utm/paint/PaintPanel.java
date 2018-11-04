@@ -29,7 +29,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	
 	private Color color= new Color(0, 0, 0);
 	
-	private double thickness;
+	private double thickness = 1.0;
 	private String thick;
 
 	public PaintPanel(PaintModel model, View view) {
@@ -143,8 +143,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 	private void mousePressed(MouseEvent e) {
 		this.color = this.model.getColor();
-		this.strategy.makeShape(e, this.color);
-
+		
 		if (this.thick == "Normal") {
 			this.thickness = 5.0;
 			
@@ -154,6 +153,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		} else if (this.thick == "Thick") {
 			this.thickness = 10.0;
 		}
+		
+		this.strategy.makeShape(e, this.color, this.thickness);
+
 	}
 
 	public void setThickness(String command) {
