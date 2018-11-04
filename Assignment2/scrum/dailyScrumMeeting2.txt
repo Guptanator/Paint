@@ -36,14 +36,19 @@ Nov 1, 2018
 				Created a new BUG to fix said change
 	Obstacles : Had to type one handed due to burns.
 Nov 2, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Took a break to let hand recover
+	Today     : Worked on Understanding implementations of Strategy Design Pattern
+	Obstacles : Problems finding a good source to read further on Design patters
 
 Nov 3, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Continued work on BUG10
+	Today     : Scheduled Scrum meeting for Sprint 2
+				Completed BUG10, implementation of Strategy Design Pattern for all current drawables:
+				Rectangle
+				Circle
+				Squiggle
+	Obstacles : Many members were finishing Bugs and User Stories so due to the nature of
+				implementing BUG10, much time was spent on merge conflict resolution.
 
 Nov 4, 2018
 	Yesterday :
