@@ -364,6 +364,14 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 16 : chowd460
+NAME     : Exit functionality
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The exit button was not properly functioning, added ability to exit out of the application
+--------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
