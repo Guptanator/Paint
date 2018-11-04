@@ -15,8 +15,8 @@ public class Circle extends Drawable {
 	private Color color;
 	private boolean fill;
 
-	public Circle(Point centre, int radius) {
-		this.color = new Color(0, 0, 0);
+	public Circle(Point centre, int radius, Color color) {
+		this.color = color;
 		this.fill = false;
 		this.centre = centre;
 		this.radius = radius;
@@ -35,13 +35,6 @@ public class Circle extends Drawable {
 	}
 
 	public void setRadius(int radius) {
-		this.radius = radius;
-	}
-	
-	public void update(MouseEvent e) {
-		int horizontal = Math.abs((int) this.centre.getX() - (int) e.getX());
-		int vertical = Math.abs((int) this.centre.getY() - (int) e.getY());
-		int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));
 		this.radius = radius;
 	}
 
