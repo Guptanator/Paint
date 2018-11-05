@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
 
 public class Point extends Drawable {
 	int x, y;
@@ -14,10 +15,9 @@ public class Point extends Drawable {
 		this.y = y;
 		this.segment= false;
 	}
-	Point(int x, int y, boolean segment) {
-		this.x = x;
-		this.y = y;
-		this.segment = segment;
+	Point(int x, int y, Color c){
+		this(x,y);
+		this.color = c;
 	}
 
 	public int getX() {
@@ -35,17 +35,23 @@ public class Point extends Drawable {
 	public void setY(int y) {
 		this.y = y;
 	}
+	
+	public void setIsFinal() {
+		this.segment = true;
+	}
 	public boolean isFinal() {
 		return segment;
 	}
 	@Override
 	public void draw(GraphicsContext g) {
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeLine(this.getX(), this.getY(), this.getX(), this.getY());
 	}
 	public void draw(GraphicsContext g,Point p2) {
 		if (this.isFinal()) {
 			return;
 		}
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeLine(this.getX(), this.getY(), p2.getX(), p2.getY());
 	}
 

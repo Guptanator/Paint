@@ -315,23 +315,37 @@ ESTIMATE : 1 hours
 ISSUE    : Code for color window is ugly, should separate it into it's own class
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 13 : chowd460
-NAME     : Objects being drawn in the incorrect order
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 14 : leejon79
+TYPE     : BUG 13 : leejon79
 NAME     : Coloring rectangles
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 5 minutes
 ISSUE    : Small error with not setting color to rectangle properly.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 14 : chowd460
+NAME     : Objects being drawn in the incorrect order
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
+--------------------------------------------------------------------------
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below
+
+--------------------------------------------------------------------------
+<<<<<<< HEAD
+TYPE     : BUG 14 : leejon79
+NAME     : Coloring rectangles
+=======
+TYPE     : BUG 16 : chowd460
+NAME     : Exit functionality
+>>>>>>> 87c3f977ae889fa849bd8e8d86968d307c8b38ae
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The exit button was not properly functioning, added ability to exit out of the application
+--------------------------------------------------------------------------
 
 # Sprint 2 Nov 9, 2018
 # Sprint 2 Backlog UserStories go below
