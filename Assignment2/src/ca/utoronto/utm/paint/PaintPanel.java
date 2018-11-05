@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Observable;
@@ -26,6 +27,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private ShapeManipulatorStrategy strategy = new CircleStrategy(); // the Strategy for the shape we are building
 
 	private Canvas canvas;
+
 	
 	private Color color= new Color(0, 0, 0);
 	
@@ -55,31 +57,46 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		GraphicsContext g = this.canvas.getGraphicsContext2D();
 
+		
 		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
-		
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeText("i=" + i, 50, 75);
 		i = i + 1;
 
+		
 		// Draw Lines
+		
+		
 
 		LinkedList<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
-
-		if (this.strategy.getShape() != null) {this.strategy.getShape().draw(g);}
+		g.strokeRect(1, 1, 15, 15);
+		if (this.strategy.getShape()!= null) {this.shape.draw(g, this.thickness);}
 		while (!allObjects.isEmpty()) {
 			Drawable current = allObjects.pop();
 			if (current.type()=="Point") {
 				Point p1 = (Point)(current);
 				if (previousPoint != null) {
-					p1.draw(g, previousPoint);
+					p1.draw(g, previousPoint, this.thickness);
 				}
 				previousPoint = (Point)current;
-			} else {current.draw(g);}
+
+			} else {current.draw(g, this.thickness);}
 			
+			if (current.type()=="Circle") {
+				current.draw(g, this.thickness);
+			}
+			if (current.type()=="Rectangle") {
+				current.draw(g, this.thickness);
+			
+			}
 		}
 	}
 
+
+
+	
 	@Override
 	public void update(Observable o, Object arg) {
 
@@ -94,6 +111,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.mode = mode;
 	}
 	
+
 	public void setStrategy(ShapeManipulatorStrategy s) {
 		this.strategy = s;
 	}
@@ -137,8 +155,22 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	}
 
 	private void mousePressed(MouseEvent e) {
+
 		this.color = this.model.getColor();
 		
+		if (this.mode == "Squiggle") {
+
+		} else if (this.mode == "Circle") {
+			// Problematic notion of radius and centre!!
+			Point centre = new Point((int) e.getX(), (int) e.getY());
+			int radius = 0;
+			this.shape = new Circle(centre, radius, this.color, this.thickness);
+		} else if (this.mode == "Rectangle") {
+			Point corner = new Point((int) e.getX(), (int) e.getY());
+			int length = 0;
+			this.shape = new Rectangle(corner, length, length, this.color, this.thickness);
+		}		
+
 		if (this.thick == "Normal") {
 			this.thickness = 5.0;
 			
@@ -151,8 +183,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		
 		this.strategy.makeShape(e, this.color, this.thickness);
 
-	}
 
+	}
 	public void setThickness(String command) {
 		this.thick = command;
 	}

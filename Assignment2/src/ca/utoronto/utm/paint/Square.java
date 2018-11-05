@@ -12,12 +12,14 @@ public class Square extends Drawable {
 	private Point corner;
 	private Color color;
 	private Point start;
+	private double len;
 		
-	public Square(Point c, int s, Color color) {
+	public Square(Point c, int s, Color color, double len) {
 		this.length = s;
 		this.corner = c;
 		this.start = new Point(c.getX(), c.getY());
 		this.color = color;
+		this.len = len;
 	}
 	
 	public Point getStart() {
@@ -42,9 +44,10 @@ public class Square extends Drawable {
 	
 
 	@Override
-	public void draw(GraphicsContext g) {
+	public void draw(GraphicsContext g, double len) {
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
+		g.setLineWidth(len);
 		if(fill)
 		{
 			g.fillRect(this.corner.getX(), this.corner.getY(), this.length, this.length);

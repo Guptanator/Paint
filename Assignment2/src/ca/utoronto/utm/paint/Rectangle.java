@@ -55,7 +55,7 @@ public class Rectangle extends Drawable{
 	
 
 	@Override
-	public void draw(GraphicsContext g) {
+	public void draw(GraphicsContext g, double thickness) {
 		// TODO Auto-generated method stub
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.setLineWidth(len);

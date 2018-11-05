@@ -9,9 +9,9 @@ public class SquareStrategy implements ShapeManipulatorStrategy {
 	private Square shape;
 	
 	@Override
-	public void makeShape(MouseEvent e, Color c) {
+	public void makeShape(MouseEvent e, Color c, double len) {
 		Point corner = new Point((int) e.getX(), (int) e.getY());
-		this.shape = new Square(corner, 0, c);
+		this.shape = new Square(corner, 0, c, len);
 	}
 
 	@Override
