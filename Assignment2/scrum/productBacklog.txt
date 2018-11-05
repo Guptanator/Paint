@@ -64,10 +64,6 @@ I WANT   : To be able draw lines draw poly lines in the current style. After
 		   those points will be joined by line segments and painted. Also, during the
 		   drawing process, I should be able to see a feedback line to show me
 		   what the line will look like before I click.
-		   During the second click, I should be able to drag my mouse to
-           define a curve and release to set the curve.
-           The line prior to the second click and the curve during the drag
-           will be displayed mid construction.
 		   Continued Construction of Poly lines should terminate on right click
 SO THAT  : I can add poly line to my canvas
 --------------------------------------------------------------------------
@@ -82,19 +78,6 @@ I WANT   : To click on one corner of a square, drag, and release to
 		   specify a side length to be drawn in the current style.
 		   The square will be displayed mid construction.
 SO THAT  : I can add square to my canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 4 : chowd460
-NAME     : Architecture behind Model is poor
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 2 hours
-ISSUE    : Having a list of different types of drawable things in the
-           model is cumbersome. In fact, it is currently incorrect, with
-           Squiggle's not drawing properly. Need to re-architect the Model
-           so that it is more flexible, and easier to work with.
-           Consider some design patterns, or change of responsibility
-           here.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 5 : guptaary
@@ -389,5 +372,19 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            the drawing events. Consider some design patterns here.
            Refactor ShapeChooserPanel and PaintPanel to get rid of the
            'if' blocks in the PaintPanel mouse event code.
+REASONING: Included as part of BUG 10
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 4 : phamjus1
+NAME     : Architecture behind Model is poor
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 2 hours
+ISSUE    : Having a list of different types of drawable things in the
+           model is cumbersome. In fact, it is currently incorrect, with
+           Squiggle's not drawing properly. Need to re-architect the Model
+           so that it is more flexible, and easier to work with.
+           Consider some design patterns, or change of responsibility
+           here.
 REASONING: Included as part of BUG 10
 --------------------------------------------------------------------------
