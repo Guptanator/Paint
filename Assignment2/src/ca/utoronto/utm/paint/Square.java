@@ -3,24 +3,21 @@ package ca.utoronto.utm.paint;
 import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 
-public class Rectangle extends Drawable{
+public class Square extends Drawable {
 	
-	private int height;
-	private int width;
+	private int length;
 	private boolean fill;
 	private Point corner;
 	private Color color;
 	private Point start;
-	
-	public Rectangle(Point c, int h, int w, Color color) {
-		this.height = h;
-		this.width = w;
+		
+	public Square(Point c, int s, Color color) {
+		this.length = s;
 		this.corner = c;
-		this.color = color;
 		this.start = new Point(c.getX(), c.getY());
+		this.color = color;
 	}
 	
 	public Point getStart() {
@@ -35,52 +32,45 @@ public class Rectangle extends Drawable{
 		this.corner = c;
 	}
 	
-	public int getHeight() {
-		return this.height;
+	public int geLength() {
+		return this.length;
 	}
 	
-	public void setHeight(int h) {
-		this.height = h;
-	}
-	
-	public int getWidth() {
-		return this.width;
-	}
-	
-	public void setWidth(int w) {
-		this.width = w;
+	public void setLength(int s) {
+		this.length = s;
 	}
 	
 
 	@Override
 	public void draw(GraphicsContext g) {
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
-		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
+		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 		if(fill)
 		{
-			g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
+			g.fillRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 		}
-		
 	}
 
 	@Override
 	public String type() {
-		return "Rectangle";
+		// TODO Auto-generated method stub
+		return "Square";
 	}
 
 	@Override
 	public void setColor(Color c) {
-		// TODO Auto-generated method stub
-		this.color = c;
+		this.color = c;		
 	}
 
 	@Override
 	public Color getColor() {
 		// TODO Auto-generated method stub
-		return color;
+		return this.color;
 	}
-	public void toFill(boolean fill)
-	{
+
+	@Override
+	public void toFill(boolean fill) {
+		// TODO Auto-generated method stub
 		this.fill = fill;
 	}
 

@@ -10,8 +10,7 @@ public class RectangleStrategy implements ShapeManipulatorStrategy {
 	@Override
 	public void makeShape(MouseEvent e, Color c) {
 		Point corner = new Point((int) e.getX(), (int) e.getY());
-		int length = 0;
-		this.shape = new Rectangle(corner, length, length, c);
+		this.shape = new Rectangle(corner, 0, 0, c);
 	}
 
 	@Override
@@ -24,7 +23,6 @@ public class RectangleStrategy implements ShapeManipulatorStrategy {
 		} else if (h >= 0) {
 			this.shape.getCorner().setY((int) e.getY());
 			this.shape.setHeight(h);
-			
 		}
 		if (w < 0) {
 			this.shape.setWidth(Math.abs(w));

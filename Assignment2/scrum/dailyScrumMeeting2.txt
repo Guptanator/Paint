@@ -51,8 +51,11 @@ Nov 3, 2018
 				implementing BUG10, much time was spent on merge conflict resolution.
 
 Nov 4, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Finished work on refactoring shapes for strategy design patterns
+	Today     : Began adding and editing User Stories for features with pre-existing buttons:
+				Square
+				Poly Line
+				Also Organized the Product log, will try to organize sprint log for next sprint meeting
 	Obstacles :
 
 Nov 5, 2018

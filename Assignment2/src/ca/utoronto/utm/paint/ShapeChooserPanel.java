@@ -38,6 +38,8 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 			this.view.getPaintPanel().setStrategy(new RectangleStrategy());
 		} else if (command == "Squiggle") {
 			this.view.getPaintPanel().setStrategy(new SquiggleStrategy());
+		} else if (command == "Square") {
+			this.view.getPaintPanel().setStrategy(new SquareStrategy());
 		}
 		System.out.println(command);
 		lastPressed = source;
