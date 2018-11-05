@@ -26,9 +26,9 @@ Nov 3, 2018
 	Obstacles :Very minor bug, the counter implemented in the starter code also gets an increased thickness with the selection of the line thickness
 
 Nov 4, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :Implemented line thickness selector
+	Today     :Implemented line thickness selector for all working shapes.
+	Obstacles :Fixed all merging conflicts between master and branch, all working shapes will be able able to adjust thickness.
 
 Nov 5, 2018
 	Yesterday :
