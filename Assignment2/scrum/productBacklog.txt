@@ -177,6 +177,15 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Code for color window is ugly, should separate it into it's own class
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 19 : phamjus1
+NAME     : Current drawn shape On Wrong Layer
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Currently the feedback for currently drawn shapes appear behind
+		   older shapes on the canvas
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
