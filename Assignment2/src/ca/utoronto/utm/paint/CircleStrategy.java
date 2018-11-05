@@ -29,5 +29,10 @@ public class CircleStrategy implements ShapeManipulatorStrategy{
 	public Drawable getShape() {
 		return shape;
 	}
+	@Override
+	public void setNull() {
+		this.shape = null;
+		
+	}
 	
 }

@@ -340,6 +340,7 @@ ESTIMATE : 1 hours
 ISSUE    : Changes from US2-4 have been reverted and have caused that
 functionality to stop working.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 14 : chowd460
 NAME     : Objects being drawn in the incorrect order
 OWNER    : 
@@ -347,18 +348,21 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
-<<<<<<< HEAD
-TYPE     : BUG 14 : leejon79
-NAME     : Coloring rectangles
-=======
 --------------------------------------------------------------------------
 TYPE     : BUG 16 : chowd460
 NAME     : Exit functionality
->>>>>>> 87c3f977ae889fa849bd8e8d86968d307c8b38ae
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : The exit button was not properly functioning, added ability to exit out of the application
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 17 : chowd460
+NAME     : Undo/redo broken
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################

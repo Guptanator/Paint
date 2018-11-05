@@ -65,4 +65,10 @@ public class SquareStrategy implements ShapeManipulatorStrategy {
 		return shape;
 	}
 
+	@Override
+	public void setNull() {
+		this.shape = null;
+		
+	}
+
 }

@@ -25,5 +25,11 @@ public class SquiggleStrategy implements ShapeManipulatorStrategy {
 		return shape;
 	}
 
+	@Override
+	public void setNull() {
+		this.shape = null;
+		
+	}
+
 	
 }

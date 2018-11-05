@@ -39,6 +39,11 @@ public class RectangleStrategy implements ShapeManipulatorStrategy {
 		// TODO Auto-generated method stub
 		return shape;
 	}
-	
+
+	@Override
+	public void setNull() {
+		this.shape = null;
+		
+	}
 
 }
