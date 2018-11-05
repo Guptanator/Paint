@@ -43,13 +43,13 @@ public class Circle extends Drawable {
 		int radius = this.getRadius();
 		int x = this.getCentre().getX()-(radius);
 		int y = this.getCentre().getY()-(radius);
-		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
-		g.strokeOval(x, y, radius*2, radius*2);
 		if(fill)
 		{
 			g.setFill(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 			g.fillOval(x, y, radius*2, radius*2);
 		}
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+		g.strokeOval(x, y, radius*2, radius*2);
 	}
 
 	@Override

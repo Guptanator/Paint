@@ -315,7 +315,7 @@ ESTIMATE : 1 hours
 ISSUE    : Code for color window is ugly, should separate it into it's own class
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 13 : leejon79
+TYPE     : BUG 15 : leejon79
 NAME     : Coloring rectangles
 OWNER    : 
 PRIORITY : 1
@@ -334,13 +334,8 @@ ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order
 # Sprint 2 Backlog UserStories go below
 
 --------------------------------------------------------------------------
-<<<<<<< HEAD
-TYPE     : BUG 14 : leejon79
-NAME     : Coloring rectangles
-=======
 TYPE     : BUG 16 : chowd460
 NAME     : Exit functionality
->>>>>>> 87c3f977ae889fa849bd8e8d86968d307c8b38ae
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 1 hours
