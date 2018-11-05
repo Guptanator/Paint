@@ -34,20 +34,15 @@ public class PaintModel extends Observable {
 		d.setColor(color);
 		this.allObjects.addLast(d);
 		d.toFill(fill);
-		this.allObjects.push(d);
-		this.setChanged();
-		this.notifyObservers();
+		this.update();
 	}
-	public Color getColor()
-	{
+	public Color getColor() {
 		return color;
 	}
-	public boolean IwillFill()
-	{
+	public boolean IwillFill() {
 		return this.fill;
 	}
-	public void shouldFill()
-	{
+	public void shouldFill() {
 		if(this.fill)
 		{
 			this.fill = false;
@@ -60,15 +55,13 @@ public class PaintModel extends Observable {
 	public void Undo() {
 		if (!allObjects.isEmpty()) {
 			this.undone.addFirst(allObjects.removeLast());
-			this.setChanged();
-			this.notifyObservers();
+			this.update();
 		}
 	}
 	public void Redo() {
 		if (!undone.isEmpty()) {
 			this.allObjects.addLast(undone.removeFirst());
-			this.setChanged();
-			this.notifyObservers();
+			this.update();
 		}
 	}
 
@@ -83,8 +76,7 @@ public class PaintModel extends Observable {
 	
 	public void setCurrent(int current) {
 		this.current = current;
-		this.setChanged();
-		this.notifyObservers();
+		this.update();
 	}
 	
 	public void createColorWindow(String colorFor)

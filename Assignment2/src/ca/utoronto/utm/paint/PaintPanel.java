@@ -71,26 +71,20 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		LinkedList<Drawable> allObjects = this.model.getObjects();
 		Point previousPoint = null;
-		g.strokeRect(1, 1, 15, 15);
+		if (this.strategy.getShape() != null) {
+			this.strategy.getShape().draw(g,this.thickness);
+		}
 		if (this.strategy.getShape()!= null) {this.shape.draw(g, this.thickness);}
 		while (!allObjects.isEmpty()) {
-			Drawable current = allObjects.pop();
+			Drawable current = allObjects.removeFirst();
 			if (current.type()=="Point") {
 				Point p1 = (Point)(current);
 				if (previousPoint != null) {
 					p1.draw(g, previousPoint, this.thickness);
 				}
 				previousPoint = (Point)current;
-
 			} else {current.draw(g, this.thickness);}
-			
-			if (current.type()=="Circle") {
-				current.draw(g, this.thickness);
-			}
-			if (current.type()=="Rectangle") {
-				current.draw(g, this.thickness);
-			
-			}
+
 		}
 	}
 
@@ -191,6 +185,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	
 	private void mouseReleased(MouseEvent e) {
 		this.model.addDrawable(this.strategy.getShape());
+		this.strategy.setNull();
 	}
 
 	private void mouseEntered(MouseEvent e) {

@@ -330,6 +330,7 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
+
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below
 
@@ -340,6 +341,14 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : The exit button was not properly functioning, added ability to exit out of the application
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 17 : chowd460
+NAME     : Undo/redo broken
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
 --------------------------------------------------------------------------
 
 # Sprint 2 Nov 9, 2018
