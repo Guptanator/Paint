@@ -8,7 +8,7 @@ public class SquiggleStrategy implements ShapeManipulatorStrategy {
 	
 	Point shape;
 	@Override
-	public void makeShape(MouseEvent e, Color c) {
+	public void makeShape(MouseEvent e, Color c, double l) {
 		this.shape = new Point((int) e.getX(), (int) e.getY(), c);
 	}
 

@@ -9,17 +9,19 @@ import javafx.scene.paint.Paint;
 import javafx.scene.input.MouseEvent;
 
 public class Circle extends Drawable {
-	
 	private Point centre;
 	private int radius;
-	private Color color;
 	private boolean fill;
-
-	public Circle(Point centre, int radius, Color color) {
+	private double len; 
+	private Color color;
+	
+	public Circle(Point centre, int radius, Color color, double len) {
 		this.color = color;
 		this.fill = false;
 		this.centre = centre;
 		this.radius = radius;
+		this.len = len;
+
 	}
 
 	public Point getCentre() {
@@ -37,12 +39,14 @@ public class Circle extends Drawable {
 	public void setRadius(int radius) {
 		this.radius = radius;
 	}
+	
 
 	@Override
-	public void draw(GraphicsContext g) {
+	public void draw(GraphicsContext g, double thickness) {
 		int radius = this.getRadius();
 		int x = this.getCentre().getX()-(radius);
 		int y = this.getCentre().getY()-(radius);
+		g.setLineWidth(len);
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeOval(x, y, radius*2, radius*2);
 		if(fill)
@@ -50,6 +54,9 @@ public class Circle extends Drawable {
 			g.setFill(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 			g.fillOval(x, y, radius*2, radius*2);
 		}
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+		g.strokeOval(x, y, radius*2, radius*2);
+		g.setLineWidth(thickness);
 	}
 
 	@Override

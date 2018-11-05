@@ -8,9 +8,11 @@ public class RectangleStrategy implements ShapeManipulatorStrategy {
 	private Rectangle shape;
 	
 	@Override
-	public void makeShape(MouseEvent e, Color c) {
+	public void makeShape(MouseEvent e, Color c, double l) {
 		Point corner = new Point((int) e.getX(), (int) e.getY());
-		this.shape = new Rectangle(corner, 0, 0, c);
+		int length = 0;
+		this.shape = new Rectangle(corner, length, length, c, l);
+
 	}
 
 	@Override
@@ -18,6 +20,7 @@ public class RectangleStrategy implements ShapeManipulatorStrategy {
 		this.shape.toFill(p.IwillFill());
 		int h = this.shape.getStart().getY()- (int) e.getY();
 		int w = this.shape.getStart().getX()- (int) e.getX();
+		
 		if (h < 0) {
 			this.shape.setHeight(Math.abs(h));
 		} else if (h >= 0) {

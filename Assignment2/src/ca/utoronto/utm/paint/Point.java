@@ -43,16 +43,20 @@ public class Point extends Drawable {
 		return segment;
 	}
 	@Override
-	public void draw(GraphicsContext g) {
+
+
+	public void draw(GraphicsContext g, double thickness) {
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeLine(this.getX(), this.getY(), this.getX(), this.getY());
+		g.setLineWidth(thickness);
 	}
-	public void draw(GraphicsContext g,Point p2) {
+	public void draw(GraphicsContext g,Point p2, double thickness) {
 		if (this.isFinal()) {
 			return;
 		}
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeLine(this.getX(), this.getY(), p2.getX(), p2.getY());
+		g.setLineWidth(thickness);
 	}
 
 	@Override

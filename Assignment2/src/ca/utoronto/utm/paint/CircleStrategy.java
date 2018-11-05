@@ -10,9 +10,9 @@ public class CircleStrategy implements ShapeManipulatorStrategy{
 	private Circle shape;
 	
 	@Override
-	public void makeShape(MouseEvent e, Color c) {
+	public void makeShape(MouseEvent e, Color c, double l) {
 		Point centre = new Point((int) e.getX(), (int) e.getY());
-		this.shape = new Circle(centre, 0, c);
+		this.shape = new Circle(centre, 0, c, l);
 		
 	}
 	@Override
