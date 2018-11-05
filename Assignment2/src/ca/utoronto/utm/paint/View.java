@@ -144,5 +144,8 @@ public class View implements EventHandler<ActionEvent> {
 		else if (((MenuItem)event.getSource()).getText()=="Fill?") {
 			model.shouldFill();
 		}
+		else if (((MenuItem)event.getSource()).getText()=="Exit") {
+			System.exit(0);
+		} 
 	}
 }

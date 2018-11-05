@@ -32,12 +32,12 @@ Nov 2, 2018
 
 Nov 3, 2018
 	Yesterday : Met with Dan, helped him fix a small bug that he was facing while developing User_story 5
-	Today     : Dan brought to my attention a bug with the order of how objects were being drawn.
+	Today     : Dan brought to my attention a bug with the order of how objects were being drawn. Met with team to discuss new ideas and group bugfixes, finished sprint 1
 	Obstacles :
 
 Nov 4, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Dan brought to my attention a bug with the order of how objects were being drawn. Met with team to discuss new ideas and group bugfixes
+	Today     : Changed bg color, added exit functionality
 	Obstacles :
 
 Nov 5, 2018
