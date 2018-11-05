@@ -56,7 +56,10 @@ Nov 4, 2018
 				Square
 				Poly Line
 				Also Organized the Product log, will try to organize sprint log for next sprint meeting
-	Obstacles :
+				Researched Squares in other drawing applications
+				Finished Square
+	Obstacles : Square was more finicky than I was expecting.
+
 
 Nov 5, 2018
 	Yesterday :
