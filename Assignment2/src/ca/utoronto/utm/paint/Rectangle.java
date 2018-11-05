@@ -56,11 +56,13 @@ public class Rectangle extends Drawable{
 
 	@Override
 	public void draw(GraphicsContext g) {
+		// TODO Auto-generated method stub
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.setLineWidth(len);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		if(fill)
 		{
+			g.setFill(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 			g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		}
 	}
@@ -81,9 +83,9 @@ public class Rectangle extends Drawable{
 		// TODO Auto-generated method stub
 		return color;
 	}
-	public void toFill(boolean shouldFill)
+	public void toFill(boolean fill)
 	{
-		this.fill = shouldFill;
+		this.fill = fill;
 	}
 
 }

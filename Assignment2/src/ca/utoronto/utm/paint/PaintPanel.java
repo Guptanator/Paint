@@ -75,13 +75,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 					p1.draw(g, previousPoint);
 				}
 				previousPoint = (Point)current;
-			}
-			if (current.type()=="Circle") {
-				current.draw(g);
-			}
-			if (current.type()=="Rectangle") {
-				current.draw(g);
-			}
+			} else {current.draw(g);}
+			
 		}
 	}
 

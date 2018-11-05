@@ -1,0 +1,77 @@
+package ca.utoronto.utm.paint;
+
+import java.awt.Color;
+
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Paint;
+
+public class Square extends Drawable {
+	
+	private int length;
+	private boolean fill;
+	private Point corner;
+	private Color color;
+	private Point start;
+		
+	public Square(Point c, int s, Color color) {
+		this.length = s;
+		this.corner = c;
+		this.start = new Point(c.getX(), c.getY());
+		this.color = color;
+	}
+	
+	public Point getStart() {
+		return this.start;
+	}
+	
+	public Point getCorner() {
+		return this.corner;
+	}
+	
+	public void setCorner(Point c) {
+		this.corner = c;
+	}
+	
+	public int geLength() {
+		return this.length;
+	}
+	
+	public void setLength(int s) {
+		this.length = s;
+	}
+	
+
+	@Override
+	public void draw(GraphicsContext g) {
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
+		if(fill)
+		{
+			g.fillRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
+		}
+	}
+
+	@Override
+	public String type() {
+		// TODO Auto-generated method stub
+		return "Square";
+	}
+
+	@Override
+	public void setColor(Color c) {
+		this.color = c;		
+	}
+
+	@Override
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return this.color;
+	}
+
+	@Override
+	public void toFill(boolean fill) {
+		// TODO Auto-generated method stub
+		this.fill = fill;
+	}
+
+}
