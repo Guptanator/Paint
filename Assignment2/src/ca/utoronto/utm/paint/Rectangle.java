@@ -70,9 +70,11 @@ public class Rectangle extends Drawable{
 	@Override
 	public void draw(GraphicsContext g) {
 		// TODO Auto-generated method stub
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		if(fill)
 		{
+			g.setFill(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 			g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		}
 		

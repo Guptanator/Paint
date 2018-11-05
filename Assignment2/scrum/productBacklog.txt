@@ -354,7 +354,7 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
-TYPE     : BUG 13 : leejon79
+TYPE     : BUG 14 : leejon79
 NAME     : Coloring rectangles
 OWNER    : 
 PRIORITY : 1
