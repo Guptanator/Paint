@@ -64,20 +64,12 @@ I WANT   : To be able draw lines draw poly lines in the current style. After
 		   those points will be joined by line segments and painted. Also, during the
 		   drawing process, I should be able to see a feedback line to show me
 		   what the line will look like before I click.
+           During the second click, I should be able to drag my mouse to
+           define a curve and release to set the curve.
+           The line prior to the second click and the curve during the drag
+           will be displayed mid construction.
 		   Continued Construction of Poly lines should terminate on right click
 SO THAT  : I can add poly line to my canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 10 : phamjus1
-NAME     : Draw Square
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 2 hours
-AS A     : user
-I WANT   : To click on one corner of a square, drag, and release to 
-		   specify a side length to be drawn in the current style.
-		   The square will be displayed mid construction.
-SO THAT  : I can add square to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 5 : guptaary
@@ -177,15 +169,7 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Code for color window is ugly, should separate it into it's own class
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 19 : phamjus1
-NAME     : Current drawn shape On Wrong Layer
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : Currently the feedback for currently drawn shapes appear behind
-		   older shapes on the canvas
---------------------------------------------------------------------------
+
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -284,6 +268,18 @@ I WANT   : To be able to undo and redo operations while painting
 SO THAT  : I can correct my mistakes and undo those corrections
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 10 : phamjus1
+NAME     : Draw Square
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : To click on one corner of a square, drag, and release to 
+		   specify a side length to be drawn in the current style.
+		   The square will be displayed mid construction.
+SO THAT  : I can add square to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 1 : chowd460
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
@@ -380,6 +376,15 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 4 hours
 ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 19 : phamjus1
+NAME     : Current drawn shape On Wrong Layer
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Currently the feedback for currently drawn shapes appear behind
+		   older shapes on the canvas
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
