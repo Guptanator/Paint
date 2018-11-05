@@ -54,6 +54,8 @@ public class Circle extends Drawable {
 			g.setFill(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 			g.fillOval(x, y, radius*2, radius*2);
 		}
+		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+		g.strokeOval(x, y, radius*2, radius*2);
 	}
 
 	@Override

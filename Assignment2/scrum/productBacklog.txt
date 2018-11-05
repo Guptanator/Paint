@@ -291,6 +291,17 @@ ESTIMATE : 1 hour
 ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
            is currently selected. Is JButton correct, is there a way
            to highlight the currently selected mode?
+<<<<<<< HEAD
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 6 : phamjus1
+NAME     : Circle drawing is broken
+OWNER    : @professor rosenbloom
+PRIORITY : 2
+ESTIMATE : 1 hour
+ISSUE    : The first click should specify the center of the circle, with
+           a drag for the radius. This is not the case in the current
+           implementation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 6 : phamjus1
@@ -347,14 +358,15 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
-<<<<<<< HEAD
-TYPE     : BUG 14 : leejon79
+TYPE     : BUG 13 : leejon79
 NAME     : Coloring rectangles
-=======
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 5 minutes
+ISSUE    : Small error with not setting color to rectangle properly.
 --------------------------------------------------------------------------
 TYPE     : BUG 16 : chowd460
 NAME     : Exit functionality
->>>>>>> 87c3f977ae889fa849bd8e8d86968d307c8b38ae
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 1 hours
@@ -370,6 +382,34 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 1 hour
 AS A     : user
+<<<<<<< HEAD
+<<<<<<< HEAD
+I WANT   : To be able to select the current drawing style (filled or outline), to be applied
+           to subsequent shapes. Example: 
+           		selects fill style solid
+           		mode circle
+           		draw a circle
+           		draw a circle
+           		mode rectangle
+           		draw a rectangle
+           		select fill style outline
+           		draw a rectangle
+           		draw a rectangle
+           		select mode squiggle
+           		draw a squiggle
+           	results in two solid circles and a solid rectangle as well as
+           	two outlined rectangles and a squiggle
+SO THAT  : Wrote the code for the filling in option, and now the fill option works, mostly.
+--------------------------------------------------------------------------
+# OMITTED USER STORIES/BUGS BELOW   ###########################################
+
+=======
+I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
+SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
+REASONING: Was implemented as part of User Story 3 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+=======
 I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
 SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
 REASONING: Was implemented as part of User Story 3 
