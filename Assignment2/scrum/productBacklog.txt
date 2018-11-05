@@ -308,6 +308,17 @@ ESTIMATE : 1 hour
 ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
            is currently selected. Is JButton correct, is there a way
            to highlight the currently selected mode?
+<<<<<<< HEAD
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 6 : phamjus1
+NAME     : Circle drawing is broken
+OWNER    : @professor rosenbloom
+PRIORITY : 2
+ESTIMATE : 1 hour
+ISSUE    : The first click should specify the center of the circle, with
+           a drag for the radius. This is not the case in the current
+           implementation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 6 : phamjus1
@@ -364,14 +375,15 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
-<<<<<<< HEAD
-TYPE     : BUG 14 : leejon79
+TYPE     : BUG 13 : leejon79
 NAME     : Coloring rectangles
-=======
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 5 minutes
+ISSUE    : Small error with not setting color to rectangle properly.
 --------------------------------------------------------------------------
 TYPE     : BUG 16 : chowd460
 NAME     : Exit functionality
->>>>>>> 87c3f977ae889fa849bd8e8d86968d307c8b38ae
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 1 hours
@@ -387,6 +399,7 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 1 hour
 AS A     : user
+<<<<<<< HEAD
 <<<<<<< HEAD
 I WANT   : To be able to select the current drawing style (filled or outline), to be applied
            to subsequent shapes. Example: 
@@ -413,6 +426,12 @@ SO THAT  : I can see the rectangle I am about to build on release of the mouse b
 REASONING: Was implemented as part of User Story 3 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+=======
+I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
+SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
+REASONING: Was implemented as part of User Story 3 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 3 : phamjus1
 NAME     : Architecture behind choosing selection mode is poor
 OWNER    : 
@@ -425,4 +444,3 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            'if' blocks in the PaintPanel mouse event code.
 REASONING: Included as part of BUG 10
 --------------------------------------------------------------------------
->>>>>>> 2bbd636d9b42af0fceb92073a613cb40054722dc
