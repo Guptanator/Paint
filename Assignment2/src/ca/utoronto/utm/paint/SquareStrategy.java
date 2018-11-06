@@ -65,10 +65,18 @@ public class SquareStrategy implements ShapeManipulatorStrategy {
 		return shape;
 	}
 
+
 	@Override
-	public void setNull() {
+	public void addShape(PaintModel p) {
+		p.addDrawable(this.shape);
 		this.shape = null;
+	}
+
+	@Override
+	public void moveFeedback(PaintModel g, MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
+
 
 }

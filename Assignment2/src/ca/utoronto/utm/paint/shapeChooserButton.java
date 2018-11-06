@@ -30,7 +30,7 @@ public class shapeChooserButton extends ToggleButton  {
 		else if (this.currentType=="Squiggle") {
 			currentImage = new Image("file:squiggle.png",20,20,true,true);
 		}
-		else if (this.currentType=="Polyline") {
+		else if (this.currentType=="PolyLine") {
 			currentImage = new Image("file:polygon.png",20,20,true,true);
 		}
 		this.setGraphic(new ImageView(currentImage));

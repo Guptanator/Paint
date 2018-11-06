@@ -12,7 +12,7 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 
 		this.view = view;
 
-		String[] buttonLabels = { "Circle", "Rectangle", "Square", "Squiggle", "Polyline" };
+		String[] buttonLabels = { "Circle", "Rectangle", "Square", "Squiggle", "PolyLine" };
 
 		int row = 0;
 		for (String label : buttonLabels) {
@@ -40,6 +40,8 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 			this.view.getPaintPanel().setStrategy(new SquiggleStrategy());
 		} else if (command == "Square") {
 			this.view.getPaintPanel().setStrategy(new SquareStrategy());
+		} else if (command == "PolyLine") {
+			this.view.getPaintPanel().setStrategy(new PolyLineStrategy());
 		}
 		System.out.println(command);
 		lastPressed = source;

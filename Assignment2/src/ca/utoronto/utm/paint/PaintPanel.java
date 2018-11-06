@@ -80,7 +80,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 					p1.draw(g, previousPoint, this.thickness);
 				}
 				previousPoint = (Point)current;
-			} else {current.draw(g, this.thickness);}
+			} else {
+				current.draw(g, this.thickness);
+			}
 		}
 		if (this.strategy.getShape() != null) {
 			this.strategy.getShape().draw(g,this.thickness);
@@ -130,10 +132,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	}
 
 	private void mouseMoved(MouseEvent e) {
-		if (this.mode == "Squiggle") {
-
-		} else if (this.mode == "Circle") {
-
+		if (strategy.getShape() != null) {
+			this.strategy.moveFeedback(this.model, e);
 		}
 	}
 
@@ -149,20 +149,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 	private void mousePressed(MouseEvent e) {
 
-		this.color = this.model.getColor();
-		
-		if (this.mode == "Squiggle") {
-
-		} else if (this.mode == "Circle") {
-			// Problematic notion of radius and centre!!
-			Point centre = new Point((int) e.getX(), (int) e.getY());
-			int radius = 0;
-			this.shape = new Circle(centre, radius, this.color, this.thickness);
-		} else if (this.mode == "Rectangle") {
-			Point corner = new Point((int) e.getX(), (int) e.getY());
-			int length = 0;
-			this.shape = new Rectangle(corner, length, length, this.color, this.thickness);
-		}		
+		this.color = this.model.getColor();	
 
 		if (this.thick == "Normal") {
 			this.thickness = 5.0;
@@ -183,8 +170,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	}
 	
 	private void mouseReleased(MouseEvent e) {
-		this.model.addDrawable(this.strategy.getShape());
-		this.strategy.setNull();
+		this.strategy.addShape(this.model);
 	}
 
 	private void mouseEntered(MouseEvent e) {
