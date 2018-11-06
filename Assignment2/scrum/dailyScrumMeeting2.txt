@@ -65,7 +65,9 @@ Nov 5, 2018
 	Yesterday : Helped With Team merge conflict inquiries
 	Today     : Worked on organizing Logs Further
 				Began work on US8: Poly line
-	Obstacles :
+				Finished Poly Line
+	Obstacles : Establishing a structure of storing and constructing lines in poly line during
+				mouse movement
 
 Nov 6, 2018
 	Yesterday :
