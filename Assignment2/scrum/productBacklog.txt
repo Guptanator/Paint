@@ -4,20 +4,10 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 --------------------------------------------------------------------------
-TYPE     : BUG 5 : phamjus1
-NAME     : Squiggle is broken
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 4 hours
-ISSUE    : Squiggles are connected to each other by a straight line. Each drag
-		   of the mouse should be a separate squiggle. Possibly
-           the issue is with the representation of the squiggles in the Model.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 7 : chowd460
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : 
-PRIORITY : 2
+PRIORITY : 1
 ESTIMATE : 4 hours
 ISSUE    : The architecture can be improved if we implement the Command Design 
 Pattern to draw shapes as follows:
@@ -66,7 +56,7 @@ PaintModel.
 TYPE     : BUG 8 : guptaary/leejon79
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
-PRIORITY : 3
+PRIORITY : 1
 ESTIMATE : 4 hours
 ISSUE    : The architecture can be improved if we implement the Command Design 
 Pattern to handle changes to the graphics context such as changing drawing 
@@ -80,7 +70,7 @@ the Shape type DrawingCommands.
 TYPE     : BUG 9 : chowd460
 NAME     : Architecture behind choosing drawing mode is poor
 OWNER    : 
-PRIORITY : 3
+PRIORITY : 1
 ESTIMATE : 4 hours
 ISSUE    : A better architecture behind selecting a drawing mode can be created 
 by implementing the Factory Design Pattern as follows:
@@ -97,11 +87,51 @@ of object creation.
 TYPE     : BUG 12 : leejon79
 NAME     : Color window class
 OWNER    : 
-PRIORITY : 1
+PRIORITY : 2
 ESTIMATE : 1 hours
-ISSUE    : Code for color window is ugly, should separate it into it's own class
+ISSUE    : Code for color window is unattractive, should separate it into it's own class.
+		   Think about using builtin color chooser libraries.
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : BUG 18 : UTORID
+NAME     : Thickness Applied to all Shapes
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : For shapes other than circle, currently selected thickness applies
+		   to all previously drawn shapes and draw styles.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 20 : phamjus1
+NAME     : Resize Canvas
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Canvas should resize with Window Resizing. Shapes drawn on an extended
+		   canvas should remain after shrinking it.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 21 : UTORID
+NAME     : Fill Checkbox
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Should be able to use fill option from panel with a clickable checkbox.
+		   Checkbox will show filled if fill option is on.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 22 : UTORID
+NAME     : Buttons should only display icons
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Shape buttons should only display and be clickable as icons.
+		   The Buttons are also of uneven size and should be fixed along
+		   with the change to icons.
+		   For removal of words, consider creating subclass of button.
+		   The subsequent panel will be too large for the changed buttons
+		   so should be redesigned accordingly.
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -268,6 +298,16 @@ ESTIMATE : 1 hour
 ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
            is currently selected. Is JButton correct, is there a way
            to highlight the currently selected mode?
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 5 : phamjus1
+NAME     : Squiggle is broken
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : Squiggles are connected to each other by a straight line. Each drag
+		   of the mouse should be a separate squiggle. Possibly
+           the issue is with the representation of the squiggles in the Model.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 6 : phamjus1
