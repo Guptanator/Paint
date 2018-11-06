@@ -37,17 +37,17 @@ Nov 3, 2018
 
 Nov 4, 2018
 	Yesterday : Dan brought to my attention a bug with the order of how objects were being drawn. Met with team to discuss new ideas and group bugfixes
-	Today     : Changed bg color, added exit functionality
+	Today     : Changed bg color, added exit functionality, met for group meeting
 	Obstacles :
 
 Nov 5, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Changed bg color, added exit functionality, met for group meeting
+	Today     : Discussed additionally features, did some bug fixing with undo/redo, prepared for sta256
 	Obstacles :
 
 Nov 6, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Discussed additionally features, did some bug fixing with undo/redo, prepared for sta256
+	Today     : Worked on BUG 22 and new US
 	Obstacles :
 
 Nov 7, 2018

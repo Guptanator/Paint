@@ -504,7 +504,7 @@ ISSUE    : Should be able to use fill option from panel with a clickable checkbo
 		   Checkbox will show filled if fill option is on.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 22 : UTORID
+TYPE     : BUG 22 : chowd460
 NAME     : Buttons should only display icons
 OWNER    : 
 PRIORITY : 2
@@ -515,6 +515,17 @@ ISSUE    : Shape buttons should only display and be clickable as icons.
 		   For removal of words, consider creating subclass of button.
 		   The subsequent panel will be too large for the changed buttons
 		   so should be redesigned accordingly.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 11 : chowd460
+NAME     : Better tabbing, more dynamic window switching
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to switch between all on the modes from the main screen.
+SO THAT  : I have a more user friendly experience without having to click
+		   through many different menus to get a certain option.
 --------------------------------------------------------------------------
 
 # Sprint 2 Nov 9, 2018
