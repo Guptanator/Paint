@@ -6,7 +6,8 @@ import javafx.scene.input.MouseEvent;
 
 public class SquiggleStrategy implements ShapeManipulatorStrategy {
 	
-	Point shape;
+	private Point shape;
+	private Squiggle shape2;
 	
 	@Override
 	public void makeShape(MouseEvent e, Color c, double l) {
@@ -35,7 +36,6 @@ public class SquiggleStrategy implements ShapeManipulatorStrategy {
 
 	@Override
 	public void moveFeedback(PaintModel g, MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
