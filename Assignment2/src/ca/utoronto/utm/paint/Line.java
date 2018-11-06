@@ -41,7 +41,6 @@ public class Line extends Drawable {
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
 		return this.color;
 	}
 

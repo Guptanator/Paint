@@ -163,7 +163,6 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		
 		this.strategy.makeShape(e, this.color, this.thickness);
 
-
 	}
 	public void setThickness(String command) {
 		this.thick = command;

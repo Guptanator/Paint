@@ -315,7 +315,7 @@ ESTIMATE : 1 hours
 ISSUE    : Code for color window is ugly, should separate it into it's own class
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 15 : leejon79
+TYPE     : BUG 13 : leejon79
 NAME     : Coloring rectangles
 OWNER    : 
 PRIORITY : 1
@@ -349,6 +349,132 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 4 hours
 ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 8 : phamjus1
+NAME     : Implement Poly Line
+OWNER    : 
+PRIORITY : 3
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able draw lines draw poly lines in the current style. After 
+		   selecting the Poly line button, I should be click on the canvas to make points
+		   those points will be joined by line segments and painted. Also, during the
+		   drawing process, I should be able to see a feedback line to show me
+		   what the line will look like before I click.
+           During the second click, I should be able to drag my mouse to
+           define a curve and release to set the curve.
+           The line prior to the second click and the curve during the drag
+           will be displayed mid construction.
+		   Continued Construction of Poly lines should terminate on right click
+SO THAT  : I can add poly line to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 5 : guptaary
+NAME     : Squiggle is broken
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : Squiggles are connected to each other by a straight line. Each drag
+		   of the mouse should be a separate squiggle. Possibly
+           the issue is with the representation of the squiggles in the Model.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 7 : chowd460
+NAME     : Architecture for drawing shapes can be improved
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+ISSUE    : The architecture can be improved if we implement the Command Design 
+Pattern to draw shapes as follows:
+
+The PaintModel should use the command design pattern. 
+That is, each shape knows how to draw itself, so there is a single list of 
+DrawingCommands maintained by the PaintModel and used by the PaintPanel.
+repaint() simply asks the PaintModel to ask command to execute(g).
+The simplest way to make this happen is to make each shape implement the 
+DrawingCommand interface which requires execute(g) to be implemented.
+Well sort of.
+
+NOTE: The PaintModel does know how to logically draw itself, so does
+know about strokes and pen colors etc. Depending on how much you want
+to split off the logical from the GUI, it may not have to know how to 
+draw on the screen. This is a subtle difference. For example, the
+following logically describes a scene, without actually knowing
+how to draw it on the screen ...
+
+Color = green
+Fill = off
+Border = on
+BorderWidth = 10
+Circle radius 10 at 12,15
+Color = red
+Fill = on
+FillColor = black
+Border = on
+BorderWidth = 7
+Square width 20 at 100,200
+
+If you want to build a more 'logical' PaintModel, you can consider ...
+
+1) Create a mirror hierarchy for Shape, this mirror hirerachy 
+has things like DrawableCircle which has a Circle. The DrawableCircle
+knows how to draw the instance of Circle it holds. Each Shape will
+still need information about its color, and stroke, one way or another.
+
+OR
+
+2) Lookup and apply the Visitor design pattern to the more logical
+PaintModel.
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 8 : guptaary/leejon79
+NAME     : Architecture for handling shape modifiers can be improved 
+OWNER    : 
+PRIORITY : 3
+ESTIMATE : 4 hours
+ISSUE    : The architecture can be improved if we implement the Command Design 
+Pattern to handle changes to the graphics context such as changing drawing 
+color, stroke width etc. You can accomplished this by wrapping the changes
+to the graphics context in a DrawingCommand. This way these changes can be
+added to the Bug 2.1 DrawingCommand list. That is, these new types of 
+DrawingCommands appear on PaintPanel's list right along side 
+the Shape type DrawingCommands.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 9 : chowd460
+NAME     : Architecture behind choosing drawing mode is poor
+OWNER    : 
+PRIORITY : 3
+ESTIMATE : 4 hours
+ISSUE    : A better architecture behind selecting a drawing mode can be created 
+by implementing the Factory Design Pattern as follows:
+
+The factory design pattern should be used by the paint buttons. 
+The factory is responsible for creating different ShapeManipulatorStrategy 
+instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
+ShapeManipulatorStrategy is created and installed in the PaintPanel. 
+Note that you can associate text with a button, even if you 
+display an ImageIcon. The string attached to the button causes the right choice 
+of object creation.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 12 : leejon79
+NAME     : Color window class
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Code for color window is ugly, should separate it into it's own class
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 19 : phamjus1
+NAME     : Current drawn shape On Wrong Layer
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Currently the feedback for currently drawn shapes appear behind
+		   older shapes on the canvas
 --------------------------------------------------------------------------
 
 # Sprint 2 Nov 9, 2018
