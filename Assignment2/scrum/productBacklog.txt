@@ -4,22 +4,7 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 --------------------------------------------------------------------------
-TYPE     : USER STORY 8 : phamjus1
-NAME     : Implement Poly Line
-OWNER    : 
-PRIORITY : 3
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able draw lines draw poly lines in the current style. After 
-		   selecting the Poly line button, I should be click on the canvas to make points
-		   those points will be joined by line segments and painted. Also, during the
-		   drawing process, I should be able to see a feedback line to show me
-		   what the line will look like before I click.
-		   Continued Construction of Poly lines should terminate on right click
-SO THAT  : I can add poly line to my canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 5 : guptaary
+TYPE     : BUG 5 : phamjus1
 NAME     : Squiggle is broken
 OWNER    : 
 PRIORITY : 1
@@ -229,6 +214,21 @@ I WANT   : To be able to select the current line thickness, to be applied
            	results in two thinly outlined circles and a thinly outlined 
            	rectangle as well as two thickly outlined rectangles and a thick squiggle
 SO THAT  : 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 8 : phamjus1
+NAME     : Implement Poly Line
+OWNER    : 
+PRIORITY : 3
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able draw lines draw poly lines in the current style. After 
+		   selecting the Poly line button, I should be click on the canvas to make points
+		   those points will be joined by line segments and painted. Also, during the
+		   drawing process, I should be able to see a feedback line to show me
+		   what the line will look like before I click.
+		   Continued Construction of Poly lines should terminate on right click
+SO THAT  : I can add poly line to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 9 : chowd460
