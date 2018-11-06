@@ -15,6 +15,8 @@ import java.util.Observer;
 import java.util.Stack;
 
 import java.awt.Color;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 
 class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
 
@@ -34,8 +36,12 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private String thick;
 
 	public PaintPanel(PaintModel model, View view) {
-
-		this.canvas = new Canvas(300, 300);
+		
+		GraphicsDevice gdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		int width = gdevice.getDisplayMode().getWidth();
+		int height = gdevice.getDisplayMode().getHeight();
+		
+		this.canvas = new Canvas(width - 140, height);
 		this.getChildren().add(this.canvas);
 		// The canvas is transparent, so the background color of the
 		// containing pane serves as the background color of the canvas.
