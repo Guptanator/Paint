@@ -25,7 +25,6 @@ public class Line extends Drawable {
 	@Override
 	public void draw(GraphicsContext g, double thickness) {
 		this.first.setColor(color);
-		this.last.setColor(color);
 		this.first.draw(g, last, thickness);
 	}
 

@@ -6,24 +6,22 @@ import javafx.scene.input.MouseEvent;
 
 public class SquiggleStrategy implements ShapeManipulatorStrategy {
 	
-	private Point shape;
-	private Squiggle shape2;
+
+	private Squiggle shape;
 	
 	@Override
 	public void makeShape(MouseEvent e, Color c, double l) {
-		this.shape = new Point((int) e.getX(), (int) e.getY(), c);
+		this.shape = new Squiggle((int) e.getX(), (int) e.getY(), c);
 	}
 
 	@Override
 	public void changeShape(MouseEvent e, PaintModel p) {
-		this.shape.setX((int) e.getX());
-		this.shape.setY((int) e.getY());
-		p.addDrawable(new Point(this.shape.getX(), this.shape.getY(), this.shape.getColor()));
+		this.shape.addPoint((int) e.getX(), (int) e.getY());
+		p.update();
 	}
 
 	@Override
 	public Drawable getShape() {
-		this.shape.setIsFinal();
 		return shape;
 	}
 

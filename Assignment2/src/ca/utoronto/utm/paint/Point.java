@@ -9,7 +9,7 @@ import javafx.scene.paint.Paint;
 public class Point extends Drawable {
 	int x, y;
 	boolean segment;
-	private Color color;
+
 	Point(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -42,9 +42,8 @@ public class Point extends Drawable {
 	public boolean isFinal() {
 		return segment;
 	}
+	
 	@Override
-
-
 	public void draw(GraphicsContext g, double thickness) {
 		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
 		g.strokeLine(this.getX(), this.getY(), this.getX(), this.getY());
@@ -79,6 +78,7 @@ public class Point extends Drawable {
 	}
 	@Override
 	public void toFill(boolean fill) {
-		return;
+		
 	}
+	
 }

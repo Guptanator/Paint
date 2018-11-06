@@ -8,7 +8,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Observable;

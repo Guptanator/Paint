@@ -33,7 +33,9 @@ public class CircleStrategy implements ShapeManipulatorStrategy{
 	@Override
 	public void addShape(PaintModel p) {
 		p.addDrawable(shape);
+		this.shape = null;
 	}
+	
 	@Override
 	public void moveFeedback(PaintModel g, MouseEvent e) {
 		// TODO Auto-generated method stub
