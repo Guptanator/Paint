@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 public class shapeChooserButton extends ToggleButton  {
 	String currentType;
 	public shapeChooserButton(String name) {
-		super(name);
+		super();
 		this.currentType=name;
 		this.setWidth(100);
 		this.handle();
