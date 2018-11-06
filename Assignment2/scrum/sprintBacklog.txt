@@ -487,12 +487,11 @@ ISSUE    : Currently the feedback for currently drawn shapes appear behind
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 20 : phamjus1
-NAME     : Resize Canvas
+NAME     : Full Size Canvas
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 1 hours
-ISSUE    : Canvas should resize with Window Resizing. Shapes drawn on an extended
-		   canvas should remain after shrinking it.
+ISSUE    : Canvas should be scaled to use in full screen.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 21 : UTORID
