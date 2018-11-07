@@ -127,31 +127,35 @@ ISSUE    : For shapes other than circle, currently selected thickness applies
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 21 : UTORID
-NAME     : Fill Checkbox
+NAME     : Fill Button
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 1 hours
-ISSUE    : Should be able to use fill option from panel with a clickable checkbox.
-		   Checkbox will show filled if fill option is on.
+ISSUE    : Should be able to use fill option from panel with a Button whose Icon will
+		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 23 : UTORID
-NAME     : Square Pivot not consistent
+TYPE     : BUG 25 : phamjus1
+NAME     : ShapeManipulatorStrategies Re-implementation
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Current Implementation does not alter shapes on the stack as opposed
+		   To creating a shape and holding it until the user says it is good, then
+		   adding it to the stack.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 26 : phamjus1
+NAME     : Canvas Justified to Top Left
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 1 hours
-ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
-		   Positions when it should be consistent with where the user clicked
+ISSUE    : Canvas Currently displaying in the center of the borderpane. It should
+		   be justified so that on resizing, the canvas is locked to the upper left.
+		   Also, current canvas size will for the development phase of the project
+		   be set to 300, disregarding detection of the display device for testing purposes.
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 24 : UTORID
-NAME     : PolyLine not Updating
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : When drawing polylines, the line being drawn present after terminating
-		   by switching drawing styles.
---------------------------------------------------------------------------
+
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -479,4 +483,24 @@ ISSUE    : Having a list of different types of drawable things in the
            Consider some design patterns, or change of responsibility
            here.
 REASONING: Included as part of BUG 10
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 23 : UTORID
+NAME     : Square Pivot not consistent
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
+		   Positions when it should be consistent with where the user clicked
+REASONING: Included as part of BUG25
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 24 : phamjus1
+NAME     : PolyLine not Updating
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : When drawing polylines, the line being drawn present after terminating
+		   by switching drawing styles.
+REASONING: Included as part of BUG25
 --------------------------------------------------------------------------
