@@ -144,17 +144,6 @@ ISSUE    : Current Implementation does not alter shapes on the stack as opposed
 		   To creating a shape and holding it until the user says it is good, then
 		   adding it to the stack.
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 26 : phamjus1
-NAME     : Canvas Justified to Top Left
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Canvas Currently displaying in the center of the borderpane. It should
-		   be justified so that on resizing, the canvas is locked to the upper left.
-		   Also, current canvas size will for the development phase of the project
-		   be set to 300, disregarding detection of the display device for testing purposes.
---------------------------------------------------------------------------
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -442,6 +431,17 @@ ISSUE    : Shape buttons should only display and be clickable as icons.
 		   For removal of words, consider creating subclass of button.
 		   The subsequent panel will be too large for the changed buttons
 		   so should be redesigned accordingly.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 26 : phamjus1
+NAME     : Canvas Justified to Top Left
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Canvas Currently displaying in the center of the borderpane. It should
+		   be justified so that on resizing, the canvas is locked to the upper left.
+		   Also, current canvas size will for the development phase of the project
+		   be set to 300, disregarding detection of the display device for testing purposes.
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
