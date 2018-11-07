@@ -13,12 +13,11 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Stack;
-
 import java.awt.Color;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
-class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
+public class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
 
 	private int i = 0;
 	private PaintModel model; // slight departure from MVC, because of the way painting works

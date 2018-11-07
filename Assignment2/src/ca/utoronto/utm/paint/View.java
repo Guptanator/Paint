@@ -1,5 +1,7 @@
 package ca.utoronto.utm.paint;
 
+import ca.utoronto.utm.tabPanel.ShapeChooserPanel;
+import ca.utoronto.utm.tabPanel.TabPanelParent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -17,7 +19,8 @@ public class View implements EventHandler<ActionEvent> {
 	private PaintPanel paintPanel;
 	private ShapeChooserPanel shapeChooserPanel;
 	private thicknessPopup thicknessPopup;
-
+	private TabPanelParent tabParent;
+	
 	public View(PaintModel model, Stage stage) {
 
 		this.model = model;
@@ -27,13 +30,13 @@ public class View implements EventHandler<ActionEvent> {
 	private void initUI(Stage stage) {
 
 		this.paintPanel = new PaintPanel(this.model, this);
-		this.shapeChooserPanel = new ShapeChooserPanel(this);
+		this.tabParent = new TabPanelParent(this);
 		this.thicknessPopup = new thicknessPopup(this);
 
 		BorderPane root = new BorderPane();
 		root.setTop(createMenuBar());
 		root.setCenter(this.paintPanel);
-		root.setLeft(this.shapeChooserPanel);
+		root.setLeft(this.tabParent);
 		root.setRight(this.thicknessPopup);
 
 		Scene scene = new Scene(root);

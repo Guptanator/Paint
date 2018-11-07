@@ -2,6 +2,7 @@ package ca.utoronto.utm.paint;
 
 import javafx.scene.input.MouseEvent;
 import java.awt.Color;
+
 import javafx.scene.canvas.GraphicsContext;
 
 public interface ShapeManipulatorStrategy {
