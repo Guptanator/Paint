@@ -70,9 +70,13 @@ Nov 5, 2018
 				mouse movement
 
 Nov 6, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Thought about new design patterns and their potential use
+	Today     : Finished BUG5: Squiggles
+				Got a feel of common problems at Furkan's Office Hour
+				Updated Logs with new Bugs and User Stories
+				Finished BUG20: Canvas Size
+	Obstacles : Misinterpreted issues other groups had with squiggle and spent time working
+				on a solution to a problem my implementation did not have.
 
 Nov 7, 2018
 	Yesterday :

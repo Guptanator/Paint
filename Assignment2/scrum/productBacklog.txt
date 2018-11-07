@@ -4,6 +4,30 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 --------------------------------------------------------------------------
+TYPE     : USER STORY 11 : chowd460
+NAME     : Better tabbing, more dynamic window switching
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to switch between all on the modes from the main screen.
+SO THAT  : I have a more user friendly experience without having to click
+		   through many different menus to get a certain option.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12 : phamjus1
+NAME     : new canvas from dropdown
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to make new a new canvas from the new option on the file
+		   drop down. I will be able select the a specific canvas from a tab selector
+		   at the top of the screen.
+SO THAT  : I will be able to have multiple drawings projects working at the
+		   same time
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 7 : chowd460
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : 
@@ -102,14 +126,6 @@ ISSUE    : For shapes other than circle, currently selected thickness applies
 		   to all previously drawn shapes and draw styles.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 20 : phamjus1
-NAME     : Full Size Canvas
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Canvas should be scaled to use in full screen.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 21 : UTORID
 NAME     : Fill Checkbox
 OWNER    : 
@@ -119,15 +135,22 @@ ISSUE    : Should be able to use fill option from panel with a clickable checkbo
 		   Checkbox will show filled if fill option is on.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 11 : chowd460
-NAME     : Better tabbing, more dynamic window switching
+TYPE     : BUG 23 : UTORID
+NAME     : Square Pivot not consistent
 OWNER    : 
 PRIORITY : 2
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able to switch between all on the modes from the main screen.
-SO THAT  : I have a more user friendly experience without having to click
-		   through many different menus to get a certain option.
+ESTIMATE : 1 hours
+ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
+		   Positions when it should be consistent with where the user clicked
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 24 : UTORID
+NAME     : PolyLine not Updating
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : When drawing polylines, the line being drawn present after terminating
+		   by switching drawing styles.
 --------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -394,6 +417,14 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Currently the feedback for currently drawn shapes appear behind
 		   older shapes on the canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 20 : phamjus1
+NAME     : Full Size Canvas
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Canvas should be scaled to use in full screen.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 22 : chowd460

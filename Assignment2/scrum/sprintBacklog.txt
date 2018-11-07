@@ -516,6 +516,24 @@ ISSUE    : Shape buttons should only display and be clickable as icons.
 		   so should be redesigned accordingly.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 23 : UTORID
+NAME     : Square Pivot not consistent
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
+		   Positions when it should be consistent with where the user clicked
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 24 : UTORID
+NAME     : PolyLine not Updating
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : When drawing polylines, the line being drawn present after terminating
+		   by switching drawing styles.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : USER STORY 11 : chowd460
 NAME     : Better tabbing, more dynamic window switching
 OWNER    : 
@@ -525,6 +543,19 @@ AS A     : user
 I WANT   : To be able to switch between all on the modes from the main screen.
 SO THAT  : I have a more user friendly experience without having to click
 		   through many different menus to get a certain option.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12 : phamjus1
+NAME     : new canvas from dropdown
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to make new a new canvas from the new option on the file
+		   drop down. I will be able select the a specific canvas from a tab selector
+		   at the top of the screen.
+SO THAT  : I will be able to have multiple drawings projects working at the
+		   same time
 --------------------------------------------------------------------------
 
 # Sprint 2 Nov 9, 2018
