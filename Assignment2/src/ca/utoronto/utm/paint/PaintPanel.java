@@ -41,7 +41,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		int width = gdevice.getDisplayMode().getWidth();
 		int height = gdevice.getDisplayMode().getHeight();
 		
-		this.canvas = new Canvas(width - 140, height);
+		this.canvas = new Canvas(400, 400);
 		this.getChildren().add(this.canvas);
 		// The canvas is transparent, so the background color of the
 		// containing pane serves as the background color of the canvas.
