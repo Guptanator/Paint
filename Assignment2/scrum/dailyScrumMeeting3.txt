@@ -32,17 +32,17 @@ Nov 4, 2018
 
 Nov 5, 2018
 	Yesterday :
-	Today     :
+	Today     :Today studying for stats
 	Obstacles :
 
 Nov 6, 2018
 	Yesterday :
-	Today     :
+	Today     :Study/midterm day
 	Obstacles :
 
 Nov 7, 2018
 	Yesterday :
-	Today     :
+	Today     : religious holiday, so did not implement anything.
 	Obstacles :
 
 Nov 8, 2018

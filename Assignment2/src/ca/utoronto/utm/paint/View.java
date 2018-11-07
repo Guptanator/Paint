@@ -10,6 +10,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 public class View implements EventHandler<ActionEvent> {
@@ -20,7 +21,7 @@ public class View implements EventHandler<ActionEvent> {
 	private ShapeChooserPanel shapeChooserPanel;
 	private thicknessPopup thicknessPopup;
 	private TabPanelParent tabParent;
-	
+	private FlowPane drawArea;
 	public View(PaintModel model, Stage stage) {
 
 		this.model = model;
@@ -32,11 +33,13 @@ public class View implements EventHandler<ActionEvent> {
 		this.paintPanel = new PaintPanel(this.model, this);
 		this.tabParent = new TabPanelParent(this);
 		this.thicknessPopup = new thicknessPopup(this);
+		drawArea = new FlowPane();
+		drawArea.getChildren().add(this.paintPanel);
 
 		BorderPane root = new BorderPane();
 		root.setTop(createMenuBar());
-		root.setCenter(this.paintPanel);
 		root.setLeft(this.tabParent);
+		root.setCenter(drawArea);
 		root.setRight(this.thicknessPopup);
 
 		Scene scene = new Scene(root);

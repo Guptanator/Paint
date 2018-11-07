@@ -16,16 +16,6 @@ I WANT   : To click the center of the circle, drag, and release to specify
 SO THAT  : I can add circles to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 6 : phamjus1
-NAME     : Circle drawing is broken
-OWNER    : @professor rosenbloom
-PRIORITY : 2
-ESTIMATE : 1 hour
-ISSUE    : The first click should specify the center of the circle, with
-           a drag for the radius. This is not the case in the current
-           implementation.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 2 : phamjus1
 NAME     : Draw Circle Feedback
 OWNER    : 
@@ -171,12 +161,14 @@ ISSUE    : Squiggles are connected to each other by a straight line. Each drag
            the issue is with the representation of the squiggles in the Model.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 8 : leejon79
-NAME     : Implement Poly Line
-OWNER    : 
-PRIORITY : 3
-ESTIMATE : 8 hours
-ISSUE    : YOU FILL THIS ONE IN!!
+TYPE     : BUG 6 : phamjus1
+NAME     : Circle drawing is broken
+OWNER    : @professor rosenbloom
+PRIORITY : 2
+ESTIMATE : 1 hour
+ISSUE    : The first click should specify the center of the circle, with
+           a drag for the radius. This is not the case in the current
+           implementation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 9 : chowd460
@@ -335,22 +327,6 @@ ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order
 # Sprint 2 Backlog UserStories go below
 
 --------------------------------------------------------------------------
-TYPE     : BUG 16 : chowd460
-NAME     : Exit functionality
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : The exit button was not properly functioning, added ability to exit out of the application
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 17 : chowd460
-NAME     : Undo/redo broken
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 4 hours
-ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 8 : phamjus1
 NAME     : Implement Poly Line
 OWNER    : 
@@ -368,6 +344,30 @@ I WANT   : To be able draw lines draw poly lines in the current style. After
            will be displayed mid construction.
 		   Continued Construction of Poly lines should terminate on right click
 SO THAT  : I can add poly line to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 11 : chowd460
+NAME     : Better tabbing, more dynamic window switching
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to switch between all on the modes from the main screen.
+SO THAT  : I have a more user friendly experience without having to click
+		   through many different menus to get a certain option.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12 : phamjus1
+NAME     : new canvas from dropdown
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to make new a new canvas from the new option on the file
+		   drop down. I will be able select the a specific canvas from a tab selector
+		   at the top of the screen.
+SO THAT  : I will be able to have multiple drawings projects working at the
+		   same time
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 5 : guptaary
@@ -468,6 +468,22 @@ ESTIMATE : 1 hours
 ISSUE    : Code for color window is ugly, should separate it into it's own class
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 16 : chowd460
+NAME     : Exit functionality
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The exit button was not properly functioning, added ability to exit out of the application
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 17 : chowd460
+NAME     : Undo/redo broken
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 18 : UTORID
 NAME     : Thickness Applied to all Shapes
 OWNER    : 
@@ -516,47 +532,27 @@ ISSUE    : Shape buttons should only display and be clickable as icons.
 		   so should be redesigned accordingly.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 23 : UTORID
-NAME     : Square Pivot not consistent
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
-		   Positions when it should be consistent with where the user clicked
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 24 : UTORID
-NAME     : PolyLine not Updating
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : When drawing polylines, the line being drawn present after terminating
-		   by switching drawing styles.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 11 : chowd460
-NAME     : Better tabbing, more dynamic window switching
+TYPE     : BUG 25 : phamjus1
+NAME     : ShapeManipulatorStrategies Re-implementation
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able to switch between all on the modes from the main screen.
-SO THAT  : I have a more user friendly experience without having to click
-		   through many different menus to get a certain option.
+ISSUE    : Current Implementation does not alter shapes on the stack as opposed
+		   To creating a shape and holding it until the user says it is good, then
+		   adding it to the stack.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 12 : phamjus1
-NAME     : new canvas from dropdown
+TYPE     : BUG 26 : phamjus1
+NAME     : Canvas Justified to Top Left
 OWNER    : 
 PRIORITY : 2
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able to make new a new canvas from the new option on the file
-		   drop down. I will be able select the a specific canvas from a tab selector
-		   at the top of the screen.
-SO THAT  : I will be able to have multiple drawings projects working at the
-		   same time
+ESTIMATE : 1 hours
+ISSUE    : Canvas Currently displaying in the center of the borderpane. It should
+		   be justified so that on resizing, the canvas is locked to the upper left.
+		   Also, current canvas size will for the development phase of the project
+		   be set to 300, disregarding detection of the display device for testing purposes.
 --------------------------------------------------------------------------
+
 
 # Sprint 2 Nov 9, 2018
 # Sprint 2 Backlog UserStories go below

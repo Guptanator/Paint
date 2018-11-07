@@ -79,9 +79,12 @@ Nov 6, 2018
 				on a solution to a problem my implementation did not have.
 
 Nov 7, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Researched more Features
+	Today     : Talked to Arnold about progress
+				Added new Bugs
+				Finished BUG26: Justify Canvas
+				Worked out Strategy Restructuring to discuss with Arnold
+	Obstacles : Finding information online about java libraries and parsing them
 
 Nov 8, 2018
 	Yesterday :
