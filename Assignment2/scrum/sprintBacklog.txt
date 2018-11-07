@@ -552,7 +552,15 @@ ISSUE    : Canvas Currently displaying in the center of the borderpane. It shoul
 		   Also, current canvas size will for the development phase of the project
 		   be set to 300, disregarding detection of the display device for testing purposes.
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : BUG 29 : chowd460
+NAME     : Select object based on click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Current we do not have a way to identify which element we are clicking on, this is needed
+		   to do specific element deletion, fill bucket, moving, rotation etc.
+--------------------------------------------------------------------------
 
 # Sprint 2 Nov 9, 2018
 # Sprint 2 Backlog UserStories go below
