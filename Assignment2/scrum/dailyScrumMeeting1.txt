@@ -47,12 +47,12 @@ Nov 5, 2018
 
 Nov 6, 2018
 	Yesterday : Discussed additionally features, did some bug fixing with undo/redo, prepared for sta256
-	Today     : Worked on BUG 22 and new US
+	Today     : Worked on BUG 22 and new US_11
 	Obstacles :
 
 Nov 7, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Worked on BUG 22 and new US_11
+	Today     : Finished user 11 and pushed
 	Obstacles :
 
 Nov 8, 2018

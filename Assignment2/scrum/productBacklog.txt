@@ -4,17 +4,6 @@
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
 --------------------------------------------------------------------------
-TYPE     : USER STORY 11 : chowd460
-NAME     : Better tabbing, more dynamic window switching
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able to switch between all on the modes from the main screen.
-SO THAT  : I have a more user friendly experience without having to click
-		   through many different menus to get a certain option.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 12 : phamjus1
 NAME     : new canvas from dropdown
 OWNER    : 
@@ -144,7 +133,54 @@ ISSUE    : Current Implementation does not alter shapes on the stack as opposed
 		   To creating a shape and holding it until the user says it is good, then
 		   adding it to the stack.
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : BUG 27 : utorid
+NAME     : Implement Thickness into new panel
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The thickness window has not been properly set up for the new panel tab system.
+		   we need to re-factor thickness and set it up to function as a tab rather than border pane.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 28 : utorid
+NAME     : Implement color into new panel
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The color palette should be uniform with other options, and should be located on the left panel.
+	 	   currently it is opened by drilling down into the top menu bar options.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 13 : utorid
+NAME     : Master selection tab
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : To be able to select all my options from one tab in addition to the unique pages.
+SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
+		   instructions.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 14 : utorid
+NAME     : Erase brush
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to erase anywhere on the screen
+SO THAT  : I can correct any of my mistakes
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 29 : chowd460
+NAME     : Select object based on click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Current we do not have a way to identify which element we are clicking on, this is needed
+		   to do specific element deletion, fill bucket, moving, rotation etc.
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -442,6 +478,17 @@ ISSUE    : Canvas Currently displaying in the center of the borderpane. It shoul
 		   be justified so that on resizing, the canvas is locked to the upper left.
 		   Also, current canvas size will for the development phase of the project
 		   be set to 300, disregarding detection of the display device for testing purposes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 11 : chowd460
+NAME     : Better tabbing, more dynamic window switching
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to switch between all on the modes from the main screen.
+SO THAT  : I have a more user friendly experience without having to click
+		   through many different menus to get a certain option.
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
