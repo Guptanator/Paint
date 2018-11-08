@@ -2,7 +2,7 @@ package ca.utoronto.utm.paint;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
-import java.awt.Color;
+import javafx.scene.paint.Color;
 
 public class RectangleStrategy implements ShapeManipulatorStrategy {
 	
@@ -18,7 +18,7 @@ public class RectangleStrategy implements ShapeManipulatorStrategy {
 
 	@Override
 	public void changeShape(MouseEvent e, PaintModel p) {
-		this.shape.toFill(p.IwillFill());
+		this.shape.toFill(p.getFill());
 		int h = this.shape.getStart().getY()- (int) e.getY();
 		int w = this.shape.getStart().getX()- (int) e.getX();
 		

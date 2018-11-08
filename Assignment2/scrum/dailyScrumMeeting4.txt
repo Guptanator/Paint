@@ -36,23 +36,23 @@ Nov 3, 2018
 	Obstacles : Had to study for a midterm, wasn't able to get work done today.
 
 Nov 4, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Had to study for midterm.
+	Today     : Fixed a bug in setting a color for rectangle when filling.
+	Obstacles : Still studying for midterm, so unable to do a lot of work today.
 
 Nov 5, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     : 
+	Obstacles : Studying for midterm.
 
 Nov 6, 2018
 	Yesterday :
 	Today     :
-	Obstacles :
+	Obstacles : Studying for midterm.
 
 Nov 7, 2018
 	Yesterday :
-	Today     :
+	Today     : Finished cleaning up code for color picking to allow for setting to grid pane
 	Obstacles :
 
 Nov 8, 2018

@@ -6,6 +6,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 import java.util.ArrayList;
@@ -13,7 +14,6 @@ import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Stack;
-import java.awt.Color;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
@@ -29,7 +29,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	private Canvas canvas;
 
 	
-	private Color color= new Color(0, 0, 0);
+	private Color color= Color.BLACK;
 	
 	private double thickness = 1.0;
 	private String thick;
@@ -64,7 +64,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		
 		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
-		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+		g.setStroke(this.color);
 		g.strokeText("i=" + i, 50, 75);
 		i = i + 1;
 
@@ -153,8 +153,6 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 
 	private void mousePressed(MouseEvent e) {
 
-		this.color = this.model.getColor();	
-
 		if (this.thick == "Normal") {
 			this.thickness = 5.0;
 			
@@ -170,6 +168,11 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	}
 	public void setThickness(String command) {
 		this.thick = command;
+	}
+	
+	public void setColor(Color color2)
+	{
+		this.color = color2;
 	}
 	
 	private void mouseReleased(MouseEvent e) {

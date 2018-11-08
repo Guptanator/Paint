@@ -1,9 +1,9 @@
 package ca.utoronto.utm.paint;
 
-import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 public abstract class Drawable {
 	

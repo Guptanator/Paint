@@ -1,8 +1,8 @@
 package ca.utoronto.utm.paint;
 
-import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 public class Line extends Drawable {
 	

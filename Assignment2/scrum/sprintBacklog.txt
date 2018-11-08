@@ -574,3 +574,11 @@ ISSUE    : Currently we laying out the top buttons in a static manner, but this 
 
 # Sprint 2 Nov 9, 2018
 # Sprint 2 Backlog UserStories go below
+--------------------------------------------------------------------------
+TYPE     : BUG 15 : leejon79
+NAME     : Reformatted Color choosing code
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Code for choosing the shape color was terrible and incapable of being set to main pane.
+--------------------------------------------------------------------------

@@ -20,6 +20,7 @@ public class View implements EventHandler<ActionEvent> {
 	private PaintPanel paintPanel;
 	private ShapeChooserPanel shapeChooserPanel;
 	private thicknessPopup thicknessPopup;
+	private colorPane colorPane;
 	private TabPanelParent tabParent;
 	private FlowPane drawArea;
 	public View(PaintModel model, Stage stage) {
@@ -33,6 +34,7 @@ public class View implements EventHandler<ActionEvent> {
 		this.paintPanel = new PaintPanel(this.model, this);
 		this.tabParent = new TabPanelParent(this);
 		this.thicknessPopup = new thicknessPopup(this);
+		this.colorPane = new colorPane(this);
 		drawArea = new FlowPane();
 		drawArea.getChildren().add(this.paintPanel);
 
@@ -40,6 +42,7 @@ public class View implements EventHandler<ActionEvent> {
 		root.setTop(createMenuBar());
 		root.setLeft(this.tabParent);
 		root.setCenter(drawArea);
+		//root.setRight(this.colorPane);
 		root.setRight(this.thicknessPopup);
 
 		Scene scene = new Scene(root);
@@ -122,10 +125,6 @@ public class View implements EventHandler<ActionEvent> {
 		
 		menu = new Menu("Change Properties");
 		
-		menuItem = new MenuItem("Color");
-		menuItem.setOnAction(this);
-		menu.getItems().add(menuItem);
-		
 		menuItem = new MenuItem("Fill?");
 		menuItem.setOnAction(this);
 		menu.getItems().add(menuItem);
@@ -144,11 +143,8 @@ public class View implements EventHandler<ActionEvent> {
 		else if (((MenuItem)event.getSource()).getText()=="Redo") {
 			model.Redo();
 		}
-		else if (((MenuItem)event.getSource()).getText()=="Color") {
-			model.createColorWindow("line");
-		}
 		else if (((MenuItem)event.getSource()).getText()=="Fill?") {
-			model.shouldFill();
+			model.setFill();
 		}
 		else if (((MenuItem)event.getSource()).getText()=="Exit") {
 			System.exit(0);

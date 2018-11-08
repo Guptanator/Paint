@@ -423,6 +423,14 @@ ESTIMATE : 1 hours
 ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 15 : leejon79
+NAME     : Reformatted Color choosing code
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Code for choosing the shape color was terrible and incapable of being set to main pane.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 16 : chowd460
 NAME     : Exit functionality
 OWNER    : 

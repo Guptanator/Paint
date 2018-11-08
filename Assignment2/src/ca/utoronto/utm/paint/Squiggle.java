@@ -1,10 +1,9 @@
 package ca.utoronto.utm.paint;
-
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 public class Squiggle extends Drawable {
 	

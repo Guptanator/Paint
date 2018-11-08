@@ -1,9 +1,9 @@
 package ca.utoronto.utm.paint;
 
-import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 public class Rectangle extends Drawable{
@@ -57,12 +57,12 @@ public class Rectangle extends Drawable{
 	@Override
 	public void draw(GraphicsContext g, double thickness) {
 		// TODO Auto-generated method stub
-		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+		g.setStroke(this.color);
 		g.setLineWidth(len);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		if(fill)
 		{
-			g.setFill(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+			g.setFill(this.color);
 			g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		}
 	}

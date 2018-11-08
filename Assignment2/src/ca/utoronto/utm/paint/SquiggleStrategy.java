@@ -1,8 +1,7 @@
 package ca.utoronto.utm.paint;
 
-import java.awt.Color;
-
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 public class SquiggleStrategy implements ShapeManipulatorStrategy {
 	

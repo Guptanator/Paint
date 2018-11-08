@@ -1,10 +1,10 @@
 package ca.utoronto.utm.paint;
 
-import java.awt.Color;
 import java.util.ArrayList;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.input.MouseButton;
 
 public class PolyLineStrategy implements ShapeManipulatorStrategy {

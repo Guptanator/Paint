@@ -1,8 +1,8 @@
 package ca.utoronto.utm.paint;
 
-import java.awt.Color;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 public class SquareStrategy implements ShapeManipulatorStrategy {
 	
@@ -16,7 +16,7 @@ public class SquareStrategy implements ShapeManipulatorStrategy {
 
 	@Override
 	public void changeShape(MouseEvent e, PaintModel p) {
-		this.shape.toFill(p.IwillFill());
+		this.shape.toFill(p.getFill());
 		int h = this.shape.getStart().getY()- (int) e.getY();
 		int w = this.shape.getStart().getX()- (int) e.getX();
 		if (h <= 0) {

@@ -1,9 +1,9 @@
 package ca.utoronto.utm.paint;
 
-import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 public class Point extends Drawable {
@@ -45,7 +45,7 @@ public class Point extends Drawable {
 	
 	@Override
 	public void draw(GraphicsContext g, double thickness) {
-		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+		g.setStroke(this.color);
 		g.strokeLine(this.getX(), this.getY(), this.getX(), this.getY());
 		g.setLineWidth(thickness);
 	}
@@ -53,7 +53,7 @@ public class Point extends Drawable {
 		if (this.isFinal()) {
 			return;
 		}
-		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+		g.setStroke(this.color);
 		g.strokeLine(this.getX(), this.getY(), p2.getX(), p2.getY());
 		g.setLineWidth(thickness);
 	}

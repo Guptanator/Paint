@@ -1,8 +1,8 @@
 package ca.utoronto.utm.paint;
 
-import java.awt.Color;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 public class Square extends Drawable {
@@ -45,7 +45,7 @@ public class Square extends Drawable {
 
 	@Override
 	public void draw(GraphicsContext g, double len) {
-		g.setStroke(Paint.valueOf("#"+Integer.toHexString(this.color.getRGB()).substring(2)));
+		g.setStroke(this.color);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 		g.setLineWidth(len);
 		if(fill)
