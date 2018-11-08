@@ -7,19 +7,32 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.input.MouseButton;
 
-public class PolyLineStrategy implements ShapeManipulatorStrategy {
+public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	
 	private Line shape;
 	private boolean isFirst = true;
 	private boolean isEnd = false;
 	
 	@Override
-	public void makeShape(MouseEvent e, Color c, double l) {
+	public void mouseHandle(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
+			changeShape(e);
+		} else if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
+			makeShape(e);
+		} else if (e.getEventType() == MouseEvent.MOUSE_MOVED) {
+			moveFeedback(e);
+		} else if (e.getEventType() == MouseEvent.MOUSE_RELEASED) {
+			addShape();
+		}
+	}
+	
+	private void makeShape(MouseEvent e) {
 		if (e.getButton() == MouseButton.PRIMARY) {
 			if (this.isFirst == true) {
-				this.shape = new Line(new Point((int) e.getX(),(int) e.getY()), c);
+				this.shape = new Line(new Point((int) e.getX(),(int) e.getY()), this.color);
 			} else {
-				Point p = new Point((int) e.getX(),(int) e.getY(), c);
+				Point p = new Point((int) e.getX(),(int) e.getY(), this.color, this.thickness);
 				this.shape.setLast(p);
 			} 
 		} else {
@@ -29,39 +42,33 @@ public class PolyLineStrategy implements ShapeManipulatorStrategy {
 		}
 	}
 
-	@Override
-	public void changeShape(MouseEvent e, PaintModel p) {
+	private void changeShape(MouseEvent e) {
 		if (!this.isFirst) {
 			this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));
-			p.update();
+			this.model.update();
 		}
 	}
 
-	@Override
-	public Drawable getShape() {
-		// TODO Auto-generated method stub
-		return this.shape;
-	}
 
-	@Override
-	public void addShape(PaintModel p) {
+	private void addShape() {
 		if (!this.isEnd) {
 			if (this.isFirst) {
 				this.isFirst = false;
 			} else {
-				p.addDrawable(this.shape);
+				this.model.addDrawable(this.shape);
 				this.shape = new Line(shape.getLast(), shape.getColor());
 			} 
 		} else {
 			this.isEnd = false;
-			p.update();
+			this.model.update();
 		}
 	}
 
-	@Override
-	public void moveFeedback(PaintModel p, MouseEvent e) {
+	public void moveFeedback(MouseEvent e) {
 		this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));
-		p.update();
+		this.model.update();
 	}
+
+
 
 }

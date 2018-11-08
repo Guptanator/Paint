@@ -4,27 +4,38 @@ package ca.utoronto.utm.paint;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-public class SquareStrategy implements ShapeManipulatorStrategy {
+public class SquareStrategy extends ShapeManipulatorStrategy {
 	
 	private Square shape;
 	
 	@Override
-	public void makeShape(MouseEvent e, Color c, double len) {
+	public void mouseHandle(MouseEvent e) {
+		if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
+			changeShape(e);
+		} else if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
+			makeShape(e);
+		}
+	}
+	
+	private void makeShape(MouseEvent e) {
 		Point corner = new Point((int) e.getX(), (int) e.getY());
-		this.shape = new Square(corner, 0, c, len);
+		this.shape = new Square(corner, 0, this.color, this.thickness);
+		this.model.addDrawable(this.shape);
 	}
 
-	@Override
-	public void changeShape(MouseEvent e, PaintModel p) {
-		this.shape.toFill(p.getFill());
+	private void changeShape(MouseEvent e) {
+		this.shape.toFill(this.model.getFill());
 		int h = this.shape.getStart().getY()- (int) e.getY();
 		int w = this.shape.getStart().getX()- (int) e.getX();
 		if (h <= 0) {
 			if (w <= 0) {
+				this.shape.getCorner().setX(this.shape.getStart().getX());
+				this.shape.getCorner().setY(this.shape.getStart().getY());
 				if (h >= w) {
 					this.shape.setLength(Math.abs(h));
 				} else {this.shape.setLength(Math.abs(w));}
 			} else {
+				this.shape.getCorner().setY(this.shape.getStart().getY());
 				if (Math.abs(h) >= w) {
 					this.shape.getCorner().setX(this.shape.getStart().getX() - w);
 					this.shape.setLength(w);
@@ -44,7 +55,7 @@ public class SquareStrategy implements ShapeManipulatorStrategy {
 				}
 			} else {
 				if (h > w) {
-					this.shape.getCorner().setX((int) e.getX());
+					this.shape.getCorner().setX(this.shape.getStart().getY() - w);
 					this.shape.getCorner().setY(this.shape.getStart().getY() - w);
 					this.shape.setLength(w);
 					
@@ -55,28 +66,8 @@ public class SquareStrategy implements ShapeManipulatorStrategy {
 				}
 			}
 			
-		} 
-		
-		p.update();
+		} 	
+		this.model.update();
 	}
-
-	@Override
-	public Drawable getShape() {
-		return shape;
-	}
-
-
-	@Override
-	public void addShape(PaintModel p) {
-		p.addDrawable(this.shape);
-		this.shape = null;
-	}
-
-	@Override
-	public void moveFeedback(PaintModel g, MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 }

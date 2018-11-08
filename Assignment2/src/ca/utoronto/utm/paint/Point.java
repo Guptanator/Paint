@@ -15,9 +15,10 @@ public class Point extends Drawable {
 		this.y = y;
 		this.segment= false;
 	}
-	Point(int x, int y, Color c){
+	Point(int x, int y, Color c, double thickness){
 		this(x,y);
 		this.color = c;
+		this.thickness = thickness;
 	}
 
 	public int getX() {
@@ -44,7 +45,7 @@ public class Point extends Drawable {
 	}
 	
 	@Override
-	public void draw(GraphicsContext g, double thickness) {
+	public void draw(GraphicsContext g) {
 		g.setStroke(this.color);
 		g.strokeLine(this.getX(), this.getY(), this.getX(), this.getY());
 		g.setLineWidth(thickness);

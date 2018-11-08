@@ -12,17 +12,15 @@ public class Rectangle extends Drawable{
 	private int width;
 	private boolean fill;
 	private Point corner;
-	private Color color;
 	private Point start;
-	private double len;
 	
-	public Rectangle(Point c, int h, int w, Color color, double len) {
+	public Rectangle(Point c, int h, int w, Color color, double thickness) {
 		this.height = h;
 		this.width = w;
 		this.corner = c;
 		this.color = color;
 		this.start = new Point(c.getX(), c.getY());
-		this.len = len;
+		this.thickness = thickness;
 	}
 	
 	public Point getStart() {
@@ -55,10 +53,10 @@ public class Rectangle extends Drawable{
 	
 
 	@Override
-	public void draw(GraphicsContext g, double thickness) {
+	public void draw(GraphicsContext g) {
 		// TODO Auto-generated method stub
 		g.setStroke(this.color);
-		g.setLineWidth(len);
+		g.setLineWidth(this.thickness);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		if(fill)
 		{

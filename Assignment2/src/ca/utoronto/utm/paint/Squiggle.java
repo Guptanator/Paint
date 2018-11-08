@@ -9,20 +9,21 @@ public class Squiggle extends Drawable {
 	
 	private ArrayList<Point> points;
 	
-	public Squiggle(int x, int y, Color c) {
+	public Squiggle(int x, int y, Color c, double thickness) {
 		this.points = new ArrayList<Point>();
-		this.points.add(new Point (x,y,c));
+		this.thickness = thickness;
+		this.points.add(new Point (x,y,c, this.thickness));
 		this.color = c;
 	}
 	
 	public void addPoint(int x, int y) {
-		this.points.add(new Point (x,y,color));
+		this.points.add(new Point (x,y,color, this.thickness));
 	}
 	
 	@Override
-	public void draw(GraphicsContext g, double thickness) {
+	public void draw(GraphicsContext g) {
 		for (int i = 0; i < this.points.size() - 1; i++) {
-			points.get(i).draw(g, points.get(i+1), thickness);
+			points.get(i).draw(g, points.get(i+1), this.thickness);
 		}
 	}
 

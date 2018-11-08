@@ -3,38 +3,39 @@ package ca.utoronto.utm.paint;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-public class SquiggleStrategy implements ShapeManipulatorStrategy {
+public class SquiggleStrategy extends ShapeManipulatorStrategy {
 	
 
 	private Squiggle shape;
 	
 	@Override
-	public void makeShape(MouseEvent e, Color c, double l) {
-		this.shape = new Squiggle((int) e.getX(), (int) e.getY(), c);
+	public void mouseHandle(MouseEvent e) {
+		if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
+			changeShape(e);
+		} else if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
+			makeShape(e);
+		} else if (e.getEventType() == MouseEvent.MOUSE_RELEASED) {
+			addShape();
+		}
+	}
+	
+	private void makeShape(MouseEvent e) {
+		this.shape = new Squiggle((int) e.getX(), (int) e.getY(), this.color, this.thickness);
 	}
 
-	@Override
-	public void changeShape(MouseEvent e, PaintModel p) {
+	private void changeShape(MouseEvent e) {
 		this.shape.addPoint((int) e.getX(), (int) e.getY());
-		p.update();
+		this.model.update();
 	}
 
-	@Override
-	public Drawable getShape() {
+	private Drawable getShape() {
 		return shape;
 	}
 
 
-	@Override
-	public void addShape(PaintModel p) {
-		p.addDrawable(this.shape);
+	private void addShape() {
+		this.model.addDrawable(this.shape);
 		this.shape = null;
 	}
-
-	@Override
-	public void moveFeedback(PaintModel g, MouseEvent e) {
-		
-	}
-
 
 }

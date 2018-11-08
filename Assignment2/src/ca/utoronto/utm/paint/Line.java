@@ -23,9 +23,9 @@ public class Line extends Drawable {
 	}	
 	
 	@Override
-	public void draw(GraphicsContext g, double thickness) {
+	public void draw(GraphicsContext g) {
 		this.first.setColor(color);
-		this.first.draw(g, last, thickness);
+		this.first.draw(g, last, this.thickness);
 	}
 
 	@Override
@@ -45,7 +45,8 @@ public class Line extends Drawable {
 
 	@Override
 	public void toFill(boolean fill) {
-		this.fill = fill;
+		// TODO Auto-generated method stub
+		
 	}
 
 }

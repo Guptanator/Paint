@@ -44,7 +44,7 @@ public class Square extends Drawable {
 	
 
 	@Override
-	public void draw(GraphicsContext g, double len) {
+	public void draw(GraphicsContext g) {
 		g.setStroke(this.color);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 		g.setLineWidth(len);
