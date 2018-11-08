@@ -15,11 +15,14 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	
 	@Override
 	public void mouseHandle(MouseEvent e) {
-		// TODO Auto-generated method stub
 		if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
 			changeShape(e);
 		} else if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
-			makeShape(e);
+			if (e.getButton() == MouseButton.PRIMARY) {
+				makeShape(e);
+			} else {
+				terminateShape();
+			}
 		} else if (e.getEventType() == MouseEvent.MOUSE_MOVED) {
 			moveFeedback(e);
 		} else if (e.getEventType() == MouseEvent.MOUSE_RELEASED) {
@@ -28,19 +31,22 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	}
 	
 	private void makeShape(MouseEvent e) {
-		if (e.getButton() == MouseButton.PRIMARY) {
-			if (this.isFirst == true) {
-				this.shape = new Line(new Point((int) e.getX(),(int) e.getY()), this.color);
-			} else {
-				Point p = new Point((int) e.getX(),(int) e.getY(), this.color, this.thickness);
-				this.shape.setLast(p);
-			} 
+		Point p = new Point((int) e.getX(),(int) e.getY(), this.color, this.thickness);
+		if (this.isFirst == true) {
+			this.shape = new Line(p, p, this.color);
+			this.model.addDrawable(this.shape);
 		} else {
+			this.shape.setLast(p);
+		}
+	}
+	
+	private void terminateShape() {
+			this.model.getObjects().remove(this.shape);
 			this.shape = null;
 			this.isFirst = true;
 			this.isEnd = true;
+			this.model.update();
 		}
-	}
 
 	private void changeShape(MouseEvent e) {
 		if (!this.isFirst) {
@@ -55,8 +61,8 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 			if (this.isFirst) {
 				this.isFirst = false;
 			} else {
+				this.shape = new Line(shape.getLast(), shape.getLast(), this.color);
 				this.model.addDrawable(this.shape);
-				this.shape = new Line(shape.getLast(), shape.getColor());
 			} 
 		} else {
 			this.isEnd = false;
@@ -65,8 +71,10 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	}
 
 	public void moveFeedback(MouseEvent e) {
-		this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));
-		this.model.update();
+		if (!this.isFirst) {
+			this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));
+			this.model.update();
+		}
 	}
 
 

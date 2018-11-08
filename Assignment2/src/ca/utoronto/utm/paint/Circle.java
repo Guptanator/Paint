@@ -20,7 +20,6 @@ public class Circle extends Drawable {
 		this.radius = r;
 		this.color = c;
 		this.thickness = thickness;
-		System.out.println(thickness);
 
 	}
 

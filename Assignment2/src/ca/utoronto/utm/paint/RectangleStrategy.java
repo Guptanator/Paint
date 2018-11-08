@@ -19,8 +19,7 @@ public class RectangleStrategy extends ShapeManipulatorStrategy {
 	
 	private void makeShape(MouseEvent e) {
 		Point corner = new Point((int) e.getX(), (int) e.getY());
-		int length = 0;
-		this.shape = new Rectangle(corner, length, length, this.color, this.thickness);
+		this.shape = new Rectangle(corner, this.color, this.thickness);
 		this.model.addDrawable(shape);
 
 	}
@@ -31,12 +30,14 @@ public class RectangleStrategy extends ShapeManipulatorStrategy {
 		int w = this.shape.getStart().getX()- (int) e.getX();
 		
 		if (h < 0) {
+			this.shape.getCorner().setY(this.shape.getStart().getY());
 			this.shape.setHeight(Math.abs(h));
 		} else if (h >= 0) {
 			this.shape.getCorner().setY((int) e.getY());
 			this.shape.setHeight(h);
 		}
 		if (w < 0) {
+			this.shape.getCorner().setX(this.shape.getStart().getX());
 			this.shape.setWidth(Math.abs(w));
 		} else if (w >= 0) {
 			this.shape.getCorner().setX((int) e.getX());

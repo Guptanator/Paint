@@ -14,13 +14,12 @@ public class SquiggleStrategy extends ShapeManipulatorStrategy {
 			changeShape(e);
 		} else if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			makeShape(e);
-		} else if (e.getEventType() == MouseEvent.MOUSE_RELEASED) {
-			addShape();
 		}
 	}
 	
 	private void makeShape(MouseEvent e) {
 		this.shape = new Squiggle((int) e.getX(), (int) e.getY(), this.color, this.thickness);
+		this.model.addDrawable(this.shape);
 	}
 
 	private void changeShape(MouseEvent e) {
@@ -30,12 +29,6 @@ public class SquiggleStrategy extends ShapeManipulatorStrategy {
 
 	private Drawable getShape() {
 		return shape;
-	}
-
-
-	private void addShape() {
-		this.model.addDrawable(this.shape);
-		this.shape = null;
 	}
 
 }

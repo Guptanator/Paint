@@ -14,6 +14,12 @@ public class Line extends Drawable {
 		this.color = c;
 	}
 	
+	public Line(Point p1, Point p2, Color c) {
+		this.first = p1;
+		this.last = p2;
+		this.color = c;
+	}
+	
 	public Point getLast() {
 		return this.last;
 	}

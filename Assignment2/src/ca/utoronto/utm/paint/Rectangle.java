@@ -8,15 +8,13 @@ import javafx.scene.paint.Paint;
 
 public class Rectangle extends Drawable{
 	
-	private int height;
-	private int width;
+	private int height = 0;
+	private int width = 0;
 	private boolean fill;
 	private Point corner;
 	private Point start;
 	
-	public Rectangle(Point c, int h, int w, Color color, double thickness) {
-		this.height = h;
-		this.width = w;
+	public Rectangle(Point c, Color color, double thickness) {
 		this.corner = c;
 		this.color = color;
 		this.start = new Point(c.getX(), c.getY());
@@ -31,20 +29,8 @@ public class Rectangle extends Drawable{
 		return this.corner;
 	}
 	
-	public void setCorner(Point c) {
-		this.corner = c;
-	}
-	
-	public int getHeight() {
-		return this.height;
-	}
-	
 	public void setHeight(int h) {
 		this.height = h;
-	}
-	
-	public int getWidth() {
-		return this.width;
 	}
 	
 	public void setWidth(int w) {
@@ -54,7 +40,6 @@ public class Rectangle extends Drawable{
 
 	@Override
 	public void draw(GraphicsContext g) {
-		// TODO Auto-generated method stub
 		g.setStroke(this.color);
 		g.setLineWidth(this.thickness);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
