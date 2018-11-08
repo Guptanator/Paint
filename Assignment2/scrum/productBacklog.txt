@@ -181,6 +181,15 @@ ESTIMATE : 8 hours
 ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
 		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 30 : chowd460
+NAME     : Refactor current tab parent system
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
+		   which opens other dropdowns and popouts.
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------

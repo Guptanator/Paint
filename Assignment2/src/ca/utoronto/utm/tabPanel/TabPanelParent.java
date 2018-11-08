@@ -13,35 +13,23 @@ import ca.utoronto.utm.paint.View;
 public class TabPanelParent extends GridPane {
 	
 	private View view;
-	private headerPanel header = new headerPanel();
-	private tabButtonHandler handleTabButtons;
-	private Pane oldPane = null;
+	private int currentRow = 0;
+	private ShapeChooserPanel scp;
+	private colorPane cp;
+	private thicknessPopup tp;
+	
 	public TabPanelParent(View view) {
 		this.view = view;
-		handleTabButtons = new tabButtonHandler(this,view);
-		this.add(header,0,0);
-		for (int i=0;i<header.getAllTabs().size();i++) {
-			header.getAllTabs().get(i).setOnAction(handleTabButtons);
-		}
-	    //this.getColumnConstraints().add(new ColumnConstraints(200)); // column 0 is 100 wide
-	    header.getAllTabs().get(0).fire();
+		this.setVgap(20);
+		this.cp = new colorPane(view);
+		this.scp = new ShapeChooserPanel(view);
+		this.tp = new thicknessPopup(view);
+		this.addPane(this.scp);
+		this.addPane(this.cp);
+		this.addPane(this.tp);
 	}
-	
-	public void updateCurrentTab(Pane newPane) {
-		if (oldPane!=null) {
-			this.getChildren().remove(oldPane);
-		}
-		this.add(newPane, 0, 1);
-		oldPane = newPane;
-	}
-	public void removeChild(Pane p) {
-		this.getChildren().remove(p);
-	}
-	public void clearAllButtons(TabChooserButton selected) {
-		for (int i=0; i<this.header.getAllTabs().size();i++) {
-			if (selected != this.header.getAllTabs().get(i)) {
-				this.header.getAllTabs().get(i).setSelected(false);
-			}
-		}
+	public void addPane(Pane p) {
+		this.add(p, 0, currentRow);
+		this.currentRow++;
 	}
 }

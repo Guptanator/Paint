@@ -2,6 +2,8 @@ package ca.utoronto.utm.paint;
 
 import ca.utoronto.utm.tabPanel.ShapeChooserPanel;
 import ca.utoronto.utm.tabPanel.TabPanelParent;
+import ca.utoronto.utm.tabPanel.colorPane;
+import ca.utoronto.utm.tabPanel.thicknessPopup;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -19,7 +21,6 @@ public class View implements EventHandler<ActionEvent> {
 
 	private PaintPanel paintPanel;
 	private ShapeChooserPanel shapeChooserPanel;
-	private thicknessPopup thicknessPopup;
 	private colorPane colorPane;
 	private TabPanelParent tabParent;
 	private FlowPane drawArea;
@@ -33,7 +34,6 @@ public class View implements EventHandler<ActionEvent> {
 
 		this.paintPanel = new PaintPanel(this.model, this);
 		this.tabParent = new TabPanelParent(this);
-		this.thicknessPopup = new thicknessPopup(this);
 		this.colorPane = new colorPane(this);
 		drawArea = new FlowPane();
 		drawArea.getChildren().add(this.paintPanel);
@@ -42,8 +42,6 @@ public class View implements EventHandler<ActionEvent> {
 		root.setTop(createMenuBar());
 		root.setLeft(this.tabParent);
 		root.setCenter(drawArea);
-		//root.setRight(this.colorPane);
-		root.setRight(this.thicknessPopup);
 
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
@@ -57,10 +55,6 @@ public class View implements EventHandler<ActionEvent> {
 
 	public ShapeChooserPanel getShapeChooserPanel() {
 		return shapeChooserPanel;
-	}
-	
-	public thicknessPopup getthicknessPopup() {
-		return thicknessPopup;
 	}
 
 	private MenuBar createMenuBar() {
