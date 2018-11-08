@@ -46,6 +46,7 @@ public class SquareStrategy extends ShapeManipulatorStrategy {
 			}
 		} else {
 			if (w <= 0) {
+				this.shape.getCorner().setX(this.shape.getStart().getX());
 				if (h >= Math.abs(w)) {
 					this.shape.getCorner().setY(this.shape.getStart().getY() + w);
 					this.shape.setLength(Math.abs(w));
@@ -55,7 +56,7 @@ public class SquareStrategy extends ShapeManipulatorStrategy {
 				}
 			} else {
 				if (h > w) {
-					this.shape.getCorner().setX(this.shape.getStart().getY() - w);
+					this.shape.getCorner().setX(this.shape.getStart().getX() - w);
 					this.shape.getCorner().setY(this.shape.getStart().getY() - w);
 					this.shape.setLength(w);
 					
