@@ -23,8 +23,7 @@ public class TabPanelParent extends GridPane {
 		for (int i=0;i<header.getAllTabs().size();i++) {
 			header.getAllTabs().get(i).setOnAction(handleTabButtons);
 		}
-		
-	    this.getColumnConstraints().add(new ColumnConstraints(200)); // column 0 is 100 wide
+	    //this.getColumnConstraints().add(new ColumnConstraints(200)); // column 0 is 100 wide
 	    header.getAllTabs().get(0).fire();
 	}
 	

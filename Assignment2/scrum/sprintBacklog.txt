@@ -561,6 +561,16 @@ ESTIMATE : 8 hours
 ISSUE    : Current we do not have a way to identify which element we are clicking on, this is needed
 		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 30 : chowd460
+NAME     : Improve the layout of tab headers
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+ISSUE    : Currently we laying out the top buttons in a static manner, but this is problematic
+		   and does not scale well, we need a better way to layout buttons which scales based on
+		   the device.
+--------------------------------------------------------------------------
 
 # Sprint 2 Nov 9, 2018
 # Sprint 2 Backlog UserStories go below

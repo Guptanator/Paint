@@ -178,7 +178,7 @@ NAME     : Select object based on click
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 8 hours
-ISSUE    : Current we do not have a way to identify which element we are clicking on, this is needed
+ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
 		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
 
@@ -489,6 +489,16 @@ AS A     : user
 I WANT   : To be able to switch between all on the modes from the main screen.
 SO THAT  : I have a more user friendly experience without having to click
 		   through many different menus to get a certain option.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 30 : chowd460
+NAME     : Improve the layout of tab headers
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+ISSUE    : Currently we laying out the top buttons in a static manner, but this is problematic
+		   and does not scale well, we need a better way to layout buttons which scales based on
+		   the device.
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################

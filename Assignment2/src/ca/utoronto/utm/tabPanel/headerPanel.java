@@ -1,8 +1,6 @@
 package ca.utoronto.utm.tabPanel;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
