@@ -124,14 +124,13 @@ ISSUE    : Should be able to use fill option from panel with a Button whose Icon
 		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 25 : phamjus1
-NAME     : ShapeManipulatorStrategies Re-implementation
+TYPE     : BUG 24 : phamjus1
+NAME     : PolyLine not Updating
 OWNER    : 
 PRIORITY : 2
-ESTIMATE : 8 hours
-ISSUE    : Current Implementation does not alter shapes on the stack as opposed
-		   To creating a shape and holding it until the user says it is good, then
-		   adding it to the stack.
+ESTIMATE : 1 hours
+ISSUE    : When drawing polylines, the line being drawn present after terminating
+		   by switching drawing styles.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 27 : utorid
@@ -486,6 +485,17 @@ ISSUE    : Shape buttons should only display and be clickable as icons.
 		   so should be redesigned accordingly.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 25 : phamjus1
+NAME     : ShapeManipulatorStrategies Re-implementation
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Current Implementation does not alter shapes on the stack as opposed
+		   To creating a shape and holding it until the user says it is good, then
+		   adding it to the stack.
+		   Should repair Square pivot with new implementation of SquareStrategy
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 26 : phamjus1
 NAME     : Canvas Justified to Top Left
 OWNER    : 
@@ -517,6 +527,7 @@ ISSUE    : Currently we laying out the top buttons in a static manner, but this 
 		   and does not scale well, we need a better way to layout buttons which scales based on
 		   the device.
 --------------------------------------------------------------------------
+
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
@@ -568,13 +579,4 @@ ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
 		   Positions when it should be consistent with where the user clicked
 REASONING: Included as part of BUG25
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 24 : phamjus1
-NAME     : PolyLine not Updating
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : When drawing polylines, the line being drawn present after terminating
-		   by switching drawing styles.
-REASONING: Included as part of BUG25
---------------------------------------------------------------------------
+

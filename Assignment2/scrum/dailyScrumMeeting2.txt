@@ -87,9 +87,11 @@ Nov 7, 2018
 	Obstacles : Finding information online about java libraries and parsing them
 
 Nov 8, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Tested some Shape Strategy redesignes
+	Today     : Finished BUG25: Strategy Reimplementation
+				Researched more ideas for User Stories
+	Obstacles : Could not access repository due to lost authentication
+			    Although I can access it again now it did cause some issues.
 
 Nov 9, 2018
 	Yesterday :
