@@ -8,11 +8,17 @@ import javafx.scene.paint.Paint;
 public class CircleStrategy implements ShapeManipulatorStrategy{
 	
 	private Circle shape;
+	private PaintModel model;
+	
+	public void mouseHandle(MouseEvent e) {
+		
+	}
 	
 	@Override
 	public void makeShape(MouseEvent e, Color c, double l) {
 		Point centre = new Point((int) e.getX(), (int) e.getY());
 		this.shape = new Circle(centre, 0, c, l);
+		model.addDrawable(this.shape);
 		
 	}
 	@Override
@@ -34,6 +40,11 @@ public class CircleStrategy implements ShapeManipulatorStrategy{
 	public void addShape(PaintModel p) {
 		p.addDrawable(shape);
 		this.shape = null;
+	}
+	
+	@Override
+	public void setModel(PaintModel p) {
+		this.model = p;
 	}
 	
 	@Override

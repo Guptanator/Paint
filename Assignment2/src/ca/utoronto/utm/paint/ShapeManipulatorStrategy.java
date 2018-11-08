@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 
 public interface ShapeManipulatorStrategy {
+	public abstract void setModel(PaintModel p);
 	public abstract void makeShape(MouseEvent e, Color color, double l);
 	public abstract void changeShape(MouseEvent e, PaintModel p);
 	public abstract Drawable getShape();
