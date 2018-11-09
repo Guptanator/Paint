@@ -70,10 +70,10 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		
 		// Draw Lines
 
-		LinkedList<Drawable> allObjects = this.model.getObjects();
+		ArrayList<Drawable> allObjects = this.model.getObjects();
 		
 		while (!allObjects.isEmpty()) {
-			Drawable current = allObjects.removeFirst();
+			Drawable current = allObjects.remove(0);
 				current.draw(g);
 			}
 		}
@@ -109,7 +109,10 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.color = c;
 		this.strategy.setColor(c);
 	}
-	
+	public ShapeManipulatorStrategy getStrategy() {
+		return this.strategy;
+		
+	}
 
 	public void setStrategy(ShapeManipulatorStrategy s) {
 		this.strategy = s;
