@@ -100,7 +100,9 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		} else if (t == "Thick") {
 			this.strategy.setThickness(10.0);
 		}
-		this.thick = t;
+		else {
+			this.setThickness("Thin");
+		}
 	}
 	
 	public void setColor(Color c) {
