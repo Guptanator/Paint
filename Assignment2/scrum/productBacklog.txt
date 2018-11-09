@@ -189,6 +189,14 @@ ESTIMATE : 8 hours
 ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
 		   which opens other dropdowns and popouts.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 31 : guptaary
+NAME     : Thickness implemented incorrectly for all shapes other than circle
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+ISSUE    : For every shape other than cirlce, after drawing the first shape, and changing the thickness for the next shape, also changes the thickness for the previous shape.
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
