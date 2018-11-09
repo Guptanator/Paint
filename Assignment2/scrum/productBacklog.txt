@@ -106,15 +106,6 @@ ISSUE    : Code for color window is unattractive, should separate it into it's o
 		   Think about using builtin color chooser libraries.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 18 : Guptaary
-NAME     : Thickness Applied to all Shapes
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : For shapes other than circle, currently selected thickness applies
-		   to all previously drawn shapes and draw styles.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 21 : UTORID
 NAME     : Fill Button
 OWNER    : 
@@ -528,7 +519,17 @@ ISSUE    : Currently we laying out the top buttons in a static manner, but this 
 		   and does not scale well, we need a better way to layout buttons which scales based on
 		   the device.
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : BUG 18 : Guptaary
+NAME     : Thickness Applied to all Shapes
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : For shapes other than circle, currently selected thickness applies
+		   to all previously drawn shapes and draw styles.
+SO THAT  : All lines and shapes can have individual thickness without effecting what is already
+		   drawn on the canvas.
+--------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
