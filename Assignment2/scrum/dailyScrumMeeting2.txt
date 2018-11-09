@@ -94,9 +94,9 @@ Nov 8, 2018
 			    Although I can access it again now it did cause some issues.
 
 Nov 9, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Looked up other layout options for javafx
+	Today     : Studied Material for 236 
+	Obstacles : Couldn't figure out how invariants are determined
 
 Nov 10, 2018
 	Yesterday :
