@@ -21,7 +21,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 			if (e.getButton() == MouseButton.PRIMARY) {
 				makeShape(e);
 			} else {
-				terminateShape();
+				terminateShape(false);
 			}
 		} else if (e.getEventType() == MouseEvent.MOUSE_MOVED) {
 			moveFeedback(e);
@@ -40,14 +40,15 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 		}
 	}
 	
-	private void terminateShape() {
-			this.model.getObjects().remove(this.shape);
-			this.shape = null;
-			this.isFirst = true;
-			this.isEnd = true;
-			this.model.update();
+	public void terminateShape(boolean Force) {
+		if (Force) {
+			this.model.removeLast();
 		}
-
+		this.shape = null;
+		this.isFirst = true;
+		this.isEnd = true;
+		this.model.update();
+	}
 	private void changeShape(MouseEvent e) {
 		if (!this.isFirst) {
 			this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));

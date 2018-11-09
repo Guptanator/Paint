@@ -124,15 +124,6 @@ ISSUE    : Should be able to use fill option from panel with a Button whose Icon
 		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 24 : phamjus1
-NAME     : PolyLine not Updating
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : When drawing polylines, the line being drawn present after terminating
-		   by switching drawing styles.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 27 : utorid
 NAME     : Implement Thickness into new panel
 OWNER    : 
@@ -491,6 +482,15 @@ ISSUE    : Shape buttons should only display and be clickable as icons.
 		   For removal of words, consider creating subclass of button.
 		   The subsequent panel will be too large for the changed buttons
 		   so should be redesigned accordingly.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 24 : chowd460
+NAME     : PolyLine not Updating
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : When drawing polylines, the line being drawn present after terminating
+		   by switching drawing styles.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 25 : phamjus1

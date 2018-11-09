@@ -14,12 +14,7 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 
 	public View view; // So we can talk to our parent or other components of the view
 	private shapeChooserButton lastPressed = null;
-	private RectangleStrategy rectangleStrat;
-	private CircleStrategy circleStrat;
-	private SquiggleStrategy squiggleStrat;
-	private SquareStrategy squareStrat;
-	private PolyLineStrategy polyStrat;
-	
+	private String lastCommand = null;
 	public ShapeChooserPanel(View view) {
 	
 		this.view = view;
@@ -33,11 +28,6 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 			row++;
 			button.setOnAction(this);
 		}
-		rectangleStrat = new RectangleStrategy();
-		circleStrat = new CircleStrategy();
-		squiggleStrat = new SquiggleStrategy();
-		squareStrat = new SquareStrategy();
-		polyStrat = new PolyLineStrategy();
 	}
 
 	@Override
@@ -46,20 +36,24 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 		if (lastPressed != null) {
 			lastPressed.setInactive();
 		}
+		if (lastCommand == "PolyLine") {
+			((PolyLineStrategy)this.view.getPaintPanel().getStrategy()).terminateShape(true);
+		}
 		source.setActive();
 		String command = source.currentMode();
 		///this.view.getPaintPanel().setMode(command);
 		if (command == "Circle") {
-			this.view.getPaintPanel().setStrategy(this.circleStrat);
+			this.view.getPaintPanel().setStrategy(new CircleStrategy());
 		} else if (command == "Rectangle") {
-			this.view.getPaintPanel().setStrategy(this.rectangleStrat);
+			this.view.getPaintPanel().setStrategy(new RectangleStrategy());
 		} else if (command == "Squiggle") {
-			this.view.getPaintPanel().setStrategy(this.squiggleStrat);
+			this.view.getPaintPanel().setStrategy(new SquiggleStrategy());
 		} else if (command == "Square") {
-			this.view.getPaintPanel().setStrategy(this.squareStrat);
+			this.view.getPaintPanel().setStrategy(new SquareStrategy());
 		} else if (command == "PolyLine") {
-			this.view.getPaintPanel().setStrategy(this.polyStrat);
+			this.view.getPaintPanel().setStrategy(new PolyLineStrategy());
 		}
 		lastPressed = source;
+		lastCommand = command;
 	}
 }
