@@ -106,7 +106,7 @@ ISSUE    : Code for color window is unattractive, should separate it into it's o
 		   Think about using builtin color chooser libraries.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 18 : UTORID
+TYPE     : BUG 18 : Guptaary
 NAME     : Thickness Applied to all Shapes
 OWNER    : 
 PRIORITY : 2
@@ -189,14 +189,7 @@ ESTIMATE : 8 hours
 ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
 		   which opens other dropdowns and popouts.
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 31 : guptaary
-NAME     : Thickness implemented incorrectly for all shapes other than circle
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-ISSUE    : For every shape other than cirlce, after drawing the first shape, and changing the thickness for the next shape, also changes the thickness for the previous shape.
---------------------------------------------------------------------------
+s
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -308,7 +301,7 @@ I WANT   : To be able to select the current line thickness, to be applied
            		draw a squiggle
            	results in two thinly outlined circles and a thinly outlined 
            	rectangle as well as two thickly outlined rectangles and a thick squiggle
-SO THAT  : 
+SO THAT  : I can apply thickness to different shapes.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 8 : phamjus1

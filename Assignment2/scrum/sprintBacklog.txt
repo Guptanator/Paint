@@ -484,7 +484,7 @@ ESTIMATE : 4 hours
 ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 18 : UTORID
+TYPE     : BUG 18 : Guptaary
 NAME     : Thickness Applied to all Shapes
 OWNER    : 
 PRIORITY : 2
