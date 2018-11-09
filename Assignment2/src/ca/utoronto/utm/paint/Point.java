@@ -51,12 +51,13 @@ public class Point extends Drawable {
 		g.setLineWidth(thickness);
 	}
 	public void draw(GraphicsContext g,Point p2, double thickness) {
+		g.setLineWidth(this.thickness);
 		if (this.isFinal()) {
 			return;
 		}
 		g.setStroke(this.color);
 		g.strokeLine(this.getX(), this.getY(), p2.getX(), p2.getY());
-		g.setLineWidth(thickness);
+		
 	}
 
 	@Override

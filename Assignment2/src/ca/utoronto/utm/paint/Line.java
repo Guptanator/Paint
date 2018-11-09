@@ -8,10 +8,13 @@ public class Line extends Drawable {
 	
 	private Point first;
 	private Point last;
+	private double thickness;
+	
 	
 	public Line(Point p, Color c) {
 		this.first = p;
 		this.color = c;
+		this.thickness = thickness;
 	}
 	
 	public Line(Point p1, Point p2, Color c) {
