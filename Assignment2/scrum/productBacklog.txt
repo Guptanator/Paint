@@ -130,7 +130,7 @@ OWNER    :
 PRIORITY : 2
 ESTIMATE : 1 hours
 ISSUE    : When drawing polylines, the line being drawn present after terminating
-		   by switching drawing styles.
+		   remains instead of being removed from the model.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 27 : utorid
