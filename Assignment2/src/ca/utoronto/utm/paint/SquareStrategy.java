@@ -19,7 +19,7 @@ public class SquareStrategy extends ShapeManipulatorStrategy {
 	
 	private void makeShape(MouseEvent e) {
 		Point corner = new Point((int) e.getX(), (int) e.getY());
-		this.shape = new Square(corner, this.color, this.thickness);
+		this.shape = new Square(corner, this.color, thickness);
 		this.model.addDrawable(this.shape);
 	}
 

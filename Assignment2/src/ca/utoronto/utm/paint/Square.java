@@ -12,6 +12,7 @@ public class Square extends Drawable {
 	private Point corner;
 	private Color color;
 	private Point start;
+	private double thickness;
 		
 	public Square(Point p, Color color, double thickness) {
 		this.corner = p;
@@ -44,8 +45,9 @@ public class Square extends Drawable {
 	@Override
 	public void draw(GraphicsContext g) {
 		g.setStroke(this.color);
+		g.setLineWidth(thickness);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
-		g.setLineWidth(this.thickness);
+		
 		if(fill)
 		{
 			g.fillRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
