@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 public class Squiggle extends Drawable {
@@ -47,6 +48,24 @@ public class Squiggle extends Drawable {
 	@Override
 	public void toFill(boolean fill) {
 		
+	}
+
+	@Override
+	public boolean isClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public double xDifferent(double d) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double yDifferent(double d) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

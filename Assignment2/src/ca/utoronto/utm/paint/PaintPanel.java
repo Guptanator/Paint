@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -24,9 +25,9 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	private View view; // So we can talk to our parent or other components of the view
 	private Drawable shape; // the shape we are building
 	private ShapeManipulatorStrategy strategy = new CircleStrategy(); // the Strategy for the shape we are building
-
+	private TransformStrategy TStrategy;
 	private Canvas canvas;
-
+	private ToggleButton currentModeButton=null;
 	
 	private Color color= Color.BLACK;
 	
@@ -121,11 +122,25 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy.setColor(this.color);
 		setThickness(this.thick);
 	}
-
+	
+	public void setTransformMode(TransformStrategy t, ToggleButton modeButton) {
+		this.TStrategy = t;
+		t.setModel(this.model);
+		this.shapeMode = false;
+		this.currentModeButton = modeButton;
+	}
+	public void UnsetTransformMode() {
+		this.TStrategy = null;
+		this.shapeMode = true;
+		if (this.currentModeButton!=null)this.currentModeButton.setSelected(false);
+	}
+	
 	@Override
 	public void handle(MouseEvent e) {
 		if (this.shapeMode) {
 			this.strategy.mouseHandle(e);
+		} else {
+			this.TStrategy.handleMouse(e);
 		}
 	}
 }

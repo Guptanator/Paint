@@ -55,5 +55,6 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 		}
 		lastPressed = source;
 		lastCommand = command;
+		this.view.getPaintPanel().UnsetTransformMode();
 	}
 }

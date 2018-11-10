@@ -2,6 +2,7 @@ package ca.utoronto.utm.tabPanel;
 
 import java.util.Observer;
 
+import ca.utoronto.utm.paint.MoveShapeStrategy;
 import ca.utoronto.utm.paint.View;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,14 +15,19 @@ public class OtherModesPane extends VBox implements EventHandler<ActionEvent>{
 	private ToggleButton modeButton;
 	public OtherModesPane(View view) {
 		this.view = view;
-		modeButton = new ToggleButton("Select Mode");
-		modeButton.setMinWidth(100);
+		this.modeButton = new ToggleButton("Move Mode");
+		this.modeButton.setMinWidth(100);
 		this.getChildren().add(modeButton);
 		modeButton.setOnAction(this);
 	}
 	@Override
 	public void handle(ActionEvent event) {
 		this.view.getPaintPanel().shapeMode = !this.view.getPaintPanel().shapeMode;
-		System.out.println(this.view.getPaintPanel().shapeMode);
+		if (!this.view.getPaintPanel().shapeMode) {
+			this.view.getPaintPanel().setTransformMode(new MoveShapeStrategy(),this.modeButton);
+		} else {
+			this.view.getPaintPanel().UnsetTransformMode();
+		}
 	}
+	
 }

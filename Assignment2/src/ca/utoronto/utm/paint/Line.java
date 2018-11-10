@@ -2,6 +2,7 @@ package ca.utoronto.utm.paint;
 
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 public class Line extends Drawable {
@@ -56,6 +57,24 @@ public class Line extends Drawable {
 	public void toFill(boolean fill) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean isClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public double xDifferent(double d) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double yDifferent(double d) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

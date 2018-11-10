@@ -82,5 +82,20 @@ public class Point extends Drawable {
 	public void toFill(boolean fill) {
 		
 	}
+	@Override
+	public boolean isClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public double xDifferent(double d) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public double yDifferent(double d) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
