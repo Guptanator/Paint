@@ -520,15 +520,6 @@ ISSUE    : Currently we laying out the top buttons in a static manner, but this 
 		   the device.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 31 : chowd460
-NAME     : Poly Line Termination On Right Click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Terminating the drawing of a poly line should remove the line currently
-		   being drawn from the allobjects array in the case of a right click.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 18 : Guptaary
 NAME     : Thickness Applied to all Shapes
 OWNER    : 
@@ -538,6 +529,15 @@ ISSUE    : For shapes other than circle, currently selected thickness applies
 		   to all previously drawn shapes and draw styles.
 SO THAT  : All lines and shapes can have individual thickness without effecting what is already
 		   drawn on the canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 31 : phamjus1
+NAME     : Poly Line Termination On Right Click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Terminating the drawing of a poly line should remove the line currently
+		   being drawn from the allobjects array in the case of a right click.
 --------------------------------------------------------------------------
 
 
