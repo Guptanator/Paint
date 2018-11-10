@@ -17,6 +17,66 @@ SO THAT  : I will be able to have multiple drawings projects working at the
 		   same time
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 15 : phamjus1
+NAME     : Canvas Size Change window
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : Change the size of my canvas to my designated dimensions
+SO THAT  : Be able to specifically define my drawing space.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 7 : chowd460
+NAME     : Architecture for drawing shapes can be improved
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : The architecture can be improved if we implement the Command Design 
+Pattern to draw shapes as follows:
+
+The PaintModel should use the command design pattern. 
+That is, each shape knows how to draw itself, so there is a single list of 
+DrawingCommands maintained by the PaintModel and used by the PaintPanel.
+repaint() simply asks the PaintModel to ask command to execute(g).
+The simplest way to make this happen is to make each shape implement the 
+DrawingCommand interface which requires execute(g) to be implemented.
+Well sort of.
+
+NOTE: The PaintModel does know how to logically draw itself, so does
+know about strokes and pen colors etc. Depending on how much you want
+to split off the logical from the GUI, it may not have to know how to 
+draw on the screen. This is a subtle difference. For example, the
+following logically describes a scene, without actually knowing
+how to draw it on the screen ...
+
+Color = green
+Fill = off
+Border = on
+BorderWidth = 10
+Circle radius 10 at 12,15
+Color = red
+Fill = on
+FillColor = black
+Border = on
+BorderWidth = 7
+Square width 20 at 100,200
+
+If you want to build a more 'logical' PaintModel, you can consider ...
+
+1) Create a mirror hierarchy for Shape, this mirror hirerachy 
+has things like DrawableCircle which has a Circle. The DrawableCircle
+knows how to draw the instance of Circle it holds. Each Shape will
+still need information about its color, and stroke, one way or another.
+
+OR
+
+2) Lookup and apply the Visitor design pattern to the more logical
+PaintModel.
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+>>>>>>> master
 TYPE     : BUG 8 : guptaary/leejon79
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
@@ -208,6 +268,17 @@ I WANT   : To click on one corner of a square, drag, and release to
 SO THAT  : I can add square to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 11 : chowd460
+NAME     : Better tabbing, more dynamic window switching
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to switch between all on the modes from the main screen.
+SO THAT  : I have a more user friendly experience without having to click
+		   through many different menus to get a certain option.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 1 : chowd460
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
@@ -324,6 +395,17 @@ ESTIMATE : 4 hours
 ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 18 : Guptaary
+NAME     : Thickness Applied to all Shapes
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : For shapes other than circle, currently selected thickness applies
+		   to all previously drawn shapes and draw styles.
+SO THAT  : All lines and shapes can have individual thickness without effecting what is already
+		   drawn on the canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 19 : phamjus1
 NAME     : Current drawn shape On Wrong Layer
 OWNER    : 
@@ -385,18 +467,7 @@ ISSUE    : Canvas Currently displaying in the center of the borderpane. It shoul
 		   be set to 300, disregarding detection of the display device for testing purposes.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 11 : chowd460
-NAME     : Better tabbing, more dynamic window switching
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able to switch between all on the modes from the main screen.
-SO THAT  : I have a more user friendly experience without having to click
-		   through many different menus to get a certain option.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 30 : chowd460
+TYPE     : BUG 32 : chowd460
 NAME     : Improve the layout of tab headers
 OWNER    : 
 PRIORITY : 2
@@ -406,15 +477,13 @@ ISSUE    : Currently we laying out the top buttons in a static manner, but this 
 		   the device.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 18 : Guptaary
-NAME     : Thickness Applied to all Shapes
+TYPE     : BUG 31 : phamjus1
+NAME     : Poly Line Termination On Right Click
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 1 hours
-ISSUE    : For shapes other than circle, currently selected thickness applies
-		   to all previously drawn shapes and draw styles.
-SO THAT  : All lines and shapes can have individual thickness without effecting what is already
-		   drawn on the canvas.
+ISSUE    : Terminating the drawing of a poly line should remove the line currently
+		   being drawn from the allobjects array in the case of a right click.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 7 : chowd460
@@ -519,6 +588,7 @@ ISSUE    : Currently we do not have a way to identify which element we are click
 		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
 
+
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
 --------------------------------------------------------------------------
@@ -582,7 +652,7 @@ SO THAT  : I can draw more quicker while also have user friendly tabs which can 
 REASONING: Was replaced by BUG 27,28,30
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 15 : chowd460
+TYPE     : USER STORY 16 : chowd460
 NAME     : Move elements by click
 OWNER    : 
 PRIORITY : 2
