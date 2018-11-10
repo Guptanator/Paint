@@ -4,6 +4,8 @@ package ca.utoronto.utm.paint;
 import java.awt.GridLayout;
 import java.awt.TextField;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Observable;
 
@@ -24,13 +26,15 @@ import javafx.stage.Stage;
 
 public class PaintModel extends Observable {
 
-	private LinkedList<Drawable> allObjects = new LinkedList<Drawable>();
+	private ArrayList<Drawable> allObjects = new ArrayList<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
 	private int current = 0;
 	private boolean fill = false;
 	
 	public void addDrawable(Drawable d) {
 		this.allObjects.addLast(d);
+		d.setFill(fill);
+		this.allObjects.add(d);
 		d.setFill(fill);
 		this.update();
 	}
@@ -49,20 +53,27 @@ public class PaintModel extends Observable {
 	}
 	public void Undo() {
 		if (!allObjects.isEmpty()) {
-			this.undone.addFirst(allObjects.removeLast());
+			this.undone.addFirst(allObjects.remove(allObjects.size()-1));
 			this.update();
 		}
 	}
 	public void Redo() {
 		if (!undone.isEmpty()) {
-			this.allObjects.addLast(undone.removeFirst());
+			this.allObjects.add(undone.removeFirst());
 			this.update();
 		}
 	}
 
-	public LinkedList<Drawable> getObjects() {
-		LinkedList<Drawable> newList = (LinkedList<Drawable>)this.allObjects.clone();
+	public ArrayList<Drawable> getObjects() {
+		ArrayList<Drawable> newList = (ArrayList<Drawable>)this.allObjects.clone();
 		return newList;
+	}
+	
+	public Drawable removeLast() {
+		if (this.allObjects.size() > 0) {
+			return this.allObjects.remove(allObjects.size()-1);
+		}
+		return null;
 	}
 	
 	public int getCurrent() {

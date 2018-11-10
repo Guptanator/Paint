@@ -10,7 +10,7 @@ public class shapeChooserButton extends ToggleButton  {
 	public shapeChooserButton(String name) {
 		super();
 		this.currentType=name;
-		this.setWidth(200);
+		this.setMinWidth(100);
 		this.handle();
 	}
 	public String currentMode() {

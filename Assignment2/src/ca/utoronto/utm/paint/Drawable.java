@@ -9,8 +9,9 @@ public abstract class Drawable {
 	
 	protected Color color;
 	protected boolean fill;
+	protected double thickness;
 	
-	public abstract void draw(GraphicsContext g, double thickness);
+	public abstract void draw(GraphicsContext g);
 	public abstract String type();
 	public abstract void setColor(Color c);
 	public abstract Color getColor();

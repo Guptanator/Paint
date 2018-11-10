@@ -4,10 +4,24 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 
-public interface ShapeManipulatorStrategy {
-	public abstract void makeShape(MouseEvent e, Color color, double l);
-	public abstract void changeShape(MouseEvent e, PaintModel p);
-	public abstract Drawable getShape();
-	public abstract void addShape(PaintModel p);
-	public abstract void moveFeedback(PaintModel g, MouseEvent e);
+public abstract class ShapeManipulatorStrategy {
+	protected Color color;
+	protected double thickness;
+	protected PaintModel model;
+	
+	public abstract void mouseHandle(MouseEvent e);
+	
+	public void setModel(PaintModel p) {
+		this.model = p;
+		this.model.update();
+	}
+	
+	public void setColor(Color c) {
+		this.color = c;
+	}
+	
+	public void setThickness(double t) {
+		this.thickness = t;
+	}
+	
 }

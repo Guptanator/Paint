@@ -1,6 +1,7 @@
-package ca.utoronto.utm.paint;
+package ca.utoronto.utm.tabPanel;
 
 
+import ca.utoronto.utm.paint.View;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;

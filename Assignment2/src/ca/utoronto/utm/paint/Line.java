@@ -8,9 +8,18 @@ public class Line extends Drawable {
 	
 	private Point first;
 	private Point last;
+	private double thickness;
+	
 	
 	public Line(Point p, Color c) {
 		this.first = p;
+		this.color = c;
+		this.thickness = thickness;
+	}
+	
+	public Line(Point p1, Point p2, Color c) {
+		this.first = p1;
+		this.last = p2;
 		this.color = c;
 	}
 	
@@ -23,9 +32,9 @@ public class Line extends Drawable {
 	}	
 	
 	@Override
-	public void draw(GraphicsContext g, double thickness) {
+	public void draw(GraphicsContext g) {
 		this.first.setColor(color);
-		this.first.draw(g, last, thickness);
+		this.first.draw(g, last, this.thickness);
 	}
 
 	@Override

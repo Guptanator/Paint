@@ -484,7 +484,7 @@ ESTIMATE : 4 hours
 ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 18 : UTORID
+TYPE     : BUG 18 : Guptaary
 NAME     : Thickness Applied to all Shapes
 OWNER    : 
 PRIORITY : 2
@@ -572,8 +572,8 @@ ISSUE    : Currently we laying out the top buttons in a static manner, but this 
 		   the device.
 --------------------------------------------------------------------------
 
-# Sprint 2 Nov 9, 2018
-# Sprint 2 Backlog UserStories go below
+# Sprint 3 Nov 9, 2018
+# Sprint 3 Backlog UserStories go below
 --------------------------------------------------------------------------
 TYPE     : BUG 15 : leejon79
 NAME     : Reformatted Color choosing code
@@ -581,4 +581,13 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Code for choosing the shape color was terrible and incapable of being set to main pane.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 24 : chowd460
+NAME     : PolyLine not Updating
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : When drawing polylines, the line being drawn present after terminating
+		   by switching drawing styles.
 --------------------------------------------------------------------------

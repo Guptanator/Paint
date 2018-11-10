@@ -9,6 +9,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.input.MouseEvent;
 
 public class Circle extends Drawable {
+	
 	private Point centre;
 	private int radius;
 	private boolean fill;
@@ -16,12 +17,12 @@ public class Circle extends Drawable {
 	private double thickness;
 	private Color color;
 	
-	public Circle(Point centre, int radius, Color color, double len) {
-		this.color = color;
-		this.fill = false;
-		this.centre = centre;
-		this.radius = radius;
-		this.len = len;
+	public Circle(Point p, int r, Color c, double thickness) {
+
+		this.centre = p;
+		this.radius = r;
+		this.color = c;
+		this.thickness = thickness;
 
 	}
 
@@ -43,11 +44,11 @@ public class Circle extends Drawable {
 	
 
 	@Override
-	public void draw(GraphicsContext g, double thickness) {
+	public void draw(GraphicsContext g) {
 		int radius = this.getRadius();
 		int x = this.getCentre().getX()-(radius);
 		int y = this.getCentre().getY()-(radius);
-		g.setLineWidth(len);
+		g.setLineWidth(this.thickness);
 		g.setStroke(this.color);
 		g.strokeOval(x, y, radius*2, radius*2);
 		if(fill)
@@ -55,9 +56,6 @@ public class Circle extends Drawable {
 			g.setFill(this.color);
 			g.fillOval(x, y, radius*2, radius*2);
 		}
-		g.setStroke(this.color);
-		g.strokeOval(x, y, radius*2, radius*2);
-		g.setLineWidth(thickness);
 	}
 
 	@Override

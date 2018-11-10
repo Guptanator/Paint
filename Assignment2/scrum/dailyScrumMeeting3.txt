@@ -47,13 +47,13 @@ Nov 7, 2018
 
 Nov 8, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     :Fixed thickness bug with square and rectangle
+	Obstacles :Issue with poly line and squiggle still remains, merging the buildpath also remains an issue.
 
 Nov 9, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :implemented thickness for shapes
+	Today     :implemented thickness for all lines and shapes, thickness implementation complete.
+	Obstacles :Still an issue with polyline, but it is non-thickness related.
 
 Nov 10, 2018
 	Yesterday :

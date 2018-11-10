@@ -106,15 +106,6 @@ ISSUE    : Code for color window is unattractive, should separate it into it's o
 		   Think about using builtin color chooser libraries.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 18 : UTORID
-NAME     : Thickness Applied to all Shapes
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : For shapes other than circle, currently selected thickness applies
-		   to all previously drawn shapes and draw styles.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 21 : UTORID
 NAME     : Fill Button
 OWNER    : 
@@ -122,16 +113,6 @@ PRIORITY : 2
 ESTIMATE : 1 hours
 ISSUE    : Should be able to use fill option from panel with a Button whose Icon will
 		   Change depending on whether shapes will currently fill or not.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 25 : phamjus1
-NAME     : ShapeManipulatorStrategies Re-implementation
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-ISSUE    : Current Implementation does not alter shapes on the stack as opposed
-		   To creating a shape and holding it until the user says it is good, then
-		   adding it to the stack.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 27 : utorid
@@ -181,6 +162,16 @@ ESTIMATE : 8 hours
 ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
 		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 30 : chowd460
+NAME     : Refactor current tab parent system
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
+		   which opens other dropdowns and popouts.
+--------------------------------------------------------------------------
+s
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -292,7 +283,7 @@ I WANT   : To be able to select the current line thickness, to be applied
            		draw a squiggle
            	results in two thinly outlined circles and a thinly outlined 
            	rectangle as well as two thickly outlined rectangles and a thick squiggle
-SO THAT  : 
+SO THAT  : I can apply thickness to different shapes.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 8 : phamjus1
@@ -477,6 +468,26 @@ ISSUE    : Shape buttons should only display and be clickable as icons.
 		   so should be redesigned accordingly.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 24 : chowd460
+NAME     : PolyLine not Updating
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : When drawing polylines, the line being drawn present after terminating
+		   by switching drawing styles.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 25 : phamjus1
+NAME     : ShapeManipulatorStrategies Re-implementation
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Current Implementation does not alter shapes on the stack as opposed
+		   To creating a shape and holding it until the user says it is good, then
+		   adding it to the stack.
+		   Should repair Square pivot with new implementation of SquareStrategy
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 26 : phamjus1
 NAME     : Canvas Justified to Top Left
 OWNER    : 
@@ -507,6 +518,17 @@ ESTIMATE : 4 hours
 ISSUE    : Currently we laying out the top buttons in a static manner, but this is problematic
 		   and does not scale well, we need a better way to layout buttons which scales based on
 		   the device.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 18 : Guptaary
+NAME     : Thickness Applied to all Shapes
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : For shapes other than circle, currently selected thickness applies
+		   to all previously drawn shapes and draw styles.
+SO THAT  : All lines and shapes can have individual thickness without effecting what is already
+		   drawn on the canvas.
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
@@ -559,13 +581,4 @@ ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
 		   Positions when it should be consistent with where the user clicked
 REASONING: Included as part of BUG25
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 24 : phamjus1
-NAME     : PolyLine not Updating
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : When drawing polylines, the line being drawn present after terminating
-		   by switching drawing styles.
-REASONING: Included as part of BUG25
---------------------------------------------------------------------------
+

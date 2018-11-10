@@ -4,58 +4,49 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-public class RectangleStrategy implements ShapeManipulatorStrategy {
+public class RectangleStrategy extends ShapeManipulatorStrategy {
 	
 	private Rectangle shape;
 	
 	@Override
-	public void makeShape(MouseEvent e, Color c, double l) {
+	public void mouseHandle(MouseEvent e) {
+		if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
+			changeShape(e);
+		} else if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
+			makeShape(e);
+		}
+	}
+	
+	private void makeShape(MouseEvent e) {
 		Point corner = new Point((int) e.getX(), (int) e.getY());
-		int length = 0;
-		this.shape = new Rectangle(corner, length, length, c, l);
+		this.shape = new Rectangle(corner, this.color, this.thickness);
+		this.model.addDrawable(shape);
 
 	}
-
-	@Override
 	public void changeShape(MouseEvent e, PaintModel p) {
 		this.shape.setFill(p.getFill());
+	}
+	private void changeShape(MouseEvent e) {
+		this.shape.setFill(this.model.getFill());
 		int h = this.shape.getStart().getY()- (int) e.getY();
 		int w = this.shape.getStart().getX()- (int) e.getX();
 		
 		if (h < 0) {
+			this.shape.getCorner().setY(this.shape.getStart().getY());
 			this.shape.setHeight(Math.abs(h));
 		} else if (h >= 0) {
 			this.shape.getCorner().setY((int) e.getY());
 			this.shape.setHeight(h);
 		}
 		if (w < 0) {
+			this.shape.getCorner().setX(this.shape.getStart().getX());
 			this.shape.setWidth(Math.abs(w));
 		} else if (w >= 0) {
 			this.shape.getCorner().setX((int) e.getX());
 			this.shape.setWidth(w);
 			
 		}
-		p.update();
+		this.model.update();
 	}
-
-	@Override
-	public Drawable getShape() {
-		// TODO Auto-generated method stub
-		return shape;
-	}
-
-
-	@Override
-	public void addShape(PaintModel p) {
-		p.addDrawable(this.shape);
-		this.shape = null;
-	}
-
-	@Override
-	public void moveFeedback(PaintModel g, MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 }
