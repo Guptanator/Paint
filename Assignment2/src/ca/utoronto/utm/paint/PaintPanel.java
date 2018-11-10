@@ -31,6 +31,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	private Color color= Color.BLACK;
 	
 	private String thick;
+	public boolean shapeMode=true;
 
 	public PaintPanel(PaintModel model, View view) {
 		
@@ -123,6 +124,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 
 	@Override
 	public void handle(MouseEvent e) {
-		this.strategy.mouseHandle(e);
+		if (this.shapeMode) {
+			this.strategy.mouseHandle(e);
+		}
 	}
 }
