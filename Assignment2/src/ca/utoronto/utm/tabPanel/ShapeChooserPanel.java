@@ -37,7 +37,7 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 			lastPressed.setInactive();
 		}
 		if (lastCommand == "PolyLine") {
-			((PolyLineStrategy)this.view.getPaintPanel().getStrategy()).terminateShape(true);
+			((PolyLineStrategy)this.view.getPaintPanel().getStrategy()).terminateShape();
 		}
 		source.setActive();
 		String command = source.currentMode();
