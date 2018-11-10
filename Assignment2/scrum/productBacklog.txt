@@ -49,7 +49,7 @@ ISSUE    : Should be able to use fill option from panel with a Button whose Icon
 		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 14 : utorid
+TYPE     : USER STORY 14 : chowd460
 NAME     : Erase brush
 OWNER    : 
 PRIORITY : 2
@@ -580,4 +580,15 @@ I WANT   : To be able to select all my options from one tab in addition to the u
 SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
 		   instructions.
 REASONING: Was replaced by BUG 27,28,30
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15 : chowd460
+NAME     : Move elements by click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to make any elements around on the screen by clicking
+SO THAT  : I can move elements around and fix-up my canvas art!
+REASONING: Was completed in BUG 29 since I needed a way to test is my method was working.
 --------------------------------------------------------------------------
