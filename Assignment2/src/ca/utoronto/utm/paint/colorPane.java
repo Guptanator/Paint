@@ -17,31 +17,6 @@ public class colorPane extends GridPane
 	public colorPane(View view){
 		
 		this.view = view;
-		
-//		this.red = new Slider(0, 255, 0);
-//		this.green = new Slider(0, 255, 0);
-//		this.blue = new Slider(0, 255, 0);
-//		this.add(red, 0, 0);
-//		this.add(green, 0, 1);
-//		this.add(blue, 0, 2);
-//		red.valueProperty().addListener(new ChangeListener<Number>(){
-//			@Override
-//			public void changed(ObservableValue<? extends Number> arg0, Number oldValue, Number newValue) {
-//				redValue = (double) newValue;
-//			}
-//        });
-//		green.valueProperty().addListener(new ChangeListener<Number>(){
-//			@Override
-//			public void changed(ObservableValue<? extends Number> arg0, Number oldValue, Number newValue) {
-//				greenValue = (double) newValue;
-//			}
-//        });
-//		blue.valueProperty().addListener(new ChangeListener<Number>(){
-//			@Override
-//			public void changed(ObservableValue<? extends Number> arg0, Number oldValue, Number newValue) {
-//				blueValue = (double) newValue;
-//			}
-//        });
 		final ColorPicker colorPicker = new ColorPicker();
 		this.add(colorPicker, 0, 0);
 		colorPicker.setOnAction(new EventHandler<ActionEvent>() {

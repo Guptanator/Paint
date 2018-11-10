@@ -83,7 +83,7 @@ public class Rectangle extends Drawable{
 		// TODO Auto-generated method stub
 		return color;
 	}
-	public void toFill(boolean fill)
+	public void setFill(boolean fill)
 	{
 		this.fill = fill;
 	}

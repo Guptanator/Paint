@@ -17,7 +17,7 @@ public class CircleStrategy implements ShapeManipulatorStrategy{
 	}
 	@Override
 	public void changeShape(MouseEvent e, PaintModel p) {
-		this.shape.toFill(p.getFill());
+		this.shape.setFill(p.getFill());
 		int horizontal = Math.abs((int) this.shape.getCentre().getX() - (int) e.getX());
 		int vertical = Math.abs((int) this.shape.getCentre().getY() - (int) e.getY());
 		int radius = (int)Math.sqrt(Math.pow(horizontal,2) + Math.pow(vertical,2));

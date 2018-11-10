@@ -31,7 +31,7 @@ public class PaintModel extends Observable {
 	
 	public void addDrawable(Drawable d) {
 		this.allObjects.addLast(d);
-		d.toFill(fill);
+		d.setFill(fill);
 		this.update();
 	}
 	public boolean getFill() {

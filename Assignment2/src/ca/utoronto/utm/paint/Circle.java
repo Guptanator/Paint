@@ -13,6 +13,7 @@ public class Circle extends Drawable {
 	private int radius;
 	private boolean fill;
 	private double len; 
+	private double thickness;
 	private Color color;
 	
 	public Circle(Point centre, int radius, Color color, double len) {
@@ -73,7 +74,7 @@ public class Circle extends Drawable {
 	public Color getColor() {
 		return this.color;
 	}
-	public void toFill(boolean shouldFill)
+	public void setFill(boolean shouldFill)
 	{
 		this.fill = shouldFill;
 	}

@@ -94,7 +94,10 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	}
 
 
-
+	public PaintModel getModel()
+	{
+		return this.model;
+	}
 	
 	@Override
 	public void update(Observable o, Object arg) {

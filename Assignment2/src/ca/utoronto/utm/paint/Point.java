@@ -77,8 +77,8 @@ public class Point extends Drawable {
 		// TODO Auto-generated method stub
 	}
 	@Override
-	public void toFill(boolean fill) {
-		
+	public void setFill(boolean fill) {
+		return;
 	}
 	
 }

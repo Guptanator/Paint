@@ -72,7 +72,7 @@ public class Square extends Drawable {
 	}
 
 	@Override
-	public void toFill(boolean fill) {
+	public void setFill(boolean fill) {
 		// TODO Auto-generated method stub
 		this.fill = fill;
 	}

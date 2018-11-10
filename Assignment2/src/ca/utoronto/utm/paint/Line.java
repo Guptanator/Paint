@@ -44,7 +44,7 @@ public class Line extends Drawable {
 	}
 
 	@Override
-	public void toFill(boolean fill) {
+	public void setFill(boolean fill) {
 		this.fill = fill;
 	}
 

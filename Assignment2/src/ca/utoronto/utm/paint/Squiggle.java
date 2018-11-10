@@ -44,8 +44,8 @@ public class Squiggle extends Drawable {
 	}
 
 	@Override
-	public void toFill(boolean fill) {
-		
+	public void setFill(boolean fill) {
+		return;
 	}
 
 }
