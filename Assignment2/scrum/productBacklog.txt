@@ -1,4 +1,4 @@
-# User Stories/Bugs (add as appropriate), modify at each Sprint Planning Meeting
+f# User Stories/Bugs (add as appropriate), modify at each Sprint Planning Meeting
 # If a USER STORY is large, break it into smaller user stories.
 # For example, the color chooser user story involves: 
 # 1 Color chooser UI (which could be a USER STORY)
@@ -57,15 +57,6 @@ ESTIMATE : 4 hours
 AS A     : user
 I WANT   : To be able to erase anywhere on the screen
 SO THAT  : I can correct any of my mistakes
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 29 : chowd460
-NAME     : Select object based on click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
-		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -517,6 +508,15 @@ PRIORITY : 2
 ESTIMATE : 8 hours
 ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
 		   which opens other dropdowns and popouts.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 29 : chowd460
+NAME     : Select object based on click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
+		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################

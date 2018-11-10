@@ -591,3 +591,49 @@ ESTIMATE : 1 hours
 ISSUE    : When drawing polylines, the line being drawn present after terminating
 		   by switching drawing styles.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15 : chowd460
+NAME     : Move elements by click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to make any elements around on the screen by clicking
+SO THAT  : I can move elements around and fix-up my canvas art!
+REASONING: Was completed in BUG 29 since I needed a way to test is my method was working.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 27 : chowd460
+NAME     : Implement Thickness into new panel
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The thickness window has not been properly set up for the new panel tab system.
+		   we need to re-factor thickness and set it up to function as a tab rather than border pane.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 28 : chowd460
+NAME     : Implement color into new panel
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The color palette should be uniform with other options, and should be located on the left panel.
+	 	   currently it is opened by drilling down into the top menu bar options.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 9 : chowd460
+NAME     : Architecture behind choosing drawing mode is poor
+OWNER    : 
+PRIORITY : 3
+ESTIMATE : 4 hours
+ISSUE    : A better architecture behind selecting a drawing mode can be created 
+by implementing the Factory Design Pattern as follows:
+
+The factory design pattern should be used by the paint buttons. 
+The factory is responsible for creating different ShapeManipulatorStrategy 
+instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
+ShapeManipulatorStrategy is created and installed in the PaintPanel. 
+Note that you can associate text with a button, even if you 
+display an ImageIcon. The string attached to the button causes the right choice 
+of object creation.
+--------------------------------------------------------------------------
