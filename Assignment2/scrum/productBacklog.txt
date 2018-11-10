@@ -171,6 +171,15 @@ ESTIMATE : 8 hours
 ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
 		   which opens other dropdowns and popouts.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 31 : phamjus1
+NAME     : Poly Line Termination On Right Click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Terminating the drawing of a poly line should remove the line currently
+		   being drawn from the allobjects array in the case of a right click.
+--------------------------------------------------------------------------
 s
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -518,15 +527,6 @@ ESTIMATE : 4 hours
 ISSUE    : Currently we laying out the top buttons in a static manner, but this is problematic
 		   and does not scale well, we need a better way to layout buttons which scales based on
 		   the device.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 31 : chowd460
-NAME     : Poly Line Termination On Right Click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Terminating the drawing of a poly line should remove the line currently
-		   being drawn from the allobjects array in the case of a right click.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 18 : Guptaary
