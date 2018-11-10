@@ -17,6 +17,37 @@ SO THAT  : I will be able to have multiple drawings projects working at the
 		   same time
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 13 : utorid
+NAME     : Master selection tab
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : To be able to select all my options from one tab in addition to the unique pages.
+SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
+		   instructions.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 14 : utorid
+NAME     : Erase brush
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to erase anywhere on the screen
+SO THAT  : I can correct any of my mistakes
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15 : phamjus1
+NAME     : Canvas Size Change window
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : Change the size of my canvas to my designated dimensions
+SO THAT  : Be able to specifically define my drawing space.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 7 : chowd460
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : 
@@ -133,27 +164,6 @@ ISSUE    : The color palette should be uniform with other options, and should be
 	 	   currently it is opened by drilling down into the top menu bar options.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 13 : utorid
-NAME     : Master selection tab
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 2 hours
-AS A     : user
-I WANT   : To be able to select all my options from one tab in addition to the unique pages.
-SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
-		   instructions.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 14 : utorid
-NAME     : Erase brush
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-AS A     : user
-I WANT   : To be able to erase anywhere on the screen
-SO THAT  : I can correct any of my mistakes
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 29 : chowd460
 NAME     : Select object based on click
 OWNER    : 
@@ -171,16 +181,6 @@ ESTIMATE : 8 hours
 ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
 		   which opens other dropdowns and popouts.
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 31 : phamjus1
-NAME     : Poly Line Termination On Right Click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Terminating the drawing of a poly line should remove the line currently
-		   being drawn from the allobjects array in the case of a right click.
---------------------------------------------------------------------------
-s
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -331,6 +331,17 @@ I WANT   : To click on one corner of a square, drag, and release to
 SO THAT  : I can add square to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 11 : chowd460
+NAME     : Better tabbing, more dynamic window switching
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to switch between all on the modes from the main screen.
+SO THAT  : I have a more user friendly experience without having to click
+		   through many different menus to get a certain option.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 1 : chowd460
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
@@ -447,6 +458,17 @@ ESTIMATE : 4 hours
 ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 18 : Guptaary
+NAME     : Thickness Applied to all Shapes
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : For shapes other than circle, currently selected thickness applies
+		   to all previously drawn shapes and draw styles.
+SO THAT  : All lines and shapes can have individual thickness without effecting what is already
+		   drawn on the canvas.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 19 : phamjus1
 NAME     : Current drawn shape On Wrong Layer
 OWNER    : 
@@ -508,17 +530,6 @@ ISSUE    : Canvas Currently displaying in the center of the borderpane. It shoul
 		   be set to 300, disregarding detection of the display device for testing purposes.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 11 : chowd460
-NAME     : Better tabbing, more dynamic window switching
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able to switch between all on the modes from the main screen.
-SO THAT  : I have a more user friendly experience without having to click
-		   through many different menus to get a certain option.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 30 : chowd460
 NAME     : Improve the layout of tab headers
 OWNER    : 
@@ -527,17 +538,6 @@ ESTIMATE : 4 hours
 ISSUE    : Currently we laying out the top buttons in a static manner, but this is problematic
 		   and does not scale well, we need a better way to layout buttons which scales based on
 		   the device.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 18 : Guptaary
-NAME     : Thickness Applied to all Shapes
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : For shapes other than circle, currently selected thickness applies
-		   to all previously drawn shapes and draw styles.
-SO THAT  : All lines and shapes can have individual thickness without effecting what is already
-		   drawn on the canvas.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 31 : phamjus1
