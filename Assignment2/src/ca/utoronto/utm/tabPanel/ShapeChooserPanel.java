@@ -1,14 +1,14 @@
 package ca.utoronto.utm.tabPanel;
 
-import ca.utoronto.utm.paint.CircleStrategy;
-import ca.utoronto.utm.paint.PolyLineStrategy;
-import ca.utoronto.utm.paint.RectangleStrategy;
-import ca.utoronto.utm.paint.SquareStrategy;
-import ca.utoronto.utm.paint.SquiggleStrategy;
 import ca.utoronto.utm.paint.View;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
+import shapes.CircleStrategy;
+import shapes.PolyLineStrategy;
+import shapes.RectangleStrategy;
+import shapes.SquareStrategy;
+import shapes.SquiggleStrategy;
 
 public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEvent> {
 

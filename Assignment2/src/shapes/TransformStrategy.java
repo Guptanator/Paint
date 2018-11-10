@@ -1,7 +1,8 @@
-package ca.utoronto.utm.paint;
+package shapes;
 
 import java.util.ArrayList;
 
+import ca.utoronto.utm.paint.PaintModel;
 import javafx.scene.input.MouseEvent;
 
 public abstract class TransformStrategy {

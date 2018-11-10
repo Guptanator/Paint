@@ -1,4 +1,4 @@
-package ca.utoronto.utm.paint;
+package shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;

@@ -9,6 +9,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import shapes.CircleStrategy;
+import shapes.Drawable;
+import shapes.ShapeManipulatorStrategy;
+import shapes.TransformStrategy;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

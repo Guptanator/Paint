@@ -1,37 +1,46 @@
-package ca.utoronto.utm.paint;
-import java.util.ArrayList;
-import java.util.Arrays;
+package shapes;
+
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-public class Squiggle extends Drawable {
+public class Line extends Drawable {
 	
-	private ArrayList<Point> points;
+	private Point first;
+	private Point last;
+	private double thickness;
 	
-	public Squiggle(int x, int y, Color c, double thickness) {
-		this.points = new ArrayList<Point>();
+	
+	public Line(Point p, Color c) {
+		this.first = p;
+		this.color = c;
 		this.thickness = thickness;
-		this.points.add(new Point (x,y,c, this.thickness));
+	}
+	
+	public Line(Point p1, Point p2, Color c) {
+		this.first = p1;
+		this.last = p2;
 		this.color = c;
 	}
 	
-	public void addPoint(int x, int y) {
-		this.points.add(new Point (x,y,color, this.thickness));
+	public Point getLast() {
+		return this.last;
 	}
+	
+	public void setLast(Point p) {
+		this.last = p;
+	}	
 	
 	@Override
 	public void draw(GraphicsContext g) {
-		for (int i = 0; i < this.points.size() - 1; i++) {
-			points.get(i).draw(g, points.get(i+1), this.thickness);
-		}
+		this.first.setColor(color);
+		this.first.draw(g, last, this.thickness);
 	}
 
 	@Override
 	public String type() {
-		// TODO Auto-generated method stub
-		return "Squiggle";
+		return "Line";
 	}
 
 	@Override
@@ -41,12 +50,12 @@ public class Squiggle extends Drawable {
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
 		return this.color;
 	}
 
 	@Override
 	public void toFill(boolean fill) {
+		// TODO Auto-generated method stub
 		
 	}
 

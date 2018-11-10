@@ -1,4 +1,4 @@
-package ca.utoronto.utm.paint;
+package shapes;
 
 import java.util.ArrayList;
 

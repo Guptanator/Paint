@@ -2,13 +2,13 @@ package ca.utoronto.utm.tabPanel;
 
 import java.util.Observer;
 
-import ca.utoronto.utm.paint.MoveShapeStrategy;
 import ca.utoronto.utm.paint.View;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import shapes.MoveShapeStrategy;
 
 public class OtherModesPane extends VBox implements EventHandler<ActionEvent>{
 	private View view;

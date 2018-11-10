@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import shapes.Drawable;
 
 public class PaintModel extends Observable {
 
