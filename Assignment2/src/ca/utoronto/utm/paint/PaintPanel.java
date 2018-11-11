@@ -70,6 +70,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		
 		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
+		g.setLineWidth(1.0);
 		g.strokeText("i=" + i, 50, 75);
 		i = i + 1;
 
