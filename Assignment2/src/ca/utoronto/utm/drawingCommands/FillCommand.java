@@ -1,5 +1,6 @@
 package ca.utoronto.utm.drawingCommands;
 
+import ca.utoronto.utm.shapes.ClosedShape;
 import ca.utoronto.utm.shapes.Drawable;
 
 /**
@@ -22,6 +23,8 @@ public class FillCommand implements DrawingCommands{
 	*/
 	@Override
 	public void executeChange(Drawable d) {
-		d.setFill(this.fill);
+		if (d.isClosed()) {
+			((ClosedShape)d).setFill(this.fill);
+		}
 	}
 }

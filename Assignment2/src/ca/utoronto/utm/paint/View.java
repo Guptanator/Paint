@@ -132,7 +132,7 @@ public class View implements EventHandler<ActionEvent> {
 		}
 		else if (((MenuItem)event.getSource()).getText()=="Exit") {
 			System.exit(0);
-		} 
+		}
 	}
 	/**
 	 * This function allows the outside world to set the fill icons as filled or unfilled.

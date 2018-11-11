@@ -128,14 +128,6 @@ public class PaintModel extends Observable {
 		return null;
 	}
 	
-	public int getCurrent() {
-		return this.current;
-	}
-	
-	public void setCurrent(int current) {
-		this.current = current;
-		this.update();
-	}
 	public void update() {
 		this.setChanged();
 		this.notifyObservers();

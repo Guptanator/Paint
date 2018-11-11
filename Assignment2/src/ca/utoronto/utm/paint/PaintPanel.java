@@ -142,14 +142,12 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		}
 	}
 	/**
-	 * Changes the color value and stores it in the
-	 * ShapeManipulatorStrategy strategy.
+	 * Changes the color value in the model
 	 * @param c Color that will change the drawable
 	 * color.
 	 */
 	public void setColor(Color c) {
-		this.color = c;
-		this.strategy.setColor(c);
+		this.model.setColor(c);
 	}
 	/**
 	 * Returns the current ShapeManipulatorStrategy (strategy).

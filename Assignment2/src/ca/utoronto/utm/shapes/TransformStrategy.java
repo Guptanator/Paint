@@ -33,7 +33,9 @@ public abstract class TransformStrategy {
 	protected Drawable findElement(MouseEvent e) {
 		ArrayList<Drawable> allObjects = model.getObjects();
 		for (int i= allObjects.size()-1; i >= 0;i--) {
-			if(allObjects.get(i).isClicked(e)) return allObjects.get(i);
+			if (allObjects.get(i).isClosed()) {
+				if(((ClosedShape)(allObjects.get(i))).isClicked(e)) return allObjects.get(i);
+			}
 		}
 		return null;
 	}

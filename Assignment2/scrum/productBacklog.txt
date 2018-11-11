@@ -478,6 +478,16 @@ ISSUE    : Right now the system is messy and bulky, let's cut it down, and have 
 		   which opens other dropdowns and popouts.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 36 : chowd460
+NAME     : Violating LSP
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Right now we are violating LSP since we have methods in line, point, squiggle which are
+		   never used and neccessary. By adding in the ClosedShape abstract class are avoiding breaking
+		   LSP and we are making our code more logical.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 7 : chowd460
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : 

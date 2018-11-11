@@ -7,7 +7,7 @@ import javafx.scene.input.MouseEvent;
 */
 public class MoveShapeStrategy extends TransformStrategy {
 
-	private Drawable currentShape;
+	private ClosedShape currentShape;
 	double deltaX;
 	double deltaY;
 	@Override
@@ -18,7 +18,7 @@ public class MoveShapeStrategy extends TransformStrategy {
 	 */
 	public void handleMouse(MouseEvent e) {
 		if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
-			currentShape = this.findElement(e);
+			currentShape = (ClosedShape)this.findElement(e);
 			if (currentShape!=null)PrepareDeltas(e);
 		} else if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
 			MoveDrawable(e);
