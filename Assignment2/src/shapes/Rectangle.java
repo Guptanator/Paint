@@ -1,4 +1,4 @@
-package ca.utoronto.utm.paint;
+package shapes;
 
 
 import javafx.scene.canvas.GraphicsContext;
@@ -27,6 +27,9 @@ public class Rectangle extends Drawable{
 	
 	public Point getCorner() {
 		return this.corner;
+	}
+	public void setCorner(Point p) {
+		this.corner = p;
 	}
 	
 	public void setHeight(int h) {
@@ -63,7 +66,6 @@ public class Rectangle extends Drawable{
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
 		return color;
 	}
 	public void setFill(boolean fill)
@@ -74,6 +76,33 @@ public class Rectangle extends Drawable{
 	@Override
 	public void setThickness(double thickness) {
 		this.thickness = thickness;
+	}
+	public boolean isClicked(MouseEvent e) {
+		double x = e.getX();double y = e.getY();
+		if (x<=this.getCorner().getX()+this.width && x>this.getCorner().getX()) {
+			if (y<=this.getCorner().getY()+this.height && y>this.getCorner().getY()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public double yDifferent(double d) {
+		if (d>this.getCorner().getY()) {
+			return -(d-this.getCorner().getY());
+		} else {
+			return this.getCorner().getY()-d;
+		}
+	}
+
+	@Override
+	public double xDifferent(double d) {
+		if (d<this.getCorner().getX()) {
+			return this.getCorner().getX()-d;
+		} else {
+			return -(d-this.getCorner().getX());
+		}
 	}
 
 }

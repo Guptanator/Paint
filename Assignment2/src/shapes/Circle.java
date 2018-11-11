@@ -1,4 +1,4 @@
-package ca.utoronto.utm.paint;
+package shapes;
 
 
 import java.awt.Graphics;
@@ -73,6 +73,7 @@ public class Circle extends Drawable{
 	public Color getColor() {
 		return this.color;
 	}
+	@Override
 	public void setFill(boolean fill)
 	{
 		this.fill = fill;
@@ -82,4 +83,28 @@ public class Circle extends Drawable{
 	public void setThickness(double thickness) {
 		this.thickness = thickness;
 	}
+
+	@Override
+	public boolean isClicked(MouseEvent e) {
+		double distance = Math.sqrt(Math.pow(e.getX() - this.getCentre().getX(), 2) + Math.pow(e.getY() - this.getCentre().getY(), 2));
+		if (distance <= this.radius) {
+			return true;
+		}
+		return false;
+	}
+	public double yDifferent(double d) {
+		if (d>this.getCentre().getY()) {
+			return -(d-this.getCentre().getY());
+		} else {
+			return this.getCentre().getY()-d;
+		}
+	}
+	public double xDifferent(double d) {
+		if (d<this.getCentre().getX()) {
+			return this.getCentre().getX()-d;
+		} else {
+			return -(d-this.getCentre().getX());
+		}		
+	}
+
 }

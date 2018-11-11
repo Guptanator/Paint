@@ -66,20 +66,6 @@ PaintModel.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 8 : guptaary/leejon79
-NAME     : Architecture for handling shape modifiers can be improved 
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 4 hours
-ISSUE    : The architecture can be improved if we implement the Command Design 
-Pattern to handle changes to the graphics context such as changing drawing 
-color, stroke width etc. You can accomplished this by wrapping the changes
-to the graphics context in a DrawingCommand. This way these changes can be
-added to the Bug 2.1 DrawingCommand list. That is, these new types of 
-DrawingCommands appear on PaintPanel's list right along side 
-the Shape type DrawingCommands.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 9 : chowd460
 NAME     : Architecture behind choosing drawing mode is poor
 OWNER    : 
@@ -570,6 +556,20 @@ ISSUE    : Having a list of different types of drawable things in the
            Consider some design patterns, or change of responsibility
            here.
 REASONING: Included as part of BUG 10
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 8 : guptaary/leejon79
+NAME     : Architecture for handling shape modifiers can be improved 
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : The architecture can be improved if we implement the Command Design 
+Pattern to handle changes to the graphics context such as changing drawing 
+color, stroke width etc. You can accomplished this by wrapping the changes
+to the graphics context in a DrawingCommand. This way these changes can be
+added to the Bug 2.1 DrawingCommand list. That is, these new types of 
+DrawingCommands appear on PaintPanel's list right along side 
+the Shape type DrawingCommands.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 23 : UTORID

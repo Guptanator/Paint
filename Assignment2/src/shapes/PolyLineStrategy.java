@@ -1,4 +1,4 @@
-package ca.utoronto.utm.paint;
+package shapes;
 
 import java.util.ArrayList;
 
@@ -12,6 +12,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	private Line shape;
 	private boolean isFirst = true;
 	private boolean isEnd = false;
+	private boolean isTerminated;
 	
 	@Override
 	public void mouseHandle(MouseEvent e) {
@@ -20,8 +21,9 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 		} else if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			if (e.getButton() == MouseButton.PRIMARY) {
 				makeShape(e);
+				this.isTerminated = false;
 			} else {
-				terminateShape(false);
+				terminateShape();
 			}
 		} else if (e.getEventType() == MouseEvent.MOUSE_MOVED) {
 			moveFeedback(e);
@@ -40,14 +42,16 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 		}
 	}
 	
-	public void terminateShape(boolean Force) {
-		if (Force) {
+	public void terminateShape() {
+		if (!this.isTerminated) {
 			this.model.removeLast();
+			this.shape = null;
+			this.isFirst = true;
+			this.isEnd = true;
+			this.isTerminated = true;
+			this.model.update();
 		}
-		this.shape = null;
-		this.isFirst = true;
-		this.isEnd = true;
-		this.model.update();
+		
 	}
 	private void changeShape(MouseEvent e) {
 		if (!this.isFirst) {

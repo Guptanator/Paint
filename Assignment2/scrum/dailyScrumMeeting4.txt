@@ -56,19 +56,19 @@ Nov 7, 2018
 	Obstacles :
 
 Nov 8, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Cleaned up color picking code to seperate it from the the PaintModel code.
+	Today     : Worked on Bug 8, made some progress, but still confused on how to implement it.
+	Obstacles : Not a lot of progress made today since I was confused on how to properly implement command pattern into the code.
 
 Nov 9, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Not a lot of progress made in Bug 8 since I'm still learning how it works
+	Today     : Still learning how to implement command pattern for Bug 8, have finished the majority of it, but holding off pushing it to notify others.
+	Obstacles : Still learning command pattern.
 
 Nov 10, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Now realized that I was using the wrong code for the commands and implemented it wrong.
+	Today     : Finally finished Bug 8 and ready to push, as well as wrote java docs for command pattern's, most of paintpanel's, and paintmodel's code.
+	Obstacles : Finding the proper place to implement the invoker class (PropertyInvoker).
 	
 Nov 11, 2018
 	Yesterday :

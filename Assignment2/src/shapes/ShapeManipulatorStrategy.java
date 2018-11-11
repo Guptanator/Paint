@@ -1,7 +1,8 @@
-package ca.utoronto.utm.paint;
+package shapes;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import ca.utoronto.utm.paint.PaintModel;
 import javafx.scene.canvas.GraphicsContext;
 
 public abstract class ShapeManipulatorStrategy {

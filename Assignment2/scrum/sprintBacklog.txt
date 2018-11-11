@@ -151,16 +151,6 @@ ISSUE    : Having a list of different types of drawable things in the
            here.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 5 : guptaary
-NAME     : Squiggle is broken
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 4 hours
-ISSUE    : Squiggles are connected to each other by a straight line. Each drag
-		   of the mouse should be a separate squiggle. Possibly
-           the issue is with the representation of the squiggles in the Model.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 6 : phamjus1
 NAME     : Circle drawing is broken
 OWNER    : @professor rosenbloom
@@ -179,6 +169,258 @@ ESTIMATE : 8 hours 45 minutes
 AS A     : user
 I WANT   : To be able to undo and redo operations while painting
 SO THAT  : I can correct my mistakes and undo those corrections
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 10 : phamjus1
+NAME     : Architecture behind creating shape instances is poor
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours 
+ISSUE    : A better architecture for creating shape instances so that it is 
+more flexible, and easier to work with can be created using the Strategy Design 
+pattern as follows:
+
+Create class/abstract class/interface  ShapeManipulatorStrategy as well 
+as subclasses/implementators for each type of Shape. Call these the
+concrete ShapeNamipulatorStrategies
+
+The concrete ShapeManipulatorStrategies are responsible for 
+
+1. Creating instances of Shape and putting them on top of 
+   the PaintModel command stack.
+
+2. Understanding how mouse events modify the shape at the top of the 
+   PaintModel command stack.
+
+3. Calling the PaintPanel repaint at appropriate times.
+
+This strategy can be put in place either by having PaintPanel's mouse 
+events forwarded through PaintPanel into the current strategy, or by 
+simply switching the PaintPanel's event handlers as appropriate.
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 11 : phamjus1
+NAME     : Re-implement Rectangle and Circle Changes
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Changes from US2-4 have been reverted and have caused that
+functionality to stop working.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 13 : leejon79
+NAME     : Coloring rectangles
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 5 minutes
+ISSUE    : Small error with not setting color to rectangle properly.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 14 : chowd460
+NAME     : Objects being drawn in the incorrect order
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
+--------------------------------------------------------------------------
+
+# Sprint 2 Nov 3, 2018
+# Sprint 2 Backlog UserStories go below
+
+--------------------------------------------------------------------------
+TYPE     : USER STORY 8 : phamjus1
+NAME     : Implement Poly Line
+OWNER    : 
+PRIORITY : 3
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able draw lines draw poly lines in the current style. After 
+		   selecting the Poly line button, I should be click on the canvas to make points
+		   those points will be joined by line segments and painted. Also, during the
+		   drawing process, I should be able to see a feedback line to show me
+		   what the line will look like before I click.
+           During the second click, I should be able to drag my mouse to
+           define a curve and release to set the curve.
+           The line prior to the second click and the curve during the drag
+           will be displayed mid construction.
+		   Continued Construction of Poly lines should terminate on right click
+SO THAT  : I can add poly line to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 11 : chowd460
+NAME     : Better tabbing, more dynamic window switching
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to switch between all on the modes from the main screen.
+SO THAT  : I have a more user friendly experience without having to click
+		   through many different menus to get a certain option.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12 : phamjus1
+NAME     : new canvas from dropdown
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to make new a new canvas from the new option on the file
+		   drop down. I will be able select the a specific canvas from a tab selector
+		   at the top of the screen.
+SO THAT  : I will be able to have multiple drawings projects working at the
+		   same time
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 5 : phamjus1
+NAME     : Squiggle is broken
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : Squiggles are connected to each other by a straight line. Each drag
+		   of the mouse should be a separate squiggle. Possibly
+           the issue is with the representation of the squiggles in the Model.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 12 : leejon79
+NAME     : Color window class
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Code for color window is ugly, should separate it into it's own class
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 16 : chowd460
+NAME     : Exit functionality
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The exit button was not properly functioning, added ability to exit out of the application
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 17 : chowd460
+NAME     : Undo/redo broken
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 18 : Guptaary
+NAME     : Thickness Applied to all Shapes
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : For shapes other than circle, currently selected thickness applies
+		   to all previously drawn shapes and draw styles.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 19 : phamjus1
+NAME     : Current drawn shape On Wrong Layer
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Currently the feedback for currently drawn shapes appear behind
+		   older shapes on the canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 20 : phamjus1
+NAME     : Full Size Canvas
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Canvas should be scaled to use in full screen.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 22 : chowd460
+NAME     : Buttons should only display icons
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Shape buttons should only display and be clickable as icons.
+		   The Buttons are also of uneven size and should be fixed along
+		   with the change to icons.
+		   For removal of words, consider creating subclass of button.
+		   The subsequent panel will be too large for the changed buttons
+		   so should be redesigned accordingly.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 25 : phamjus1
+NAME     : ShapeManipulatorStrategies Re-implementation
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Current Implementation does not alter shapes on the stack as opposed
+		   To creating a shape and holding it until the user says it is good, then
+		   adding it to the stack.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 26 : phamjus1
+NAME     : Canvas Justified to Top Left
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Canvas Currently displaying in the center of the borderpane. It should
+		   be justified so that on resizing, the canvas is locked to the upper left.
+		   Also, current canvas size will for the development phase of the project
+		   be set to 300, disregarding detection of the display device for testing purposes.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 30 : chowd460
+NAME     : Improve the layout of tab headers
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+ISSUE    : Currently we laying out the top buttons in a static manner, but this is problematic
+		   and does not scale well, we need a better way to layout buttons which scales based on
+		   the device.
+--------------------------------------------------------------------------
+
+# Sprint 3 Nov 9, 2018
+# Sprint 3 Backlog UserStories go below
+--------------------------------------------------------------------------
+TYPE     : USER STORY 12 : phamjus1
+NAME     : new canvas from dropdown
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to make new a new canvas from the new option on the file
+		   drop down. I will be able select the a specific canvas from a tab selector
+		   at the top of the screen.
+SO THAT  : I will be able to have multiple drawings projects working at the
+		   same time
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 13 : utorid
+NAME     : Master selection tab
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : To be able to select all my options from one tab in addition to the unique pages.
+SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
+		   instructions.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 14 : utorid
+NAME     : Erase brush
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to erase anywhere on the screen
+SO THAT  : I can correct any of my mistakes
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15 : phamjus1
+NAME     : Canvas Size Change window
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : Change the size of my canvas to my designated dimensions
+SO THAT  : Be able to specifically define my drawing space.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 7 : chowd460
@@ -261,186 +503,85 @@ display an ImageIcon. The string attached to the button causes the right choice
 of object creation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 10 : phamjus1
-NAME     : Architecture behind creating shape instances is poor
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours 
-ISSUE    : A better architecture for creating shape instances so that it is 
-more flexible, and easier to work with can be created using the Strategy Design 
-pattern as follows:
-
-Create class/abstract class/interface  ShapeManipulatorStrategy as well 
-as subclasses/implementators for each type of Shape. Call these the
-concrete ShapeNamipulatorStrategies
-
-The concrete ShapeManipulatorStrategies are responsible for 
-
-1. Creating instances of Shape and putting them on top of 
-   the PaintModel command stack.
-
-2. Understanding how mouse events modify the shape at the top of the 
-   PaintModel command stack.
-
-3. Calling the PaintPanel repaint at appropriate times.
-
-This strategy can be put in place either by having PaintPanel's mouse 
-events forwarded through PaintPanel into the current strategy, or by 
-simply switching the PaintPanel's event handlers as appropriate.
-
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 11 : phamjus1
-NAME     : Re-implement Rectangle and Circle Changes
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : Changes from US2-4 have been reverted and have caused that
-functionality to stop working.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 12 : leejon79
 NAME     : Color window class
 OWNER    : 
-PRIORITY : 1
+PRIORITY : 2
 ESTIMATE : 1 hours
-ISSUE    : Code for color window is ugly, should separate it into it's own class
+ISSUE    : Code for color window is unattractive, should separate it into it's own class.
+		   Think about using builtin color chooser libraries.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 13 : leejon79
-NAME     : Coloring rectangles
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 5 minutes
-ISSUE    : Small error with not setting color to rectangle properly.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 14 : chowd460
-NAME     : Objects being drawn in the incorrect order
+TYPE     : BUG 15 : leejon79
+NAME     : Reformatted Color choosing code
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 1 hours
-ISSUE    : Objects being drawn to the canvas are in the incorrect vertical order.
+ISSUE    : Code for choosing the shape color was terrible and incapable of being set to main pane.
 --------------------------------------------------------------------------
-
-# Sprint 2 Nov 3, 2018
-# Sprint 2 Backlog UserStories go below
-
 --------------------------------------------------------------------------
-TYPE     : USER STORY 8 : phamjus1
-NAME     : Implement Poly Line
+TYPE     : BUG 21 : chowd460
+NAME     : Fill Button
 OWNER    : 
-PRIORITY : 3
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able draw lines draw poly lines in the current style. After 
-		   selecting the Poly line button, I should be click on the canvas to make points
-		   those points will be joined by line segments and painted. Also, during the
-		   drawing process, I should be able to see a feedback line to show me
-		   what the line will look like before I click.
-           During the second click, I should be able to drag my mouse to
-           define a curve and release to set the curve.
-           The line prior to the second click and the curve during the drag
-           will be displayed mid construction.
-		   Continued Construction of Poly lines should terminate on right click
-SO THAT  : I can add poly line to my canvas
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Should be able to use fill option from panel with a Button whose Icon will
+		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 11 : chowd460
-NAME     : Better tabbing, more dynamic window switching
+TYPE     : BUG 24 : chowd460
+NAME     : PolyLine not Updating
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : When drawing polylines, the line being drawn present after terminating
+		   by switching drawing styles.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 29 : chowd460
+NAME     : Select object based on click
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able to switch between all on the modes from the main screen.
-SO THAT  : I have a more user friendly experience without having to click
-		   through many different menus to get a certain option.
+ISSUE    : Current we do not have a way to identify which element we are clicking on, this is needed
+		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 12 : phamjus1
-NAME     : new canvas from dropdown
+TYPE     : BUG 31 : phamjus1
+NAME     : Poly Line Termination On Right Click
 OWNER    : 
 PRIORITY : 2
-ESTIMATE : 8 hours
+ESTIMATE : 1 hours
+ISSUE    : Terminating the drawing of a poly line should remove the line currently
+		   being drawn from the allobjects array in the case of a right click.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16 : chowd460
+NAME     : Move elements by click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
 AS A     : user
-I WANT   : To be able to make new a new canvas from the new option on the file
-		   drop down. I will be able select the a specific canvas from a tab selector
-		   at the top of the screen.
-SO THAT  : I will be able to have multiple drawings projects working at the
-		   same time
+I WANT   : To be able to make any elements around on the screen by clicking
+SO THAT  : I can move elements around and fix-up my canvas art!
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 5 : guptaary
-NAME     : Squiggle is broken
+TYPE     : BUG 27 : chowd460
+NAME     : Implement Thickness into new panel
 OWNER    : 
 PRIORITY : 1
-ESTIMATE : 4 hours
-ISSUE    : Squiggles are connected to each other by a straight line. Each drag
-		   of the mouse should be a separate squiggle. Possibly
-           the issue is with the representation of the squiggles in the Model.
+ESTIMATE : 1 hours
+ISSUE    : The thickness window has not been properly set up for the new panel tab system.
+		   we need to re-factor thickness and set it up to function as a tab rather than border pane.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 7 : chowd460
-NAME     : Architecture for drawing shapes can be improved
+TYPE     : BUG 28 : chowd460
+NAME     : Implement color into new panel
 OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-ISSUE    : The architecture can be improved if we implement the Command Design 
-Pattern to draw shapes as follows:
-
-The PaintModel should use the command design pattern. 
-That is, each shape knows how to draw itself, so there is a single list of 
-DrawingCommands maintained by the PaintModel and used by the PaintPanel.
-repaint() simply asks the PaintModel to ask command to execute(g).
-The simplest way to make this happen is to make each shape implement the 
-DrawingCommand interface which requires execute(g) to be implemented.
-Well sort of.
-
-NOTE: The PaintModel does know how to logically draw itself, so does
-know about strokes and pen colors etc. Depending on how much you want
-to split off the logical from the GUI, it may not have to know how to 
-draw on the screen. This is a subtle difference. For example, the
-following logically describes a scene, without actually knowing
-how to draw it on the screen ...
-
-Color = green
-Fill = off
-Border = on
-BorderWidth = 10
-Circle radius 10 at 12,15
-Color = red
-Fill = on
-FillColor = black
-Border = on
-BorderWidth = 7
-Square width 20 at 100,200
-
-If you want to build a more 'logical' PaintModel, you can consider ...
-
-1) Create a mirror hierarchy for Shape, this mirror hirerachy 
-has things like DrawableCircle which has a Circle. The DrawableCircle
-knows how to draw the instance of Circle it holds. Each Shape will
-still need information about its color, and stroke, one way or another.
-
-OR
-
-2) Lookup and apply the Visitor design pattern to the more logical
-PaintModel.
-
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 8 : guptaary/leejon79
-NAME     : Architecture for handling shape modifiers can be improved 
-OWNER    : 
-PRIORITY : 3
-ESTIMATE : 4 hours
-ISSUE    : The architecture can be improved if we implement the Command Design 
-Pattern to handle changes to the graphics context such as changing drawing 
-color, stroke width etc. You can accomplished this by wrapping the changes
-to the graphics context in a DrawingCommand. This way these changes can be
-added to the Bug 2.1 DrawingCommand list. That is, these new types of 
-DrawingCommands appear on PaintPanel's list right along side 
-the Shape type DrawingCommands.
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The color palette should be uniform with other options, and should be located on the left panel.
+	 	   currently it is opened by drilling down into the top menu bar options.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 9 : chowd460
@@ -458,136 +599,4 @@ ShapeManipulatorStrategy is created and installed in the PaintPanel.
 Note that you can associate text with a button, even if you 
 display an ImageIcon. The string attached to the button causes the right choice 
 of object creation.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 12 : leejon79
-NAME     : Color window class
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : Code for color window is ugly, should separate it into it's own class
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 16 : chowd460
-NAME     : Exit functionality
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : The exit button was not properly functioning, added ability to exit out of the application
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 17 : chowd460
-NAME     : Undo/redo broken
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 4 hours
-ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 18 : Guptaary
-NAME     : Thickness Applied to all Shapes
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : For shapes other than circle, currently selected thickness applies
-		   to all previously drawn shapes and draw styles.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 19 : phamjus1
-NAME     : Current drawn shape On Wrong Layer
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : Currently the feedback for currently drawn shapes appear behind
-		   older shapes on the canvas
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 20 : phamjus1
-NAME     : Full Size Canvas
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Canvas should be scaled to use in full screen.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 21 : UTORID
-NAME     : Fill Checkbox
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Should be able to use fill option from panel with a clickable checkbox.
-		   Checkbox will show filled if fill option is on.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 22 : chowd460
-NAME     : Buttons should only display icons
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Shape buttons should only display and be clickable as icons.
-		   The Buttons are also of uneven size and should be fixed along
-		   with the change to icons.
-		   For removal of words, consider creating subclass of button.
-		   The subsequent panel will be too large for the changed buttons
-		   so should be redesigned accordingly.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 25 : phamjus1
-NAME     : ShapeManipulatorStrategies Re-implementation
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-ISSUE    : Current Implementation does not alter shapes on the stack as opposed
-		   To creating a shape and holding it until the user says it is good, then
-		   adding it to the stack.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 26 : phamjus1
-NAME     : Canvas Justified to Top Left
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Canvas Currently displaying in the center of the borderpane. It should
-		   be justified so that on resizing, the canvas is locked to the upper left.
-		   Also, current canvas size will for the development phase of the project
-		   be set to 300, disregarding detection of the display device for testing purposes.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 29 : chowd460
-NAME     : Select object based on click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-ISSUE    : Current we do not have a way to identify which element we are clicking on, this is needed
-		   to do specific element deletion, fill bucket, moving, rotation etc.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 30 : chowd460
-NAME     : Improve the layout of tab headers
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-ISSUE    : Currently we laying out the top buttons in a static manner, but this is problematic
-		   and does not scale well, we need a better way to layout buttons which scales based on
-		   the device.
---------------------------------------------------------------------------
-
-# Sprint 3 Nov 9, 2018
-# Sprint 3 Backlog UserStories go below
---------------------------------------------------------------------------
-TYPE     : BUG 15 : leejon79
-NAME     : Reformatted Color choosing code
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : Code for choosing the shape color was terrible and incapable of being set to main pane.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 24 : chowd460
-NAME     : PolyLine not Updating
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : When drawing polylines, the line being drawn present after terminating
-		   by switching drawing styles.
 --------------------------------------------------------------------------

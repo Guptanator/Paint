@@ -42,7 +42,6 @@ public class View implements EventHandler<ActionEvent> {
 		root.setTop(createMenuBar());
 		root.setLeft(this.tabParent);
 		root.setCenter(drawArea);
-		root.setRight(this.colorPane);
 
 		Scene scene = new Scene(root);
 		stage.setScene(scene);

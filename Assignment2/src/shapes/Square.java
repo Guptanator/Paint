@@ -1,7 +1,8 @@
-package ca.utoronto.utm.paint;
+package shapes;
 
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
@@ -72,7 +73,6 @@ public class Square extends Drawable {
 	}
 
 	public void toFill(boolean fill) {
-		// TODO Auto-generated method stub
 		this.fill = fill;
 	}
 
@@ -86,4 +86,31 @@ public class Square extends Drawable {
 		this.thickness = thickness;
 	}
 
+	public boolean isClicked(MouseEvent e) {
+		double x = e.getX();double y = e.getY();
+		if (x<=this.getCorner().getX()+this.length && x>this.getCorner().getX()) {
+			if (y<=this.getCorner().getY()+this.length && y>this.getCorner().getY()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public double yDifferent(double d) {
+		if (d>this.getCorner().getY()) {
+			return -(d-this.getCorner().getY());
+		} else {
+			return this.getCorner().getY()-d;
+		}
+	}
+
+	@Override
+	public double xDifferent(double d) {
+		if (d<this.getCorner().getX()) {
+			return this.getCorner().getX()-d;
+		} else {
+			return -(d-this.getCorner().getX());
+		}
+	}
 }

@@ -1,6 +1,7 @@
-package ca.utoronto.utm.paint;
+package shapes;
 
 
+import ca.utoronto.utm.paint.PaintModel;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
