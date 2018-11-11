@@ -24,6 +24,7 @@ public class fillButton extends GridPane implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent arg0) {
 		if (this.button.isSelected()) {
 			view.getPaintPanel().setFill();
+			view.getPaintPanel().UnsetTransformMode();
 		}
 	}
 }
