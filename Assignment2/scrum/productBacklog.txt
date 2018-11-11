@@ -562,6 +562,16 @@ AS A     : user
 I WANT   : The app to look nice, it needs to be pretty!
 SO THAT  : I actually want to use it
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 35 : guptaary
+NAME     : Thickness selector is a slider
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : The thickness selector to be a slider
+SO THAT  : I can have a wider range of more accurate selections for thickness
+--------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
