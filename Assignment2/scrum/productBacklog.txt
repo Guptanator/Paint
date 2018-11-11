@@ -1,4 +1,4 @@
-f# User Stories/Bugs (add as appropriate), modify at each Sprint Planning Meeting
+# User Stories/Bugs (add as appropriate), modify at each Sprint Planning Meeting
 # If a USER STORY is large, break it into smaller user stories.
 # For example, the color chooser user story involves: 
 # 1 Color chooser UI (which could be a USER STORY)
@@ -15,16 +15,6 @@ I WANT   : To be able to make new a new canvas from the new option on the file
 		   at the top of the screen.
 SO THAT  : I will be able to have multiple drawings projects working at the
 		   same time
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 15 : phamjus1
-NAME     : Canvas Size Change window
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : Change the size of my canvas to my designated dimensions
-SO THAT  : Be able to specifically define my drawing space.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 7 : chowd460
@@ -76,19 +66,21 @@ PaintModel.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
->>>>>>> master
-TYPE     : BUG 8 : guptaary/leejon79
-NAME     : Architecture for handling shape modifiers can be improved 
+TYPE     : BUG 9 : chowd460
+NAME     : Architecture behind choosing drawing mode is poor
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 4 hours
-ISSUE    : The architecture can be improved if we implement the Command Design 
-Pattern to handle changes to the graphics context such as changing drawing 
-color, stroke width etc. You can accomplished this by wrapping the changes
-to the graphics context in a DrawingCommand. This way these changes can be
-added to the Bug 2.1 DrawingCommand list. That is, these new types of 
-DrawingCommands appear on PaintPanel's list right along side 
-the Shape type DrawingCommands.
+ISSUE    : A better architecture behind selecting a drawing mode can be created 
+by implementing the Factory Design Pattern as follows:
+
+The factory design pattern should be used by the paint buttons. 
+The factory is responsible for creating different ShapeManipulatorStrategy 
+instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
+ShapeManipulatorStrategy is created and installed in the PaintPanel. 
+Note that you can associate text with a button, even if you 
+display an ImageIcon. The string attached to the button causes the right choice 
+of object creation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 12 : leejon79
@@ -100,7 +92,7 @@ ISSUE    : Code for color window is unattractive, should separate it into it's o
 		   Think about using builtin color chooser libraries.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 21 : UTORID
+TYPE     : BUG 21 : leejon79
 NAME     : Fill Button
 OWNER    : 
 PRIORITY : 2
@@ -109,7 +101,36 @@ ISSUE    : Should be able to use fill option from panel with a Button whose Icon
 		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 14 : chowd460
+TYPE     : BUG 27 : chowd460
+NAME     : Implement Thickness into new panel
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The thickness window has not been properly set up for the new panel tab system.
+		   we need to re-factor thickness and set it up to function as a tab rather than border pane.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 28 : chowd460
+NAME     : Implement color into new panel
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The color palette should be uniform with other options, and should be located on the left panel.
+	 	   currently it is opened by drilling down into the top menu bar options.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 13 : utorid
+NAME     : Master selection tab
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : To be able to select all my options from one tab in addition to the unique pages.
+SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
+		   instructions.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 14 : utorid
 NAME     : Erase brush
 OWNER    : 
 PRIORITY : 2
@@ -118,6 +139,25 @@ AS A     : user
 I WANT   : To be able to erase anywhere on the screen
 SO THAT  : I can correct any of my mistakes
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 29 : chowd460
+NAME     : Select object based on click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
+		   to do specific element deletion, fill bucket, moving, rotation etc.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 30 : chowd460
+NAME     : Refactor current tab parent system
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
+		   which opens other dropdowns and popouts.
+--------------------------------------------------------------------------
+s
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -268,17 +308,6 @@ I WANT   : To click on one corner of a square, drag, and release to
 SO THAT  : I can add square to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 11 : chowd460
-NAME     : Better tabbing, more dynamic window switching
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able to switch between all on the modes from the main screen.
-SO THAT  : I have a more user friendly experience without having to click
-		   through many different menus to get a certain option.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 1 : chowd460
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
@@ -395,17 +424,6 @@ ESTIMATE : 4 hours
 ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 18 : Guptaary
-NAME     : Thickness Applied to all Shapes
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : For shapes other than circle, currently selected thickness applies
-		   to all previously drawn shapes and draw styles.
-SO THAT  : All lines and shapes can have individual thickness without effecting what is already
-		   drawn on the canvas.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 19 : phamjus1
 NAME     : Current drawn shape On Wrong Layer
 OWNER    : 
@@ -467,16 +485,28 @@ ISSUE    : Canvas Currently displaying in the center of the borderpane. It shoul
 		   be set to 300, disregarding detection of the display device for testing purposes.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 32 : chowd460
-NAME     : Improve the layout of tab headers
+TYPE     : USER STORY 11 : chowd460
+NAME     : Better tabbing, more dynamic window switching
 OWNER    : 
 PRIORITY : 2
-ESTIMATE : 4 hours
-ISSUE    : Currently we laying out the top buttons in a static manner, but this is problematic
-		   and does not scale well, we need a better way to layout buttons which scales based on
-		   the device.
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to switch between all on the modes from the main screen.
+SO THAT  : I have a more user friendly experience without having to click
+		   through many different menus to get a certain option.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 18 : Guptaary
+NAME     : Thickness Applied to all Shapes
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : For shapes other than circle, currently selected thickness applies
+		   to all previously drawn shapes and draw styles.
+SO THAT  : All lines and shapes can have individual thickness without effecting what is already
+		   drawn on the canvas.
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
 TYPE     : BUG 31 : phamjus1
 NAME     : Poly Line Termination On Right Click
 OWNER    : 
@@ -484,111 +514,27 @@ PRIORITY : 2
 ESTIMATE : 1 hours
 ISSUE    : Terminating the drawing of a poly line should remove the line currently
 		   being drawn from the allobjects array in the case of a right click.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 7 : chowd460
-NAME     : Architecture for drawing shapes can be improved
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+TYPE     : BUG 33 : guptaary 
+NAME     : Canvas counter changes thickness with the shapes
 OWNER    : 
-PRIORITY : 1
-ESTIMATE : 4 hours
-ISSUE    : The architecture can be improved if we implement the Command Design 
-Pattern to draw shapes as follows:
-
-The PaintModel should use the command design pattern. 
-That is, each shape knows how to draw itself, so there is a single list of 
-DrawingCommands maintained by the PaintModel and used by the PaintPanel.
-repaint() simply asks the PaintModel to ask command to execute(g).
-The simplest way to make this happen is to make each shape implement the 
-DrawingCommand interface which requires execute(g) to be implemented.
-Well sort of.
-
-NOTE: The PaintModel does know how to logically draw itself, so does
-know about strokes and pen colors etc. Depending on how much you want
-to split off the logical from the GUI, it may not have to know how to 
-draw on the screen. This is a subtle difference. For example, the
-following logically describes a scene, without actually knowing
-how to draw it on the screen ...
-
-Color = green
-Fill = off
-Border = on
-BorderWidth = 10
-Circle radius 10 at 12,15
-Color = red
-Fill = on
-FillColor = black
-Border = on
-BorderWidth = 7
-Square width 20 at 100,200
-
-If you want to build a more 'logical' PaintModel, you can consider ...
-
-1) Create a mirror hierarchy for Shape, this mirror hirerachy 
-has things like DrawableCircle which has a Circle. The DrawableCircle
-knows how to draw the instance of Circle it holds. Each Shape will
-still need information about its color, and stroke, one way or another.
-
-OR
-
-2) Lookup and apply the Visitor design pattern to the more logical
-PaintModel.
-
+PRIORITY : 3
+ESTIMATE : 1 hour
+AS A     : user
+I WANT   : I want to keep the 'i = ' counter on the canvas one size
+SO THAT  : It doesn't change every time I change the thickness of a shape.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 9 : chowd460
-NAME     : Architecture behind choosing drawing mode is poor
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 4 hours
-ISSUE    : A better architecture behind selecting a drawing mode can be created 
-by implementing the Factory Design Pattern as follows:
-
-The factory design pattern should be used by the paint buttons. 
-The factory is responsible for creating different ShapeManipulatorStrategy 
-instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
-ShapeManipulatorStrategy is created and installed in the PaintPanel. 
-Note that you can associate text with a button, even if you 
-display an ImageIcon. The string attached to the button causes the right choice 
-of object creation.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 27 : chowd460
-NAME     : Implement Thickness into new panel
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : The thickness window has not been properly set up for the new panel tab system.
-		   we need to re-factor thickness and set it up to function as a tab rather than border pane.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 28 : chowd460
-NAME     : Implement color into new panel
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : The color palette should be uniform with other options, and should be located on the left panel.
-	 	   currently it is opened by drilling down into the top menu bar options.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 30 : chowd460
-NAME     : Refactor current tab parent system
+TYPE     : BUG 32 : chowd460
+NAME     : Refactoring file structure and changing button to toggle button
 OWNER    : 
 PRIORITY : 2
-ESTIMATE : 8 hours
-ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
-		   which opens other dropdowns and popouts.
+ESTIMATE : 1 hours
+ISSUE    : The file structure has become messy, we should clean it up,
+		   and a togglebutton for fill makes more sense than a button.
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 29 : chowd460
-NAME     : Select object based on click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
-		   to do specific element deletion, fill bucket, moving, rotation etc.
---------------------------------------------------------------------------
-
-
+	
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
 --------------------------------------------------------------------------
@@ -630,6 +576,20 @@ ISSUE    : Having a list of different types of drawable things in the
 REASONING: Included as part of BUG 10
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 8 : guptaary/leejon79
+NAME     : Architecture for handling shape modifiers can be improved 
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : The architecture can be improved if we implement the Command Design 
+Pattern to handle changes to the graphics context such as changing drawing 
+color, stroke width etc. You can accomplished this by wrapping the changes
+to the graphics context in a DrawingCommand. This way these changes can be
+added to the Bug 2.1 DrawingCommand list. That is, these new types of 
+DrawingCommands appear on PaintPanel's list right along side 
+the Shape type DrawingCommands.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 23 : UTORID
 NAME     : Square Pivot not consistent
 OWNER    : 
@@ -639,26 +599,4 @@ ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
 		   Positions when it should be consistent with where the user clicked
 REASONING: Included as part of BUG25
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 13 : chowd460
-NAME     : Master selection tab
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 2 hours
-AS A     : user
-I WANT   : To be able to select all my options from one tab in addition to the unique pages.
-SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
-		   instructions.
-REASONING: Was replaced by BUG 27,28,30
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 16 : chowd460
-NAME     : Move elements by click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-AS A     : user
-I WANT   : To be able to make any elements around on the screen by clicking
-SO THAT  : I can move elements around and fix-up my canvas art!
-REASONING: Was completed in BUG 29 since I needed a way to test is my method was working.
---------------------------------------------------------------------------
+

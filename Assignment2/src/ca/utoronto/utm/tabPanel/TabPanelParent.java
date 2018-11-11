@@ -21,6 +21,8 @@ public class TabPanelParent extends GridPane {
 	private ShapeChooserPanel scp;
 	private colorPane cp;
 	private thicknessPopup tp;
+	private fillButton fB;
+	
 	private OtherModesPane omp;
 	/**
 	 * This constructor creates all of the Sub-panels and adds them to the master pane. 
@@ -32,10 +34,12 @@ public class TabPanelParent extends GridPane {
 		this.cp = new colorPane(view);
 		this.scp = new ShapeChooserPanel(view);
 		this.tp = new thicknessPopup(view);
+		this.fB = new fillButton(view);
 		this.omp = new OtherModesPane(view);
 		this.addPane(this.scp);
 		this.addPane(this.cp);
 		this.addPane(this.tp);
+		this.addPane(this.fB);
 		this.addPane(this.omp);
 	}
 	/**

@@ -1,4 +1,4 @@
-package shapes;
+package ca.utoronto.utm.shapes;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -46,8 +46,13 @@ public class Squiggle extends Drawable {
 	}
 
 	@Override
-	public void toFill(boolean fill) {
-		
+	public void setFill(boolean fill) {
+		return;
+	}
+
+	@Override
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
 	}
 
 	@Override

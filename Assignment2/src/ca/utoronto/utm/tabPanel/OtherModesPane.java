@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import shapes.MoveShapeStrategy;
+import ca.utoronto.utm.shapes.MoveShapeStrategy;
 
 /**
  * This class is used to hold any transform strategy buttons, it extends vbox since all of the button

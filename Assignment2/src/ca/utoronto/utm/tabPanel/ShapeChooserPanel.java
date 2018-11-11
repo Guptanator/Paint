@@ -4,11 +4,12 @@ import ca.utoronto.utm.paint.View;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
-import shapes.CircleStrategy;
-import shapes.PolyLineStrategy;
-import shapes.RectangleStrategy;
-import shapes.SquareStrategy;
-import shapes.SquiggleStrategy;
+import ca.utoronto.utm.shapes.CircleStrategy;
+import ca.utoronto.utm.shapes.PolyLineStrategy;
+import ca.utoronto.utm.shapes.RectangleStrategy;
+import ca.utoronto.utm.shapes.SquareStrategy;
+import ca.utoronto.utm.shapes.SquiggleStrategy;
+
 /**
  * The ShapeChooserPanel extends GridPane and is used to hold and handle the ShapeChooserButtons
 */

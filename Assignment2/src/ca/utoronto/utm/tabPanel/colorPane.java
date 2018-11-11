@@ -15,8 +15,7 @@ import javafx.scene.layout.GridPane;
  * the the PaintPanel controller.
  *
 */
-public class colorPane extends GridPane
-{
+public class colorPane extends GridPane {
 
 	public View view;
 	final ColorPicker colorPicker;
@@ -42,8 +41,8 @@ public class colorPane extends GridPane
 	 * This function sets the current color in the PaintPanel controller.
 	 * @param Color color, the color passed from the colorPicker.
 	 */
-	public void setNewColor(Color color) {
-		this.view.getPaintPanel().setColor(color);
+	public void setNewColor(javafx.scene.paint.Color color){
+		this.view.getPaintPanel().getModel().setColor(color);
 	}
 
 }

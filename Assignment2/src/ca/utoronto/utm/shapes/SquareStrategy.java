@@ -1,6 +1,7 @@
-package shapes;
+package ca.utoronto.utm.shapes;
 
 
+import ca.utoronto.utm.paint.PaintModel;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
@@ -22,7 +23,9 @@ public class SquareStrategy extends ShapeManipulatorStrategy {
 		this.shape = new Square(corner, this.color, thickness);
 		this.model.addDrawable(this.shape);
 	}
-
+	public void changeShape(MouseEvent e, PaintModel p) {
+		this.shape.setFill(p.getFill());
+	}
 	private void changeShape(MouseEvent e) {
 		this.shape.toFill(this.model.getFill());
 		int h = this.shape.getStart().getY()- (int) e.getY();

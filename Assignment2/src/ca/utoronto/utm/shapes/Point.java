@@ -1,4 +1,4 @@
-package shapes;
+package ca.utoronto.utm.shapes;
 
 
 import javafx.scene.canvas.GraphicsContext;
@@ -79,8 +79,12 @@ public class Point extends Drawable {
 		// TODO Auto-generated method stub
 	}
 	@Override
-	public void toFill(boolean fill) {
-		
+	public void setFill(boolean fill) {
+		return;
+	}
+	@Override
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
 	}
 	@Override
 	public boolean isClicked(MouseEvent e) {

@@ -9,10 +9,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import shapes.CircleStrategy;
-import shapes.Drawable;
-import shapes.ShapeManipulatorStrategy;
-import shapes.TransformStrategy;
+import ca.utoronto.utm.shapes.CircleStrategy;
+import ca.utoronto.utm.shapes.Drawable;
+import ca.utoronto.utm.shapes.ShapeManipulatorStrategy;
+import ca.utoronto.utm.shapes.TransformStrategy;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,7 +21,11 @@ import java.util.Observer;
 import java.util.Stack;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-
+/**
+ * Class that handles the actual drawing of drawable objects
+ * onto the canvas as well as the drawing strategies.
+ * 
+ */
 public class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
 
 	private int i = 0;
@@ -37,7 +41,11 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	
 	private String thick;
 	public boolean shapeMode=true;
-
+	/** Constructor for PaintPanel that sets up and initializes the canvas.
+	 * @param model PaintModel that handles the creation and destruction
+	 * of drawable objects.
+	 * @param view View 
+	*/
 	public PaintPanel(PaintModel model, View view) {
 		
 		GraphicsDevice gdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -62,7 +70,10 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy.setColor(this.color);
 		this.strategy.setThickness(1.0);
 	}
-
+	/** The method that handles the constant redrawing of
+	 * all stored drawable objects and putting them back on
+	 * the canvas.
+	*/
 	public void repaint() {
 
 		GraphicsContext g = this.canvas.getGraphicsContext2D();
@@ -70,6 +81,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		
 		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
+		g.setLineWidth(1.0);
 		g.strokeText("i=" + i, 50, 75);
 		i = i + 1;
 
@@ -77,16 +89,30 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		// Draw Lines
 
 		ArrayList<Drawable> allObjects = this.model.getObjects();
-		
 		while (!allObjects.isEmpty()) {
-			Drawable current = allObjects.remove(0);
+				Drawable current = allObjects.remove(0);
 				current.draw(g);
 			}
 		}
 
-
-
-	
+	/** Activates PaintModel's setfill() function, which changes
+	 * whether or not the next shapes are going to be filled or not.
+	*/
+	public void setFill()
+	{
+		this.model.setFill();
+	}
+	/** Returns the stored PaintModel.
+	 * @return getModel PaintModel
+	*/
+	public PaintModel getModel()
+	{
+		return this.model;
+	}
+	/** Activates this class' repaint() function,
+	 * which updates the canvas to show all drawn
+	 * objects.
+	*/
 	@Override
 	public void update(Observable o, Object arg) {
 
@@ -95,7 +121,12 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	}
 
 	/**
-	 * Controller aspect of this
+	 * Changes the thickness value and stores it in the
+	 * ShapeManipulatorStrategy strategy based on a String (t)
+	 * to be either Thin (1.0 thickness), Normal (5.0 thickness),
+	 * or Thick (10.0 thickness).
+	 * @param t String value that will either be Thin, Normal, or
+	 * Thick.
 	 */
 	
 	public void setThickness(String t) {
@@ -110,11 +141,20 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 			this.setThickness("Thin");
 		}
 	}
-	
+	/**
+	 * Changes the color value and stores it in the
+	 * ShapeManipulatorStrategy strategy.
+	 * @param c Color that will change the drawable
+	 * color.
+	 */
 	public void setColor(Color c) {
 		this.color = c;
 		this.strategy.setColor(c);
 	}
+	/**
+	 * Returns the current ShapeManipulatorStrategy (strategy).
+	 * @param this.strategy ShapeManipulatorStrategy
+	 */
 	public ShapeManipulatorStrategy getStrategy() {
 		return this.strategy;
 		

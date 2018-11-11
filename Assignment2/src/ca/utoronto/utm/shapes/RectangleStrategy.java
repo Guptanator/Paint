@@ -1,5 +1,6 @@
-package shapes;
+package ca.utoronto.utm.shapes;
 
+import ca.utoronto.utm.paint.PaintModel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -23,9 +24,11 @@ public class RectangleStrategy extends ShapeManipulatorStrategy {
 		this.model.addDrawable(shape);
 
 	}
-
+	public void changeShape(MouseEvent e, PaintModel p) {
+		this.shape.setFill(p.getFill());
+	}
 	private void changeShape(MouseEvent e) {
-		this.shape.toFill(this.model.getFill());
+		this.shape.setFill(this.model.getFill());
 		int h = this.shape.getStart().getY()- (int) e.getY();
 		int w = this.shape.getStart().getX()- (int) e.getX();
 		

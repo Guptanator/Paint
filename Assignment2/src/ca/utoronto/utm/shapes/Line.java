@@ -1,4 +1,4 @@
-package shapes;
+package ca.utoronto.utm.shapes;
 
 
 import javafx.scene.canvas.GraphicsContext;
@@ -54,9 +54,13 @@ public class Line extends Drawable {
 	}
 
 	@Override
-	public void toFill(boolean fill) {
-		// TODO Auto-generated method stub
-		
+	public void setFill(boolean fill) {
+		this.fill = fill;
+	}
+
+	@Override
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
 	}
 
 	@Override
