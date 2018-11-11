@@ -21,7 +21,7 @@ TYPE     : USER STORY 15 : phamjus1
 NAME     : Canvas Size Change window
 OWNER    : 
 PRIORITY : 2
-ESTIMATE : 8 hours
+ESTIMATE : 4 hours
 AS A     : user
 I WANT   : Change the size of my canvas to my designated dimensions
 SO THAT  : Be able to specifically define my drawing space.

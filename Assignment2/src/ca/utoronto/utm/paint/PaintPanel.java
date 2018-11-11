@@ -40,10 +40,6 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 
 	public PaintPanel(PaintModel model, View view) {
 		
-		GraphicsDevice gdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-		int width = gdevice.getDisplayMode().getWidth();
-		int height = gdevice.getDisplayMode().getHeight();
-		
 		this.canvas = new Canvas(400, 400);
 		this.getChildren().add(this.canvas);
 		// The canvas is transparent, so the background color of the
@@ -146,5 +142,10 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		} else {
 			this.TStrategy.handleMouse(e);
 		}
+	}
+	
+	public void changeCanvas(int h, int w) {
+		this.canvas.setHeight(h);
+		this.canvas.setWidth(w);
 	}
 }
