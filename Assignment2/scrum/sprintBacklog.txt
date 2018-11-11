@@ -600,3 +600,12 @@ Note that you can associate text with a button, even if you
 display an ImageIcon. The string attached to the button causes the right choice 
 of object creation.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 32 : chowd460
+NAME     : Refactoring file structure and changing button to toggle button
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : The file structure has become messy, we should clean it up,
+		   and a togglebutton for fill makes more sense than a button.
+--------------------------------------------------------------------------

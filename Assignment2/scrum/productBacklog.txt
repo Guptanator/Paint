@@ -92,7 +92,7 @@ ISSUE    : Code for color window is unattractive, should separate it into it's o
 		   Think about using builtin color chooser libraries.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 21 : UTORID
+TYPE     : BUG 21 : leejon79
 NAME     : Fill Button
 OWNER    : 
 PRIORITY : 2
@@ -101,7 +101,7 @@ ISSUE    : Should be able to use fill option from panel with a Button whose Icon
 		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 27 : utorid
+TYPE     : BUG 27 : chowd460
 NAME     : Implement Thickness into new panel
 OWNER    : 
 PRIORITY : 1
@@ -110,7 +110,7 @@ ISSUE    : The thickness window has not been properly set up for the new panel t
 		   we need to re-factor thickness and set it up to function as a tab rather than border pane.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 28 : utorid
+TYPE     : BUG 28 : chowd460
 NAME     : Implement color into new panel
 OWNER    : 
 PRIORITY : 1
@@ -496,16 +496,6 @@ SO THAT  : I have a more user friendly experience without having to click
 		   through many different menus to get a certain option.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 30 : chowd460
-NAME     : Improve the layout of tab headers
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-ISSUE    : Currently we laying out the top buttons in a static manner, but this is problematic
-		   and does not scale well, we need a better way to layout buttons which scales based on
-		   the device.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 18 : Guptaary
 NAME     : Thickness Applied to all Shapes
 OWNER    : 
@@ -515,7 +505,16 @@ ISSUE    : For shapes other than circle, currently selected thickness applies
 		   to all previously drawn shapes and draw styles.
 SO THAT  : All lines and shapes can have individual thickness without effecting what is already
 		   drawn on the canvas.
---------------------------------------------------------------------------
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+TYPE     : BUG 31 : phamjus1
+NAME     : Poly Line Termination On Right Click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Terminating the drawing of a poly line should remove the line currently
+		   being drawn from the allobjects array in the case of a right click.
+-------------------------------------------------------------------------
 -------------------------------------------------------------------------
 TYPE     : BUG 33 : guptaary 
 NAME     : Canvas counter changes thickness with the shapes
@@ -526,8 +525,16 @@ AS A     : user
 I WANT   : I want to keep the 'i = ' counter on the canvas one size
 SO THAT  : It doesn't change every time I change the thickness of a shape.
 --------------------------------------------------------------------------
->>>>>>> 8007c5137d1e91b98143dfeb6d4e02b1b055d3ed
-
+--------------------------------------------------------------------------
+TYPE     : BUG 32 : chowd460
+NAME     : Refactoring file structure and changing button to toggle button
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : The file structure has become messy, we should clean it up,
+		   and a togglebutton for fill makes more sense than a button.
+--------------------------------------------------------------------------
+	
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
 --------------------------------------------------------------------------

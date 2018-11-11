@@ -1,6 +1,6 @@
-package DrawingCommands;
+package ca.utoronto.utm.drawingCommands;
 
-import shapes.Drawable;
+import ca.utoronto.utm.shapes.Drawable;
 /**
  * Command for choosing the line thickness for shapes.
  *

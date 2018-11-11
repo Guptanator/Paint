@@ -9,10 +9,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import shapes.CircleStrategy;
-import shapes.Drawable;
-import shapes.ShapeManipulatorStrategy;
-import shapes.TransformStrategy;
+import ca.utoronto.utm.shapes.CircleStrategy;
+import ca.utoronto.utm.shapes.Drawable;
+import ca.utoronto.utm.shapes.ShapeManipulatorStrategy;
+import ca.utoronto.utm.shapes.TransformStrategy;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

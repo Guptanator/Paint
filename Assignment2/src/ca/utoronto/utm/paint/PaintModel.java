@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Observable;
 
-import DrawingCommands.ColorCommand;
-import DrawingCommands.FillCommand;
-import DrawingCommands.PropertyInvoker;
-import DrawingCommands.ThicknessCommand;
+import ca.utoronto.utm.drawingCommands.ColorCommand;
+import ca.utoronto.utm.drawingCommands.FillCommand;
+import ca.utoronto.utm.drawingCommands.PropertyInvoker;
+import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.paint.Color;
-import shapes.Drawable;
+import ca.utoronto.utm.shapes.Drawable;
 
 /**
  * The class that handles the creation and destruction

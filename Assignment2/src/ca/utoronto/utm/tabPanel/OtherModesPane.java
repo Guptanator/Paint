@@ -8,7 +8,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import shapes.MoveShapeStrategy;
+import ca.utoronto.utm.shapes.MoveShapeStrategy;
 
 public class OtherModesPane extends VBox implements EventHandler<ActionEvent>{
 	private View view;

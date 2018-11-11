@@ -1,7 +1,7 @@
-package DrawingCommands;
+package ca.utoronto.utm.drawingCommands;
 
 import javafx.scene.paint.Color;
-import shapes.Drawable;
+import ca.utoronto.utm.shapes.Drawable;
 /**
  * Command for choosing the color for shapes.
  *
