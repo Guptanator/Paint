@@ -98,8 +98,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	/** Activates PaintModel's setfill() function, which changes
 	 * whether or not the next shapes are going to be filled or not.
 	*/
-	public void setFill()
-	{
+	public void setFill() {
+		this.view.setFilled();
 		this.model.setFill();
 	}
 	/** Returns the stored PaintModel.

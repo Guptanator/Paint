@@ -1,10 +1,8 @@
 package ca.utoronto.utm.tabPanel;
 
-import ca.utoronto.utm.paint.PaintModel;
 import ca.utoronto.utm.paint.View;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.GridPane;
 
@@ -22,9 +20,7 @@ public class fillButton extends GridPane implements EventHandler<ActionEvent> {
 	}
 	@Override
 	public void handle(ActionEvent arg0) {
-		if (this.button.isSelected()) {
-			view.getPaintPanel().setFill();
-			view.getPaintPanel().UnsetTransformMode();
-		}
+		view.getPaintPanel().setFill();
+		view.getPaintPanel().UnsetTransformMode();
 	}
 }

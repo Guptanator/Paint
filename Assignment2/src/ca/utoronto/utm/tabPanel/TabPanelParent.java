@@ -1,11 +1,7 @@
 package ca.utoronto.utm.tabPanel;
 
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-
-import java.util.ArrayList;
 
 import ca.utoronto.utm.paint.View;
 
@@ -50,5 +46,12 @@ public class TabPanelParent extends GridPane {
 	private void addPane(Pane p) {
 		this.add(p, 0, currentRow);
 		this.currentRow++;
+	}
+	/**
+	 * This function allows the outside world to set the fill icons in the shapeChooserPanel
+	 * as filled or unfilled.
+	 */
+	public void setFilled() {
+		this.scp.setButtonsFill();
 	}
 }

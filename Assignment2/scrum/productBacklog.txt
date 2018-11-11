@@ -515,6 +515,15 @@ ESTIMATE : 1 hours
 ISSUE    : Terminating the drawing of a poly line should remove the line currently
 		   being drawn from the allobjects array in the case of a right click.
 -------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 32 : chowd460
+NAME     : Refactoring file structure and changing button to toggle button
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : The file structure has become messy, we should clean it up,
+		   and a togglebutton for fill makes more sense than a button.
+--------------------------------------------------------------------------
 -------------------------------------------------------------------------
 TYPE     : BUG 33 : guptaary 
 NAME     : Canvas counter changes thickness with the shapes
@@ -526,15 +535,15 @@ I WANT   : I want to keep the 'i = ' counter on the canvas one size
 SO THAT  : It doesn't change every time I change the thickness of a shape.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 32 : chowd460
-NAME     : Refactoring file structure and changing button to toggle button
+TYPE     : BUG 34 : chowd460
+NAME     : Set up the shapeChooserButtons to react to being filled
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 1 hours
-ISSUE    : The file structure has become messy, we should clean it up,
-		   and a togglebutton for fill makes more sense than a button.
+ISSUE    : It is not easy to know if you are currently in fill mode, this makes
+		   it a bit easier to know if you're filling.
 --------------------------------------------------------------------------
-	
+
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
 --------------------------------------------------------------------------

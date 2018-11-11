@@ -1,9 +1,6 @@
 package ca.utoronto.utm.paint;
 
-import ca.utoronto.utm.tabPanel.ShapeChooserPanel;
 import ca.utoronto.utm.tabPanel.TabPanelParent;
-import ca.utoronto.utm.tabPanel.colorPane;
-import ca.utoronto.utm.tabPanel.thicknessPopup;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -20,8 +17,6 @@ public class View implements EventHandler<ActionEvent> {
 	private PaintModel model;
 
 	private PaintPanel paintPanel;
-	private ShapeChooserPanel shapeChooserPanel;
-	private colorPane colorPane;
 	private TabPanelParent tabParent;
 	private FlowPane drawArea;
 	public View(PaintModel model, Stage stage) {
@@ -34,7 +29,6 @@ public class View implements EventHandler<ActionEvent> {
 
 		this.paintPanel = new PaintPanel(this.model, this);
 		this.tabParent = new TabPanelParent(this);
-		this.colorPane = new colorPane(this);
 		drawArea = new FlowPane();
 		drawArea.getChildren().add(this.paintPanel);
 
@@ -51,10 +45,6 @@ public class View implements EventHandler<ActionEvent> {
 
 	public PaintPanel getPaintPanel() {
 		return paintPanel;
-	}
-
-	public ShapeChooserPanel getShapeChooserPanel() {
-		return shapeChooserPanel;
 	}
 
 	private MenuBar createMenuBar() {
@@ -143,5 +133,11 @@ public class View implements EventHandler<ActionEvent> {
 		else if (((MenuItem)event.getSource()).getText()=="Exit") {
 			System.exit(0);
 		} 
+	}
+	/**
+	 * This function allows the outside world to set the fill icons as filled or unfilled.
+	 */
+	public void setFilled() {
+		this.tabParent.setFilled();
 	}
 }

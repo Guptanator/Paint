@@ -1,5 +1,7 @@
 package ca.utoronto.utm.tabPanel;
 
+import java.util.ArrayList;
+
 import ca.utoronto.utm.paint.View;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,6 +20,9 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 	public View view; // So we can talk to our parent or other components of the view
 	private shapeChooserButton lastPressed = null;
 	private String lastCommand = null;
+	private ArrayList<shapeChooserButton> buttonArray = new ArrayList<shapeChooserButton>();
+	private boolean isFilled = false;
+
 	/**
 	 * This constructor initializes the ShapeChooserPanel by creating 5 ShapeChooserButtons based on the
 	 * constant buttonLabels string
@@ -35,6 +40,7 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 			this.add(button, 0, row);
 			row++;
 			button.setOnAction(this);
+			buttonArray.add(button);
 		}
 	}
 	/**
@@ -70,5 +76,21 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 		lastPressed = source;
 		lastCommand = command;
 		this.view.getPaintPanel().UnsetTransformMode();
+	}
+	/**
+	 * This parameter sets the buttons icons to be filled or unfilled depending the the state of the toggle
+	 * button.
+	 */
+	public void setButtonsFill() {
+		this.isFilled=!this.isFilled;
+		if (!this.isFilled) {
+			for (shapeChooserButton button : buttonArray) {
+				button.unFill();
+			}
+		} else {
+			for (shapeChooserButton button : buttonArray) {
+				button.setFill();
+			}
+		}
 	}
 }

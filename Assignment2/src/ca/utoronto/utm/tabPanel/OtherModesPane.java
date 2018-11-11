@@ -1,14 +1,11 @@
 package ca.utoronto.utm.tabPanel;
 
-import java.util.Observer;
-
 import ca.utoronto.utm.paint.View;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import ca.utoronto.utm.shapes.MoveShapeStrategy;
 
