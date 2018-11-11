@@ -516,6 +516,19 @@ ISSUE    : For shapes other than circle, currently selected thickness applies
 SO THAT  : All lines and shapes can have individual thickness without effecting what is already
 		   drawn on the canvas.
 --------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+-------------------------------------------------------------------------
+TYPE     : BUG 33 : guptaary 
+NAME     : Canvas counter changes thickness with the shapes
+OWNER    : 
+PRIORITY : 3
+ESTIMATE : 1 hour
+AS A     : user
+I WANT   : I want to keep the 'i = ' counter on the canvas one size
+SO THAT  : It doesn't change every time I change the thickness of a shape.
+--------------------------------------------------------------------------
+>>>>>>> 8007c5137d1e91b98143dfeb6d4e02b1b055d3ed
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
