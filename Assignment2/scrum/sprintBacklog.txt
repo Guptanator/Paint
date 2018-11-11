@@ -392,7 +392,7 @@ SO THAT  : I will be able to have multiple drawings projects working at the
 		   same time
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 13 : utorid
+TYPE     : USER STORY 13 : chowd460
 NAME     : Master selection tab
 OWNER    : 
 PRIORITY : 2
@@ -403,7 +403,7 @@ SO THAT  : I can draw more quicker while also have user friendly tabs which can 
 		   instructions.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 14 : utorid
+TYPE     : USER STORY 14 : chowd460
 NAME     : Erase brush
 OWNER    : 
 PRIORITY : 2
@@ -627,4 +627,14 @@ PRIORITY : 2
 ESTIMATE : 1 hours
 ISSUE    : It is not easy to know if you are currently in fill mode, this makes
 		   it a bit easier to know if you're filling.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 17 : chowd460
+NAME     : Make the application prettier
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : The app to look nice, it needs to be pretty!
+SO THAT  : I actually want to use it
 --------------------------------------------------------------------------

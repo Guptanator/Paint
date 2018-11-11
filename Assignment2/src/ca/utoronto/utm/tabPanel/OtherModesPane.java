@@ -28,6 +28,8 @@ public class OtherModesPane extends VBox implements EventHandler<ActionEvent>{
 		this.modeButton.setMinWidth(100);
 		this.getChildren().add(modeButton);
 		modeButton.setOnAction(this);
+		modeButton.getStylesheets().add("resources/stylesheet.css");
+		modeButton.getStyleClass().add("custom-button");
 	}
 	@Override
 	/**

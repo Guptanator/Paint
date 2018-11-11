@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+
 /**
  * This class extends the ToggleButton and allows for additionally functionality and contained image loading.
  * Additionally it adds key features which create a better user experience. 
@@ -25,6 +26,8 @@ public class shapeChooserButton extends ToggleButton  {
 		this.currentType=name;
 		this.setMinWidth(100);
 		this.setImages();
+		this.getStylesheets().add("resources/stylesheet.css");
+		this.getStyleClass().add("custom-button");
 	}
 	/**
 	 * This function returns the string contains the currentType of the button

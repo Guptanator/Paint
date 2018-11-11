@@ -1,8 +1,10 @@
 package ca.utoronto.utm.tabPanel;
 
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-
+import javafx.scene.paint.Color;
 import ca.utoronto.utm.paint.View;
 
 /**
@@ -37,6 +39,7 @@ public class TabPanelParent extends GridPane {
 		this.addPane(this.tp);
 		this.addPane(this.fB);
 		this.addPane(this.omp);
+		this.setBackground(new Background(new BackgroundFill(Color.web("#7f8c8d"), null, null)));
 	}
 	/**
 	 * This function allows for adding the panes in an abstracted manner, ensuring there 

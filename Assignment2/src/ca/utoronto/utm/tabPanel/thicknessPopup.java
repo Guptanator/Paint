@@ -22,6 +22,7 @@ public class thicknessPopup extends GridPane implements EventHandler<ActionEvent
 		this.view = view;
 
 		String[] buttonLabels = {"Thin", "Normal", "Thick"};
+		this.getStylesheets().add("resources/stylesheet.css");
 
 		int row = 0;
 		for (String label : buttonLabels) {
@@ -30,6 +31,7 @@ public class thicknessPopup extends GridPane implements EventHandler<ActionEvent
 			this.add(button, 0, row);
 			row++;
 			button.setOnAction(this);
+			button.getStyleClass().add("custom-button");
 		}
 	}
 	@Override

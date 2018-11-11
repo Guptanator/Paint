@@ -119,7 +119,7 @@ ISSUE    : The color palette should be uniform with other options, and should be
 	 	   currently it is opened by drilling down into the top menu bar options.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 13 : utorid
+TYPE     : USER STORY 13 : chowd460
 NAME     : Master selection tab
 OWNER    : 
 PRIORITY : 2
@@ -130,7 +130,7 @@ SO THAT  : I can draw more quicker while also have user friendly tabs which can 
 		   instructions.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 14 : utorid
+TYPE     : USER STORY 14 : chowd460
 NAME     : Erase brush
 OWNER    : 
 PRIORITY : 2
@@ -138,15 +138,6 @@ ESTIMATE : 4 hours
 AS A     : user
 I WANT   : To be able to erase anywhere on the screen
 SO THAT  : I can correct any of my mistakes
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 29 : chowd460
-NAME     : Select object based on click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
-		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 30 : chowd460
@@ -157,7 +148,16 @@ ESTIMATE : 8 hours
 ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
 		   which opens other dropdowns and popouts.
 --------------------------------------------------------------------------
-s
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15 : phamjus1
+NAME     : Canvas Size Change window
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : Change the size of my canvas to my designated dimensions
+SO THAT  : Be able to specifically define my drawing space.
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -543,6 +543,25 @@ ESTIMATE : 1 hours
 ISSUE    : It is not easy to know if you are currently in fill mode, this makes
 		   it a bit easier to know if you're filling.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 29 : chowd460
+NAME     : Select object based on click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
+		   to do specific element deletion, fill bucket, moving, rotation etc.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 17 : chowd460
+NAME     : Make the application prettier
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : The app to look nice, it needs to be pretty!
+SO THAT  : I actually want to use it
+--------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
@@ -608,4 +627,14 @@ ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
 		   Positions when it should be consistent with where the user clicked
 REASONING: Included as part of BUG25
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16 : chowd460
+NAME     : Move elements by click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to make any elements around on the screen by clicking
+SO THAT  : I can move elements around and fix-up my canvas art!
+REASONING: Included as part of BUG29
+--------------------------------------------------------------------------

@@ -17,6 +17,8 @@ public class fillButton extends GridPane implements EventHandler<ActionEvent> {
 		button.setOnAction(this);
 		button.setMinWidth(100);
 		this.add(button, 0, 0);
+		button.getStylesheets().add("resources/stylesheet.css");
+		button.getStyleClass().add("custom-button");
 	}
 	@Override
 	public void handle(ActionEvent arg0) {

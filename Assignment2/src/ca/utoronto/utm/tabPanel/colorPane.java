@@ -36,6 +36,8 @@ public class colorPane extends GridPane {
                 setNewColor(colorPicker.getValue());
             }
         });
+		colorPicker.getStylesheets().add("resources/stylesheet.css");
+		colorPicker.getStyleClass().add("custom-button");
 	}
 	/**
 	 * This function sets the current color in the PaintPanel controller.
