@@ -9,12 +9,19 @@ import shapes.PolyLineStrategy;
 import shapes.RectangleStrategy;
 import shapes.SquareStrategy;
 import shapes.SquiggleStrategy;
-
+/**
+ * The ShapeChooserPanel extends GridPane and is used to hold and handle the ShapeChooserButtons
+*/
 public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEvent> {
 
 	public View view; // So we can talk to our parent or other components of the view
 	private shapeChooserButton lastPressed = null;
 	private String lastCommand = null;
+	/**
+	 * This constructor initializes the ShapeChooserPanel by creating 5 ShapeChooserButtons based on the
+	 * constant buttonLabels string
+	 * @param View view, used for interacting with the controller
+	 */
 	public ShapeChooserPanel(View view) {
 	
 		this.view = view;
@@ -29,7 +36,13 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 			button.setOnAction(this);
 		}
 	}
-
+	/**
+	 * This function is used to handle ActionEvents passed from the ShapeChooserButtons, it essentially
+	 * sets the strategy based on the button pushed, this strategy is used in the PaintPanel for all 
+	 * commands related to drawing! Additionally by maintaining which button was last pressed we can keep
+	 * a note of which button to disable.
+	 * @param ActionEvent event is the event passed by the ShapeChooserButtons.
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		shapeChooserButton source = (shapeChooserButton)(event.getSource());

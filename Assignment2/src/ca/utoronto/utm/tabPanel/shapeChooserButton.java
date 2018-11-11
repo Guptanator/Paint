@@ -1,22 +1,36 @@
 package ca.utoronto.utm.tabPanel;
 
-import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
+/**
+ * This class extends the ToggleButton and allows for additionally functionality and contained image loading.
+ * Additionally it adds key features which create a better user experience. 
+*/
 public class shapeChooserButton extends ToggleButton  {
 	String currentType;
+	/**
+	 * This constructor initializes the ToggleButton by calling the default empty constructor and
+	 * setting the variable currentType, image and width of the button
+	 * @param String name the name of the current button
+	 */
 	public shapeChooserButton(String name) {
 		super();
 		this.currentType=name;
 		this.setMinWidth(100);
-		this.handle();
+		this.setImages();
 	}
+	/**
+	 * This function returns the string contains the currentType of the button
+	 * @return String of the current type of the button
+	 */
 	public String currentMode() {
 		return this.currentType;
 	}
-	public void handle() {
+	/**
+	 * This function sets the image of the button based on the current type of the button.
+	 */
+	private void setImages() {
 		Image currentImage = null;
 		if (this.currentType=="Circle") {
 			currentImage = new Image("resources/circle.png",20,20,true,true);
@@ -35,9 +49,15 @@ public class shapeChooserButton extends ToggleButton  {
 		}
 		this.setGraphic(new ImageView(currentImage));
 	}
+	/**
+	 * This function sets the button to be inactive (used for UX purposes)
+	 */
 	public void setInactive() {
 		this.setSelected(false);
 	}
+	/**
+	 * This function sets the button to be active (used for UX purposes)
+	 */
 	public void setActive() {
 		this.setSelected(true);
 	}

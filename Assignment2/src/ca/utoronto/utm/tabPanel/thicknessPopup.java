@@ -6,11 +6,17 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-
+/**
+ * This call is used to hold and display elements relating to the thickness manipulating elements
+*/
 public class thicknessPopup extends GridPane implements EventHandler<ActionEvent>{
 	
 	public View view; 
-	
+	/**
+	 * Hold and initializes elements relating the thickness options, this is current 3 buttons
+	 * but this will be changing to a slider soon.
+	 * @param View view used to communicating with the controller
+	 */
 	public thicknessPopup(View view){
 		
 		this.view = view;
@@ -27,12 +33,14 @@ public class thicknessPopup extends GridPane implements EventHandler<ActionEvent
 		}
 	}
 	@Override
+	/**
+	 * This function handles any action on the thickness buttons and changes the thickness values 
+	 * in the PaintPanel
+	 * @param ActionEvent event passed by the thickness buttons and used to decide which thickness
+	 * to set
+	 */
 	public void handle(ActionEvent event) {
 		String command = ((Button) event.getSource()).getText();
 		this.view.getPaintPanel().setThickness(command);
-		System.out.println(command);
 	}
-	
-	
-	
-	}
+}

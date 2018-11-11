@@ -1,13 +1,21 @@
 package shapes;
 
 import javafx.scene.input.MouseEvent;
-
-public class MoveShapeStrategy extends TransformStrategy{
+/**
+ * This strategy is used to handle mouse input when the the Move Shapes mode is selected. We utilize
+ * the Strategy design pattern since it allows us to add more transformations in a modular format.
+*/
+public class MoveShapeStrategy extends TransformStrategy {
 
 	private Drawable currentShape;
 	double deltaX;
 	double deltaY;
 	@Override
+	/**
+	 * This functions overrides the handleMouse function in the transform strategy and is used to decide
+	 * how to react to different click types.
+	 * @param MouseEvent e
+	 */
 	public void handleMouse(MouseEvent e) {
 		if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			currentShape = this.findElement(e);
