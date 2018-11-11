@@ -49,4 +49,9 @@ public class Squiggle extends Drawable {
 		return;
 	}
 
+	@Override
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
+	}
+
 }

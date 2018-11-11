@@ -17,6 +17,7 @@ public class TabPanelParent extends GridPane {
 	private ShapeChooserPanel scp;
 	private colorPane cp;
 	private thicknessPopup tp;
+	private fillButton fB;
 	
 	public TabPanelParent(View view) {
 		this.view = view;
@@ -24,9 +25,11 @@ public class TabPanelParent extends GridPane {
 		this.cp = new colorPane(view);
 		this.scp = new ShapeChooserPanel(view);
 		this.tp = new thicknessPopup(view);
+		this.fB = new fillButton(view);
 		this.addPane(this.scp);
 		this.addPane(this.cp);
 		this.addPane(this.tp);
+		this.addPane(this.fB);
 	}
 	public void addPane(Pane p) {
 		this.add(p, 0, currentRow);

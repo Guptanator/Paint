@@ -30,7 +30,7 @@ public class colorPane extends GridPane
 	}
 	public void setNewColor(javafx.scene.paint.Color color)
 	{
-		this.view.getPaintPanel().setColor(color);
+		this.view.getPaintPanel().getModel().setColor(color);
 	}
 
 }

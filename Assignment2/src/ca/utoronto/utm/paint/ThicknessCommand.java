@@ -1,14 +1,15 @@
 package ca.utoronto.utm.paint;
 
+import javafx.scene.canvas.GraphicsContext;
+
 public class ThicknessCommand implements DrawingCommands{
-	private String thickness;
-	public void setThickness(String thick)
+	private double thickness;
+	public ThicknessCommand(double thick)
 	{
 		this.thickness = thick;
 	}
 	@Override
-	public void executeChange(PaintPanel panel) {
-		panel.setThickness(thickness);
+	public void executeChange(Drawable d) {
+		d.setThickness(thickness);
 	}
-
 }

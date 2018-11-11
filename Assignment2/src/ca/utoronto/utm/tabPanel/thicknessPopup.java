@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 
 public class thicknessPopup extends GridPane implements EventHandler<ActionEvent>{
 	
-	public View view; 
+	private View view; 
 	
 	public thicknessPopup(View view){
 		
@@ -29,7 +29,7 @@ public class thicknessPopup extends GridPane implements EventHandler<ActionEvent
 	@Override
 	public void handle(ActionEvent event) {
 		String command = ((Button) event.getSource()).getText();
-		this.view.getPaintPanel().setThickness(command);
+		this.view.getPaintPanel().getModel().setThickness(command);
 		System.out.println(command);
 	}
 	

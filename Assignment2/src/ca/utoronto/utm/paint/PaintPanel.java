@@ -71,14 +71,17 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		// Draw Lines
 
 		ArrayList<Drawable> allObjects = this.model.getObjects();
-		
 		while (!allObjects.isEmpty()) {
-			Drawable current = allObjects.remove(0);
+				Drawable current = allObjects.remove(0);
 				current.draw(g);
 			}
 		}
 
 
+	public void setFill()
+	{
+		this.model.setFill();
+	}
 	public PaintModel getModel()
 	{
 		return this.model;

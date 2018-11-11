@@ -82,5 +82,9 @@ public class Point extends Drawable {
 	public void setFill(boolean fill) {
 		return;
 	}
+	@Override
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
+	}
 	
 }

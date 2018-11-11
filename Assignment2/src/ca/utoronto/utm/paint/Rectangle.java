@@ -71,4 +71,9 @@ public class Rectangle extends Drawable{
 		this.fill = fill;
 	}
 
+	@Override
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
+	}
+
 }

@@ -48,7 +48,7 @@ public class Square extends Drawable {
 		g.setLineWidth(this.thickness);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 		
-		if(fill)
+		if(this.fill)
 		{
 			g.fillRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 		}
@@ -78,8 +78,12 @@ public class Square extends Drawable {
 
 	@Override
 	public void setFill(boolean fill) {
-		// TODO Auto-generated method stub
-		
+		this.fill = fill;
+	}
+
+	@Override
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
 	}
 
 }

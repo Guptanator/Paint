@@ -29,13 +29,19 @@ public class PaintModel extends Observable {
 	private ArrayList<Drawable> allObjects = new ArrayList<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
 	private int current = 0;
-	private boolean fill = false;
+	private boolean fill;
+	private LinkedList<PropertyInvoker> properties = new LinkedList<PropertyInvoker>();
+	private PropertyInvoker propertyInvoker = new PropertyInvoker();
+	private ColorCommand colorCommand = new ColorCommand(Color.BLACK);
+	private ThicknessCommand thicknessCommand = new ThicknessCommand(1.0);
+	private FillCommand fillCommand = new FillCommand(false);
 	
 	public void addDrawable(Drawable d) {
-		this.allObjects.addLast(d);
-		d.setFill(fill);
+		this.propertyInvoker.acceptCommand(fillCommand);
+		this.propertyInvoker.acceptCommand(colorCommand);
+		this.propertyInvoker.acceptCommand(thicknessCommand);
+		this.propertyInvoker.applyCommands(d);
 		this.allObjects.add(d);
-		d.setFill(fill);
 		this.update();
 	}
 	public boolean getFill() {
@@ -44,11 +50,29 @@ public class PaintModel extends Observable {
 	public void setFill() {
 		if(this.fill)
 		{
+			this.fillCommand = new FillCommand(false);
 			this.fill = false;
 		}
 		else
 		{
+			this.fillCommand = new FillCommand(true);
 			this.fill = true;
+		}
+	}
+	public void setColor(Color color)
+	{
+		this.colorCommand = new ColorCommand(color);
+	}
+	public void setThickness(String t)
+	{
+		if (t == "Thin") {
+			this.thicknessCommand = new ThicknessCommand(1.0);
+		} else if (t == "Normal") {
+			this.thicknessCommand = new ThicknessCommand(5.0);
+		} else if (t == "Thick") {
+		}
+		else {
+			this.thicknessCommand = new ThicknessCommand(10.0);
 		}
 	}
 	public void Undo() {
@@ -63,7 +87,7 @@ public class PaintModel extends Observable {
 			this.update();
 		}
 	}
-
+	
 	public ArrayList<Drawable> getObjects() {
 		ArrayList<Drawable> newList = (ArrayList<Drawable>)this.allObjects.clone();
 		return newList;

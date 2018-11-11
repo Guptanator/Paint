@@ -2,13 +2,14 @@ package ca.utoronto.utm.paint;
 
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.input.MouseEvent;
 
-public class Circle extends Drawable {
+public class Circle extends Drawable{
 	
 	private Point centre;
 	private int radius;
@@ -72,8 +73,13 @@ public class Circle extends Drawable {
 	public Color getColor() {
 		return this.color;
 	}
-	public void setFill(boolean shouldFill)
+	public void setFill(boolean fill)
 	{
-		this.fill = shouldFill;
+		this.fill = fill;
+	}
+
+	@Override
+	public void setThickness(double thickness) {
+		this.thickness = thickness;
 	}
 }
