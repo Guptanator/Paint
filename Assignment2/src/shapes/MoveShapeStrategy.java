@@ -24,12 +24,25 @@ public class MoveShapeStrategy extends TransformStrategy {
 			MoveDrawable(e);
 		}
 	}
+	/**
+	 * This function is used to calculate the difference in X and Y coordinates when a shape is 
+	 * Initially clicked. This means that when you click the corner of a shape, it moves with respect to
+	 * that clicked corner.
+	 * @param MouseEvent e 
+	 */
 	public void PrepareDeltas(MouseEvent e) {
 		this.deltaX = currentShape.xDifferent(e.getX());
 		this.deltaY = currentShape.yDifferent(e.getY());
 	}
+	/**
+	 * This function is used to move all of the Drawable shapes and is called when the user
+	 * drags their mouse. Each shape has slight differences so this function was necessary.
+	 * Lastly it calls the model to update so that all of the changes are displayed.
+	 * @param MouseEvent e
+	 */
 	public void MoveDrawable(MouseEvent e) {
 		if (currentShape==null) {
+			return;
 		}
 		else if (currentShape.type()=="Circle") {
 			Circle c = ((Circle)(currentShape));
