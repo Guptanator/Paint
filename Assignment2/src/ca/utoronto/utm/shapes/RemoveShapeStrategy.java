@@ -19,17 +19,8 @@ public class RemoveShapeStrategy extends TransformStrategy {
 	public void handleMouse(MouseEvent e) {
 		if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			this.currentShape = (ClosedShape)this.findElement(e);
+			this.removeShape();
 		}
-	}
-	/**
-	 * This function is used to calculate the difference in X and Y coordinates when a shape is 
-	 * Initially clicked. This means that when you click the corner of a shape, it moves with respect to
-	 * that clicked corner.
-	 * @param MouseEvent e 
-	 */
-	public void PrepareDeltas(MouseEvent e) {
-		this.deltaX = currentShape.xDifferent(e.getX());
-		this.deltaY = currentShape.yDifferent(e.getY());
 	}
 	/**
 	 * This function is used to move all of the Drawable shapes and is called when the user

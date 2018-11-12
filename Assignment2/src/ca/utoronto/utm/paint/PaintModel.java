@@ -22,7 +22,6 @@ public class PaintModel extends Observable {
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
 	private int current = 0;
 	private boolean fill;
-	private LinkedList<PropertyInvoker> properties = new LinkedList<PropertyInvoker>();
 	private PropertyInvoker propertyInvoker = new PropertyInvoker();
 	private ColorCommand colorCommand = new ColorCommand(Color.BLACK);
 	private ThicknessCommand thicknessCommand = new ThicknessCommand(1.0);
@@ -135,7 +134,9 @@ public class PaintModel extends Observable {
 	
 	public void removeObject(Drawable d) {
 		int i=this.allObjects.indexOf(d);
-		this.allObjects.remove(i);
-		this.properties.remove(i);
+		if (i>=0) {
+			this.allObjects.remove(i);
+			this.update();
+		}
 	}
 }

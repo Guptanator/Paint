@@ -35,16 +35,6 @@ ISSUE    : Should be able to use fill option from panel with a Button whose Icon
 		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 14 : chowd460
-NAME     : Erase brush
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-AS A     : user
-I WANT   : To be able to erase anywhere on the screen
-SO THAT  : I can correct any of my mistakes
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : USER STORY 15 : phamjus1
 NAME     : Canvas Size Change window
 OWNER    : 
@@ -581,6 +571,16 @@ AS A     : user
 I WANT   : To be able to select all my options from one tab in addition to the unique pages.
 SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
 		   instructions.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 14 : chowd460
+NAME     : Erase brush
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to erase anywhere on the screen
+SO THAT  : I can correct any of my mistakes
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
