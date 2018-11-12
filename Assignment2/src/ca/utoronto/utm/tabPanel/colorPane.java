@@ -3,10 +3,7 @@ package ca.utoronto.utm.tabPanel;
 import javafx.scene.paint.Color;
 
 import ca.utoronto.utm.paint.View;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.GridPane;
@@ -43,8 +40,8 @@ public class colorPane extends GridPane {
 	 * This function sets the current color in the PaintPanel controller.
 	 * @param Color color, the color passed from the colorPicker.
 	 */
-	public void setNewColor(javafx.scene.paint.Color color){
-		this.view.getPaintPanel().getModel().setColor(color);
+	public void setNewColor(Color color){
+		this.view.getPaintPanel().setColor(color);
 	}
 
 }

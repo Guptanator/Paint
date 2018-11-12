@@ -6,7 +6,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
-public class Square extends Drawable {
+public class Square extends ClosedShape {
 	
 	private int length;
 	private boolean fill;
@@ -112,5 +112,11 @@ public class Square extends Drawable {
 		} else {
 			return -(d-this.getCorner().getX());
 		}
+	}
+
+	@Override
+	public boolean isClosed() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }

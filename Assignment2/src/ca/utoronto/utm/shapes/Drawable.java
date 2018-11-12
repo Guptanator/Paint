@@ -16,10 +16,6 @@ public abstract class Drawable {
 	public abstract void setColor(Color c);
 	public abstract Color getColor();
 	public abstract void setThickness(double thickness);
-	public abstract void setFill(boolean fill);
-	public abstract boolean isClicked(MouseEvent e);
-	public abstract double xDifferent(double d);
-	public abstract double yDifferent(double d);
-
+	public abstract boolean isClosed();
 }
 	

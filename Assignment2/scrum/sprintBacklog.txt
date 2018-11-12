@@ -638,3 +638,13 @@ AS A     : user
 I WANT   : The app to look nice, it needs to be pretty!
 SO THAT  : I actually want to use it
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 36 : chowd460
+NAME     : Violating LSP
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Right now we are violating LSP since we have methods in line, point, squiggle which are
+		   never used and neccessary. By adding in the ClosedShape abstract class are avoiding breaking
+		   LSP and we are making our code more logical.
+--------------------------------------------------------------------------

@@ -142,7 +142,7 @@ public class View implements EventHandler<ActionEvent> {
 			System.exit(0);
 		} else if (((MenuItem)event.getSource()).getText()=="Resize Canvas") {
 			CanvasPopup canvasPop = new CanvasPopup(this.paintPanel);
-		} 
+		}
 	}
 	/**
 	 * This function allows the outside world to set the fill icons as filled or unfilled.
