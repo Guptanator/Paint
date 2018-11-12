@@ -132,4 +132,10 @@ public class PaintModel extends Observable {
 		this.setChanged();
 		this.notifyObservers();
 	}
+	
+	public void removeObject(Drawable d) {
+		int i=this.allObjects.indexOf(d);
+		this.allObjects.remove(i);
+		this.properties.remove(i);
+	}
 }

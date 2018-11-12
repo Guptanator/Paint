@@ -13,6 +13,7 @@ import ca.utoronto.utm.shapes.CircleStrategy;
 import ca.utoronto.utm.shapes.Drawable;
 import ca.utoronto.utm.shapes.ShapeManipulatorStrategy;
 import ca.utoronto.utm.shapes.TransformStrategy;
+import ca.utoronto.utm.tabPanel.OtherModeButton;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -35,7 +36,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	private ShapeManipulatorStrategy strategy = new CircleStrategy(); // the Strategy for the shape we are building
 	private TransformStrategy TStrategy;
 	private Canvas canvas;
-	private ToggleButton currentModeButton=null;
+	private OtherModeButton currentModeButton=null;
 	
 	private Color color= Color.BLACK;
 	
@@ -165,7 +166,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		setThickness(this.thick);
 	}
 	
-	public void setTransformMode(TransformStrategy t, ToggleButton modeButton) {
+	public void setTransformMode(TransformStrategy t, OtherModeButton modeButton) {
 		this.TStrategy = t;
 		t.setModel(this.model);
 		this.shapeMode = false;
