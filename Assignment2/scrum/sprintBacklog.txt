@@ -648,3 +648,13 @@ ISSUE    : Right now we are violating LSP since we have methods in line, point, 
 		   never used and neccessary. By adding in the ClosedShape abstract class are avoiding breaking
 		   LSP and we are making our code more logical.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 37 : chowd460
+NAME     : Undo/redo not working for transformation
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
+           This needs to be fixed ASAP!
+--------------------------------------------------------------------------
+

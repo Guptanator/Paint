@@ -17,16 +17,6 @@ SO THAT  : I will be able to have multiple drawings projects working at the
 		   same time
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 14 : chowd460
-NAME     : Erase brush
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-AS A     : user
-I WANT   : To be able to erase anywhere on the screen
-SO THAT  : I can correct any of my mistakes
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 8 : guptaary/leejon79
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
@@ -57,6 +47,15 @@ PRIORITY : 2
 ESTIMATE : 1 hours
 ISSUE    : Should be able to use fill option from panel with a Button whose Icon will
 		   Change depending on whether shapes will currently fill or not.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 37 : chowd460
+NAME     : Undo/redo not working for transformation
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
+           This needs to be fixed ASAP!
 --------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -595,6 +594,16 @@ ESTIMATE : 8 hours
 ISSUE    : Right now we are violating LSP since we have methods in line, point, squiggle which are
 		   never used and neccessary. By adding in the ClosedShape abstract class are avoiding breaking
 		   LSP and we are making our code more logical.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 14 : chowd460
+NAME     : Erase brush
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to erase anywhere on the screen
+SO THAT  : I can correct any of my mistakes
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
