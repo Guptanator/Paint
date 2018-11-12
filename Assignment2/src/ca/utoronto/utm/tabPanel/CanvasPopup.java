@@ -3,33 +3,105 @@ package ca.utoronto.utm.tabPanel;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import ca.utoronto.utm.paint.PaintModel;
+import ca.utoronto.utm.paint.PaintPanel;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.stage.Popup;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class CanvasPopup extends JFrame {
+public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 	
-	private JButton ok = new JButton("OK");
-	private JButton cancel = new JButton("CANCEL");
-	private JPanel panel;
+	private Button ok = new Button("OK");
+	private Button cancel = new Button("CANCEL");
+	private Button screenSize = new Button("SET SCREEN DIMENSIONS");
+	private PaintPanel paintPanel;
+	private TextField ySize;
+	private TextField xSize;
+	private TextField error;
 	
-	public CanvasPopup() {
-		this.setVisible(true);
-		this.setSize(300, 300);;
-		panel = new JPanel();
-		panel.add(ok);
-		panel.add(cancel);
-		this.add(panel);
+	public CanvasPopup(PaintPanel p) {
+		this.setTitle("Resize Canvas");
+
+		this.paintPanel = p;
+		GridPane grid = new GridPane();
+		grid.setPadding(new Insets(10,10,10,10));
+		grid.setVgap(8);
+		grid.setHgap(10);
 		
+		ok.setOnAction(this);
+		grid.setConstraints(ok, 0, 2);
+		
+		cancel.setOnAction(this);
+		grid.setConstraints(cancel, 1, 2);
+		
+		screenSize.setOnAction(this);
+		grid.setConstraints(screenSize, 0, 3);
+		
+		Label pixel1 = new Label("px");
+		grid.setConstraints(pixel1, 1, 0);
+		
+		Label pixel2 = new Label("px");
+		grid.setConstraints(pixel2, 1, 1);
+		
+		ySize = new TextField();
+		ySize.setPromptText("Height");
+		grid.setConstraints(ySize, 0, 0);
+		
+		xSize = new TextField();
+		xSize.setPromptText("Width");
+		grid.setConstraints(xSize, 0, 1);
+		
+		error = new TextField("");
+		error.setEditable(false);
+		error.setBackground(null);
+		grid.setConstraints(error, 0, 4);
+		
+
+		
+		
+		
+		grid.getChildren().addAll(pixel1, pixel2, ySize, xSize, ok, cancel, screenSize, error);
+		
+		Scene scene = new Scene(grid, 300, 200);
+		
+		this.setScene(scene);
+		this.show();
 	}
 
-	GraphicsDevice gdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-	int width = gdevice.getDisplayMode().getWidth();
-	int height = gdevice.getDisplayMode().getHeight();
+	
+	private void setScreenSize() {
+		GraphicsDevice gdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		int width = gdevice.getDisplayMode().getWidth();
+		int height = gdevice.getDisplayMode().getHeight();
+		
+		this.ySize.setText(Integer.toString(height));
+		
+		this.xSize.setText(Integer.toString(width));
+		
+		
+	}
+	@Override
+	public void handle(ActionEvent event) {
+		if (((Button) event.getSource()).getText()=="OK") {
+			try {
+				int height = Integer.parseInt(ySize.getText());
+				int width = Integer.parseInt(xSize.getText());
+				this.paintPanel.changeCanvas(height, width);
+				this.hide();
+			} catch(IllegalArgumentException e){
+				this.error.setText("Must Input two integers");
+			}
+		} else if (((Button) event.getSource()).getText() =="CANCEL") {
+			this.hide();
+		} else if (((Button) event.getSource()).getText() =="SET SCREEN DIMENSIONS") {
+			this.setScreenSize();
+		}
+		
+	}
 	
 }

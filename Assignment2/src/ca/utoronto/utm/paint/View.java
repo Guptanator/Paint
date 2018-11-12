@@ -150,7 +150,7 @@ public class View implements EventHandler<ActionEvent> {
 		else if (((MenuItem)event.getSource()).getText()=="Exit") {
 			System.exit(0);
 		} else if (((MenuItem)event.getSource()).getText()=="Resize Canvas") {
-			CanvasPopup canvasPop = new CanvasPopup();
+			CanvasPopup canvasPop = new CanvasPopup(this.paintPanel);
 		} 
 	}
 }
