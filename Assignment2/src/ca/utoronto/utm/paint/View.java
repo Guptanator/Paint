@@ -1,9 +1,8 @@
 package ca.utoronto.utm.paint;
 
+import ca.utoronto.utm.tabPanel.CanvasPopup;
 import ca.utoronto.utm.tabPanel.ShapeChooserPanel;
 import ca.utoronto.utm.tabPanel.TabPanelParent;
-import ca.utoronto.utm.tabPanel.colorPane;
-import ca.utoronto.utm.tabPanel.thicknessPopup;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -20,10 +19,9 @@ public class View implements EventHandler<ActionEvent> {
 	private PaintModel model;
 
 	private PaintPanel paintPanel;
-	private ShapeChooserPanel shapeChooserPanel;
-	private colorPane colorPane;
 	private TabPanelParent tabParent;
 	private FlowPane drawArea;
+	private Stage stage;
 	public View(PaintModel model, Stage stage) {
 
 		this.model = model;
@@ -31,10 +29,10 @@ public class View implements EventHandler<ActionEvent> {
 	}
 
 	private void initUI(Stage stage) {
-
+		
+		this.stage = stage;
 		this.paintPanel = new PaintPanel(this.model, this);
 		this.tabParent = new TabPanelParent(this);
-		this.colorPane = new colorPane(this);
 		drawArea = new FlowPane();
 		drawArea.getChildren().add(this.paintPanel);
 
@@ -51,10 +49,6 @@ public class View implements EventHandler<ActionEvent> {
 
 	public PaintPanel getPaintPanel() {
 		return paintPanel;
-	}
-
-	public ShapeChooserPanel getShapeChooserPanel() {
-		return shapeChooserPanel;
 	}
 
 	private MenuBar createMenuBar() {
@@ -76,6 +70,10 @@ public class View implements EventHandler<ActionEvent> {
 		menu.getItems().add(menuItem);
 
 		menuItem = new MenuItem("Save");
+		menuItem.setOnAction(this);
+		menu.getItems().add(menuItem);
+		
+		menuItem = new MenuItem("Resize Canvas");
 		menuItem.setOnAction(this);
 		menu.getItems().add(menuItem);
 
@@ -142,6 +140,14 @@ public class View implements EventHandler<ActionEvent> {
 		}
 		else if (((MenuItem)event.getSource()).getText()=="Exit") {
 			System.exit(0);
-		} 
+		} else if (((MenuItem)event.getSource()).getText()=="Resize Canvas") {
+			CanvasPopup canvasPop = new CanvasPopup(this.paintPanel);
+		}
+	}
+	/**
+	 * This function allows the outside world to set the fill icons as filled or unfilled.
+	 */
+	public void setFilled() {
+		this.tabParent.setFilled();
 	}
 }

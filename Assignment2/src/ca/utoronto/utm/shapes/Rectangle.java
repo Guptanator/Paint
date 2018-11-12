@@ -1,4 +1,4 @@
-package shapes;
+package ca.utoronto.utm.shapes;
 
 
 import javafx.scene.canvas.GraphicsContext;
@@ -6,7 +6,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
-public class Rectangle extends Drawable{
+public class Rectangle extends ClosedShape {
 	
 	private int height = 0;
 	private int width = 0;
@@ -103,6 +103,11 @@ public class Rectangle extends Drawable{
 		} else {
 			return -(d-this.getCorner().getX());
 		}
+	}
+
+	@Override
+	public boolean isClosed() {
+		return true;
 	}
 
 }

@@ -1,4 +1,4 @@
-package shapes;
+package ca.utoronto.utm.shapes;
 
 
 import java.awt.Graphics;
@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.input.MouseEvent;
 
-public class Circle extends Drawable{
+public class Circle extends ClosedShape {
 	
 	private Point centre;
 	private int radius;
@@ -105,6 +105,12 @@ public class Circle extends Drawable{
 		} else {
 			return -(d-this.getCentre().getX());
 		}		
+	}
+
+	@Override
+	public boolean isClosed() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }

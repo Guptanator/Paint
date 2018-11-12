@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Observable;
 
-import DrawingCommands.ColorCommand;
-import DrawingCommands.FillCommand;
-import DrawingCommands.PropertyInvoker;
-import DrawingCommands.ThicknessCommand;
+import ca.utoronto.utm.drawingCommands.ColorCommand;
+import ca.utoronto.utm.drawingCommands.FillCommand;
+import ca.utoronto.utm.drawingCommands.PropertyInvoker;
+import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.paint.Color;
-import shapes.Drawable;
+import ca.utoronto.utm.shapes.Drawable;
 
 /**
  * The class that handles the creation and destruction
@@ -22,7 +22,6 @@ public class PaintModel extends Observable {
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
 	private int current = 0;
 	private boolean fill;
-	private LinkedList<PropertyInvoker> properties = new LinkedList<PropertyInvoker>();
 	private PropertyInvoker propertyInvoker = new PropertyInvoker();
 	private ColorCommand colorCommand = new ColorCommand(Color.BLACK);
 	private ThicknessCommand thicknessCommand = new ThicknessCommand(1.0);
@@ -128,16 +127,16 @@ public class PaintModel extends Observable {
 		return null;
 	}
 	
-	public int getCurrent() {
-		return this.current;
-	}
-	
-	public void setCurrent(int current) {
-		this.current = current;
-		this.update();
-	}
 	public void update() {
 		this.setChanged();
 		this.notifyObservers();
+	}
+	
+	public void removeObject(Drawable d) {
+		int i=this.allObjects.indexOf(d);
+		if (i>=0) {
+			this.allObjects.remove(i);
+			this.update();
+		}
 	}
 }

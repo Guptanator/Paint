@@ -1,9 +1,9 @@
-package DrawingCommands;
+package ca.utoronto.utm.drawingCommands;
 
 import java.util.ArrayList;
 
 import javafx.scene.canvas.GraphicsContext;
-import shapes.Drawable;
+import ca.utoronto.utm.shapes.Drawable;
 
 /**
  * Class for storing and executing drawing commands to apply

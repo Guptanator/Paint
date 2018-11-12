@@ -1,6 +1,7 @@
-package DrawingCommands;
+package ca.utoronto.utm.drawingCommands;
 
-import shapes.Drawable;
+import ca.utoronto.utm.shapes.ClosedShape;
+import ca.utoronto.utm.shapes.Drawable;
 
 /**
  * Command for activating the fill option for shapes.
@@ -22,6 +23,8 @@ public class FillCommand implements DrawingCommands{
 	*/
 	@Override
 	public void executeChange(Drawable d) {
-		d.setFill(this.fill);
+		if (d.isClosed()) {
+			((ClosedShape)d).setFill(this.fill);
+		}
 	}
 }

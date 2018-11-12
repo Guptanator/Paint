@@ -9,10 +9,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import shapes.CircleStrategy;
-import shapes.Drawable;
-import shapes.ShapeManipulatorStrategy;
-import shapes.TransformStrategy;
+import ca.utoronto.utm.shapes.CircleStrategy;
+import ca.utoronto.utm.shapes.Drawable;
+import ca.utoronto.utm.shapes.ShapeManipulatorStrategy;
+import ca.utoronto.utm.shapes.TransformStrategy;
+import ca.utoronto.utm.tabPanel.OtherModeButton;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -35,7 +36,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	private ShapeManipulatorStrategy strategy = new CircleStrategy(); // the Strategy for the shape we are building
 	private TransformStrategy TStrategy;
 	private Canvas canvas;
-	private ToggleButton currentModeButton=null;
+	private OtherModeButton currentModeButton=null;
 	
 	private Color color= Color.BLACK;
 	
@@ -47,10 +48,6 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 * @param view View 
 	*/
 	public PaintPanel(PaintModel model, View view) {
-		
-		GraphicsDevice gdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-		int width = gdevice.getDisplayMode().getWidth();
-		int height = gdevice.getDisplayMode().getHeight();
 		
 		this.canvas = new Canvas(400, 400);
 		this.getChildren().add(this.canvas);
@@ -98,8 +95,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	/** Activates PaintModel's setfill() function, which changes
 	 * whether or not the next shapes are going to be filled or not.
 	*/
-	public void setFill()
-	{
+	public void setFill() {
+		this.view.setFilled();
 		this.model.setFill();
 	}
 	/** Returns the stored PaintModel.
@@ -142,14 +139,12 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		}
 	}
 	/**
-	 * Changes the color value and stores it in the
-	 * ShapeManipulatorStrategy strategy.
+	 * Changes the color value in the model
 	 * @param c Color that will change the drawable
 	 * color.
 	 */
 	public void setColor(Color c) {
-		this.color = c;
-		this.strategy.setColor(c);
+		this.model.setColor(c);
 	}
 	/**
 	 * Returns the current ShapeManipulatorStrategy (strategy).
@@ -157,6 +152,9 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 */
 	public ShapeManipulatorStrategy getStrategy() {
 		return this.strategy;
+	}
+	public TransformStrategy getTStrategy() {
+		return this.TStrategy;
 		
 	}
 
@@ -167,7 +165,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		setThickness(this.thick);
 	}
 	
-	public void setTransformMode(TransformStrategy t, ToggleButton modeButton) {
+	public void setTransformMode(TransformStrategy t, OtherModeButton modeButton) {
 		this.TStrategy = t;
 		t.setModel(this.model);
 		this.shapeMode = false;
@@ -186,5 +184,10 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		} else {
 			this.TStrategy.handleMouse(e);
 		}
+	}
+	
+	public void changeCanvas(int h, int w) {
+		this.canvas.setHeight(h);
+		this.canvas.setWidth(w);
 	}
 }

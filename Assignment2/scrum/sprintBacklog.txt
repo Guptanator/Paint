@@ -392,7 +392,7 @@ SO THAT  : I will be able to have multiple drawings projects working at the
 		   same time
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 13 : utorid
+TYPE     : USER STORY 13 : chowd460
 NAME     : Master selection tab
 OWNER    : 
 PRIORITY : 2
@@ -403,7 +403,7 @@ SO THAT  : I can draw more quicker while also have user friendly tabs which can 
 		   instructions.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 14 : utorid
+TYPE     : USER STORY 14 : chowd460
 NAME     : Erase brush
 OWNER    : 
 PRIORITY : 2
@@ -600,3 +600,61 @@ Note that you can associate text with a button, even if you
 display an ImageIcon. The string attached to the button causes the right choice 
 of object creation.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 32 : chowd460
+NAME     : Refactoring file structure and changing button to toggle button
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : The file structure has become messy, we should clean it up,
+		   and a togglebutton for fill makes more sense than a button.
+--------------------------------------------------------------------------
+-------------------------------------------------------------------------
+TYPE     : BUG 33 : guptaary 
+NAME     : Canvas counter changes thickness with the shapes
+OWNER    : 
+PRIORITY : 3
+ESTIMATE : 1 hour
+AS A     : user
+I WANT   : I want to keep the 'i = ' counter on the canvas one size
+SO THAT  : It doesn't change every time I change the thickness of a shape.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 34 : chowd460
+NAME     : Set up the shapeChooserButtons to react to being filled
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : It is not easy to know if you are currently in fill mode, this makes
+		   it a bit easier to know if you're filling.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 17 : chowd460
+NAME     : Make the application prettier
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : The app to look nice, it needs to be pretty!
+SO THAT  : I actually want to use it
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 36 : chowd460
+NAME     : Violating LSP
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Right now we are violating LSP since we have methods in line, point, squiggle which are
+		   never used and neccessary. By adding in the ClosedShape abstract class are avoiding breaking
+		   LSP and we are making our code more logical.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 37 : chowd460
+NAME     : Undo/redo not working for transformation
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
+           This needs to be fixed ASAP!
+--------------------------------------------------------------------------
+

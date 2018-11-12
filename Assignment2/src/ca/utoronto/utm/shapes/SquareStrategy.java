@@ -1,4 +1,4 @@
-package shapes;
+package ca.utoronto.utm.shapes;
 
 
 import ca.utoronto.utm.paint.PaintModel;
