@@ -657,4 +657,20 @@ ESTIMATE : 8 hours
 ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
            This needs to be fixed ASAP!
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 38 : chowd460
+NAME     : Moving not working on the border of the shapes
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : Currently we can can't move the shapes when we click on the border of the shapes
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 39 : chowd460
+NAME     : minor refactoring, remove i= and the scribble
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : Clean up, minor refactoring
+--------------------------------------------------------------------------
 
