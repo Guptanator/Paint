@@ -17,7 +17,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	private Line shape;
 	private boolean isFirst = true;
 	private boolean isEnd = false;
-	private boolean isTerminated;
+	private boolean isTerminated = true;
 	
 	/** 
 	 * MouseEvent Handler called by the PaintPanel which itself
@@ -41,7 +41,9 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 		} else if (e.getEventType() == MouseEvent.MOUSE_MOVED) {
 			moveFeedback(e);
 		} else if (e.getEventType() == MouseEvent.MOUSE_RELEASED) {
-			addShape();
+			if (!this.isTerminated) {
+				addShape();
+			}
 		}
 	}
 	
@@ -74,7 +76,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 			this.model.removeLast();
 			this.shape = null;
 			this.isFirst = true;
-			this.isEnd = true;
+			this.isEnd = false;
 			this.isTerminated = true;
 			this.model.update();
 		}

@@ -65,15 +65,6 @@ PRIORITY : 1
 ESTIMATE : 8 hours
 ISSUE    : Currently we can can't move the shapes when we click on the border of the shapes
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 41 : phamjus1
-NAME     : Terminating PolyLine twice
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 8 hours
-ISSUE    : Terminating PolyLine on right click twice produces errors on move
-		   and click.
---------------------------------------------------------------------------
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -639,6 +630,16 @@ PRIORITY : 1
 ESTIMATE : 2 hours
 ISSUE    : set the screen to be a maximum 1920x1080p
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 41 : phamjus1
+NAME     : Terminating PolyLine twice
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : Terminating PolyLine on right click twice produces errors on move
+		   and click.
+--------------------------------------------------------------------------
+
 
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
