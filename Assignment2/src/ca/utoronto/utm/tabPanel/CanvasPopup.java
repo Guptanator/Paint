@@ -24,6 +24,8 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 	private TextField ySize;
 	private TextField xSize;
 	private TextField error;
+	private final int MAXWIDTH = 1920;
+	private final int MAXHEIGHT = 1080;
 	
 	public CanvasPopup(PaintPanel p) {
 		this.setTitle("Resize Canvas");
@@ -64,9 +66,6 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 		error.setBackground(null);
 		grid.setConstraints(error, 0, 4);
 		
-
-		
-		
 		
 		grid.getChildren().addAll(pixel1, pixel2, ySize, xSize, ok, cancel, screenSize, error);
 		
@@ -81,9 +80,14 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 		GraphicsDevice gdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		int width = gdevice.getDisplayMode().getWidth();
 		int height = gdevice.getDisplayMode().getHeight();
+		if (width > this.MAXWIDTH) {
+			width = this.MAXWIDTH;
+		}
+		if (height > this.MAXHEIGHT) {
+			height = this.MAXHEIGHT;
+		}
 		
 		this.ySize.setText(Integer.toString(height));
-		
 		this.xSize.setText(Integer.toString(width));
 		
 		
@@ -94,6 +98,12 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 			try {
 				int height = Integer.parseInt(ySize.getText());
 				int width = Integer.parseInt(xSize.getText());
+				if (width > this.MAXWIDTH) {
+					width = this.MAXWIDTH;
+				}
+				if (height > this.MAXHEIGHT) {
+					height = this.MAXHEIGHT;
+				}
 				this.paintPanel.changeCanvas(height, width);
 				this.hide();
 			} catch(IllegalArgumentException e){

@@ -170,7 +170,6 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	}
 	public TransformStrategy getTStrategy() {
 		return this.TStrategy;
-		
 	}
 
 	public void setStrategy(ShapeManipulatorStrategy s) {

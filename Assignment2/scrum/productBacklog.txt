@@ -621,6 +621,15 @@ PRIORITY : 1
 ESTIMATE : 8 hours
 ISSUE    : Clean up, minor refactoring
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 40 : chowd460
+NAME     : set max screen size
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : set the screen to be a maximum 1920x1080p
+--------------------------------------------------------------------------
+
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
