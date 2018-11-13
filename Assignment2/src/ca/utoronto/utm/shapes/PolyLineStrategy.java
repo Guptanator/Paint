@@ -120,7 +120,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	 * @param e Mouse_Moved Mouse Event
 	*/
 	public void moveFeedback(MouseEvent e) {
-		if (!this.isFirst) {
+		if (!this.isFirst && !this.isTerminated) {
 			this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));
 			this.model.update();
 		}
