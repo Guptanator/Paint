@@ -34,6 +34,7 @@ public class Line extends Drawable {
 	
 	@Override
 	public void draw(GraphicsContext g) {
+		g.setLineWidth(this.thickness);
 		this.first.setColor(color);
 		this.first.draw(g, last, this.thickness);
 	}

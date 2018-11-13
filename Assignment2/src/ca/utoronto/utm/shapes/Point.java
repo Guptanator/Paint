@@ -48,7 +48,6 @@ public class Point extends Drawable {
 	public void draw(GraphicsContext g) {
 		g.setStroke(this.color);
 		g.strokeLine(this.getX(), this.getY(), this.getX(), this.getY());
-		g.setLineWidth(thickness);
 	}
 	public void draw(GraphicsContext g,Point p2, double thickness) {
 		g.setLineWidth(this.thickness);
