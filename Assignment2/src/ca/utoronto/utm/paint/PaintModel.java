@@ -74,18 +74,19 @@ public class PaintModel extends Observable {
 	 * @param t String that dictates certain line thickness values,
 	 * which can be either: Thin, Normal, or Thick.
 	*/
-	public void setThickness(String t)
+	public void setThickness(double t)
 	{
-		if (t == "Thin") {
-			this.thicknessCommand = new ThicknessCommand(1.0);
-		} else if (t == "Normal") {
-			this.thicknessCommand = new ThicknessCommand(5.0);
-		} else if (t == "Thick") {
-			this.thicknessCommand = new ThicknessCommand(10.0);
-		}
-		else {
-			this.thicknessCommand = new ThicknessCommand(1.0);
-		}
+//		if (t == "Thin") {
+//			this.thicknessCommand = new ThicknessCommand(1.0);
+//		} else if (t == "Normal") {
+//			this.thicknessCommand = new ThicknessCommand(5.0);
+//		} else if (t == "Thick") {
+//			this.thicknessCommand = new ThicknessCommand(10.0);
+//		}
+//		else {
+//			this.thicknessCommand = new ThicknessCommand(1.0);
+//		}
+		this.thicknessCommand = new ThicknessCommand(t);
 	}
 	/** Removes the latest drawn object from the (allObjects) list
 	 * and saves the value into a different list (undone) in case you

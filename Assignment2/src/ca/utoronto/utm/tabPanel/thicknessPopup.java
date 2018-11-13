@@ -1,11 +1,20 @@
 package ca.utoronto.utm.tabPanel;
 
-
 import ca.utoronto.utm.paint.View;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+
 /**
  * This call is used to hold and display elements relating to the thickness manipulating elements
 */
@@ -16,25 +25,42 @@ public class thicknessPopup extends GridPane implements EventHandler<ActionEvent
 	 * but this will be changing to a slider soon.
 	 * @param View view used to communicating with the controller
 	 */
-	private View view; 
+	final Slider thickness;
+	final Label  thicknessCaption;
+	double thicknessValue;
+	View view;
+	
 	public thicknessPopup(View view){
-		
+	
 		this.view = view;
-
-		String[] buttonLabels = {"Thin", "Normal", "Thick"};
-		this.getStylesheets().add("resources/stylesheet.css");
-
-		int row = 0;
-		for (String label : buttonLabels) {
-			Button button = new Button(label);
-			button.setMinWidth(100);
-			this.add(button, 0, row);
-			row++;
-			button.setOnAction(this);
-			button.getStyleClass().add("custom-button");
+		
+		this.thickness = new Slider(0, 10, 0);
+	
+		this.add(thickness, 10, 10);
+		this.thickness.setMin(0.5);
+		this.thickness.setMax(10.0);
+	
+		this.thickness.setValue(1.0);
+	
+		this.thickness.setShowTickLabels(true);
+		this.thickness.setShowTickMarks(true);
+	
+		this.thickness.setBlockIncrement(0.5);
+	
+		this.thicknessCaption = new Label("Thickness: ");
+	
+	
+		this.thickness.valueProperty().addListener(new ChangeListener<Number>(){
+    
+			@Override
+			public void changed(ObservableValue<? extends Number> arg0, Number oldValue, Number newValue) {
+				thicknessValue = ((double)newValue);
 		}
-	}
-	@Override
+    });
+}
+
+
+@Override
 	/**
 	 * This function handles any action on the thickness buttons and changes the thickness values 
 	 * in the PaintPanel
@@ -42,7 +68,7 @@ public class thicknessPopup extends GridPane implements EventHandler<ActionEvent
 	 * to set
 	 */
 	public void handle(ActionEvent event) {
-		String command = ((Button) event.getSource()).getText();
+		double command = thickness.getValue();
 		this.view.getPaintPanel().getModel().setThickness(command);
 	}
 }
