@@ -43,6 +43,6 @@ public class thicknessPopup extends GridPane implements EventHandler<ActionEvent
 	 */
 	public void handle(ActionEvent event) {
 		String command = ((Button) event.getSource()).getText();
-		this.view.getPaintPanel().getModel().setThickness(command);
+		this.view.getPaintPanel().setThickness(command);
 	}
 }

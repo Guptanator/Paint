@@ -1,6 +1,7 @@
 package ca.utoronto.utm.drawingCommands;
 
 import ca.utoronto.utm.shapes.Drawable;
+import javafx.scene.canvas.GraphicsContext;
 /** Abstract class for commands that change the
  * properties of Drawable objects.
  * 
@@ -11,5 +12,5 @@ public interface DrawingCommands {
 	 * of the given drawable object d.
 	 * @param d Drawable object change the properties of.
 	*/
-	public abstract void executeChange(Drawable d);
+	public abstract void executeChange(GraphicsContext g);
 }

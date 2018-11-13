@@ -30,7 +30,6 @@ public class Squiggle extends Drawable {
 
 	@Override
 	public String type() {
-		// TODO Auto-generated method stub
 		return "Squiggle";
 	}
 
@@ -41,7 +40,6 @@ public class Squiggle extends Drawable {
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
 		return this.color;
 	}
 	@Override
@@ -51,7 +49,6 @@ public class Squiggle extends Drawable {
 
 	@Override
 	public boolean isClosed() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
