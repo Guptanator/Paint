@@ -701,4 +701,12 @@ ISSUE    : Currently we don't know what number we are setting the thickness
 		   Should add some sort of feedback to update users on the thickness
 		   value.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 43 : chowd460
+NAME     : Stroke Thickness error on left
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The slider throws an exception when moved too far to the left
+--------------------------------------------------------------------------
 

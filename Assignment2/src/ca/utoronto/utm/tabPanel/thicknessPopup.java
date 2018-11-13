@@ -35,7 +35,7 @@ public class thicknessPopup extends VBox implements ChangeListener<Number>{
 	
 		this.view = view;
 		
-		this.thickness = new Slider(0, 10, 0);
+		this.thickness = new Slider(0, 10, 1.0);
 		this.thickness.setMaxWidth(100);
 		this.thickness.setMin(0.5);
 		this.thickness.setMax(15.0);
@@ -45,7 +45,7 @@ public class thicknessPopup extends VBox implements ChangeListener<Number>{
 	
 		this.thickness.setBlockIncrement(0.5);
 	
-		this.thicknessCaption = new Label("Thickness: ");
+		this.thicknessCaption = new Label("Thickness:1.0");
 		this.thicknessCaption.setMaxWidth(100);
 		this.thicknessCaption.setTextFill(Color.web("#ecf0f1"));
 		this.getChildren().addAll(this.thicknessCaption,this.thickness);
@@ -55,7 +55,10 @@ public class thicknessPopup extends VBox implements ChangeListener<Number>{
 	public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 		double thickNum = (double)observable.getValue();
 		this.view.getPaintPanel().setThickness(thickNum);
-		this.thicknessCaption.setText("Thickness: " + Double.toString(thickNum).substring(0, 4));
-		
+		try {
+			this.thicknessCaption.setText("Thickness: " + Double.toString(thickNum).substring(0, 4));
+		} catch (StringIndexOutOfBoundsException e) {
+			this.thicknessCaption.setText("Thickness: " + Double.toString(thickNum).substring(0, 3));
+		}
 	}
 }
