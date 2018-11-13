@@ -1,5 +1,6 @@
 package ca.utoronto.utm.drawingCommands;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import ca.utoronto.utm.shapes.Drawable;
 /**
@@ -22,7 +23,7 @@ public class ColorCommand implements DrawingCommands{
 	/** Changes the color value for shape d when called.
 	*/
 	@Override
-	public void executeChange(Drawable d) {
-		d.setColor(this.color);
+	public void executeChange(GraphicsContext g) {
+		g.setStroke(this.color);
 	}
 }

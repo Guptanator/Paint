@@ -39,17 +39,8 @@ public class SquareStrategy extends ShapeManipulatorStrategy {
 	private void makeShape(MouseEvent e) {
 		Point corner = new Point((int) e.getX(), (int) e.getY());
 		this.shape = new Square(corner, this.color, thickness);
+		this.shape.setFill(this.fill);
 		this.model.addDrawable(this.shape);
-	}
-	
-	/** 
-	 * Sets Strategy Fill setting to True
-	 *  
-	 * @param e Mouse Event
-	 * @param p Current PaintModel
-	*/
-	public void changeShape(MouseEvent e, PaintModel p) {
-		this.shape.setFill(p.getFill());
 	}
 	
 	/** 
@@ -60,7 +51,6 @@ public class SquareStrategy extends ShapeManipulatorStrategy {
 	 * @param e Mouse_Dragged Mouse Event
 	*/
 	private void changeShape(MouseEvent e) {
-		this.shape.toFill(this.model.getFill());
 		int h = this.shape.getStart().getY()- (int) e.getY();
 		int w = this.shape.getStart().getX()- (int) e.getX();
 		if (h <= 0) {

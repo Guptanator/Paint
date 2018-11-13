@@ -23,6 +23,7 @@ public class Squiggle extends Drawable {
 	
 	@Override
 	public void draw(GraphicsContext g) {
+		g.setLineWidth(this.thickness);
 		for (int i = 0; i < this.points.size() - 1; i++) {
 			points.get(i).draw(g, points.get(i+1), this.thickness);
 		}
@@ -30,7 +31,6 @@ public class Squiggle extends Drawable {
 
 	@Override
 	public String type() {
-		// TODO Auto-generated method stub
 		return "Squiggle";
 	}
 
@@ -41,7 +41,6 @@ public class Squiggle extends Drawable {
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
 		return this.color;
 	}
 	@Override
@@ -51,7 +50,6 @@ public class Squiggle extends Drawable {
 
 	@Override
 	public boolean isClosed() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

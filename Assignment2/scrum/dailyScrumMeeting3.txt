@@ -61,14 +61,14 @@ Nov 10, 2018
 	Obstacles :had to work on fixing the UI for thickness
 	
 Nov 11, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :started java doc (not completed)
+	Today     :Started working on slider for the thickness
+	Obstacles :Couldn't really figure out how to create a listener for the slider with all the changes.
 	
 Nov 12, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday :Started working on thickness slider.
+	Today     :Completed thickness slider. 
+	Obstacles :Had to take a little assistance from my team mates to see where i was going wrong.
 
 Nov 13, 2018
 	Yesterday :

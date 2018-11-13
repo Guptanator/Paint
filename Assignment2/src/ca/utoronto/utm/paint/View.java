@@ -113,16 +113,6 @@ public class View implements EventHandler<ActionEvent> {
 
 		menuBar.getMenus().add(menu);
 
-		//New menu for color stuff
-		
-		menu = new Menu("Change Properties");
-		
-		menuItem = new MenuItem("Fill?");
-		menuItem.setOnAction(this);
-		menu.getItems().add(menuItem);
-		
-		menuBar.getMenus().add(menu);
-		
 		return menuBar;
 	}
 
@@ -134,9 +124,6 @@ public class View implements EventHandler<ActionEvent> {
 		}
 		else if (((MenuItem)event.getSource()).getText()=="Redo") {
 			model.Redo();
-		}
-		else if (((MenuItem)event.getSource()).getText()=="Fill?") {
-			model.setFill();
 		}
 		else if (((MenuItem)event.getSource()).getText()=="Exit") {
 			System.exit(0);

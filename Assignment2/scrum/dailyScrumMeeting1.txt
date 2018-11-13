@@ -76,8 +76,8 @@ Nov 11, 2018
 	Obstacles :
 	
 Nov 12, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Finished user story 17, make the entire application prettier and documented code.
+	Today     : Helped Aryaman with an issue he was facing with the sliders not working, studied 236 and did work work
 	Obstacles :
 
 Nov 13, 2018

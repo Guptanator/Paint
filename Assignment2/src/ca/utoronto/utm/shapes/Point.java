@@ -1,14 +1,21 @@
 package ca.utoronto.utm.shapes;
 
 
+import java.util.ArrayList;
+
+import ca.utoronto.utm.drawingCommands.ColorCommand;
+import ca.utoronto.utm.drawingCommands.DrawingCommands;
+import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
 public class Point extends Drawable {
-	int x, y;
-	boolean segment;
+	private int x, y;
+	private boolean segment;
+	
+	private ArrayList<DrawingCommands> commands= new ArrayList<DrawingCommands>();
 
 	Point(int x, int y) {
 		this.x = x;
@@ -19,6 +26,8 @@ public class Point extends Drawable {
 		this(x,y);
 		this.color = c;
 		this.thickness = thickness;
+		this.commands.add(new ColorCommand(this.color));
+		this.commands.add(new ThicknessCommand(this.thickness));
 	}
 
 	public int getX() {
@@ -46,18 +55,22 @@ public class Point extends Drawable {
 	
 	@Override
 	public void draw(GraphicsContext g) {
-		g.setStroke(this.color);
+		for(DrawingCommands command: this.commands)
+		{
+			command.executeChange(g);
+		}
 		g.strokeLine(this.getX(), this.getY(), this.getX(), this.getY());
-		g.setLineWidth(thickness);
 	}
 	public void draw(GraphicsContext g,Point p2, double thickness) {
-		g.setLineWidth(this.thickness);
 		if (this.isFinal()) {
+			g.setLineWidth(this.thickness);
 			return;
 		}
-		g.setStroke(this.color);
+		for(DrawingCommands command: this.commands)
+		{
+			command.executeChange(g);
+		}
 		g.strokeLine(this.getX(), this.getY(), p2.getX(), p2.getY());
-		
 	}
 
 	@Override
@@ -69,6 +82,7 @@ public class Point extends Drawable {
 	public void setColor(Color c) {
 		// TODO Auto-generated method stub
 		this.color = c;
+		this.commands.add(new ColorCommand(c));
 	}
 	@Override
 	public Color getColor() {
@@ -81,6 +95,7 @@ public class Point extends Drawable {
 	@Override
 	public void setThickness(double thickness) {
 		this.thickness = thickness;
+		this.commands.add(new ThicknessCommand(thickness));
 	}
 	@Override
 	public boolean isClosed() {

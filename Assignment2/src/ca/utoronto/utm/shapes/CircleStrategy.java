@@ -40,18 +40,8 @@ public class CircleStrategy extends ShapeManipulatorStrategy{
 	private void makeCircle(MouseEvent e) {
 		Point centre = new Point((int) e.getX(), (int) e.getY());
 		this.shape = new Circle(centre, 0, this.color, this.thickness);
-		this.shape.setFill(model.getFill());
-		model.addDrawable(this.shape);
-	}
-	
-	/** 
-	 * Sets Strategy Fill setting to True
-	 *  
-	 * @param e Mouse Event
-	 * @param p Current PaintModel
-	*/
-	public void changeShape(MouseEvent e, PaintModel p) {
-		this.shape.setFill(p.getFill());
+		this.shape.setFill(this.fill);
+		this.model.addDrawable(this.shape);
 	}
 	
 	/** 

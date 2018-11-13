@@ -57,6 +57,14 @@ ESTIMATE : 8 hours
 ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
            This needs to be fixed ASAP!
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 38 : chowd460
+NAME     : Moving not working on the border of the shapes
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : Currently we can can't move the shapes when we click on the border of the shapes
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -605,6 +613,19 @@ AS A     : user
 I WANT   : To be able to erase anywhere on the screen
 SO THAT  : I can correct any of my mistakes
 --------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+-------------------------------------------------------------------------
+TYPE     : BUG 33 : guptaary 
+NAME     : Canvas counter changes thickness with the shapes
+OWNER    : 
+PRIORITY : 3
+ESTIMATE : 1 hour
+AS A     : user
+I WANT   : I want to keep the 'i = ' counter on the canvas one size
+SO THAT  : It doesn't change every time I change the thickness of a shape.
+--------------------------------------------------------------------------
+>>>>>>> 8007c5137d1e91b98143dfeb6d4e02b1b055d3ed
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 

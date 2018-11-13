@@ -1,6 +1,7 @@
 package ca.utoronto.utm.drawingCommands;
 
 import ca.utoronto.utm.shapes.Drawable;
+import javafx.scene.canvas.GraphicsContext;
 /**
  * Command for choosing the line thickness for shapes.
  *
@@ -21,7 +22,7 @@ public class ThicknessCommand implements DrawingCommands{
 	/** Changes the line thickness value for shape d when called.
 	*/
 	@Override
-	public void executeChange(Drawable d) {
-		d.setThickness(thickness);
+	public void executeChange(GraphicsContext g) {
+		g.setLineWidth(this.thickness);
 	}
 }

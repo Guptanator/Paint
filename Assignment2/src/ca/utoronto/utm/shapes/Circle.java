@@ -4,6 +4,10 @@ package ca.utoronto.utm.shapes;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+import ca.utoronto.utm.drawingCommands.ColorCommand;
+import ca.utoronto.utm.drawingCommands.DrawingCommands;
+import ca.utoronto.utm.drawingCommands.FillCommand;
+import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -13,10 +17,12 @@ public class Circle extends ClosedShape {
 	
 	private Point centre;
 	private int radius;
-	private boolean fill;
+	private boolean fill = false;
 	private double len; 
 	private double thickness;
 	private Color color;
+	
+	private ArrayList<DrawingCommands> commands = new ArrayList<DrawingCommands>();
 	
 	public Circle(Point p, int r, Color c, double thickness) {
 
@@ -24,7 +30,8 @@ public class Circle extends ClosedShape {
 		this.radius = r;
 		this.color = c;
 		this.thickness = thickness;
-
+		this.commands.add(new ColorCommand(this.color));
+		this.commands.add(new ThicknessCommand(this.thickness));
 	}
 
 	public Point getCentre() {
@@ -49,14 +56,15 @@ public class Circle extends ClosedShape {
 		int radius = this.getRadius();
 		int x = this.getCentre().getX()-(radius);
 		int y = this.getCentre().getY()-(radius);
-		g.setLineWidth(this.thickness);
-		g.setStroke(this.color);
-		g.strokeOval(x, y, radius*2, radius*2);
-		if(fill)
+		for(DrawingCommands command: this.commands)
 		{
-			g.setFill(this.color);
+			command.executeChange(g);
+		}
+		if(this.fill)
+		{
 			g.fillOval(x, y, radius*2, radius*2);
 		}
+		g.strokeOval(x, y, radius*2, radius*2);
 	}
 
 	@Override
@@ -67,6 +75,7 @@ public class Circle extends ClosedShape {
 	@Override
 	public void setColor(Color c) {
 		this.color = c;
+		this.commands.add(new ColorCommand(c));
 	}
 
 	@Override
@@ -74,14 +83,23 @@ public class Circle extends ClosedShape {
 		return this.color;
 	}
 	@Override
-	public void setFill(boolean fill)
+	public void setFill(boolean filled)
 	{
-		this.fill = fill;
+		if(filled)
+		{
+			this.commands.add(new FillCommand(this.color));
+		}
+		else
+		{
+			this.commands.add(new FillCommand(new Color(0,0,0,0)));
+		}
+		this.fill = filled;
 	}
 
 	@Override
 	public void setThickness(double thickness) {
 		this.thickness = thickness;
+		this.commands.add(new ThicknessCommand(this.thickness));
 	}
 
 	@Override
@@ -109,7 +127,6 @@ public class Circle extends ClosedShape {
 
 	@Override
 	public boolean isClosed() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 

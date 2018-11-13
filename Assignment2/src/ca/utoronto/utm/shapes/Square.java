@@ -1,6 +1,12 @@
 package ca.utoronto.utm.shapes;
 
 
+import java.util.ArrayList;
+
+import ca.utoronto.utm.drawingCommands.ColorCommand;
+import ca.utoronto.utm.drawingCommands.DrawingCommands;
+import ca.utoronto.utm.drawingCommands.FillCommand;
+import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -9,17 +15,20 @@ import javafx.scene.paint.Paint;
 public class Square extends ClosedShape {
 	
 	private int length;
-	private boolean fill;
 	private Point corner;
 	private Color color;
 	private Point start;
 	private double thickness;
+	
+	private ArrayList<DrawingCommands> commands= new ArrayList<DrawingCommands>();
 		
 	public Square(Point p, Color color, double thickness) {
 		this.corner = p;
 		this.start = new Point(p.getX(), p.getY());
 		this.color = color;
 		this.thickness = thickness;
+		this.commands.add(new ColorCommand(this.color));
+		this.commands.add(new ThicknessCommand(this.thickness));
 	}
 	
 	public Point getStart() {
@@ -34,7 +43,7 @@ public class Square extends ClosedShape {
 		this.corner = c;
 	}
 	
-	public int geLength() {
+	public int getLength() {
 		return this.length;
 	}
 	
@@ -45,45 +54,50 @@ public class Square extends ClosedShape {
 
 	@Override
 	public void draw(GraphicsContext g) {
-		g.setStroke(this.color);
-		g.setLineWidth(this.thickness);
-		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
-		
-		if(this.fill)
+		for(DrawingCommands command: this.commands)
+		{
+			command.executeChange(g);
+		}
+//		
+		if(fill)
 		{
 			g.fillRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 		}
+		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 	}
 
 	@Override
 	public String type() {
-		// TODO Auto-generated method stub
 		return "Square";
 	}
 
 	@Override
 	public void setColor(Color c) {
 		this.color = c;		
+		this.commands.add(new ColorCommand(c));
 	}
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
 		return this.color;
 	}
 
-	public void toFill(boolean fill) {
-		this.fill = fill;
-	}
-
 	@Override
-	public void setFill(boolean fill) {
-		this.fill = fill;
+	public void setFill(boolean filled) {
+		if(filled)
+		{
+			this.commands.add(new FillCommand(this.color));
+		}
+		else
+		{
+			this.commands.add(new FillCommand(new Color(0,0,0,0)));
+		}
+		this.fill = filled;
 	}
 
 	@Override
 	public void setThickness(double thickness) {
-		this.thickness = thickness;
+		this.commands.add(new ThicknessCommand(thickness));
 	}
 
 	public boolean isClicked(MouseEvent e) {
@@ -116,7 +130,6 @@ public class Square extends ClosedShape {
 
 	@Override
 	public boolean isClosed() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 }
