@@ -65,17 +65,6 @@ PRIORITY : 1
 ESTIMATE : 8 hours
 ISSUE    : Currently we can can't move the shapes when we click on the border of the shapes
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 42 : phamjus1
-NAME     : Stroke Thickness Feedback
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : Currently we don't know what number we are setting the thickness
-		   to from the slider alone.
-		   Should add some sort of feedback to update users on the thickness
-		   value.
---------------------------------------------------------------------------
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -650,6 +639,17 @@ ESTIMATE : 2 hours
 ISSUE    : Terminating PolyLine on right click twice produces errors on move
 		   and click.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 42 : phamjus1
+NAME     : Stroke Thickness Feedback
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Currently we don't know what number we are setting the thickness
+		   to from the slider alone.
+		   Should add some sort of feedback to update users on the thickness
+		   value.
+--------------------------------------------------------------------------
 
 
 
@@ -705,7 +705,7 @@ ISSUE    : Having a list of different types of drawable things in the
 REASONING: Included as part of BUG 10
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 8 : guptaary/leejon79
+TYPE     : BUG 8 : leejon79
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
 PRIORITY : 1
