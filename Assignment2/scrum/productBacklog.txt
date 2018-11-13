@@ -17,70 +17,18 @@ SO THAT  : I will be able to have multiple drawings projects working at the
 		   same time
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 7 : chowd460
-NAME     : Architecture for drawing shapes can be improved
+TYPE     : BUG 8 : guptaary/leejon79
+NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 4 hours
 ISSUE    : The architecture can be improved if we implement the Command Design 
-Pattern to draw shapes as follows:
-
-The PaintModel should use the command design pattern. 
-That is, each shape knows how to draw itself, so there is a single list of 
-DrawingCommands maintained by the PaintModel and used by the PaintPanel.
-repaint() simply asks the PaintModel to ask command to execute(g).
-The simplest way to make this happen is to make each shape implement the 
-DrawingCommand interface which requires execute(g) to be implemented.
-Well sort of.
-
-NOTE: The PaintModel does know how to logically draw itself, so does
-know about strokes and pen colors etc. Depending on how much you want
-to split off the logical from the GUI, it may not have to know how to 
-draw on the screen. This is a subtle difference. For example, the
-following logically describes a scene, without actually knowing
-how to draw it on the screen ...
-
-Color = green
-Fill = off
-Border = on
-BorderWidth = 10
-Circle radius 10 at 12,15
-Color = red
-Fill = on
-FillColor = black
-Border = on
-BorderWidth = 7
-Square width 20 at 100,200
-
-If you want to build a more 'logical' PaintModel, you can consider ...
-
-1) Create a mirror hierarchy for Shape, this mirror hirerachy 
-has things like DrawableCircle which has a Circle. The DrawableCircle
-knows how to draw the instance of Circle it holds. Each Shape will
-still need information about its color, and stroke, one way or another.
-
-OR
-
-2) Lookup and apply the Visitor design pattern to the more logical
-PaintModel.
-
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 9 : chowd460
-NAME     : Architecture behind choosing drawing mode is poor
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 4 hours
-ISSUE    : A better architecture behind selecting a drawing mode can be created 
-by implementing the Factory Design Pattern as follows:
-
-The factory design pattern should be used by the paint buttons. 
-The factory is responsible for creating different ShapeManipulatorStrategy 
-instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
-ShapeManipulatorStrategy is created and installed in the PaintPanel. 
-Note that you can associate text with a button, even if you 
-display an ImageIcon. The string attached to the button causes the right choice 
-of object creation.
+Pattern to handle changes to the graphics context such as changing drawing 
+color, stroke width etc. You can accomplished this by wrapping the changes
+to the graphics context in a DrawingCommand. This way these changes can be
+added to the Bug 2.1 DrawingCommand list. That is, these new types of 
+DrawingCommands appear on PaintPanel's list right along side 
+the Shape type DrawingCommands.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 12 : leejon79
@@ -101,62 +49,13 @@ ISSUE    : Should be able to use fill option from panel with a Button whose Icon
 		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 27 : chowd460
-NAME     : Implement Thickness into new panel
+TYPE     : BUG 37 : chowd460
+NAME     : Undo/redo not working for transformation
 OWNER    : 
 PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : The thickness window has not been properly set up for the new panel tab system.
-		   we need to re-factor thickness and set it up to function as a tab rather than border pane.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 28 : chowd460
-NAME     : Implement color into new panel
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : The color palette should be uniform with other options, and should be located on the left panel.
-	 	   currently it is opened by drilling down into the top menu bar options.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 13 : chowd460
-NAME     : Master selection tab
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 2 hours
-AS A     : user
-I WANT   : To be able to select all my options from one tab in addition to the unique pages.
-SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
-		   instructions.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 14 : chowd460
-NAME     : Erase brush
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-AS A     : user
-I WANT   : To be able to erase anywhere on the screen
-SO THAT  : I can correct any of my mistakes
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 30 : chowd460
-NAME     : Refactor current tab parent system
-OWNER    : 
-PRIORITY : 2
 ESTIMATE : 8 hours
-ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
-		   which opens other dropdowns and popouts.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 15 : phamjus1
-NAME     : Canvas Size Change window
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-AS A     : user
-I WANT   : Change the size of my canvas to my designated dimensions
-SO THAT  : Be able to specifically define my drawing space.
+ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
+           This needs to be fixed ASAP!
 --------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -308,6 +207,48 @@ I WANT   : To click on one corner of a square, drag, and release to
 SO THAT  : I can add square to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : USER STORY 11 : chowd460
+NAME     : Better tabbing, more dynamic window switching
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : To be able to switch between all on the modes from the main screen.
+SO THAT  : I have a more user friendly experience without having to click
+		   through many different menus to get a certain option.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 13 : chowd460
+NAME     : Master selection tab
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 2 hours
+AS A     : user
+I WANT   : To be able to select all my options from one tab in addition to the unique pages.
+SO THAT  : I can draw more quicker while also have user friendly tabs which can have more detailed
+		   instructions.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15 : phamjus1
+NAME     : Canvas Size Change window
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+AS A     : user
+I WANT   : Change the size of my canvas to my designated dimensions
+SO THAT  : Be able to specifically define my drawing space.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 17 : chowd460
+NAME     : Make the application prettier
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : The app to look nice, it needs to be pretty!
+SO THAT  : I actually want to use it
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 1 : chowd460
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
@@ -344,6 +285,72 @@ ESTIMATE : 1 hour
 ISSUE    : The first click should specify the center of the circle, with
            a drag for the radius. This is not the case in the current
            implementation.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 7 : chowd460
+NAME     : Architecture for drawing shapes can be improved
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : The architecture can be improved if we implement the Command Design 
+Pattern to draw shapes as follows:
+
+The PaintModel should use the command design pattern. 
+That is, each shape knows how to draw itself, so there is a single list of 
+DrawingCommands maintained by the PaintModel and used by the PaintPanel.
+repaint() simply asks the PaintModel to ask command to execute(g).
+The simplest way to make this happen is to make each shape implement the 
+DrawingCommand interface which requires execute(g) to be implemented.
+Well sort of.
+
+NOTE: The PaintModel does know how to logically draw itself, so does
+know about strokes and pen colors etc. Depending on how much you want
+to split off the logical from the GUI, it may not have to know how to 
+draw on the screen. This is a subtle difference. For example, the
+following logically describes a scene, without actually knowing
+how to draw it on the screen ...
+
+Color = green
+Fill = off
+Border = on
+BorderWidth = 10
+Circle radius 10 at 12,15
+Color = red
+Fill = on
+FillColor = black
+Border = on
+BorderWidth = 7
+Square width 20 at 100,200
+
+If you want to build a more 'logical' PaintModel, you can consider ...
+
+1) Create a mirror hierarchy for Shape, this mirror hirerachy 
+has things like DrawableCircle which has a Circle. The DrawableCircle
+knows how to draw the instance of Circle it holds. Each Shape will
+still need information about its color, and stroke, one way or another.
+
+OR
+
+2) Lookup and apply the Visitor design pattern to the more logical
+PaintModel.
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 9 : chowd460
+NAME     : Architecture behind choosing drawing mode is poor
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 4 hours
+ISSUE    : A better architecture behind selecting a drawing mode can be created 
+by implementing the Factory Design Pattern as follows:
+
+The factory design pattern should be used by the paint buttons. 
+The factory is responsible for creating different ShapeManipulatorStrategy 
+instances (see BUG 2.4). That is, when a button is pressed, the appropriate 
+ShapeManipulatorStrategy is created and installed in the PaintPanel. 
+Note that you can associate text with a button, even if you 
+display an ImageIcon. The string attached to the button causes the right choice 
+of object creation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 10 : phamjus1
@@ -424,6 +431,17 @@ ESTIMATE : 4 hours
 ISSUE    : Undo and redo functionality broke as a result of the new strategy design pattern
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 18 : Guptaary
+NAME     : Thickness Applied to all Shapes
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : For shapes other than circle, currently selected thickness applies
+		   to all previously drawn shapes and draw styles.
+SO THAT  : All lines and shapes can have individual thickness without effecting what is already
+		   drawn on the canvas.
+-------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 19 : phamjus1
 NAME     : Current drawn shape On Wrong Layer
 OWNER    : 
@@ -485,28 +503,42 @@ ISSUE    : Canvas Currently displaying in the center of the borderpane. It shoul
 		   be set to 300, disregarding detection of the display device for testing purposes.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 11 : chowd460
-NAME     : Better tabbing, more dynamic window switching
+TYPE     : BUG 27 : chowd460
+NAME     : Implement Thickness into new panel
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The thickness window has not been properly set up for the new panel tab system.
+		   we need to re-factor thickness and set it up to function as a tab rather than border pane.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 28 : chowd460
+NAME     : Implement color into new panel
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The color palette should be uniform with other options, and should be located on the left panel.
+	 	   currently it is opened by drilling down into the top menu bar options.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 29 : chowd460
+NAME     : Select object based on click
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 8 hours
-AS A     : user
-I WANT   : To be able to switch between all on the modes from the main screen.
-SO THAT  : I have a more user friendly experience without having to click
-		   through many different menus to get a certain option.
+ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
+		   to do specific element deletion, fill bucket, moving, rotation etc.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 18 : Guptaary
-NAME     : Thickness Applied to all Shapes
+TYPE     : BUG 30 : chowd460
+NAME     : Refactor current tab parent system
 OWNER    : 
 PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : For shapes other than circle, currently selected thickness applies
-		   to all previously drawn shapes and draw styles.
-SO THAT  : All lines and shapes can have individual thickness without effecting what is already
-		   drawn on the canvas.
--------------------------------------------------------------------------
--------------------------------------------------------------------------
+ESTIMATE : 8 hours
+ISSUE    : Right now the system is messy and bulky, let's cut it down, and have just one master panel
+		   which opens other dropdowns and popouts.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 31 : phamjus1
 NAME     : Poly Line Termination On Right Click
 OWNER    : 
@@ -544,25 +576,6 @@ ISSUE    : It is not easy to know if you are currently in fill mode, this makes
 		   it a bit easier to know if you're filling.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 29 : chowd460
-NAME     : Select object based on click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 8 hours
-ISSUE    : Currently we do not have a way to identify which element we are clicking on, this is needed
-		   to do specific element deletion, fill bucket, moving, rotation etc.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 17 : chowd460
-NAME     : Make the application prettier
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-AS A     : user
-I WANT   : The app to look nice, it needs to be pretty!
-SO THAT  : I actually want to use it
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 35 : guptaary
 NAME     : Thickness selector is a slider
 OWNER    : 
@@ -571,6 +584,26 @@ ESTIMATE : 2 hours
 AS A     : user
 I WANT   : The thickness selector to be a slider
 SO THAT  : I can have a wider range of more accurate selections for thickness
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 36 : chowd460
+NAME     : Violating LSP
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Right now we are violating LSP since we have methods in line, point, squiggle which are
+		   never used and neccessary. By adding in the ClosedShape abstract class are avoiding breaking
+		   LSP and we are making our code more logical.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 14 : chowd460
+NAME     : Erase brush
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to erase anywhere on the screen
+SO THAT  : I can correct any of my mistakes
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
@@ -585,6 +618,17 @@ AS A     : user
 I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
 SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
 REASONING: Was implemented as part of User Story 3 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16 : chowd460
+NAME     : Move elements by click
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : To be able to make any elements around on the screen by clicking
+SO THAT  : I can move elements around and fix-up my canvas art!
+REASONING: Included as part of BUG29
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 3 : phamjus1
@@ -628,7 +672,7 @@ DrawingCommands appear on PaintPanel's list right along side
 the Shape type DrawingCommands.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 23 : UTORID
+TYPE     : BUG 23 : phamjus1
 NAME     : Square Pivot not consistent
 OWNER    : 
 PRIORITY : 2
@@ -636,15 +680,4 @@ ESTIMATE : 1 hours
 ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
 		   Positions when it should be consistent with where the user clicked
 REASONING: Included as part of BUG25
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : USER STORY 16 : chowd460
-NAME     : Move elements by click
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-AS A     : user
-I WANT   : To be able to make any elements around on the screen by clicking
-SO THAT  : I can move elements around and fix-up my canvas art!
-REASONING: Included as part of BUG29
 --------------------------------------------------------------------------

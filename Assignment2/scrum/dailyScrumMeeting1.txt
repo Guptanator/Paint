@@ -56,23 +56,23 @@ Nov 7, 2018
 	Obstacles :
 
 Nov 8, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Finished user 11 and pushed
+	Today     : Worked on bugs and features, faced issues with merge conflicts
 	Obstacles :
 
 Nov 9, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Worked on bugs and features, faced issues with merge conflicts
+	Today     : Worked on bug 30, refactored my tab system
 	Obstacles :
 
 Nov 10, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Worked on bug 30, refactored my tab system
+	Today     : Worked on bug 32 and 29, reordered the file structure
 	Obstacles :
 	
 Nov 11, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Worked on bug 32 and 29, reordered the file structure
+	Today     : Finished user story 17, make the entire application prettier and documented code.
 	Obstacles :
 	
 Nov 12, 2018

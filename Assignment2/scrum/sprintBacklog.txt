@@ -638,3 +638,23 @@ AS A     : user
 I WANT   : The app to look nice, it needs to be pretty!
 SO THAT  : I actually want to use it
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 36 : chowd460
+NAME     : Violating LSP
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 8 hours
+ISSUE    : Right now we are violating LSP since we have methods in line, point, squiggle which are
+		   never used and neccessary. By adding in the ClosedShape abstract class are avoiding breaking
+		   LSP and we are making our code more logical.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 37 : chowd460
+NAME     : Undo/redo not working for transformation
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
+           This needs to be fixed ASAP!
+--------------------------------------------------------------------------
+

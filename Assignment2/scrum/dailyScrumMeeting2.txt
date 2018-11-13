@@ -87,8 +87,8 @@ Nov 7, 2018
 	Obstacles : Finding information online about java libraries and parsing them
 
 Nov 8, 2018
-	Yesterday : Tested some Shape Strategy redesignes
-	Today     : Finished BUG25: Strategy Reimplementation
+	Yesterday : Tested some Shape Strategy redesigns
+	Today     : Finished BUG25: Strategy Re-implementation
 				Researched more ideas for User Stories
 	Obstacles : Could not access repository due to lost authentication
 			    Although I can access it again now it did cause some issues.
@@ -99,14 +99,19 @@ Nov 9, 2018
 	Obstacles : Couldn't figure out how invariants are determined
 
 Nov 10, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Looked up differences between javafx and java swing
+	Today     : Made a JFrame for Window Resize
+			    Made a change canvas size method for paint panel
+			    added a button in file drop down for change canvas
+	Obstacles : Got Stuck trying to deal with JFrame layouts and incompatability between javafx and swing
 	
 Nov 11, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Looked into more javafx style windows
+	Today     : Made a javafx window for window resize
+				Made first java try block to catch invalid inputs for resize
+				Added button to set canvas to screen resolution size
+				Finished US15: Resize Window
+	Obstacles : More problems with javafx and swing elements
 	
 Nov 12, 2018
 	Yesterday :

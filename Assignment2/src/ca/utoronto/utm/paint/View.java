@@ -1,5 +1,7 @@
 package ca.utoronto.utm.paint;
 
+import ca.utoronto.utm.tabPanel.CanvasPopup;
+import ca.utoronto.utm.tabPanel.ShapeChooserPanel;
 import ca.utoronto.utm.tabPanel.TabPanelParent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,6 +21,7 @@ public class View implements EventHandler<ActionEvent> {
 	private PaintPanel paintPanel;
 	private TabPanelParent tabParent;
 	private FlowPane drawArea;
+	private Stage stage;
 	public View(PaintModel model, Stage stage) {
 
 		this.model = model;
@@ -26,7 +29,8 @@ public class View implements EventHandler<ActionEvent> {
 	}
 
 	private void initUI(Stage stage) {
-
+		
+		this.stage = stage;
 		this.paintPanel = new PaintPanel(this.model, this);
 		this.tabParent = new TabPanelParent(this);
 		drawArea = new FlowPane();
@@ -66,6 +70,10 @@ public class View implements EventHandler<ActionEvent> {
 		menu.getItems().add(menuItem);
 
 		menuItem = new MenuItem("Save");
+		menuItem.setOnAction(this);
+		menu.getItems().add(menuItem);
+		
+		menuItem = new MenuItem("Resize Canvas");
 		menuItem.setOnAction(this);
 		menu.getItems().add(menuItem);
 
@@ -132,7 +140,9 @@ public class View implements EventHandler<ActionEvent> {
 		}
 		else if (((MenuItem)event.getSource()).getText()=="Exit") {
 			System.exit(0);
-		} 
+		} else if (((MenuItem)event.getSource()).getText()=="Resize Canvas") {
+			CanvasPopup canvasPop = new CanvasPopup(this.paintPanel);
+		}
 	}
 	/**
 	 * This function allows the outside world to set the fill icons as filled or unfilled.

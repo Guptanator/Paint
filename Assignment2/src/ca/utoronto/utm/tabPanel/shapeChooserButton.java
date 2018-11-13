@@ -87,13 +87,16 @@ public class shapeChooserButton extends ToggleButton  {
 		this.setSelected(true);
 	}
 	/**
-	 * This function sets the button to be filled (used for UX purposes)
+	 * This function sets the button icon to be filled (used for UX purposes)
 	 */
 	public void setFill() {
 		if (this.currentType=="Rectangle" || this.currentType=="Square"||this.currentType=="Circle") {
 			((Shape)(this.currentIcon)).setFill(Color.BLACK);
 		}
 	}
+	/**
+	 * This function sets the button icon to be unfilled (used for UX purposes)
+	 */
 	public void unFill() {
 		if (this.currentType=="Rectangle" || this.currentType=="Square"||this.currentType=="Circle") {
 			((Shape)(this.currentIcon)).setFill(Color.TRANSPARENT);

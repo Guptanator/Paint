@@ -79,27 +79,12 @@ public class Point extends Drawable {
 		// TODO Auto-generated method stub
 	}
 	@Override
-	public void setFill(boolean fill) {
-		return;
-	}
-	@Override
 	public void setThickness(double thickness) {
 		this.thickness = thickness;
 	}
 	@Override
-	public boolean isClicked(MouseEvent e) {
+	public boolean isClosed() {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	@Override
-	public double xDifferent(double d) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public double yDifferent(double d) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 }
