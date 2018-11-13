@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
@@ -32,6 +33,8 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 		grid.setPadding(new Insets(10,10,10,10));
 		grid.setVgap(8);
 		grid.setHgap(10);
+		this.initModality(Modality.APPLICATION_MODAL);
+		this.setResizable(false);
 		
 		ok.setOnAction(this);
 		grid.setConstraints(ok, 0, 2);
@@ -70,7 +73,7 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 		Scene scene = new Scene(grid, 300, 200);
 		
 		this.setScene(scene);
-		this.show();
+		this.showAndWait();
 	}
 
 	

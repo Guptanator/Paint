@@ -7,6 +7,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.input.MouseButton;
 
+/** 
+ * Strategy for making and changing instances of Lines to 
+ * Form Poly-Lines on the PaintModel Command Stack
+ *  
+*/
 public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	
 	private Line shape;
@@ -14,6 +19,14 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	private boolean isEnd = false;
 	private boolean isTerminated;
 	
+	/** 
+	 * MouseEvent Handler called by the PaintPanel which itself
+	 * calls the appropriate method to create or alter
+	 * the Line shape in PolyLine.
+	 *  
+	 * @param e MouseEvent passed by PaintPanel to denote
+	 * user action.
+	*/
 	@Override
 	public void mouseHandle(MouseEvent e) {
 		if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
@@ -32,6 +45,15 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 		}
 	}
 	
+	/** 
+	 * Instantiates Line and adds its reference to the model
+	 * and to instance Line shape to further modify.
+	 * If it is the second Line of a polyline drawing action
+	 * it will instead set the end point of the current 
+	 * poly-line
+	 *  
+	 * @param e Mouse_Pressed Mouse Event
+	*/
 	private void makeShape(MouseEvent e) {
 		Point p = new Point((int) e.getX(),(int) e.getY(), this.color, this.thickness);
 		if (this.isFirst == true) {
@@ -42,6 +64,11 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 		}
 	}
 	
+	/** 
+	 * Terminates Line in PaintModel currently being
+	 * drawn.
+	 * 
+	*/
 	public void terminateShape() {
 		if (!this.isTerminated) {
 			this.model.removeLast();
@@ -53,6 +80,12 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 		}
 		
 	}
+	
+	/** 
+	 * Changes last point on current line in model on drag.
+	 * 
+	 * @param e Mouse_Dragged Mouse Event
+	*/
 	private void changeShape(MouseEvent e) {
 		if (!this.isFirst) {
 			this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));
@@ -60,7 +93,13 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 		}
 	}
 
-
+	/** 
+	 * Completes the formation of the first line
+	 * in a poly=line drawing action and adds the 
+	 * next line to the model.
+	 * 
+	 * @param e Mouse_Released Mouse Event
+	*/
 	private void addShape() {
 		if (!this.isEnd) {
 			if (this.isFirst) {
@@ -74,7 +113,12 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 			this.model.update();
 		}
 	}
-
+	
+	/** 
+	 * Changes last point on current line in model on move.
+	 * 
+	 * @param e Mouse_Moved Mouse Event
+	*/
 	public void moveFeedback(MouseEvent e) {
 		if (!this.isFirst) {
 			this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));

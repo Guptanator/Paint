@@ -5,6 +5,11 @@ import javafx.scene.paint.Color;
 import ca.utoronto.utm.paint.PaintModel;
 import javafx.scene.canvas.GraphicsContext;
 
+/** 
+ * Abstract Strategy class for implementation of
+ * different shape formation strategies
+ *  
+*/
 public abstract class ShapeManipulatorStrategy {
 	protected Color color;
 	protected double thickness;
