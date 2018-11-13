@@ -130,18 +130,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 */
 	
 	public void setThickness(double t) {
-//		if (t == "Thin") {
-//			this.strategy.setThickness(1.0);
-//		} else if (t == "Normal") {
-//			this.strategy.setThickness(5.0);
-//		} else if (t == "Thick") {
-//			this.strategy.setThickness(10.0);
-//		}
-//		else {
-//			this.setThickness("Thin");
-//		}
-		this.strategy.setThickness();
-	
+		this.strategy.setThickness(t);
 	}
 	/**
 	 * Changes the color value and stores it in the
@@ -166,7 +155,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy = s;
 		this.strategy.setModel(this.model);
 		this.strategy.setColor(this.color);
-		setThickness(this.thick);
+		//this.setThickness(this.thick);
 	}
 	
 	public void setTransformMode(TransformStrategy t, ToggleButton modeButton) {

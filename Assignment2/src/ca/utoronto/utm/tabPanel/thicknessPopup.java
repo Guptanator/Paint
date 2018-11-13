@@ -14,11 +14,12 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 /**
  * This call is used to hold and display elements relating to the thickness manipulating elements
 */
-public class thicknessPopup extends GridPane implements EventHandler<ActionEvent>{
+public class thicknessPopup extends VBox implements ChangeListener<Number>{
 	
 	/**
 	 * Hold and initializes elements relating the thickness options, this is current 3 buttons
@@ -35,40 +36,32 @@ public class thicknessPopup extends GridPane implements EventHandler<ActionEvent
 		this.view = view;
 		
 		this.thickness = new Slider(0, 10, 0);
-	
-		this.add(thickness, 10, 10);
+		this.thickness.setMaxWidth(100);
 		this.thickness.setMin(0.5);
-		this.thickness.setMax(10.0);
-	
+		this.thickness.setMax(15.0);
 		this.thickness.setValue(1.0);
-	
 		this.thickness.setShowTickLabels(true);
 		this.thickness.setShowTickMarks(true);
 	
 		this.thickness.setBlockIncrement(0.5);
 	
 		this.thicknessCaption = new Label("Thickness: ");
-	
-	
-		this.thickness.valueProperty().addListener(new ChangeListener<Number>(){
-    
-			@Override
-			public void changed(ObservableValue<? extends Number> arg0, Number oldValue, Number newValue) {
-				thicknessValue = ((double)newValue);
-		}
-    });
+		this.thicknessCaption.setTextFill(Color.web("#ecf0f1"));
+		this.getChildren().addAll(this.thicknessCaption,this.thickness);
+		this.thickness.valueProperty().addListener(this);
 }
-
-
-@Override
 	/**
 	 * This function handles any action on the thickness buttons and changes the thickness values 
 	 * in the PaintPanel
-	 * @param ActionEvent event passed by the thickness buttons and used to decide which thickness
+	 * @param ObservableValue<Number> 
+	 * @param 
+	 * @param 
 	 * to set
 	 */
-	public void handle(ActionEvent event) {
-		double command = thickness.getValue();
-		this.view.getPaintPanel().getModel().setThickness(command);
+	@Override
+	public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+		// TODO Auto-generated method stub
+		System.out.println((double)observable.getValue());
+		this.view.getPaintPanel().getModel().setThickness((double)observable.getValue());
 	}
 }
