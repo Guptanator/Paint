@@ -73,12 +73,12 @@ Nov 10, 2018
 Nov 11, 2018
 	Yesterday :
 	Today     :
-	Obstacles :
+	Obstacles : Was studying for CSC236 test and other homework.
 	
 Nov 12, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Was doing other homework and studying.
+	Today     : Finished Bug 8 properly, as I again found out that I had implemented it wrong, so I now reimplemented the code.
+	Obstacles : Still studying for CSC236.
 
 Nov 13, 2018
 	Yesterday :

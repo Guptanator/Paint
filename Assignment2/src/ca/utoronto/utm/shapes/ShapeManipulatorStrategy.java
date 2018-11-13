@@ -9,6 +9,7 @@ public abstract class ShapeManipulatorStrategy {
 	protected Color color;
 	protected double thickness;
 	protected PaintModel model;
+	protected boolean fill = false;
 	
 	public abstract void mouseHandle(MouseEvent e);
 	
@@ -23,6 +24,10 @@ public abstract class ShapeManipulatorStrategy {
 	
 	public void setThickness(double t) {
 		this.thickness = t;
+	}
+	public void setFill(boolean fill)
+	{
+		this.fill = fill;
 	}
 	
 }

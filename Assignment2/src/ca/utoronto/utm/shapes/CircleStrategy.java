@@ -21,13 +21,10 @@ public class CircleStrategy extends ShapeManipulatorStrategy{
 	private void makeCircle(MouseEvent e) {
 		Point centre = new Point((int) e.getX(), (int) e.getY());
 		this.shape = new Circle(centre, 0, this.color, this.thickness);
-		this.shape.setFill(model.getFill());
-		model.addDrawable(this.shape);
+		this.shape.setFill(this.fill);
+		this.model.addDrawable(this.shape);
 	}
 	
-	public void changeShape(MouseEvent e, PaintModel p) {
-		this.shape.setFill(p.getFill());
-	}
 	private void changeCircle(MouseEvent e) {
 		int horizontal = Math.abs((int) this.shape.getCentre().getX() - (int) e.getX());
 		int vertical = Math.abs((int) this.shape.getCentre().getY() - (int) e.getY());

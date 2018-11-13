@@ -30,6 +30,7 @@ import java.awt.GraphicsEnvironment;
 public class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
 
 	private int i = 0;
+	private boolean fill = false;
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
 	private Drawable shape; // the shape we are building
@@ -96,8 +97,22 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 * whether or not the next shapes are going to be filled or not.
 	*/
 	public void setFill() {
-		this.view.setFilled();
-		this.model.setFill();
+		if(this.fill)
+		{
+			this.fill = false;
+			this.view.setFilled();
+			this.strategy.setFill(this.fill);
+		}
+		else
+		{
+			this.fill = true;
+			this.view.setFilled();
+			this.strategy.setFill(this.fill);
+		}
+	}
+	public boolean getFill()
+	{
+		return this.fill;
 	}
 	/** Returns the stored PaintModel.
 	 * @return getModel PaintModel
@@ -126,6 +141,19 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 * Thick.
 	 */
 	
+	public void setThickness(String t) {
+		if (t == "Thin") {
+			this.thick = 1.0;
+		} else if (t == "Normal") {
+			this.thick = 5.0;
+		} else if (t == "Thick") {
+			this.thick = 10.0;
+		}
+		else {
+			this.thick = 1.0;
+		}
+		this.strategy.setThickness(this.thick);
+	}
 	public void setThickness(double t) {
 		this.strategy.setThickness(t);
 	}
@@ -135,7 +163,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 * color.
 	 */
 	public void setColor(Color c) {
-		this.model.setColor(c);
+		this.color = c;
+		this.strategy.setColor(c);
 	}
 	/**
 	 * Returns the current ShapeManipulatorStrategy (strategy).
@@ -153,7 +182,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy = s;
 		this.strategy.setModel(this.model);
 		this.strategy.setColor(this.color);
-		//this.setThickness(this.thick);
+		this.strategy.setFill(this.fill);
+		this.strategy.setThickness(this.thick);
 	}
 	
 	public void setTransformMode(TransformStrategy t, OtherModeButton modeButton) {

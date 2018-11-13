@@ -32,11 +32,11 @@ public class PropertyInvoker {
 	 * after the list of commands is cleared to prevent list size overflow.
 	 * @param d Drawable that the stored changes will be applied to.
 	*/
-	public void applyCommands(Drawable d)
+	public void applyCommands(GraphicsContext g)
 	{
 		for(DrawingCommands command: this.commands)
 		{
-			command.executeChange(d);
+			command.executeChange(g);
 		}
 		this.commands.clear();
 	}

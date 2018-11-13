@@ -50,15 +50,8 @@ public class thicknessPopup extends VBox implements ChangeListener<Number>{
 		this.getChildren().addAll(this.thicknessCaption,this.thickness);
 		this.thickness.valueProperty().addListener(this);
 }
-	/**
-	 * This function handles any action on the thickness buttons and changes the thickness values 
-	 * in the PaintModel
-	 * @param ObservableValue<Number> the class passed from the JavaFx slider which contains the double we need
-	 * @param Number oldValue the old value of the slider
-	 * @param Number newValue the new value of the slider
-	 */
 	@Override
 	public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-		this.view.getPaintPanel().getModel().setThickness((double)observable.getValue());
+		this.view.getPaintPanel().setThickness((double)observable.getValue());
 	}
 }

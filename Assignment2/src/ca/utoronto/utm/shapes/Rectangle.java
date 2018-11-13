@@ -1,6 +1,12 @@
 package ca.utoronto.utm.shapes;
 
 
+import java.util.ArrayList;
+
+import ca.utoronto.utm.drawingCommands.ColorCommand;
+import ca.utoronto.utm.drawingCommands.DrawingCommands;
+import ca.utoronto.utm.drawingCommands.FillCommand;
+import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -10,15 +16,18 @@ public class Rectangle extends ClosedShape {
 	
 	private int height = 0;
 	private int width = 0;
-	private boolean fill;
 	private Point corner;
 	private Point start;
+	
+	private ArrayList<DrawingCommands> commands= new ArrayList<DrawingCommands>();
 	
 	public Rectangle(Point c, Color color, double thickness) {
 		this.corner = c;
 		this.color = color;
 		this.start = new Point(c.getX(), c.getY());
 		this.thickness = thickness;
+		this.commands.add(new ColorCommand(this.color));
+		this.commands.add(new ThicknessCommand(this.thickness));
 	}
 	
 	public Point getStart() {
@@ -43,14 +52,15 @@ public class Rectangle extends ClosedShape {
 
 	@Override
 	public void draw(GraphicsContext g) {
-		g.setStroke(this.color);
-		g.setLineWidth(this.thickness);
-		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
+		for(DrawingCommands command: this.commands)
+		{
+			command.executeChange(g);
+		}
 		if(fill)
 		{
-			g.setFill(this.color);
 			g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		}
+		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 	}
 
 	@Override
@@ -60,22 +70,31 @@ public class Rectangle extends ClosedShape {
 
 	@Override
 	public void setColor(Color c) {
-		// TODO Auto-generated method stub
 		this.color = c;
+		this.commands.add(new ColorCommand(c));
 	}
 
 	@Override
 	public Color getColor() {
-		return color;
+		return this.color;
 	}
-	public void setFill(boolean fill)
+	
+	public void setFill(boolean filled)
 	{
-		this.fill = fill;
+		if(filled)
+		{
+			this.commands.add(new FillCommand(this.color));
+		}
+		else
+		{
+			this.commands.add(new FillCommand(new Color(0,0,0,0)));
+		}
+		this.fill = filled;
 	}
 
 	@Override
 	public void setThickness(double thickness) {
-		this.thickness = thickness;
+		this.commands.add(new ThicknessCommand(thickness));
 	}
 	public boolean isClicked(MouseEvent e) {
 		double x = e.getX();double y = e.getY();

@@ -2,6 +2,8 @@ package ca.utoronto.utm.drawingCommands;
 
 import ca.utoronto.utm.shapes.ClosedShape;
 import ca.utoronto.utm.shapes.Drawable;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 /**
  * Command for activating the fill option for shapes.
@@ -9,22 +11,23 @@ import ca.utoronto.utm.shapes.Drawable;
  * @author Daniel Lee
  */
 public class FillCommand implements DrawingCommands{
-	public boolean fill;
+	private Color fillColor;
 	/** Constructor for FillCommand, which is used to set
 	 *  whether or not the shape should be filled.
 	 * @param filled Boolean value that denotes whether the
 	 * shapes should be filled or not.
 	*/
-	public FillCommand(boolean filled)
+	public FillCommand(Color color)
 	{
-		this.fill = filled;
+		this.fillColor = color;
 	}
 	/** Changes the fill value for shape d when called.
 	*/
 	@Override
-	public void executeChange(Drawable d) {
-		if (d.isClosed()) {
-			((ClosedShape)d).setFill(this.fill);
-		}
+	public void executeChange(GraphicsContext g) {
+//		if (d.isClosed()) {
+//			((ClosedShape)d).setFill(this.fill);
+//		}
+		g.setFill(this.fillColor);
 	}
 }
