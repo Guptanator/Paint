@@ -114,16 +114,22 @@ Nov 11, 2018
 	Obstacles : More problems with javafx and swing elements
 	
 Nov 12, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Tested for strategy bugs
+	Today     : Filled in some Doc Strings for strategies
+	Obstacles : N/A
 
 Nov 13, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Wrote doc strings
+	Today     : Fixed BUG41: Polyline termination bug
+				Filled in Doc Strings for
 	Obstacles :
 
 Nov 14, 2018
+	Yesterday :
+	Today     :
+	Obstacles :
+
+Nov 15, 2018
 	Yesterday :
 	Today     :
 	Obstacles :

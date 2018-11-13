@@ -690,5 +690,15 @@ ESTIMATE : 8 hours
 ISSUE    : Terminating PolyLine on right click twice produces errors on move
 		   and click.
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : BUG 42 : phamjus1
+NAME     : Stroke Thickness Feedback
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Currently we don't know what number we are setting the thickness
+		   to from the slider alone.
+		   Should add some sort of feedback to update users on the thickness
+		   value.
+--------------------------------------------------------------------------
 

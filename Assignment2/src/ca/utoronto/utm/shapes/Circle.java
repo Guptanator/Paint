@@ -13,17 +13,26 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.input.MouseEvent;
 
+/** 
+ * Circle Drawable Command that holds dimensions
+ * and draws itself to the GraphicsContext
+*/
 public class Circle extends ClosedShape {
 	
 	private Point centre;
 	private int radius;
 	private boolean fill = false;
-	private double len; 
 	private double thickness;
 	private Color color;
 	
 	private ArrayList<DrawingCommands> commands = new ArrayList<DrawingCommands>();
 	
+	/** 
+	 * Sets PaintModel model in instance
+	 * to current PaintModel
+	 *  
+	 *  @param p Current Point 
+	*/
 	public Circle(Point p, int r, Color c, double thickness) {
 
 		this.centre = p;

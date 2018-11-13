@@ -65,6 +65,17 @@ PRIORITY : 1
 ESTIMATE : 8 hours
 ISSUE    : Currently we can can't move the shapes when we click on the border of the shapes
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 42 : phamjus1
+NAME     : Stroke Thickness Feedback
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Currently we don't know what number we are setting the thickness
+		   to from the slider alone.
+		   Should add some sort of feedback to update users on the thickness
+		   value.
+--------------------------------------------------------------------------
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -619,7 +630,7 @@ TYPE     : BUG 39 : chowd460
 NAME     : minor refactoring, remove i= and the scribble
 OWNER    : 
 PRIORITY : 1
-ESTIMATE : 8 hours
+ESTIMATE : 1 hours
 ISSUE    : Clean up, minor refactoring
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -627,7 +638,7 @@ TYPE     : BUG 40 : chowd460
 NAME     : set max screen size
 OWNER    : 
 PRIORITY : 1
-ESTIMATE : 2 hours
+ESTIMATE : 1 hours
 ISSUE    : set the screen to be a maximum 1920x1080p
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
@@ -635,7 +646,7 @@ TYPE     : BUG 41 : phamjus1
 NAME     : Terminating PolyLine twice
 OWNER    : 
 PRIORITY : 1
-ESTIMATE : 8 hours
+ESTIMATE : 2 hours
 ISSUE    : Terminating PolyLine on right click twice produces errors on move
 		   and click.
 --------------------------------------------------------------------------

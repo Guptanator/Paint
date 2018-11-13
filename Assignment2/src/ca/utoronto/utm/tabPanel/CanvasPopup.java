@@ -15,6 +15,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/** 
+ * Window for Resizing the Current Canvas in the PaintPanel
+*/
 public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 	
 	private Button ok = new Button("OK");
@@ -27,6 +30,13 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 	private final int MAXWIDTH = 1920;
 	private final int MAXHEIGHT = 1080;
 	
+	/** 
+	 * CanvasPopup Constructor setting the dimensions and
+	 * layout of the window. Also sets buttons to be detectable
+	 * by the event handler.
+	 *  
+	 * @param p PaintPanel whose canvas is currently being resized
+	*/
 	public CanvasPopup(PaintPanel p) {
 		this.setTitle("Resize Canvas");
 
@@ -75,7 +85,13 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 		this.showAndWait();
 	}
 
-	
+	/** 
+	 * Detects Current Display device and populates
+	 * canvas height and width TextFields with device resolution.
+	 * If display is higher resolution than the max dimension constants,
+	 * will populate with max values instead.
+	 * 
+	*/
 	private void setScreenSize() {
 		GraphicsDevice gdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		int width = gdevice.getDisplayMode().getWidth();
@@ -92,6 +108,15 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 		
 		
 	}
+	
+	/** 
+	 * Button Event Handler. Calls methods based on button
+	 * press and will either set canvas size, populate dimension
+	 * TextFields or closes window.
+	 *  
+	 * @param event Button pressed event on Resize Canvas
+	 * Window
+	*/
 	@Override
 	public void handle(ActionEvent event) {
 		if (((Button) event.getSource()).getText()=="OK") {
