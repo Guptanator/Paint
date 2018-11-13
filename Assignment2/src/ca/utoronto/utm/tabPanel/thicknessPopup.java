@@ -46,12 +46,16 @@ public class thicknessPopup extends VBox implements ChangeListener<Number>{
 		this.thickness.setBlockIncrement(0.5);
 	
 		this.thicknessCaption = new Label("Thickness: ");
+		this.thicknessCaption.setMaxWidth(100);
 		this.thicknessCaption.setTextFill(Color.web("#ecf0f1"));
 		this.getChildren().addAll(this.thicknessCaption,this.thickness);
 		this.thickness.valueProperty().addListener(this);
 }
 	@Override
 	public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-		this.view.getPaintPanel().setThickness((double)observable.getValue());
+		double thickNum = (double)observable.getValue();
+		this.view.getPaintPanel().setThickness(thickNum);
+		this.thicknessCaption.setText("Thickness: " + Double.toString(thickNum).substring(0, 4));
+		
 	}
 }
