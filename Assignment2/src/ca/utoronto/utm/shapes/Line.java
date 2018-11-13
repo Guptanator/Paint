@@ -47,6 +47,7 @@ public class Line extends Drawable {
 		{
 			command.executeChange(g);
 		}
+		this.first.setColor(color);
 		this.first.draw(g, last, this.thickness);
 	}
 

@@ -23,6 +23,7 @@ public class Squiggle extends Drawable {
 	
 	@Override
 	public void draw(GraphicsContext g) {
+		g.setLineWidth(this.thickness);
 		for (int i = 0; i < this.points.size() - 1; i++) {
 			points.get(i).draw(g, points.get(i+1), this.thickness);
 		}

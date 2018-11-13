@@ -154,6 +154,9 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		}
 		this.strategy.setThickness(this.thick);
 	}
+	public void setThickness(double t) {
+		this.strategy.setThickness(t);
+	}
 	/**
 	 * Changes the color value in the model
 	 * @param c Color that will change the drawable

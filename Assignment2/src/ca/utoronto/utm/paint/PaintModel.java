@@ -36,7 +36,6 @@ public class PaintModel extends Observable {
 	{
 		return this.fill;
 	}
-
 	/** Removes the latest drawn object from the (allObjects) list
 	 * and saves the value into a different list (undone) in case you
 	 * want to undo the undo.
