@@ -15,8 +15,6 @@ public class Point extends Drawable {
 	private int x, y;
 	private boolean segment;
 	
-	private ArrayList<DrawingCommands> commands= new ArrayList<DrawingCommands>();
-
 	Point(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -24,10 +22,8 @@ public class Point extends Drawable {
 	}
 	Point(int x, int y, Color c, double thickness){
 		this(x,y);
-		this.color = c;
-		this.thickness = thickness;
-		this.commands.add(new ColorCommand(this.color));
-		this.commands.add(new ThicknessCommand(this.thickness));
+		this.properties.acceptCommand(new ThicknessCommand(thickness));
+		this.properties.acceptCommand(new ColorCommand(c));
 	}
 
 	public int getX() {
@@ -55,46 +51,22 @@ public class Point extends Drawable {
 	
 	@Override
 	public void draw(GraphicsContext g) {
-		for(DrawingCommands command: this.commands)
-		{
-			command.executeChange(g);
-		}
+		this.properties.applyCommands(g);
 		g.strokeLine(this.getX(), this.getY(), this.getX(), this.getY());
 	}
 	public void draw(GraphicsContext g,Point p2, double thickness) {
 		if (this.isFinal()) {
-			g.setLineWidth(this.thickness);
+			g.setLineWidth(this.properties.findThickness());
 			return;
 		}
-		for(DrawingCommands command: this.commands)
-		{
-			command.executeChange(g);
-		}
+		this.properties.applyCommands(g);
 		g.strokeLine(this.getX(), this.getY(), p2.getX(), p2.getY());
 	}
 
 	@Override
 	public String type() {
-		// TODO Auto-generated method stub
 		return "Point";
 	}
-	@Override
-	public void setColor(Color c) {
-		// TODO Auto-generated method stub
-		this.color = c;
-		this.commands.add(new ColorCommand(c));
-	}
-	@Override
-	public Color getColor() {
-		// TODO Auto-generated method stub
-		return color;
-	}
 	public void update(MouseEvent e) {
-		// TODO Auto-generated method stub
-	}
-	@Override
-	public void setThickness(double thickness) {
-		this.thickness = thickness;
-		this.commands.add(new ThicknessCommand(thickness));
 	}
 }

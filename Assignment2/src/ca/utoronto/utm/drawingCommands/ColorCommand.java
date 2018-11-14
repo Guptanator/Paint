@@ -26,4 +26,11 @@ public class ColorCommand implements DrawingCommands{
 	public void executeChange(GraphicsContext g) {
 		g.setStroke(this.color);
 	}
+	@Override
+	public String type() {
+		return "color";
+	}
+	public Color getColor() {
+		return this.color;
+	}
 }

@@ -1,23 +1,32 @@
 package ca.utoronto.utm.shapes;
 
 
+import ca.utoronto.utm.drawingCommands.ColorCommand;
+import ca.utoronto.utm.drawingCommands.PropertyInvoker;
+import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 public abstract class Drawable {
 	
-	protected Color color;
-	protected boolean fill;
-	protected double thickness;
+	protected PropertyInvoker properties = new PropertyInvoker();
 	
 	public abstract void draw(GraphicsContext g);
 	public abstract String type();
-	public abstract void setColor(Color c);
-	public abstract Color getColor();
-	public abstract void setThickness(double thickness);
+	
+	public Color getColor() {
+		return this.properties.findColor();
+	}
+	
+	public void setThickness(double thickness) {
+		this.properties.acceptCommand((new ThicknessCommand(thickness)));
+	}
 	public boolean isClosed() {
 		return false;
+	}
+	public void setColor(Color c) {
+		this.properties.acceptCommand(new ColorCommand(c));
 	}
 }
 	

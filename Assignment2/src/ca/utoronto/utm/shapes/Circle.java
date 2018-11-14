@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import ca.utoronto.utm.drawingCommands.ColorCommand;
 import ca.utoronto.utm.drawingCommands.DrawingCommands;
 import ca.utoronto.utm.drawingCommands.FillCommand;
+import ca.utoronto.utm.drawingCommands.PropertyInvoker;
 import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -22,10 +23,6 @@ public class Circle extends ClosedShape {
 	private Point centre;
 	private int radius;
 	private boolean fill = false;
-	private double thickness;
-	private Color color;
-	
-	private ArrayList<DrawingCommands> commands = new ArrayList<DrawingCommands>();
 	
 	/** 
 	 * Sets PaintModel model in instance
@@ -37,10 +34,8 @@ public class Circle extends ClosedShape {
 
 		this.centre = p;
 		this.radius = r;
-		this.color = c;
-		this.thickness = thickness;
-		this.commands.add(new ColorCommand(this.color));
-		this.commands.add(new ThicknessCommand(this.thickness));
+		this.properties.acceptCommand(new ColorCommand(c));
+		this.properties.acceptCommand(new ThicknessCommand(thickness));
 	}
 
 	public Point getCentre() {
@@ -65,10 +60,7 @@ public class Circle extends ClosedShape {
 		int radius = this.getRadius();
 		int x = this.getCentre().getX()-(radius);
 		int y = this.getCentre().getY()-(radius);
-		for(DrawingCommands command: this.commands)
-		{
-			command.executeChange(g);
-		}
+		this.properties.applyCommands(g);
 		if(this.fill)
 		{
 			g.fillOval(x, y, radius*2, radius*2);
@@ -82,33 +74,19 @@ public class Circle extends ClosedShape {
 	}
 
 	@Override
-	public void setColor(Color c) {
-		this.color = c;
-		this.commands.add(new ColorCommand(c));
-	}
-
-	@Override
-	public Color getColor() {
-		return this.color;
-	}
-	@Override
 	public void setFill(boolean filled)
 	{
+		Color c = this.properties.findColor();
+		System.out.println(c);
 		if(filled)
 		{
-			this.commands.add(new FillCommand(this.color));
+			this.properties.acceptCommand(new FillCommand(c));
 		}
 		else
 		{
-			this.commands.add(new FillCommand(new Color(0,0,0,0)));
+			this.properties.acceptCommand(new FillCommand(new Color(0,0,0,0)));
 		}
 		this.fill = filled;
-	}
-
-	@Override
-	public void setThickness(double thickness) {
-		this.thickness = thickness;
-		this.commands.add(new ThicknessCommand(this.thickness));
 	}
 
 	@Override
@@ -131,7 +109,6 @@ public class Circle extends ClosedShape {
 			return this.getCentre().getX()-d;
 		} else {
 			return -(d-this.getCentre().getX());
-		}		
+		}
 	}
-
 }

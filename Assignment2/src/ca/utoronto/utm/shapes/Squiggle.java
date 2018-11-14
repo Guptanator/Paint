@@ -2,6 +2,9 @@ package ca.utoronto.utm.shapes;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import ca.utoronto.utm.drawingCommands.ColorCommand;
+import ca.utoronto.utm.drawingCommands.PropertyInvoker;
+import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -9,12 +12,16 @@ import javafx.scene.paint.Color;
 public class Squiggle extends Drawable {
 	
 	private ArrayList<Point> points;
+	private double thickness;
+	private Color color;
 	
 	public Squiggle(int x, int y, Color c, double thickness) {
 		this.points = new ArrayList<Point>();
-		this.thickness = thickness;
+		this.properties.acceptCommand(new ThicknessCommand(thickness));
+		this.properties.acceptCommand(new ColorCommand(c));
+		this.thickness = properties.findThickness();
+		this.color = properties.findColor();
 		this.points.add(new Point (x,y,c, this.thickness));
-		this.color = c;
 	}
 	
 	public void addPoint(int x, int y) {
@@ -32,16 +39,6 @@ public class Squiggle extends Drawable {
 	@Override
 	public String type() {
 		return "Squiggle";
-	}
-
-	@Override
-	public void setColor(Color c) {
-		this.color = c;
-	}
-
-	@Override
-	public Color getColor() {
-		return this.color;
 	}
 	@Override
 	public void setThickness(double thickness) {

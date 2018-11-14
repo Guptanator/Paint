@@ -25,9 +25,10 @@ public class FillCommand implements DrawingCommands{
 	*/
 	@Override
 	public void executeChange(GraphicsContext g) {
-//		if (d.isClosed()) {
-//			((ClosedShape)d).setFill(this.fill);
-//		}
 		g.setFill(this.fillColor);
+	}
+	@Override
+	public String type() {
+		return "fill";
 	}
 }

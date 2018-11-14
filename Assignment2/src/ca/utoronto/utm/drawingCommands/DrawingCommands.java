@@ -13,4 +13,5 @@ public interface DrawingCommands {
 	 * @param d Drawable object change the properties of.
 	*/
 	public abstract void executeChange(GraphicsContext g);
+	public abstract String type();
 }
