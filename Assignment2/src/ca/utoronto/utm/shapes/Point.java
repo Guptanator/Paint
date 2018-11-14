@@ -97,9 +97,4 @@ public class Point extends Drawable {
 		this.thickness = thickness;
 		this.commands.add(new ThicknessCommand(thickness));
 	}
-	@Override
-	public boolean isClosed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }

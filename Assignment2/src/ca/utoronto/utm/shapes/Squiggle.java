@@ -48,9 +48,4 @@ public class Squiggle extends Drawable {
 		this.thickness = thickness;
 	}
 
-	@Override
-	public boolean isClosed() {
-		return false;
-	}
-
 }

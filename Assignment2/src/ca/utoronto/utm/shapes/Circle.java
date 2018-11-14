@@ -134,9 +134,4 @@ public class Circle extends ClosedShape {
 		}		
 	}
 
-	@Override
-	public boolean isClosed() {
-		return true;
-	}
-
 }

@@ -7,4 +7,7 @@ public abstract class ClosedShape extends Drawable {
 	public abstract double xDifferent(double d);
 	public abstract double yDifferent(double d);
 	public abstract void setFill(boolean fill);
+	public boolean isClosed() {
+		return true;
+	}
 }

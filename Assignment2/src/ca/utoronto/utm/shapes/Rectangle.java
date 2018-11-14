@@ -124,9 +124,4 @@ public class Rectangle extends ClosedShape {
 		}
 	}
 
-	@Override
-	public boolean isClosed() {
-		return true;
-	}
-
 }
