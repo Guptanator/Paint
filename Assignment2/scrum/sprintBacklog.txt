@@ -709,4 +709,11 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : The slider throws an exception when moved too far to the left
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : BUG 44 : chowd460
+NAME     : Refactor PropertyInvoker and BUG 8 code
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : The current system works but doesn't improve the design of the code, fix it!
+--------------------------------------------------------------------------
