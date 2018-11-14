@@ -125,9 +125,9 @@ Nov 13, 2018
 	Obstacles :
 
 Nov 14, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Wrote Doc Strings
+	Today     : Wrote more doc strings for shapes
+	Obstacles : The shape class changed due to re-implementation
 
 Nov 15, 2018
 	Yesterday :

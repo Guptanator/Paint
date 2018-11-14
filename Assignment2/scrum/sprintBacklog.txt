@@ -717,3 +717,12 @@ PRIORITY : 1
 ESTIMATE : 8 hours
 ISSUE    : The current system works but doesn't improve the design of the code, fix it!
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 45 : phamjus1
+NAME     : JavaDocs for Shapes
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : Shapes and abstract classes and interfaces pertaining to them should
+		   have JavaDocs
+--------------------------------------------------------------------------
