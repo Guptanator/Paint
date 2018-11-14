@@ -77,7 +77,6 @@ public class Circle extends ClosedShape {
 	public void setFill(boolean filled)
 	{
 		Color c = this.properties.findColor();
-		System.out.println(c);
 		if(filled)
 		{
 			this.properties.acceptCommand(new FillCommand(c));
