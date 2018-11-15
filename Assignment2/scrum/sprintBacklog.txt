@@ -760,3 +760,12 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Found out that we can't use swing stuff, so we're making our own from scratch.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 49 : chowd460
+NAME     : Colors not filling properly
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : With daniel's new code the shapes are not filling as they should
+--------------------------------------------------------------------------
+
