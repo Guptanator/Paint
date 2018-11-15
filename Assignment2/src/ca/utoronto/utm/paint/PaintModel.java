@@ -19,7 +19,7 @@ public class PaintModel extends Observable {
 
 	private ArrayList<Drawable> allObjects = new ArrayList<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
-	private int current = 0;
+	public double thick = 1.0;
 	
 	/** Handles setting the properties to d and adding it
 	 * to the list of drawable objects (allObjects) to draw on canvas.

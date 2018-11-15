@@ -3,6 +3,7 @@ package ca.utoronto.utm.shapes;
 import java.util.ArrayList;
 
 import ca.utoronto.utm.paint.PaintModel;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 /**
  * This class should be subclasses for all non shape creating strategies, some additional ideas include
@@ -11,13 +12,21 @@ import javafx.scene.input.MouseEvent;
 */
 public abstract class TransformStrategy {
 	protected PaintModel model;
+	protected GraphicsContext g;
 	/**
-	 * This functions allows the PaintPanel to set the model of the strategy on a running when required
+	 * This function allows the strategy to access the model.
 	 * @param PaintModel p sets the model attribute of the strategy to be the passed in model.
 	 */
 	public void setModel(PaintModel p) {
 		this.model = p;
 		this.model.update();
+	}
+	/**
+	 * This function allows the strategy to access the GraphicsContext
+	 * @param GraphicsContext g the current context
+	 */
+	public void setContext(GraphicsContext gc) {
+		this.g = gc;
 	}
 	/**
 	 * This functions allows the strategy to handle any passed in mouse events from the PaintPanel

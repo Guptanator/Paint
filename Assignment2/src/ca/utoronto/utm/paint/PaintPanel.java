@@ -42,7 +42,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	private Color borderColor = Color.BLACK;
 	private Color fillColor = Color.TRANSPARENT;
 	
-	private double thick;
+	private double thick = 1.0;
 	public boolean shapeMode=true;
 	/** Constructor for PaintPanel that sets up and initializes the canvas.
 	 * @param model PaintModel that handles the creation and destruction
@@ -116,20 +116,9 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 * Thick.
 	 */
 	
-	public void setThickness(String t) {
-		if (t == "Thin") {
-			this.thick = 1.0;
-		} else if (t == "Normal") {
-			this.thick = 5.0;
-		} else if (t == "Thick") {
-			this.thick = 10.0;
-		}
-		else {
-			this.thick = 1.0;
-		}
-		this.strategy.setThickness(this.thick);
-	}
 	public void setThickness(double t) {
+		this.thick = t;
+		this.model.thick = t;
 		this.strategy.setThickness(t);
 	}
 	/**
@@ -174,6 +163,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	public void setTransformMode(TransformStrategy t, OtherModeButton modeButton) {
 		this.TStrategy = t;
 		t.setModel(this.model);
+		t.setContext(this.canvas.getGraphicsContext2D());
 		this.shapeMode = false;
 		this.currentModeButton = modeButton;
 	}

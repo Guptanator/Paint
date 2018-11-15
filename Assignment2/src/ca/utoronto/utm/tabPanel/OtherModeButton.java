@@ -6,11 +6,11 @@ import javafx.scene.image.ImageView;
 
 public class OtherModeButton extends ToggleButton {
 	private TransformStrategy strategy;
-	public OtherModeButton(ImageView image, TransformStrategy t) {
+	public OtherModeButton(ImageView image, TransformStrategy t,int width) {
 		super();
 		this.setGraphic(image);
 		this.strategy=t;
-		this.setMinWidth(100);
+		this.setMinWidth(width);
 		this.getStylesheets().add("resources/stylesheet.css");
 		this.getStyleClass().add("custom-button");
 	}
