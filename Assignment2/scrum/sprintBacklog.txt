@@ -734,3 +734,11 @@ PRIORITY : 1
 ESTIMATE : 8 hours
 ISSUE    : Current we can only color the fill and border the same color, there should be separate colors
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 47 : chowd460
+NAME     : Square not reacting to thickness change properly
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : need to fix how square deals with thickness changes
+--------------------------------------------------------------------------
