@@ -8,9 +8,9 @@ public class ModelButton extends ToggleButton {
 	
 	private PaintModel model;
 	
-	public ModelButton(String name){
-		this.model = new PaintModel(name);
-		this.setText(name);
+	public ModelButton(PaintModel model){
+		super(model.getName());
+		this.model = model;
 	}
 	
 	public void changeModel(PaintPanel panel) {

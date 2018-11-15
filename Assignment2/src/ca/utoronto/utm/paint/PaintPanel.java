@@ -218,10 +218,9 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 * Sets model to Current Model
 	 */	
 	public void setModel(PaintModel model) {
-		System.out.println("I changed the model from " + this.model.getName());
 		this.model = model;
-		System.out.println("I changed the model to " + this.model.getName());
 		this.strategy.setModel(model);
+		this.model.addObserver(this);
 		this.model.update();
 	}
 }

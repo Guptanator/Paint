@@ -22,7 +22,7 @@ public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 		this.panel = panel;
 		current = 1;
 		buttons = new ModelButton[5];
-		buttons[0] = new ModelButton(model.getName());
+		buttons[0] = new ModelButton(model);
 		buttons[0].setOnAction(this);
 		buttons[0].setSelected(true);
 		this.getChildren().add(buttons[0]);
@@ -30,7 +30,7 @@ public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 	
 	public boolean newModel(String name) {
 		if (current < 6) {
-			buttons[current] = new ModelButton(name);
+			buttons[current] = new ModelButton(new PaintModel(name));
 			this.getChildren().add(buttons[current]);
 			for (int i = 0; i < current; i++) {
 				buttons[i].setSelected(false);
