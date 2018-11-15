@@ -23,7 +23,7 @@ import javafx.scene.input.MouseEvent;
 public class Circle extends ClosedShape {
 	
 	private Point centre;
-	private int radius;
+	private float radius;
 	
 	/** 
 	 * Circle Constructor. Makes a circle with a centre at p
@@ -70,8 +70,8 @@ public class Circle extends ClosedShape {
 	*/
 	@Override
 	public void draw(GraphicsContext g) {
-		int x = this.getCentre().getX()-(this.radius);
-		int y = this.getCentre().getY()-(this.radius);
+		int x = this.getCentre().getX()-((int)this.radius);
+		int y = this.getCentre().getY()-((int)this.radius);
 		this.properties.applyCommands(g);
 		g.fillOval(x, y, this.radius*2, this.radius*2);
 		g.strokeOval(x, y, this.radius*2, this.radius*2);
@@ -88,8 +88,9 @@ public class Circle extends ClosedShape {
 
 	@Override
 	public boolean isClicked(MouseEvent e) {
+		double thick=this.properties.findThickness()/2;
 		double distance = Math.sqrt(Math.pow(e.getX() - this.getCentre().getX(), 2) + Math.pow(e.getY() - this.getCentre().getY(), 2));
-		if (distance <= this.radius) {
+		if (distance < this.radius+thick) {
 			return true;
 		}
 		return false;

@@ -41,6 +41,17 @@ public class SquiggleStrategy extends ShapeManipulatorStrategy {
 		this.shape = new Squiggle((int) e.getX(), (int) e.getY(), this.color, this.thickness);
 		this.model.addDrawable(this.shape);
 	}
+	
+	/** 
+	 * Instantiates Squiggle and adds its reference to the model
+	 * and to instance Squiggle shape to further modify.
+	 *  
+	 * @param e Mouse_Pressed Mouse Event
+	*/
+	public void makeShapeAbove(MouseEvent e) {
+		this.shape = new Squiggle((int) e.getX(), (int) e.getY(), this.color, this.thickness);
+		this.model.addAbove(this.shape);
+	}
 
 	/** 
 	 * On Mouse Drag, adds points to current Squiggle shape

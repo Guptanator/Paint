@@ -96,8 +96,9 @@ public class Square extends ClosedShape {
 
 	public boolean isClicked(MouseEvent e) {
 		double x = e.getX();double y = e.getY();
-		if (x<=this.getCorner().getX()+this.length && x>this.getCorner().getX()) {
-			if (y<=this.getCorner().getY()+this.length && y>this.getCorner().getY()) {
+		double thick=this.properties.findThickness()/2;
+		if (x<=this.getCorner().getX()+this.length+thick && x>this.getCorner().getX()-thick) {
+			if (y<=this.getCorner().getY()+this.length+thick && y>this.getCorner().getY()-thick) {
 				return true;
 			}
 		}

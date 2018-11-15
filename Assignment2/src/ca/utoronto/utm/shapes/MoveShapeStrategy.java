@@ -65,6 +65,6 @@ public class MoveShapeStrategy extends TransformStrategy {
 			s.updateErasables(s.getCorner().getX()-newX,s.getCorner().getY()-newY);
 			s.setCorner(new Point((int)newX, (int)newY));
 		}
-		this.model.update();
+		this.panel.getModel().update();
 	}
 }

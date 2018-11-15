@@ -44,6 +44,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	
 	private double thick = 1.0;
 	public boolean shapeMode=true;
+	public boolean override = false;
 	/** Constructor for PaintPanel that sets up and initializes the canvas.
 	 * @param model PaintModel that handles the creation and destruction
 	 * of drawable objects.
@@ -162,15 +163,18 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	
 	public void setTransformMode(TransformStrategy t, OtherModeButton modeButton) {
 		this.TStrategy = t;
-		t.setModel(this.model);
-		t.setContext(this.canvas.getGraphicsContext2D());
+		t.setPanel(this);
 		this.shapeMode = false;
 		this.currentModeButton = modeButton;
 	}
 	public void UnsetTransformMode() {
 		this.TStrategy = null;
 		this.shapeMode = true;
+		this.override = false;
 		if (this.currentModeButton!=null)this.currentModeButton.setSelected(false);
+	}
+	public Canvas getCanvas() { 
+		return this.canvas;
 	}
 	
 	@Override

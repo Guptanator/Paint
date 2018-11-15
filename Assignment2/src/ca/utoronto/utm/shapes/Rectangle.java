@@ -109,8 +109,9 @@ public class Rectangle extends ClosedShape {
 
 	public boolean isClicked(MouseEvent e) {
 		double x = e.getX();double y = e.getY();
-		if (x<=this.getCorner().getX()+this.width && x>this.getCorner().getX()) {
-			if (y<=this.getCorner().getY()+this.height && y>this.getCorner().getY()) {
+		double thick=this.properties.findThickness()/2;
+		if (x<=this.getCorner().getX()+this.width+thick && x>this.getCorner().getX()-thick) {
+			if (y<=this.getCorner().getY()+this.height+thick && y>this.getCorner().getY()-thick) {
 				return true;
 			}
 		}

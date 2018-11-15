@@ -29,6 +29,6 @@ public class RemoveShapeStrategy extends TransformStrategy {
 	 * @param MouseEvent e
 	 */
 	public void removeShape() {
-		this.model.removeObject(this.currentShape);
+		this.panel.getModel().removeObject(this.currentShape);
 	}
 }

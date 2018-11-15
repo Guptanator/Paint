@@ -76,10 +76,17 @@ public class PaintModel extends Observable {
 	}
 	
 	public void removeObject(Drawable d) {
-		int i=this.allObjects.indexOf(d);
-		if (i>=0) {
-			this.allObjects.remove(i);
-			this.update();
+		this.allObjects.remove(d);
+		this.update();
+	}
+	
+	public void addAbove(Drawable d) {
+		int i;
+		for (i=allObjects.size()-1;i>=0;i=i-1) {
+			if (!allObjects.get(i).isClosed()) {
+				break;
+			}
 		}
+		allObjects.add(i+1, d);
 	}
 }
