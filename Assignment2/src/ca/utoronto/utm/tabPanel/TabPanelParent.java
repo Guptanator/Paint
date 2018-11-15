@@ -19,7 +19,6 @@ public class TabPanelParent extends GridPane {
 	private ShapeChooserPanel scp;
 	private colorPane cp;
 	private thicknessPopup tp;
-	private fillButton fB;
 	
 	private OtherModesPane omp;
 	/**
