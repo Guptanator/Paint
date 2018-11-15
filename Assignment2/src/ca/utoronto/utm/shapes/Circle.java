@@ -34,11 +34,9 @@ public class Circle extends ClosedShape {
 	 * @param thickness Current Thickness
 	*/
 	public Circle(Point p, Color c, double thickness) {
-
+		super(c,thickness);
 		this.centre = p;
 		this.radius = 0;
-		this.properties.acceptCommand(new ColorCommand(c));
-		this.properties.acceptCommand(new ThicknessCommand(thickness));
 	}
 
 	/** 

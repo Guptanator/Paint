@@ -12,6 +12,11 @@ import javafx.scene.paint.Color;
  * Abstract Drawable for closed shapes
 */
 public abstract class ClosedShape extends Drawable {
+	
+	public ClosedShape(Color color, double thickness) {
+		super(color, thickness);
+	}
+
 	public ArrayList<Eraseable> clearers = new ArrayList<Eraseable>(); 
 	
 	public abstract boolean isClicked(MouseEvent e);

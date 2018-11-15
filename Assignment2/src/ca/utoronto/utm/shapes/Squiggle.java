@@ -30,11 +30,10 @@ public class Squiggle extends Drawable {
 	 * @param thickness Current Thickness
 	*/
 	public Squiggle(int x, int y, Color c, double thickness) {
+		super(c,thickness);
 		this.points = new ArrayList<Point>();
-		this.properties.acceptCommand(new ThicknessCommand(thickness));
-		this.properties.acceptCommand(new ColorCommand(c));
-		this.thickness = properties.findThickness();
-		this.color = properties.findColor();
+		this.thickness = thickness;
+		this.color = c;
 		this.points.add(new Point (x,y,c, this.thickness));
 	}
 

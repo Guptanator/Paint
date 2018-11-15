@@ -33,10 +33,9 @@ public class Rectangle extends ClosedShape {
 	 * @param thickness Current Thickness
 	*/
 	public Rectangle(Point c, Color color, double thickness) {
+		super(color,thickness);
 		this.corner = c;
 		this.start = new Point(c.getX(), c.getY());
-		this.properties.acceptCommand(new ColorCommand(color));
-		this.properties.acceptCommand(new ThicknessCommand(thickness));
 	}
 	
 	/** 
@@ -86,6 +85,7 @@ public class Rectangle extends ClosedShape {
 		this.properties.applyCommands(g);
 		g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
+		this.update(g);
 	}
 
 	/** 

@@ -49,16 +49,21 @@ public class MoveShapeStrategy extends TransformStrategy {
 			double newX = e.getX()+deltaX;
 			double newY = e.getY()+deltaY;
 			c.updateErasables(c.getCentre().getX()-newX,c.getCentre().getY()-newY);
-			
 			c.setCentre(new Point((int)newX, (int)newY));
 		}
 		else if (currentShape.type()=="Rectangle") {
 			Rectangle r = ((Rectangle)(currentShape));
-			r.setCorner(new Point((int) (e.getX()+deltaX), (int) (e.getY()+deltaY)));
+			double newX = e.getX()+deltaX;
+			double newY = e.getY()+deltaY;
+			r.updateErasables(r.getCorner().getX()-newX,r.getCorner().getY()-newY);
+			r.setCorner(new Point((int)newX, (int)newY));
 		}
 		else if (currentShape.type()=="Square") {
 			Square s = ((Square)(currentShape));
-			s.setCorner(new Point((int) (e.getX()+deltaX), (int) (e.getY()+deltaY)));
+			double newX = e.getX()+deltaX;
+			double newY = e.getY()+deltaY;
+			s.updateErasables(s.getCorner().getX()-newX,s.getCorner().getY()-newY);
+			s.setCorner(new Point((int)newX, (int)newY));
 		}
 		this.model.update();
 	}

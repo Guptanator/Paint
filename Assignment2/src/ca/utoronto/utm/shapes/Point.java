@@ -27,6 +27,7 @@ public class Point extends Drawable {
 	 * @param y Input y position
 	*/
 	Point(int x, int y) {
+		super(Color.BLACK,1.0);
 		this.x = x;
 		this.y = y;
 		this.segment= false;

@@ -20,12 +20,8 @@ public class Square extends ClosedShape {
 	
 	private int length;
 	private Point corner;
-	private Color color;
 	private Point start;
-	private double thickness;
-	
-	private ArrayList<DrawingCommands> commands= new ArrayList<DrawingCommands>();
-	
+		
 	/** 
 	 * Square Constructor. Makes a Square with a pivot at p,
 	 * color c and thickness thickness.
@@ -35,12 +31,9 @@ public class Square extends ClosedShape {
 	 * @param thickness Current Thickness
 	*/
 	public Square(Point p, Color color, double thickness) {
+		super(color,thickness);
 		this.corner = p;
 		this.start = new Point(p.getX(), p.getY());
-		this.color = color;
-		this.thickness = thickness;
-		this.commands.add(new ColorCommand(this.color));
-		this.commands.add(new ThicknessCommand(this.thickness));
 	}
 	
 	/** 
@@ -87,13 +80,10 @@ public class Square extends ClosedShape {
 	*/
 	@Override
 	public void draw(GraphicsContext g) {
-		for(DrawingCommands command: this.commands)
-		{
-			command.executeChange(g);
-		}
-//		
+		this.properties.applyCommands(g);
 		g.fillRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
+		this.update(g);
 	}
 
 	/** 
@@ -102,36 +92,6 @@ public class Square extends ClosedShape {
 	@Override
 	public String type() {
 		return "Square";
-	}
-
-	/** 
-	 * Sets color for Color Command
-	 *  to Current Color
-	 * 
-	 * @param c Current Color
-	*/
-	@Override
-	public void setColor(Color c) {
-		this.color = c;		
-		this.commands.add(new ColorCommand(c));
-	}
-
-	/** 
-	 * Returns Square's color
-	*/
-	@Override
-	public Color getColor() {
-		return this.color;
-	}
-
-	/** 
-	 * Sets thickness for thickness command
-	 * 
-	 * @param thickness Current thickness
-	*/
-	@Override
-	public void setThickness(double thickness) {
-		this.commands.add(new ThicknessCommand(thickness));
 	}
 
 	public boolean isClicked(MouseEvent e) {

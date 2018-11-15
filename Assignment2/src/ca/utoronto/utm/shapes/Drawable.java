@@ -19,6 +19,11 @@ public abstract class Drawable {
 	public abstract void draw(GraphicsContext g);
 	public abstract String type();
 	
+	public Drawable(Color color, double thickness) {
+		this.properties.acceptCommand(new ColorCommand(color));
+		this.properties.acceptCommand(new ThicknessCommand(thickness));
+	}
+	
 	/** 
 	 * Returns Current instance Color
 	*/
