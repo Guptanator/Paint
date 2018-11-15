@@ -17,7 +17,7 @@ public class TabPanelParent extends GridPane {
 	private View view;
 	private int currentRow = 0;
 	private ShapeChooserPanel scp;
-	private colorPicker cp;
+	private ColorAccordions ca;
 	private thicknessPopup tp;
 	
 	private OtherModesPane omp;
@@ -28,12 +28,12 @@ public class TabPanelParent extends GridPane {
 	public TabPanelParent(View view) {
 		this.view = view;
 		this.setVgap(15);
-		this.cp = new colorPicker(view);
+		this.ca = new ColorAccordions(view);
 		this.scp = new ShapeChooserPanel(view);
 		this.tp = new thicknessPopup(view);
 		this.omp = new OtherModesPane(view);
 		this.addPane(this.scp);
-		this.addPane(this.cp);
+		this.addPane(this.ca);
 		this.addPane(this.tp);
 		this.addPane(this.omp);
 		this.setBackground(new Background(new BackgroundFill(Color.web("#7f8c8d"), null, null)));
