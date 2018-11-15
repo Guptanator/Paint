@@ -1,6 +1,10 @@
 package ca.utoronto.utm.shapes;
 
+import java.util.ArrayList;
+import java.util.function.Function;
+
 import ca.utoronto.utm.drawingCommands.FillCommand;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
@@ -8,10 +12,27 @@ import javafx.scene.paint.Color;
  * Abstract Drawable for closed shapes
 */
 public abstract class ClosedShape extends Drawable {
+	public ArrayList<Eraseable> clearers = new ArrayList<Eraseable>(); 
 	
 	public abstract boolean isClicked(MouseEvent e);
 	public abstract double xDifferent(double d);
 	public abstract double yDifferent(double d);
+	
+	public void addListener(Eraseable e) {
+		this.clearers.add(e);
+	}
+	
+	public void update(GraphicsContext g) {
+		for (Eraseable e: clearers) {
+			e.execute(g);
+		}
+	}
+	public void updateErasables(double x, double y) {
+		for (Eraseable e: clearers) {
+			e.x=e.x-x;
+			e.y=e.y-y;
+		}
+	}
 	
 	public void setFill(Color filled) {
 		this.properties.acceptCommand(new FillCommand(filled));
@@ -24,4 +45,5 @@ public abstract class ClosedShape extends Drawable {
 	public boolean isClosed() {
 		return true;
 	}
+	
 }

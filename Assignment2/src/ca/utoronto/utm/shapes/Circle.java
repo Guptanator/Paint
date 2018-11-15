@@ -9,6 +9,8 @@ import ca.utoronto.utm.drawingCommands.DrawingCommands;
 import ca.utoronto.utm.drawingCommands.FillCommand;
 import ca.utoronto.utm.drawingCommands.PropertyInvoker;
 import ca.utoronto.utm.drawingCommands.ThicknessCommand;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -75,6 +77,7 @@ public class Circle extends ClosedShape {
 		this.properties.applyCommands(g);
 		g.fillOval(x, y, this.radius*2, this.radius*2);
 		g.strokeOval(x, y, this.radius*2, this.radius*2);
+		this.update(g);
 	}
 
 	/** 
@@ -94,17 +97,18 @@ public class Circle extends ClosedShape {
 		return false;
 	}
 	public double yDifferent(double d) {
-		if (d>this.getCentre().getY()) {
-			return -(d-this.getCentre().getY());
+		if (d>this.centre.getY()) {
+			return -(d-this.centre.getY());
 		} else {
-			return this.getCentre().getY()-d;
+			return this.centre.getY()-d;
 		}
 	}
 	public double xDifferent(double d) {
-		if (d<this.getCentre().getX()) {
-			return this.getCentre().getX()-d;
+		if (d<this.centre.getX()) {
+			return this.centre.getX()-d;
 		} else {
-			return -(d-this.getCentre().getX());
+			return -(d-this.centre.getX());
 		}
 	}
+
 }

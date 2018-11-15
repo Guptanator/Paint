@@ -39,11 +39,11 @@ public abstract class TransformStrategy {
 	 * @param MouseEvent e is used to parse the x,y coordinates clicked.
 	 * @return Drawable based on the event that was clicked by the MouseEvent.
 	 */
-	protected Drawable findElement(MouseEvent e) {
+	protected ClosedShape findElement(MouseEvent e) {
 		ArrayList<Drawable> allObjects = model.getObjects();
 		for (int i= allObjects.size()-1; i >= 0;i--) {
 			if (allObjects.get(i).isClosed()) {
-				if(((ClosedShape)(allObjects.get(i))).isClicked(e)) return allObjects.get(i);
+				if(((ClosedShape)(allObjects.get(i))).isClicked(e)) return (ClosedShape)allObjects.get(i);
 			}
 		}
 		return null;
