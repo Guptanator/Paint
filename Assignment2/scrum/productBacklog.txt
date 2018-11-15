@@ -1,5 +1,5 @@
 # User Stories/Bugs (add as appropriate), modify at each Sprint Planning Meeting
-# If a USER STORY is large, break it into smaller user stories.
+u# If a USER STORY is large, break it into smaller user stories.
 # For example, the color chooser user story involves: 
 # 1 Color chooser UI (which could be a USER STORY)
 # 2 Implementation of selected color into the drawing stream.
@@ -26,15 +26,6 @@ ISSUE    : Code for color window is unattractive, should separate it into it's o
 		   Think about using builtin color chooser libraries.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 21 : leejon79
-NAME     : Fill Button
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 1 hours
-ISSUE    : Should be able to use fill option from panel with a Button whose Icon will
-		   Change depending on whether shapes will currently fill or not.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 37 : chowd460
 NAME     : Undo/redo not working for transformation
 OWNER    : 
@@ -58,15 +49,6 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Found out that we can't use swing stuff, so we're making our own from scratch.
---------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 44 : chowd460
-NAME     : Refactor PropertyInvoker and BUG 8 code
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 8 hours
-ISSUE    : The current system works but doesn't improve the design of the code, fix it!
-Update: made a couple changes, daniel had a good foundation and I built upon
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 45 : phamjus1
@@ -95,7 +77,14 @@ AS A     : user
 I WANT   : I want to be able to erase literally anywhere, not just shapes
 SO THAT  : I can fix detailed mistakes!
 --------------------------------------------------------------------------
-
+--------------------------------------------------------------------------
+TYPE     : BUG 49 : chowd460
+NAME     : Colors not filling properly
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : With daniel's new code the shapes are not filling as they should
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -681,12 +670,21 @@ ISSUE    : Currently we don't know what number we are setting the thickness
 		   value.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 43 : chowd460
-NAME     : Stroke Thickness error on left
+TYPE     : BUG 43 : leejon79
+NAME     : Changing design of color picker
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 1 hours
-ISSUE    : The slider throws an exception when moved too far to the left
+ISSUE    : Found out that we can't use swing stuff, so we're making our own from scratch.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 44 : chowd460
+NAME     : Refactor PropertyInvoker and BUG 8 code
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : The current system works but doesn't improve the design of the code, fix it!
+Update: made a couple changes, daniel had a good foundation and I built upon
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 46 : chowd460
@@ -695,6 +693,14 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 8 hours
 ISSUE    : Current we can only color the fill and border the same color, there should be separate colors
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 48 : chowd460
+NAME     : Stroke Thickness error on left
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : The slider throws an exception when moved too far to the left
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
@@ -771,4 +777,13 @@ ESTIMATE : 1 hours
 ISSUE    : When drawing squares around the pivot, the pivot will slightly switch
 		   Positions when it should be consistent with where the user clicked
 REASONING: Included as part of BUG25
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 21 : leejon79
+NAME     : Fill Button
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 1 hours
+ISSUE    : Should be able to use fill option from panel with a Button whose Icon will
+		   Change depending on whether shapes will currently fill or not.
 --------------------------------------------------------------------------
