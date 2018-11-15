@@ -472,7 +472,7 @@ PaintModel.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 8 : guptaary/leejon79
+TYPE     : BUG 8 : leejon79
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
 PRIORITY : 3
@@ -702,7 +702,7 @@ ISSUE    : Currently we don't know what number we are setting the thickness
 		   value.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 43 : chowd460
+TYPE     : BUG 48 : chowd460
 NAME     : Stroke Thickness error on left
 OWNER    : 
 PRIORITY : 1
@@ -752,3 +752,20 @@ AS A     : user
 I WANT   : I want to be able to erase literally anywhere, not just shapes
 SO THAT  : I can fix detailed mistakes!
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 43 : leejon79
+NAME     : Changing design of color picker
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Found out that we can't use swing stuff, so we're making our own from scratch.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 49 : chowd460
+NAME     : Colors not filling properly
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : With daniel's new code the shapes are not filling as they should
+--------------------------------------------------------------------------
+
