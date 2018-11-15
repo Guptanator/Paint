@@ -68,22 +68,20 @@ ESTIMATE : 2 hours
 ISSUE    : need to fix how square deals with thickness changes
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 18 : chowd460
-NAME     : Eraser brush
-OWNER    : 
-PRIORITY : 2
-ESTIMATE : 4 hours
-AS A     : user
-I WANT   : I want to be able to erase literally anywhere, not just shapes
-SO THAT  : I can fix detailed mistakes!
---------------------------------------------------------------------------
---------------------------------------------------------------------------
 TYPE     : BUG 49 : chowd460
 NAME     : Colors not filling properly
 OWNER    : 
 PRIORITY : 1
 ESTIMATE : 2 hours
 ISSUE    : With daniel's new code the shapes are not filling as they should
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 50 : chowd460
+NAME     : Add javadocs
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : Time to wrap up the last of the JavaDocs
 --------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -285,6 +283,16 @@ ESTIMATE : 4 hours
 AS A     : user
 I WANT   : The app to look nice, it needs to be pretty!
 SO THAT  : I actually want to use it
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 18 : chowd460
+NAME     : Eraser brush
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : I want to be able to erase literally anywhere, not just shapes
+SO THAT  : I can fix detailed mistakes!
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 1 : chowd460

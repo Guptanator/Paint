@@ -81,11 +81,18 @@ Nov 12, 2018
 	Obstacles :
 
 Nov 13, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Helped Aryaman with an issue he was facing with the sliders not working, studied 236 and did work work
+	Today     : Refactored daniels code, cleaned the entire code base up, adding ability to select different fill
+				border color.
 	Obstacles :
 
 Nov 14, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Refactored daniels code, cleaned the entire code base up, adding ability to select different fill
+				border color.
+	Today     : Worked on erasing, fixed a few bugs
+	Obstacles :
+	
+Nov 15, 2018
+	Yesterday : Worked on erasing, fixed a few bugs
+	Today     : Finished erasing, added docs
 	Obstacles :
