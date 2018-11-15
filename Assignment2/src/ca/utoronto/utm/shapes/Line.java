@@ -41,8 +41,8 @@ public class Line extends Drawable {
 	 * @param p2 Current Point 
 	 * @param c Current Color
 	*/
-	public Line(Point p1, Point p2, Color c) {
-		super(c,1.0);
+	public Line(Point p1, Point p2, Color c,double thickness) {
+		super(c,thickness);
 		this.first = p1;
 		this.last = p2;
 	}

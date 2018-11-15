@@ -43,9 +43,10 @@ public class Point extends Drawable {
 	 * @param thickness Current Thickness
 	*/
 	Point(int x, int y, Color c, double thickness){
-		this(x,y);
-		this.properties.acceptCommand(new ThicknessCommand(thickness));
-		this.properties.acceptCommand(new ColorCommand(c));
+		super(c,thickness);
+		this.x = x;
+		this.y = y;
+		this.segment= false;
 	}
 
 	/** 

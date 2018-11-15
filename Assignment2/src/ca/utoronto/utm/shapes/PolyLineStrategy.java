@@ -33,6 +33,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 			changeShape(e);
 		} else if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			if (e.getButton() == MouseButton.PRIMARY) {
+				//System.out.println(this.thickness);
 				makeShape(e);
 				this.isTerminated = false;
 			} else {
@@ -59,7 +60,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	private void makeShape(MouseEvent e) {
 		Point p = new Point((int) e.getX(),(int) e.getY(), this.color, this.thickness);
 		if (this.isFirst == true) {
-			this.shape = new Line(p, p, this.color);
+			this.shape = new Line(p, p, this.color,this.thickness);
 			this.model.addDrawable(this.shape);
 		} else {
 			this.shape.setLast(p);
@@ -80,7 +81,6 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 			this.isTerminated = true;
 			this.model.update();
 		}
-		
 	}
 	
 	/** 
@@ -90,7 +90,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	*/
 	private void changeShape(MouseEvent e) {
 		if (!this.isFirst) {
-			this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));
+			this.shape.setLast(new Point((int) e.getX(), (int) e.getY(),this.color,this.thickness));
 			this.model.update();
 		}
 	}
@@ -107,7 +107,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 			if (this.isFirst) {
 				this.isFirst = false;
 			} else {
-				this.shape = new Line(shape.getLast(), shape.getLast(), this.color);
+				this.shape = new Line(shape.getLast(), shape.getLast(), this.color,this.thickness);
 				this.model.addDrawable(this.shape);
 			} 
 		} else {
@@ -123,7 +123,7 @@ public class PolyLineStrategy extends ShapeManipulatorStrategy {
 	*/
 	public void moveFeedback(MouseEvent e) {
 		if (!this.isFirst && !this.isTerminated) {
-			this.shape.setLast(new Point((int) e.getX(), (int) e.getY()));
+			this.shape.setLast(new Point((int) e.getX(), (int) e.getY(),this.color,this.thickness));
 			this.model.update();
 		}
 	}

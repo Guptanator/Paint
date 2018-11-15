@@ -50,7 +50,13 @@ public class thicknessPopup extends VBox implements ChangeListener<Number>{
 		this.thicknessCaption.setTextFill(Color.web("#ecf0f1"));
 		this.getChildren().addAll(this.thicknessCaption,this.thickness);
 		this.thickness.valueProperty().addListener(this);
-}
+	}
+	/**
+	 * This handles the changing the of the thickness from the slider
+	 * @param ObservableValue observable the observable value passed from the handler
+	 * @param Number oldValue the new value
+	 * @param Number newValue the new value
+	 */
 	@Override
 	public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 		double thickNum = (double)observable.getValue();
