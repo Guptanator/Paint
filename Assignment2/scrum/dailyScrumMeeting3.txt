@@ -71,11 +71,11 @@ Nov 12, 2018
 	Obstacles :Had to take a little assistance from my team mates to see where i was going wrong.
 
 Nov 13, 2018
-	Yesterday :
-	Today     :
+	Yesterday :Finished thickness slider
+	Today     :made more minor fixes related to Thickness slider.
 	Obstacles :
 
 Nov 14, 2018
 	Yesterday :
-	Today     :
+	Today     :CSC236 midterm/finishing javadoc
 	Obstacles :
