@@ -29,9 +29,8 @@ public class Line extends Drawable {
 	 * @param thickness Current Thickness
 	*/
 	public Line(Point p, Color c, double thickness) {
+		super(c,thickness);
 		this.first = p;
-		this.properties.acceptCommand(new ThicknessCommand(thickness));
-		this.properties.acceptCommand(new ColorCommand(c));
 	}
 	
 	/** 
@@ -43,9 +42,9 @@ public class Line extends Drawable {
 	 * @param c Current Color
 	*/
 	public Line(Point p1, Point p2, Color c) {
+		super(c,1.0);
 		this.first = p1;
 		this.last = p2;
-		this.properties.acceptCommand(new ColorCommand(c));
 	}
 	
 	/** 

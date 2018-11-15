@@ -3,6 +3,8 @@ package ca.utoronto.utm.shapes;
 import java.util.ArrayList;
 
 import ca.utoronto.utm.paint.PaintModel;
+import ca.utoronto.utm.paint.PaintPanel;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 /**
  * This class should be subclasses for all non shape creating strategies, some additional ideas include
@@ -10,14 +12,14 @@ import javafx.scene.input.MouseEvent;
  * all TransformStrategies can utilize for their operations.
 */
 public abstract class TransformStrategy {
-	protected PaintModel model;
+	protected PaintPanel panel;
 	/**
-	 * This functions allows the PaintPanel to set the model of the strategy on a running when required
+	 * This function allows the strategy to access the model.
 	 * @param PaintModel p sets the model attribute of the strategy to be the passed in model.
 	 */
-	public void setModel(PaintModel p) {
-		this.model = p;
-		this.model.update();
+	public void setPanel(PaintPanel p) {
+		this.panel = p;
+		this.panel.getModel().update();
 	}
 	/**
 	 * This functions allows the strategy to handle any passed in mouse events from the PaintPanel
@@ -30,11 +32,11 @@ public abstract class TransformStrategy {
 	 * @param MouseEvent e is used to parse the x,y coordinates clicked.
 	 * @return Drawable based on the event that was clicked by the MouseEvent.
 	 */
-	protected Drawable findElement(MouseEvent e) {
-		ArrayList<Drawable> allObjects = model.getObjects();
+	protected ClosedShape findElement(MouseEvent e) {
+		ArrayList<Drawable> allObjects = this.panel.getModel().getObjects();
 		for (int i= allObjects.size()-1; i >= 0;i--) {
 			if (allObjects.get(i).isClosed()) {
-				if(((ClosedShape)(allObjects.get(i))).isClicked(e)) return allObjects.get(i);
+				if(((ClosedShape)(allObjects.get(i))).isClicked(e)) return (ClosedShape)allObjects.get(i);
 			}
 		}
 		return null;

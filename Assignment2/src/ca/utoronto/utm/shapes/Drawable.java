@@ -19,6 +19,11 @@ public abstract class Drawable {
 	public abstract void draw(GraphicsContext g);
 	public abstract String type();
 	
+	public Drawable(Color color, double thickness) {
+		this.properties.acceptCommand(new ColorCommand(color));
+		this.properties.acceptCommand(new ThicknessCommand(thickness));
+	}
+	
 	/** 
 	 * Returns Current instance Color
 	*/
@@ -33,6 +38,10 @@ public abstract class Drawable {
 	public void setThickness(double thickness) {
 		this.properties.acceptCommand((new ThicknessCommand(thickness)));
 	}
+	/** 
+	 * By default all drawables are not closed shapes
+	 * @return boolean indicated if the shape is closed.
+	*/
 	public boolean isClosed() {
 		return false;
 	}

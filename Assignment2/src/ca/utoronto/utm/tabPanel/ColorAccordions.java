@@ -32,11 +32,9 @@ public class ColorAccordions extends GridPane {
 	}
 	public void handleMouseClickB (ColorGrid CP) {
         this.view.getPaintPanel().setColor(CP.getColor());
-        //CP.setStyle("-fx-text-fill: #" + Color.web(CP.getColor().toString()).toString().substring(2)+";");
     }
 	
 	public void handleMouseClickF (ColorGrid CP) {
         this.view.getPaintPanel().setFillColor(CP.getColor());
-        //CP.setStyle("-fx-text-fill: #" + Color.web(CP.getColor().toString()).toString().substring(2)+";");
     }
 }

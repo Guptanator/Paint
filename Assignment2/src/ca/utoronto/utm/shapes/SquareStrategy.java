@@ -96,5 +96,4 @@ public class SquareStrategy extends ShapeManipulatorStrategy {
 		} 	
 		this.model.update();
 	}
-
 }

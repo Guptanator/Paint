@@ -19,7 +19,7 @@ public class PaintModel extends Observable {
 
 	private ArrayList<Drawable> allObjects = new ArrayList<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
-	private int current = 0;
+	public double thick = 1.0;
 	
 	/** Handles setting the properties to d and adding it
 	 * to the list of drawable objects (allObjects) to draw on canvas.
@@ -76,10 +76,17 @@ public class PaintModel extends Observable {
 	}
 	
 	public void removeObject(Drawable d) {
-		int i=this.allObjects.indexOf(d);
-		if (i>=0) {
-			this.allObjects.remove(i);
-			this.update();
+		this.allObjects.remove(d);
+		this.update();
+	}
+	
+	public void addAbove(Drawable d) {
+		int i;
+		for (i=allObjects.size()-1;i>=0;i=i-1) {
+			if (!allObjects.get(i).isClosed()) {
+				break;
+			}
 		}
+		allObjects.add(i+1, d);
 	}
 }

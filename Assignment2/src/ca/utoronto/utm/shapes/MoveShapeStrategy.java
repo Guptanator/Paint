@@ -18,7 +18,7 @@ public class MoveShapeStrategy extends TransformStrategy {
 	 */
 	public void handleMouse(MouseEvent e) {
 		if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
-			currentShape = (ClosedShape)this.findElement(e);
+			currentShape = this.findElement(e);
 			if (currentShape!=null)PrepareDeltas(e);
 		} else if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
 			MoveDrawable(e);
@@ -46,16 +46,25 @@ public class MoveShapeStrategy extends TransformStrategy {
 		}
 		else if (currentShape.type()=="Circle") {
 			Circle c = ((Circle)(currentShape));
-			c.setCentre(new Point((int) (e.getX()+deltaX), (int) (e.getY()+deltaY)));
+			double newX = e.getX()+deltaX;
+			double newY = e.getY()+deltaY;
+			c.updateErasables(c.getCentre().getX()-newX,c.getCentre().getY()-newY);
+			c.setCentre(new Point((int)newX, (int)newY));
 		}
 		else if (currentShape.type()=="Rectangle") {
 			Rectangle r = ((Rectangle)(currentShape));
-			r.setCorner(new Point((int) (e.getX()+deltaX), (int) (e.getY()+deltaY)));
+			double newX = e.getX()+deltaX;
+			double newY = e.getY()+deltaY;
+			r.updateErasables(r.getCorner().getX()-newX,r.getCorner().getY()-newY);
+			r.setCorner(new Point((int)newX, (int)newY));
 		}
 		else if (currentShape.type()=="Square") {
 			Square s = ((Square)(currentShape));
-			s.setCorner(new Point((int) (e.getX()+deltaX), (int) (e.getY()+deltaY)));
+			double newX = e.getX()+deltaX;
+			double newY = e.getY()+deltaY;
+			s.updateErasables(s.getCorner().getX()-newX,s.getCorner().getY()-newY);
+			s.setCorner(new Point((int)newX, (int)newY));
 		}
-		this.model.update();
+		this.panel.getModel().update();
 	}
 }
