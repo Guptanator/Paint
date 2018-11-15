@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import ca.utoronto.utm.drawingCommands.ColorCommand;
 import ca.utoronto.utm.drawingCommands.DrawingCommands;
 import ca.utoronto.utm.drawingCommands.FillCommand;
+import ca.utoronto.utm.drawingCommands.PropertyInvoker;
 import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -21,94 +22,67 @@ public class Circle extends ClosedShape {
 	
 	private Point centre;
 	private int radius;
-	private boolean fill = false;
-	private double thickness;
-	private Color color;
-	
-	private ArrayList<DrawingCommands> commands = new ArrayList<DrawingCommands>();
 	
 	/** 
-	 * Sets PaintModel model in instance
-	 * to current PaintModel
+	 * Circle Constructor. Makes a circle with a centre at p
+	 * color c and thickness thickness.
 	 *  
-	 *  @param p Current Point 
+	 * @param p Current Point 
+	 * @param c Current Color
+	 * @param thickness Current Thickness
 	*/
-	public Circle(Point p, int r, Color c, double thickness) {
+	public Circle(Point p, Color c, double thickness) {
 
 		this.centre = p;
-		this.radius = r;
-		this.color = c;
-		this.thickness = thickness;
-		this.commands.add(new ColorCommand(this.color));
-		this.commands.add(new ThicknessCommand(this.thickness));
+		this.radius = 0;
+		this.properties.acceptCommand(new ColorCommand(c));
+		this.properties.acceptCommand(new ThicknessCommand(thickness));
 	}
 
+	/** 
+	 * Returns the centre point of the Circle
+	*/
 	public Point getCentre() {
 		return centre;
 	}
 
+	/** 
+	 * Sets the centre point of the Circle
+	 * 
+	 * @param centre New Centre point
+	*/
 	public void setCentre(Point centre) {
 		this.centre = centre;
 	}
-
-	public int getRadius() {
-		return radius;
-	}
-
+	
+	/** 
+	 * Sets the radius of the Circle
+	*/
 	public void setRadius(int radius) {
 		this.radius = radius;
 	}
-	
 
+	/** 
+	 * Draw Command. Draws circle to graphics context
+	 * given current circle properties.
+	 * 
+	 * @param g Current GraphicsContext
+	*/
 	@Override
 	public void draw(GraphicsContext g) {
-		int radius = this.getRadius();
-		int x = this.getCentre().getX()-(radius);
-		int y = this.getCentre().getY()-(radius);
-		for(DrawingCommands command: this.commands)
-		{
-			command.executeChange(g);
-		}
-		if(this.fill)
-		{
-			g.fillOval(x, y, radius*2, radius*2);
-		}
-		g.strokeOval(x, y, radius*2, radius*2);
+		int x = this.getCentre().getX()-(this.radius);
+		int y = this.getCentre().getY()-(this.radius);
+		this.properties.applyCommands(g);
+		g.fillOval(x, y, this.radius*2, this.radius*2);
+		g.strokeOval(x, y, this.radius*2, this.radius*2);
 	}
 
+	/** 
+	 * Type Designation for moving Circle
+	*/
 	@Override
 	public String type() {
 		return "Circle";
-	}
-
-	@Override
-	public void setColor(Color c) {
-		this.color = c;
-		this.commands.add(new ColorCommand(c));
-	}
-
-	@Override
-	public Color getColor() {
-		return this.color;
-	}
-	@Override
-	public void setFill(boolean filled)
-	{
-		if(filled)
-		{
-			this.commands.add(new FillCommand(this.color));
-		}
-		else
-		{
-			this.commands.add(new FillCommand(new Color(0,0,0,0)));
-		}
-		this.fill = filled;
-	}
-
-	@Override
-	public void setThickness(double thickness) {
-		this.thickness = thickness;
-		this.commands.add(new ThicknessCommand(this.thickness));
 	}
 
 	@Override
@@ -131,12 +105,6 @@ public class Circle extends ClosedShape {
 			return this.getCentre().getX()-d;
 		} else {
 			return -(d-this.getCentre().getX());
-		}		
+		}
 	}
-
-	@Override
-	public boolean isClosed() {
-		return true;
-	}
-
 }

@@ -20,7 +20,6 @@ public class PaintModel extends Observable {
 	private ArrayList<Drawable> allObjects = new ArrayList<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
 	private int current = 0;
-	private boolean fill = false;
 	
 	/** Handles setting the properties to d and adding it
 	 * to the list of drawable objects (allObjects) to draw on canvas.
@@ -29,12 +28,6 @@ public class PaintModel extends Observable {
 	public void addDrawable(Drawable d) {
 		this.allObjects.add(d);
 		this.update();
-	}
-	/** Returns the PaintModel's boolean fill value.
-	*/
-	public boolean getFill()
-	{
-		return this.fill;
 	}
 	/** Removes the latest drawn object from the (allObjects) list
 	 * and saves the value into a different list (undone) in case you

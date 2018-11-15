@@ -16,58 +16,40 @@ import javafx.scene.layout.GridPane;
  * the the PaintPanel controller.
  *
 */
-public class colorPane extends TitledPane {
-	private GridPane gP = new GridPane();
+public class colorPane extends TitledPane implements EventHandler<ActionEvent>{
+	private GridPane GP = new GridPane();
+	public View view;
+	private ColorPicker borderPicker;
+	private ColorPicker fillPicker;
 	/**
 	 * This constructor initializes the colorPane, prepares the color picker and creates the anonymous
 	 * function to handle the ActionEvent passed from the colorPicker.
 	 * @param View view which allows the pane to access the controller.
 	 */
 	public colorPane(View view){
-		int row = 0;
-		int col = 0;
-		for(double r = 0; r<=1; r = r+0.25)
-		{
-			for(double g = 0; g<=1; g = g+0.25)
-			{
-				for(double b = 0; b<=1; b = b+0.25)
-				{
-					colorButton cB = new colorButton(view, new Color(r, g, b, 1.0));
-					gP.add(cB, col, row);
-				}
-				col += 1;
-			}
-			col = 0;
-			row += 1;
-		}
-		this.setContent(gP);
-//		for (String label : buttonLabels) {
-//			shapeChooserButton button = new shapeChooserButton(label);
-//			this.add(button, 0, row);
-//			row++;
-//			button.setOnAction(this);
-//			buttonArray.add(button);
-//		}
 		
-		
+		this.view = view;
+		this.borderPicker = new ColorPicker();
+		this.borderPicker.setValue(Color.BLACK);
+		this.fillPicker = new ColorPicker();
+		this.fillPicker.setValue(Color.TRANSPARENT);
+		borderPicker.setMaxWidth(100);
+		fillPicker.setMaxWidth(100);
+		this.GP.add(borderPicker, 0, 0);
+		this.GP.add(fillPicker, 0, 1);
+		borderPicker.setOnAction(this);
+		fillPicker.setOnAction(this);
+		borderPicker.getStylesheets().add("resources/stylesheet.css");
+		borderPicker.getStyleClass().add("custom-button");
+		fillPicker.getStylesheets().add("resources/stylesheet.css");
+		fillPicker.getStyleClass().add("custom-button");
 	}
-//		this.colorPicker = new ColorPicker();
-//		colorPicker.setMaxWidth(100);
-//		this.add(colorPicker, 0, 0);
-//		colorPicker.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                setNewColor(colorPicker.getValue());
-//            }
-//        });
-//		colorPicker.getStylesheets().add("resources/stylesheet.css");
-//		colorPicker.getStyleClass().add("custom-button");
-//	/**
-//	 * This function sets the current color in the PaintPanel controller.
-//	 * @param Color color, the color passed from the colorPicker.
-//	 */
-//	public void setNewColor(Color color){
-//		this.view.getPaintPanel().setColor(color);
-//	}
-
+	/**
+	 * This function sets the current color in the PaintPanel controller.
+	 * @param ActionEvent event, the event passed by the colorPicker
+	 */
+	public void handle(ActionEvent event) {
+		this.view.getPaintPanel().setColor(borderPicker.getValue());
+		this.view.getPaintPanel().setFillColor(fillPicker.getValue());
+	}
 }

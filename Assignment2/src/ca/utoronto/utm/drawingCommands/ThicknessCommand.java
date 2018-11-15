@@ -25,4 +25,11 @@ public class ThicknessCommand implements DrawingCommands{
 	public void executeChange(GraphicsContext g) {
 		g.setLineWidth(this.thickness);
 	}
+	@Override
+	public String type() {
+		return "thick";
+	}
+	public double getThickness() {
+		return thickness;
+	}
 }

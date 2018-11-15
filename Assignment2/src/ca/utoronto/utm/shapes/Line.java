@@ -10,71 +10,78 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
+/** 
+ * Line Drawable Command that holds dimensions
+ * and draws itself to the GraphicsContext
+*/
 public class Line extends Drawable {
 	
 	private Point first;
 	private Point last;
-	private double thickness;
+	private double thickness;	
 	
-	private ArrayList<DrawingCommands> commands= new ArrayList<DrawingCommands>();
-	
-	
+	/** 
+	 * Line Constructor. Makes a line with first point at p
+	 * color c and thickness thickness.
+	 *  
+	 * @param p Current Point 
+	 * @param c Current Color
+	 * @param thickness Current Thickness
+	*/
 	public Line(Point p, Color c, double thickness) {
 		this.first = p;
-		this.color = c;
-		this.thickness = thickness;
-		this.commands.add(new ColorCommand(this.color));
-		this.commands.add(new ThicknessCommand(this.thickness));
+		this.properties.acceptCommand(new ThicknessCommand(thickness));
+		this.properties.acceptCommand(new ColorCommand(c));
 	}
 	
+	/** 
+	 * Line Constructor. Makes a line with first point at p1
+	 * and a second point at p2. Line Color is also set to c.
+	 *  
+	 * @param p1 Current Point 
+	 * @param p2 Current Point 
+	 * @param c Current Color
+	*/
 	public Line(Point p1, Point p2, Color c) {
 		this.first = p1;
 		this.last = p2;
-		this.color = c;
+		this.properties.acceptCommand(new ColorCommand(c));
 	}
 	
+	/** 
+	 * Returns Last Point
+	*/
 	public Point getLast() {
 		return this.last;
 	}
 	
+	/** 
+	 * Sets Last Point to p.
+	 * 
+	 * @param p Current Point 
+	*/
 	public void setLast(Point p) {
 		this.last = p;
 	}	
 	
+	/** 
+	 * Draw Command. Draws Line to graphics context
+	 * given current Line properties.
+	 * 
+	 * @param g Current GraphicsContext
+	*/
 	@Override
 	public void draw(GraphicsContext g) {
-		for(DrawingCommands command: this.commands)
-		{
-			command.executeChange(g);
-		}
-		this.first.setColor(color);
+		this.properties.applyCommands(g);
+		this.first.setColor(this.properties.findColor());
 		this.first.draw(g, last, this.thickness);
 	}
 
+	/** 
+	 * Type Designation for moving Line
+	*/
 	@Override
 	public String type() {
 		return "Line";
-	}
-
-	@Override
-	public void setColor(Color c) {
-		this.color = c;
-		this.commands.add(new ColorCommand(c));
-	}
-
-	@Override
-	public Color getColor() {
-		return this.color;
-	}
-
-	@Override
-	public void setThickness(double thickness) {
-		this.commands.add(new ThicknessCommand(thickness));
-	}
-
-	@Override
-	public boolean isClosed() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }

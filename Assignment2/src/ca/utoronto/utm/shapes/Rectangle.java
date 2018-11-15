@@ -6,12 +6,17 @@ import java.util.ArrayList;
 import ca.utoronto.utm.drawingCommands.ColorCommand;
 import ca.utoronto.utm.drawingCommands.DrawingCommands;
 import ca.utoronto.utm.drawingCommands.FillCommand;
+import ca.utoronto.utm.drawingCommands.PropertyInvoker;
 import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
+/** 
+ * Rectangle Drawable Command that holds dimensions
+ * and draws itself to the GraphicsContext
+*/
 public class Rectangle extends ClosedShape {
 	
 	private int height = 0;
@@ -19,83 +24,89 @@ public class Rectangle extends ClosedShape {
 	private Point corner;
 	private Point start;
 	
-	private ArrayList<DrawingCommands> commands= new ArrayList<DrawingCommands>();
-	
+	/** 
+	 * Rectangle Constructor. Makes a Rectangle with a pivot at p,
+	 * color c and thickness thickness.
+	 * 
+	 * @param p Current Point 
+	 * @param c Current Color
+	 * @param thickness Current Thickness
+	*/
 	public Rectangle(Point c, Color color, double thickness) {
 		this.corner = c;
-		this.color = color;
 		this.start = new Point(c.getX(), c.getY());
-		this.thickness = thickness;
-		this.commands.add(new ColorCommand(this.color));
-		this.commands.add(new ThicknessCommand(this.thickness));
+		this.properties.acceptCommand(new ColorCommand(color));
+		this.properties.acceptCommand(new ThicknessCommand(thickness));
 	}
 	
+	/** 
+	 * Returns the Rectangle Start Point/Pivot.
+	*/
 	public Point getStart() {
 		return this.start;
 	}
 	
+	/** 
+	 * Returns the Rectangle current corner
+	 * Point
+	*/
 	public Point getCorner() {
 		return this.corner;
 	}
+	
+	/** 
+	 * Sets Corner to fit new Dimensions
+	*/
 	public void setCorner(Point p) {
 		this.corner = p;
 	}
 	
+	/** 
+	 * Sets height to fit new Dimensions
+	*/
 	public void setHeight(int h) {
 		this.height = h;
 	}
 	
+	/** 
+	 * Sets width to fit new Dimensions
+	*/
 	public void setWidth(int w) {
 		this.width = w;
 	}
 	
-
+	/** 
+	 * Draw Command. Draws Rectangle to graphics context
+	 * given current Rectangle properties.
+	 * 
+	 * @param g Current GraphicsContext
+	*/
 	@Override
 	public void draw(GraphicsContext g) {
-		for(DrawingCommands command: this.commands)
-		{
-			command.executeChange(g);
-		}
-		if(fill)
-		{
-			g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
-		}
+		this.properties.applyCommands(g);
+		g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 	}
 
+	/** 
+	 * Type Designation for moving Rectangle
+	*/
 	@Override
 	public String type() {
 		return "Rectangle";
 	}
 
+	/** 
+	 * Sets color for Color Command
+	 *  to Current Color
+	 * 
+	 * @param c Current Color
+	*/
 	@Override
 	public void setColor(Color c) {
-		this.color = c;
-		this.commands.add(new ColorCommand(c));
+		this.properties.acceptCommand(new ColorCommand(c));
 	}
 
-	@Override
-	public Color getColor() {
-		return this.color;
-	}
-	
-	public void setFill(boolean filled)
-	{
-		if(filled)
-		{
-			this.commands.add(new FillCommand(this.color));
-		}
-		else
-		{
-			this.commands.add(new FillCommand(new Color(0,0,0,0)));
-		}
-		this.fill = filled;
-	}
-
-	@Override
-	public void setThickness(double thickness) {
-		this.commands.add(new ThicknessCommand(thickness));
-	}
 	public boolean isClicked(MouseEvent e) {
 		double x = e.getX();double y = e.getY();
 		if (x<=this.getCorner().getX()+this.width && x>this.getCorner().getX()) {
@@ -122,11 +133,6 @@ public class Rectangle extends ClosedShape {
 		} else {
 			return -(d-this.getCorner().getX());
 		}
-	}
-
-	@Override
-	public boolean isClosed() {
-		return true;
 	}
 
 }

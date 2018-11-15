@@ -3,6 +3,7 @@ package ca.utoronto.utm.drawingCommands;
 import java.util.ArrayList;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import ca.utoronto.utm.shapes.Drawable;
 
 /**
@@ -38,6 +39,22 @@ public class PropertyInvoker {
 		{
 			command.executeChange(g);
 		}
-		this.commands.clear();
+		//this.commands.clear();
+	}
+	public Color findColor() {
+		for (int i=(this.commands.size())-1; i>=0;i=i-1) {
+			if (this.commands.get(i).type()=="color") {
+				return ((ColorCommand)(this.commands.get(i))).getColor();
+			}
+		}
+		return Color.BLACK;
+	}
+	public Double findThickness() {
+		for (int i=(this.commands.size())-1; i>=0;i=i-1) {
+			if (this.commands.get(i).type()=="thick") {
+				return ((ThicknessCommand)(this.commands.get(i))).getThickness();
+			}
+		}
+		return null;
 	}
 }
