@@ -1,6 +1,8 @@
 package ca.utoronto.utm.paint;
 
 import ca.utoronto.utm.tabPanel.CanvasPopup;
+import ca.utoronto.utm.tabPanel.ModelPicker;
+import ca.utoronto.utm.tabPanel.NewCanvasWindow;
 import ca.utoronto.utm.tabPanel.ShapeChooserPanel;
 import ca.utoronto.utm.tabPanel.TabPanelParent;
 import javafx.event.ActionEvent;
@@ -12,18 +14,24 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class View implements EventHandler<ActionEvent> {
 
 	private PaintModel model;
+	private Paint paint;
 
 	private PaintPanel paintPanel;
 	private TabPanelParent tabParent;
 	private FlowPane drawArea;
+	private ModelPicker modelBox;
+	private VBox drawBox;
 	private Stage stage;
-	public View(PaintModel model, Stage stage) {
+	public View(PaintModel model, Stage stage, Paint app) {
 
+		this.paint = app;
 		this.model = model;
 		initUI(stage);
 	}
@@ -33,8 +41,13 @@ public class View implements EventHandler<ActionEvent> {
 		this.stage = stage;
 		this.paintPanel = new PaintPanel(this.model, this);
 		this.tabParent = new TabPanelParent(this);
-		drawArea = new FlowPane();
-		drawArea.getChildren().add(this.paintPanel);
+		this.drawArea = new FlowPane();
+		this.modelBox = new ModelPicker(this.model, paintPanel);
+		this.drawBox = new VBox();
+		
+		drawBox.getChildren().add(this.modelBox);
+		drawBox.getChildren().add(this.paintPanel);
+		drawArea.getChildren().add(this.drawBox);
 
 		BorderPane root = new BorderPane();
 		root.setTop(createMenuBar());
@@ -129,6 +142,8 @@ public class View implements EventHandler<ActionEvent> {
 			System.exit(0);
 		} else if (((MenuItem)event.getSource()).getText()=="Resize Canvas") {
 			CanvasPopup canvasPop = new CanvasPopup(this.paintPanel);
+		} else if (((MenuItem)event.getSource()).getText()=="New") {
+			NewCanvasWindow newCanvas = new NewCanvasWindow(this.paintPanel, modelBox);
 		}
 	}
 	/**
@@ -136,5 +151,16 @@ public class View implements EventHandler<ActionEvent> {
 	 */
 	public void setFilled() {
 		this.tabParent.setFilled();
+	}
+	
+	/**
+	 * Sets model to Current Model
+	 */	
+	public void setModel(PaintModel model) {
+		this.model = model;
+	}
+	
+	public Paint getPaint() {
+		return this.paint;
 	}
 }

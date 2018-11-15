@@ -15,9 +15,13 @@ public class Paint extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-		this.model = new PaintModel();
+		this.model = new PaintModel("Default");
 		
 		// View + Controller
-		this.view = new View(model, stage);
+		this.view = new View(model, stage, this);
+	}
+	
+	public void setModel(PaintModel model) {
+		this.model = model;
 	}
 }

@@ -56,10 +56,11 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		// The canvas is transparent, so the background color of the
 		// containing pane serves as the background color of the canvas.
 		this.setStyle("-fx-background-color: white");
-
 		this.addEventHandler(MouseEvent.ANY, this);
 		
 		this.model = model;
+		this.model.setHeight((int)this.canvas.getHeight());
+		this.model.setWidth((int)this.canvas.getWidth());
 		
 		this.model.addObserver(this);
 		
@@ -195,5 +196,32 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	public void changeCanvas(int h, int w) {
 		this.canvas.setHeight(h);
 		this.canvas.setWidth(w);
+		this.model.setHeight(h);
+		this.model.setWidth(w);
+	}
+	
+	/**
+	 * Returns the current Canvas
+	 */
+	public Canvas getCanvas() {
+		return this.canvas;
+	}
+	
+	/**
+	 * Returns the current View
+	 */
+	public View getView() {
+		return this.view;
+	}
+	
+	/**
+	 * Sets model to Current Model
+	 */	
+	public void setModel(PaintModel model) {
+		System.out.println("I changed the model from " + this.model.getName());
+		this.model = model;
+		System.out.println("I changed the model to " + this.model.getName());
+		this.strategy.setModel(model);
+		this.model.update();
 	}
 }
