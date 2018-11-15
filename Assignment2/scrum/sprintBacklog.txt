@@ -742,3 +742,13 @@ PRIORITY : 1
 ESTIMATE : 2 hours
 ISSUE    : need to fix how square deals with thickness changes
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 18 : chowd460
+NAME     : Eraser brush
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : I want to be able to erase literally anywhere, not just shapes
+SO THAT  : I can fix detailed mistakes!
+--------------------------------------------------------------------------

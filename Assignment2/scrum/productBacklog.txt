@@ -91,6 +91,16 @@ PRIORITY : 1
 ESTIMATE : 2 hours
 ISSUE    : need to fix how square deals with thickness changes
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 18 : chowd460
+NAME     : Eraser brush
+OWNER    : 
+PRIORITY : 2
+ESTIMATE : 4 hours
+AS A     : user
+I WANT   : I want to be able to erase literally anywhere, not just shapes
+SO THAT  : I can fix detailed mistakes!
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -264,12 +274,12 @@ SO THAT  : I can draw more quicker while also have user friendly tabs which can 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 14 : chowd460
-NAME     : Erase brush
+NAME     : Erase shapes
 OWNER    : 
 PRIORITY : 2
 ESTIMATE : 4 hours
 AS A     : user
-I WANT   : To be able to erase anywhere on the screen
+I WANT   : To be able to erase any objects on the screen
 SO THAT  : I can correct any of my mistakes
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
