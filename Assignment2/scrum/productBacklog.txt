@@ -66,6 +66,14 @@ ESTIMATE : 8 hours
 ISSUE    : Currently we can can't move the shapes when we click on the border of the shapes
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
+TYPE     : BUG 43 : leejon79
+NAME     : Changing design of color picker
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Found out that we can't use swing stuff, so we're making our own from scratch.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 TYPE     : BUG 44 : chowd460
 NAME     : Refactor PropertyInvoker and BUG 8 code
 OWNER    : 
@@ -101,6 +109,7 @@ AS A     : user
 I WANT   : I want to be able to erase literally anywhere, not just shapes
 SO THAT  : I can fix detailed mistakes!
 --------------------------------------------------------------------------
+
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
