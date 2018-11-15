@@ -123,4 +123,16 @@ public class Square extends ClosedShape {
 		}
 	}
 
+	@Override
+	public boolean isHallowClicked(MouseEvent e) {
+		double x = e.getX();double y = e.getY();
+		double thick=this.properties.findThickness()/2;
+		if ((this.getCorner().getX()+this.length <= x && x <= this.getCorner().getX()+this.length+thick) || (x>=this.getCorner().getX()-thick) && (x<=this.getCorner().getX())) {
+			return true;
+		}
+		if ((y>=this.getCorner().getY()+this.length  && y<=this.getCorner().getY()+this.length+thick) || (y>=this.getCorner().getY()-thick && y<=this.getCorner().getY())) {
+			return true;
+		}
+		return false;
+	}
 }

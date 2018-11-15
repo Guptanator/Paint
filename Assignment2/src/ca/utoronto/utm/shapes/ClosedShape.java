@@ -16,10 +16,11 @@ public abstract class ClosedShape extends Drawable {
 	public ClosedShape(Color color, double thickness) {
 		super(color, thickness);
 	}
-
+	private boolean isTransparent = false;
 	public ArrayList<Eraseable> clearers = new ArrayList<Eraseable>(); 
 	
 	public abstract boolean isClicked(MouseEvent e);
+	public abstract boolean isHallowClicked(MouseEvent e);
 	public abstract double xDifferent(double d);
 	public abstract double yDifferent(double d);
 	
@@ -32,6 +33,7 @@ public abstract class ClosedShape extends Drawable {
 			e.execute(g);
 		}
 	}
+	
 	public void updateErasables(double x, double y) {
 		for (Eraseable e: clearers) {
 			e.x=e.x-x;
@@ -40,6 +42,11 @@ public abstract class ClosedShape extends Drawable {
 	}
 	
 	public void setFill(Color filled) {
+		if (filled == Color.TRANSPARENT) {
+			this.isTransparent=true;
+		} else {
+			this.isTransparent=false;
+		}
 		this.properties.acceptCommand(new FillCommand(filled));
 	}
 	
@@ -50,5 +57,7 @@ public abstract class ClosedShape extends Drawable {
 	public boolean isClosed() {
 		return true;
 	}
-	
+	public boolean isHallow() {
+		return this.isTransparent;
+	}
 }

@@ -110,4 +110,14 @@ public class Circle extends ClosedShape {
 		}
 	}
 
+	@Override
+	public boolean isHallowClicked(MouseEvent e) {
+		double thick=this.properties.findThickness()/2;
+		double distance = Math.sqrt(Math.pow(e.getX() - this.getCentre().getX(), 2) + Math.pow(e.getY() - this.getCentre().getY(), 2));
+		if (this.radius < distance && distance < this.radius+thick) {
+			System.out.println(true);
+			return true;
+		}
+		return false;
+	}
 }

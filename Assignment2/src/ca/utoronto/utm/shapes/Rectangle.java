@@ -136,4 +136,17 @@ public class Rectangle extends ClosedShape {
 		}
 	}
 
+	@Override
+	public boolean isHallowClicked(MouseEvent e) {
+		double x = e.getX();double y = e.getY();
+		double thick=this.properties.findThickness()/2;
+		if ((this.getCorner().getX()+this.width <= x && x <= this.getCorner().getX()+this.width+thick) || (x>=this.getCorner().getX()-thick) && (x<=this.getCorner().getX())) {
+			return true;
+		}
+		if ((y>=this.getCorner().getY()+this.height  && y<=this.getCorner().getY()+this.height+thick) || (y>=this.getCorner().getY()-thick && y<=this.getCorner().getY())) {
+			return true;
+		}
+		return false;
+	}
+
 }
