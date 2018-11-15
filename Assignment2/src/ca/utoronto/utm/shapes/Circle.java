@@ -22,7 +22,6 @@ public class Circle extends ClosedShape {
 	
 	private Point centre;
 	private int radius;
-	private boolean fill = false;
 	
 	/** 
 	 * Circle Constructor. Makes a circle with a centre at p
@@ -74,10 +73,7 @@ public class Circle extends ClosedShape {
 		int x = this.getCentre().getX()-(this.radius);
 		int y = this.getCentre().getY()-(this.radius);
 		this.properties.applyCommands(g);
-		if(this.fill)
-		{
-			g.fillOval(x, y, this.radius*2, this.radius*2);
-		}
+		g.fillOval(x, y, this.radius*2, this.radius*2);
 		g.strokeOval(x, y, this.radius*2, this.radius*2);
 	}
 
@@ -87,26 +83,6 @@ public class Circle extends ClosedShape {
 	@Override
 	public String type() {
 		return "Circle";
-	}
-
-	/** 
-	 * Sets Circle's fill Command
-	 * 
-	 * @param filled PaintPanel fill boolean
-	*/
-	@Override
-	public void setFill(boolean filled)
-	{
-		Color c = this.properties.findColor();
-		if(filled)
-		{
-			this.properties.acceptCommand(new FillCommand(c));
-		}
-		else
-		{
-			this.properties.acceptCommand(new FillCommand(new Color(0,0,0,0)));
-		}
-		this.fill = filled;
 	}
 
 	@Override

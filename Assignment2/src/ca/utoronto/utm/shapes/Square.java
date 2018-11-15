@@ -92,10 +92,7 @@ public class Square extends ClosedShape {
 			command.executeChange(g);
 		}
 //		
-		if(fill)
-		{
-			g.fillRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
-		}
+		g.fillRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.length, this.length);
 	}
 
@@ -125,25 +122,6 @@ public class Square extends ClosedShape {
 	@Override
 	public Color getColor() {
 		return this.color;
-	}
-
-	/** 
-	 * Sets Fill setting for fill
-	 * command to current setting
-	 * 
-	 * @param filled Current fill settings
-	*/
-	@Override
-	public void setFill(boolean filled) {
-		if(filled)
-		{
-			this.commands.add(new FillCommand(this.color));
-		}
-		else
-		{
-			this.commands.add(new FillCommand(new Color(0,0,0,0)));
-		}
-		this.fill = filled;
 	}
 
 	/** 

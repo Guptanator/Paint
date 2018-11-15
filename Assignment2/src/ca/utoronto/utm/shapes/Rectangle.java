@@ -84,10 +84,7 @@ public class Rectangle extends ClosedShape {
 	@Override
 	public void draw(GraphicsContext g) {
 		this.properties.applyCommands(g);
-		if(fill)
-		{
-			g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
-		}
+		g.fillRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 	}
 
@@ -108,25 +105,6 @@ public class Rectangle extends ClosedShape {
 	@Override
 	public void setColor(Color c) {
 		this.properties.acceptCommand(new ColorCommand(c));
-	}
-	
-	/** 
-	 * Sets Fill setting for fill
-	 * command to current setting
-	 * 
-	 * @param filled Current fill settings
-	*/
-	public void setFill(boolean filled) {
-		Color c = this.properties.findColor();
-		if(filled)
-		{
-			this.properties.acceptCommand(new FillCommand(c));
-		}
-		else
-		{
-			this.properties.acceptCommand(new FillCommand(new Color(0,0,0,0)));
-		}
-		this.fill = filled;
 	}
 
 	public boolean isClicked(MouseEvent e) {

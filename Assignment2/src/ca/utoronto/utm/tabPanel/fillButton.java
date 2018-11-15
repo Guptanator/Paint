@@ -32,7 +32,7 @@ public class fillButton extends GridPane implements EventHandler<ActionEvent> {
 	 * @param ActionEvent e this argument is passed by the ToggleButton
 	 */
 	public void handle(ActionEvent e) {
-		view.getPaintPanel().setFill();
-		view.getPaintPanel().UnsetTransformMode();
+		//view.getPaintPanel().setFill();
+		//view.getPaintPanel().UnsetTransformMode();
 	}
 }

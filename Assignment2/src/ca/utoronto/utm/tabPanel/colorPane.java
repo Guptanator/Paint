@@ -12,10 +12,11 @@ import javafx.scene.layout.GridPane;
  * the the PaintPanel controller.
  *
 */
-public class colorPane extends GridPane {
+public class colorPane extends GridPane implements EventHandler<ActionEvent>{
 
 	public View view;
-	final ColorPicker colorPicker;
+	private ColorPicker borderPicker;
+	private ColorPicker fillPicker;
 	/**
 	 * This constructor initializes the colorPane, prepares the color picker and creates the anonymous
 	 * function to handle the ActionEvent passed from the colorPicker.
@@ -24,24 +25,27 @@ public class colorPane extends GridPane {
 	public colorPane(View view){
 		
 		this.view = view;
-		this.colorPicker = new ColorPicker();
-		colorPicker.setMaxWidth(100);
-		this.add(colorPicker, 0, 0);
-		colorPicker.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                setNewColor(colorPicker.getValue());
-            }
-        });
-		colorPicker.getStylesheets().add("resources/stylesheet.css");
-		colorPicker.getStyleClass().add("custom-button");
+		this.borderPicker = new ColorPicker();
+		this.borderPicker.setValue(Color.BLACK);
+		this.fillPicker = new ColorPicker();
+		this.fillPicker.setValue(Color.TRANSPARENT);
+		borderPicker.setMaxWidth(100);
+		fillPicker.setMaxWidth(100);
+		this.add(borderPicker, 0, 0);
+		this.add(fillPicker, 0, 1);
+		borderPicker.setOnAction(this);
+		fillPicker.setOnAction(this);
+		borderPicker.getStylesheets().add("resources/stylesheet.css");
+		borderPicker.getStyleClass().add("custom-button");
+		fillPicker.getStylesheets().add("resources/stylesheet.css");
+		fillPicker.getStyleClass().add("custom-button");
 	}
 	/**
 	 * This function sets the current color in the PaintPanel controller.
-	 * @param Color color, the color passed from the colorPicker.
+	 * @param ActionEvent event, the event passed by the colorPicker
 	 */
-	public void setNewColor(Color color){
-		this.view.getPaintPanel().setColor(color);
+	public void handle(ActionEvent event) {
+		this.view.getPaintPanel().setColor(borderPicker.getValue());
+		this.view.getPaintPanel().setFillColor(fillPicker.getValue());
 	}
-
 }

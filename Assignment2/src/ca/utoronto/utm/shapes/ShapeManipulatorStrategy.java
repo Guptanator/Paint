@@ -12,10 +12,10 @@ import javafx.scene.canvas.GraphicsContext;
 */
 public abstract class ShapeManipulatorStrategy {
 	
-	protected Color color;
+	protected Color color = Color.BLACK;
 	protected double thickness;
 	protected PaintModel model;
-	protected boolean fill = false;
+	protected Color fillColor = Color.TRANSPARENT;
 	
 	public abstract void mouseHandle(MouseEvent e);
 	
@@ -54,11 +54,9 @@ public abstract class ShapeManipulatorStrategy {
 	 * Sets boolean fill in instance
 	 * to current fill setting
 	 *  
-	 *  @param fill Current fill setting
+	 *  @param fillColor 
 	*/
-	public void setFill(boolean fill)
-	{
-		this.fill = fill;
+	public void setFill(Color fillColor) {
+			this.fillColor = fillColor;
 	}
-	
 }

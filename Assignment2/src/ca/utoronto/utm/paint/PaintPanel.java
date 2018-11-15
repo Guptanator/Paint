@@ -39,7 +39,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	private Canvas canvas;
 	private OtherModeButton currentModeButton=null;
 	
-	private Color color= Color.BLACK;
+	private Color borderColor = Color.BLACK;
+	private Color fillColor = Color.TRANSPARENT;
 	
 	private double thick;
 	public boolean shapeMode=true;
@@ -65,7 +66,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.view = view;
 		
 		this.strategy.setModel(this.model);
-		this.strategy.setColor(this.color);
+		this.strategy.setColor(this.borderColor);
+		this.strategy.setFill(this.fillColor);
 		this.strategy.setThickness(1.0);
 	}
 	/** The method that handles the constant redrawing of
@@ -87,28 +89,6 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 				current.draw(g);
 			}
 		}
-
-	/** Activates PaintModel's setfill() function, which changes
-	 * whether or not the next shapes are going to be filled or not.
-	*/
-	public void setFill() {
-		if(this.fill)
-		{
-			this.fill = false;
-			this.view.setFilled();
-			this.strategy.setFill(this.fill);
-		}
-		else
-		{
-			this.fill = true;
-			this.view.setFilled();
-			this.strategy.setFill(this.fill);
-		}
-	}
-	public boolean getFill()
-	{
-		return this.fill;
-	}
 	/** Returns the stored PaintModel.
 	 * @return getModel PaintModel
 	*/
@@ -158,9 +138,20 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 * color.
 	 */
 	public void setColor(Color c) {
-		this.color = c;
+		this.borderColor = c;
 		this.strategy.setColor(c);
 	}
+	
+	/**
+	 * Changes the fill color value in the model
+	 * @param c Color that will change the drawable
+	 * color.
+	 */
+	public void setFillColor(Color c) {
+		this.fillColor = c;
+		this.strategy.setFill(c);
+	}
+	
 	/**
 	 * Returns the current ShapeManipulatorStrategy (strategy).
 	 * @param this.strategy ShapeManipulatorStrategy
@@ -175,8 +166,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	public void setStrategy(ShapeManipulatorStrategy s) {
 		this.strategy = s;
 		this.strategy.setModel(this.model);
-		this.strategy.setColor(this.color);
-		this.strategy.setFill(this.fill);
+		this.strategy.setColor(this.borderColor);
+		this.strategy.setFill(this.fillColor);
 		this.strategy.setThickness(this.thick);
 	}
 	
