@@ -19,6 +19,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/** 
+ * Window for Creating new Models for PaintPanel
+*/
 public class NewCanvasWindow extends Stage implements EventHandler<ActionEvent>{
 	
 	private PaintPanel panel;
@@ -34,6 +37,14 @@ public class NewCanvasWindow extends Stage implements EventHandler<ActionEvent>{
 	private final int MAXWIDTH = 1920;
 	private final int MAXHEIGHT = 1080;
 	
+	/** 
+	 * CanvasPopup Constructor setting the dimensions and
+	 * layout of the window. Also sets buttons to be detectable
+	 * by the event handler.
+	 *  
+	 * @param p PaintPanel whose canvas is currently being resized
+	 * @param modelPicker ModelPicker HBox that holds changable models
+	*/
 	public NewCanvasWindow(PaintPanel p, ModelPicker modelPicker) {
 		this.setTitle("New Canvas");
 		
@@ -127,10 +138,10 @@ public class NewCanvasWindow extends Stage implements EventHandler<ActionEvent>{
 
 	/** 
 	 * Button Event Handler. Calls methods based on button
-	 * press and will either set canvas size, populate dimension
-	 * TextFields or closes window.
+	 * press and will either set create new model, populate dimension
+	 * TextFields or close window.
 	 *  
-	 * @param event Button pressed event on Resize Canvas
+	 * @param event Button pressed event on New Canvass
 	 * Window
 	*/
 	@Override
@@ -149,10 +160,12 @@ public class NewCanvasWindow extends Stage implements EventHandler<ActionEvent>{
 				if (height > this.MAXHEIGHT) {
 					height = this.MAXHEIGHT;
 				}
-				this.modelPicker.newModel(nameInput);
-				this.paintPanel.changeCanvas(height, width);
-				System.out.println("Hello");
-				this.hide();
+				if(this.modelPicker.newModel(nameInput)) {
+					this.paintPanel.changeCanvas(height, width);
+					this.hide();
+				} else {
+					this.error.setText("Too many Canvases");					
+				}
 			} catch(IllegalArgumentException e){
 				this.error.setText("Must Input two integers");
 			} catch (EmptyStackException e) {

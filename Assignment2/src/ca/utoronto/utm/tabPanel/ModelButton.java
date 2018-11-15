@@ -15,8 +15,8 @@ public class ModelButton extends ToggleButton {
 	
 	public void changeModel(PaintPanel panel) {
 		panel.setModel(this.model);
-		panel.getView().setModel(this.model);
-		panel.getView().getPaint().setModel(this.model);
+		panel.changeCanvas(this.model.getHeight(), this.model.getWidth());
+		this.model.update();
 	}
 	
 	public PaintModel getModel() {

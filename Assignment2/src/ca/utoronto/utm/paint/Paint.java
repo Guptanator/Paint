@@ -18,10 +18,7 @@ public class Paint extends Application {
 		this.model = new PaintModel("Default");
 		
 		// View + Controller
-		this.view = new View(model, stage, this);
+		this.view = new View(model, stage);
 	}
-	
-	public void setModel(PaintModel model) {
-		this.model = model;
-	}
+
 }

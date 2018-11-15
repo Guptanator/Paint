@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 public class View implements EventHandler<ActionEvent> {
 
 	private PaintModel model;
-	private Paint paint;
 
 	private PaintPanel paintPanel;
 	private TabPanelParent tabParent;
@@ -29,9 +28,8 @@ public class View implements EventHandler<ActionEvent> {
 	private ModelPicker modelBox;
 	private VBox drawBox;
 	private Stage stage;
-	public View(PaintModel model, Stage stage, Paint app) {
+	public View(PaintModel model, Stage stage) {
 
-		this.paint = app;
 		this.model = model;
 		initUI(stage);
 	}
@@ -153,14 +151,4 @@ public class View implements EventHandler<ActionEvent> {
 		this.tabParent.setFilled();
 	}
 	
-	/**
-	 * Sets model to Current Model
-	 */	
-	public void setModel(PaintModel model) {
-		this.model = model;
-	}
-	
-	public Paint getPaint() {
-		return this.paint;
-	}
 }

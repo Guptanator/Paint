@@ -9,6 +9,9 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
+/** 
+ * Tab for Holding, Selecting and creating Different Canvases
+*/
 public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 	
 	private PaintPanel panel;
@@ -29,7 +32,7 @@ public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 	}
 	
 	public boolean newModel(String name) {
-		if (current < 6) {
+		if (current < 5) {
 			buttons[current] = new ModelButton(new PaintModel(name));
 			this.getChildren().add(buttons[current]);
 			for (int i = 0; i < current; i++) {
@@ -49,7 +52,6 @@ public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) {
 		for (int i = 0; i < current; i++) {
 			buttons[i].setSelected(false);
-			System.out.print(buttons[i].getModel().getName());
 		}
 		ModelButton source = (ModelButton) event.getSource();
 		source.setSelected(true);
