@@ -31,12 +31,12 @@ public class OtherModesPane extends GridPane implements EventHandler<ActionEvent
 		modeButton.setOnAction(this);
 		this.add(modeButton, 0, 0,2,1);
 		
-		currentImage = new Image("resources/eraseIcon.png",20,20,true,true);
+		currentImage = new Image("resources/shapeErase.png",30,30,true,true);
 		modeButton = new OtherModeButton(new ImageView(currentImage),new RemoveShapeStrategy(),50);
 		modeButton.setOnAction(this);
 		this.add(modeButton,0, 1,1,1);
 		
-		currentImage = new Image("resources/eraseIcon.png",20,20,true,true);
+		currentImage = new Image("resources/eraseIcon.png",30,30,true,true);
 		modeButton = new OtherModeButton(new ImageView(currentImage),new EraserBrushStrategy(),50);
 		modeButton.setOnAction(this);
 		this.add(modeButton,1, 1,1,1);
