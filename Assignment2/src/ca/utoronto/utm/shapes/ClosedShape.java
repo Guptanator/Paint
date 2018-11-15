@@ -12,7 +12,11 @@ import javafx.scene.paint.Color;
  * Abstract Drawable for closed shapes
 */
 public abstract class ClosedShape extends Drawable {
-	
+	/** 
+	 * Constructs the ClosedShape by calling super()
+	 * @param Color color
+	 * @param Double thickness
+	*/
 	public ClosedShape(Color color, double thickness) {
 		super(color, thickness);
 	}
@@ -24,16 +28,27 @@ public abstract class ClosedShape extends Drawable {
 	public abstract double xDifferent(double d);
 	public abstract double yDifferent(double d);
 	
+	/** 
+	 * Adds a new listener to the shape
+	 * @param Eraseable e the new erase we want to add as a listener
+	*/
 	public void addListener(Eraseable e) {
 		this.clearers.add(e);
 	}
-	
+	/** 
+	 * Updates the listeners for the shape
+	 * @param GraphicsContext g redraws all of listeners for the shape.
+	*/
 	public void update(GraphicsContext g) {
 		for (Eraseable e: clearers) {
 			e.execute(g);
 		}
 	}
-	
+	/** 
+	 * Updates all listeners to have the new x,y coordinates.
+	 * @param Double x the change in x
+	 * @param Double y the change in y
+	*/
 	public void updateErasables(double x, double y) {
 		for (Eraseable e: clearers) {
 			e.x=e.x-x;
@@ -41,6 +56,10 @@ public abstract class ClosedShape extends Drawable {
 		}
 	}
 	
+	/** 
+	 * Sets a new value in the property invoker regarding fill
+	 * @param Color filled the new value for the color of the shape
+	*/
 	public void setFill(Color filled) {
 		if (filled == Color.TRANSPARENT) {
 			this.isTransparent=true;
@@ -51,12 +70,14 @@ public abstract class ClosedShape extends Drawable {
 	}
 	
 	/** 
-	 * Returns that current Drawable
-	 * is a closed shape
+	 * Returns true is the shape is a closed shape
 	*/
 	public boolean isClosed() {
 		return true;
 	}
+	/** 
+	 * Returns the boolean value of isTransparent
+	*/
 	public boolean isHallow() {
 		return this.isTransparent;
 	}

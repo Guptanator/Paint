@@ -38,6 +38,10 @@ public abstract class Drawable {
 	public void setThickness(double thickness) {
 		this.properties.acceptCommand((new ThicknessCommand(thickness)));
 	}
+	/** 
+	 * By default all drawables are not closed shapes
+	 * @return boolean indicated if the shape is closed.
+	*/
 	public boolean isClosed() {
 		return false;
 	}

@@ -93,7 +93,13 @@ public class Square extends ClosedShape {
 	public String type() {
 		return "Square";
 	}
-
+	/** 
+	 * Detects if the closedshape has been clicked
+	 * @param MouseEvent e an event passed which is used to calculate the distance between the mouse
+	 * and the object
+	 * @return Boolean indicated if the object has been clicked
+	*/
+	@Override
 	public boolean isClicked(MouseEvent e) {
 		double x = e.getX();double y = e.getY();
 		double thick=this.properties.findThickness()/2;
@@ -104,7 +110,13 @@ public class Square extends ClosedShape {
 		}
 		return false;
 	}
-
+	
+	/** 
+	 * Calculates the vertical distance between the object and the double
+	 * @param Double d a double passed which is used to calculate the vertical distance between
+	 * the double d and the center of the object.
+	 * @return Double which is the difference between the centre of the object and the parameter d
+	*/
 	@Override
 	public double yDifferent(double d) {
 		if (d>this.getCorner().getY()) {
@@ -113,7 +125,13 @@ public class Square extends ClosedShape {
 			return this.getCorner().getY()-d;
 		}
 	}
-
+	
+	/** 
+	 * Calculates the horizontal distance between the object and the double
+	 * @param Double d a double passed which is used to calculate the horizontal distance between
+	 * the double d and the center of the object.
+	 * @return Double which is the difference between the centre of the object and the parameter d
+	*/
 	@Override
 	public double xDifferent(double d) {
 		if (d<this.getCorner().getX()) {
@@ -123,6 +141,12 @@ public class Square extends ClosedShape {
 		}
 	}
 
+	/** 
+	 * Detects if the edges of the closed shape have been clicked
+	 * @param MouseEvent e an event passed which is used to calculate the distance between the mouse
+	 * and the object
+	 * @return Boolean which indicates if the object's border has been clicked
+	*/
 	@Override
 	public boolean isHallowClicked(MouseEvent e) {
 		double x = e.getX();double y = e.getY();

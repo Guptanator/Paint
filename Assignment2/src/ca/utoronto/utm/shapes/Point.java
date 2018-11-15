@@ -131,6 +131,4 @@ public class Point extends Drawable {
 	public String type() {
 		return "Point";
 	}
-	public void update(MouseEvent e) {
-	}
 }

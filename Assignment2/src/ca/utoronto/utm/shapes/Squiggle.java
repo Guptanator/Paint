@@ -77,5 +77,4 @@ public class Squiggle extends Drawable {
 		this.properties.acceptCommand(new ThicknessCommand(thickness));
 		this.thickness = thickness;
 	}
-
 }
