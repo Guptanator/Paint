@@ -83,6 +83,14 @@ ESTIMATE : 2 hours
 ISSUE    : Shapes and abstract classes and interfaces pertaining to them should
 		   have JavaDocs
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 46 : chowd460
+NAME     : Added fill color separate from border color;
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 8 hours
+ISSUE    : Current we can only color the fill and border the same color, there should be separate colors
+--------------------------------------------------------------------------
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################

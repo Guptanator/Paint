@@ -75,6 +75,7 @@ public class Squiggle extends Drawable {
 	*/
 	@Override
 	public void setThickness(double thickness) {
+		this.properties.acceptCommand(new ThicknessCommand(thickness));
 		this.thickness = thickness;
 	}
 
