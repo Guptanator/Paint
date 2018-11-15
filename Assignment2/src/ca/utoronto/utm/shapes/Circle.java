@@ -25,54 +25,75 @@ public class Circle extends ClosedShape {
 	private boolean fill = false;
 	
 	/** 
-	 * Sets PaintModel model in instance
-	 * to current PaintModel
+	 * Circle Constructor. Makes a circle with a centre at p
+	 * color c and thickness thickness.
 	 *  
-	 *  @param p Current Point 
+	 * @param p Current Point 
+	 * @param c Current Color
+	 * @param thickness Current Thickness
 	*/
-	public Circle(Point p, int r, Color c, double thickness) {
+	public Circle(Point p, Color c, double thickness) {
 
 		this.centre = p;
-		this.radius = r;
+		this.radius = 0;
 		this.properties.acceptCommand(new ColorCommand(c));
 		this.properties.acceptCommand(new ThicknessCommand(thickness));
 	}
 
+	/** 
+	 * Returns the centre point of the Circle
+	*/
 	public Point getCentre() {
 		return centre;
 	}
 
+	/** 
+	 * Sets the centre point of the Circle
+	 * 
+	 * @param centre New Centre point
+	*/
 	public void setCentre(Point centre) {
 		this.centre = centre;
 	}
-
-	public int getRadius() {
-		return radius;
-	}
-
+	
+	/** 
+	 * Sets the radius of the Circle
+	*/
 	public void setRadius(int radius) {
 		this.radius = radius;
 	}
-	
 
+	/** 
+	 * Draw Command. Draws circle to graphics context
+	 * given current circle properties.
+	 * 
+	 * @param g Current GraphicsContext
+	*/
 	@Override
 	public void draw(GraphicsContext g) {
-		int radius = this.getRadius();
-		int x = this.getCentre().getX()-(radius);
-		int y = this.getCentre().getY()-(radius);
+		int x = this.getCentre().getX()-(this.radius);
+		int y = this.getCentre().getY()-(this.radius);
 		this.properties.applyCommands(g);
 		if(this.fill)
 		{
-			g.fillOval(x, y, radius*2, radius*2);
+			g.fillOval(x, y, this.radius*2, this.radius*2);
 		}
-		g.strokeOval(x, y, radius*2, radius*2);
+		g.strokeOval(x, y, this.radius*2, this.radius*2);
 	}
 
+	/** 
+	 * Type Designation for moving Circle
+	*/
 	@Override
 	public String type() {
 		return "Circle";
 	}
 
+	/** 
+	 * Sets Circle's fill Command
+	 * 
+	 * @param filled PaintPanel fill boolean
+	*/
 	@Override
 	public void setFill(boolean filled)
 	{

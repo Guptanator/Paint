@@ -13,6 +13,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 
+/** 
+ * Rectangle Drawable Command that holds dimensions
+ * and draws itself to the GraphicsContext
+*/
 public class Rectangle extends ClosedShape {
 	
 	private int height = 0;
@@ -20,6 +24,14 @@ public class Rectangle extends ClosedShape {
 	private Point corner;
 	private Point start;
 	
+	/** 
+	 * Rectangle Constructor. Makes a Rectangle with a pivot at p,
+	 * color c and thickness thickness.
+	 * 
+	 * @param p Current Point 
+	 * @param c Current Color
+	 * @param thickness Current Thickness
+	*/
 	public Rectangle(Point c, Color color, double thickness) {
 		this.corner = c;
 		this.start = new Point(c.getX(), c.getY());
@@ -27,26 +39,48 @@ public class Rectangle extends ClosedShape {
 		this.properties.acceptCommand(new ThicknessCommand(thickness));
 	}
 	
+	/** 
+	 * Returns the Rectangle Start Point/Pivot.
+	*/
 	public Point getStart() {
 		return this.start;
 	}
 	
+	/** 
+	 * Returns the Rectangle current corner
+	 * Point
+	*/
 	public Point getCorner() {
 		return this.corner;
 	}
+	
+	/** 
+	 * Sets Corner to fit new Dimensions
+	*/
 	public void setCorner(Point p) {
 		this.corner = p;
 	}
 	
+	/** 
+	 * Sets height to fit new Dimensions
+	*/
 	public void setHeight(int h) {
 		this.height = h;
 	}
 	
+	/** 
+	 * Sets width to fit new Dimensions
+	*/
 	public void setWidth(int w) {
 		this.width = w;
 	}
 	
-
+	/** 
+	 * Draw Command. Draws Rectangle to graphics context
+	 * given current Rectangle properties.
+	 * 
+	 * @param g Current GraphicsContext
+	*/
 	@Override
 	public void draw(GraphicsContext g) {
 		this.properties.applyCommands(g);
@@ -57,16 +91,31 @@ public class Rectangle extends ClosedShape {
 		g.strokeRect(this.corner.getX(), this.corner.getY(), this.width, this.height);
 	}
 
+	/** 
+	 * Type Designation for moving Rectangle
+	*/
 	@Override
 	public String type() {
 		return "Rectangle";
 	}
 
+	/** 
+	 * Sets color for Color Command
+	 *  to Current Color
+	 * 
+	 * @param c Current Color
+	*/
 	@Override
 	public void setColor(Color c) {
 		this.properties.acceptCommand(new ColorCommand(c));
 	}
 	
+	/** 
+	 * Sets Fill setting for fill
+	 * command to current setting
+	 * 
+	 * @param filled Current fill settings
+	*/
 	public void setFill(boolean filled) {
 		Color c = this.properties.findColor();
 		if(filled)

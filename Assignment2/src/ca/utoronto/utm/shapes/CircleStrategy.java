@@ -39,7 +39,7 @@ public class CircleStrategy extends ShapeManipulatorStrategy{
 	*/
 	private void makeCircle(MouseEvent e) {
 		Point centre = new Point((int) e.getX(), (int) e.getY());
-		this.shape = new Circle(centre, 0, this.color, this.thickness);
+		this.shape = new Circle(centre, this.color, this.thickness);
 		this.shape.setFill(this.fill);
 		this.model.addDrawable(this.shape);
 	}
