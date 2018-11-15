@@ -38,16 +38,29 @@ DESIGN PATTERNS USED
 	discuss it below. Only add design patterns if they simplify and improve
 	the code. I see at least two that would greatly improve code. 
 		
-	Strategy:
+	Strategy: We have two examples of the strategy pattern in place, firstly for handling shape creation
+	and manipulation and secondly another for handling all other canvas manipulation. There two are swapped
+	but inherit from different super-classes inorder to not violate LSP.
 	Command:
 		Utilizing command design pattern with Drawable abstract class, which ensures every drawable object
-		must have the draw() method.
-		  
+		must have the draw() method. We also used this for the ClosedShape class which inherits and adds features
+		to Drawable.
+		We are also using the command design pattern to improve how we modify the graphics context before
+		each stroke method, this ensures that the graphics context is only being changes from one file, and
+		we can modify that code in a more modular format. 
 	Singleton:
 	Composite:
-	Factory:
+	Factory: We are using the Factory pattern to create strategies which are then placed in the PaintPanel.
+			 The factory pattern is helpful since it allows us to isolate the creation of a strategy from one
+			 location, giving us the freedom to continually add features. We are also using this pattern for
+			 installing the TransformStrategies into the PaintPanel since they act in a similar way to the 
+			 ShapeManipulatorStrategies.
 	Builder:
 	Observer/Observable:
+			 We are using the observer/observable design pattern to manage the storage of "erased" chunks,
+			 this ensures that we are updating the chunks as needed and lower the overhead runtime cost
+			 of updating them every-time.
+	
 	... (any others you find useful) ...
 
 OTHER ARCHITECTURE DISCUSSIONS
