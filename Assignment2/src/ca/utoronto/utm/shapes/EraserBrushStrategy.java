@@ -78,7 +78,6 @@ public class EraserBrushStrategy extends TransformStrategy {
 	*/
 	@Override
 	public void terminated() {
-		System.out.println("terminated");
 		this.panel.getModel().undoStates.add(this.monitor);
 	}
 	/** 

@@ -75,7 +75,6 @@ public class DrawableState {
 			for (Eraseable e : ((ClosedShape)(p)).clearers) {
 				this.old.add(e.copy());
 			}
-			System.out.println(this.old.size());
 		}
 		
 		this.previous=p;
@@ -94,7 +93,6 @@ public class DrawableState {
 	 * This function manages all undo functionality based on the other parameters
 	*/
 	public void execute() {
-		System.out.println(this.tag);
 		if (this.tag=="add") {
 			this.model.removeObject(this.current);
 		}
@@ -130,7 +128,6 @@ public class DrawableState {
 	 * This function manages all redo functionality based on the other parameters
 	*/
 	public void executeRedo() {
-		System.out.println(this.tag);
 		if (this.tag=="add") {
 			this.model.addDrawable(this.current);
 		}
