@@ -1,5 +1,6 @@
 package ca.utoronto.utm.shapes;
 
+import ca.utoronto.utm.paint.DrawableState;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -18,10 +19,20 @@ public class EraserBrushStrategy extends TransformStrategy {
 		this.thickness = (int)this.panel.getModel().thick*3;
 		GraphicsContext g = this.panel.getCanvas().getGraphicsContext2D();
 		if ((e.getEventType() == MouseEvent.MOUSE_DRAGGED) && (c != null)) {
+			this.monitor = new DrawableState("BrushShape");
+			this.monitor.setPrevious(c);
 			onShapeDrag(e,c,g);
 		}
 		else if ((e.getEventType() == MouseEvent.MOUSE_DRAGGED) && (c == null)) {
 			onNullDrag(e);
+		}
+		if (e.getEventType() == MouseEvent.MOUSE_RELEASED) {
+			if (c!=null) {
+				this.terminated();
+			}
+			if (c==null) {
+				this.terminatedNull();
+			}
 		}
 	}
 	/** 
@@ -60,6 +71,13 @@ public class EraserBrushStrategy extends TransformStrategy {
 	}
 	@Override
 	public void terminated() {
-		// TODO
+		System.out.println("terminated");
+		//this.monitor.setCurrent(currentShape);
+		this.panel.getModel().undoStates.add(this.monitor);
+	}
+	public void terminatedNull() {
+		System.out.println("terminated");
+		//this.monitor.setCurrent(currentShape);
+		this.panel.getModel().undoStates.add(this.monitor);
 	}
 }
