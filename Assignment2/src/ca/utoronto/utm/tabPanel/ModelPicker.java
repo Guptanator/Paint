@@ -9,8 +9,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
-/** 
- * Tab for Holding, Selecting and creating Different Canvases
+/** Tab for Holding, Selecting and creating Different Canvases
 */
 public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 	
@@ -20,8 +19,7 @@ public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 	private ModelButton [] buttons;
 	private int current;
 	
-	/** 
-	 * ModelPicker Constructor. Makes Button Array,
+	/** ModelPicker Constructor. Makes Button Array,
 	 * stores panel and sets default model
 	 * to the first button.
 	 * 
@@ -38,13 +36,14 @@ public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 		this.getChildren().add(buttons[0]);
 	}
 	
-	/** 
-	 * Constructs new Buttons for the buttons
+	/** Constructs new Buttons for the buttons
 	 * array with associated new models.
 	 * Returns true upon construction of new Model
 	 * else returns false.
 	 * 
 	 * @param name Name for new Model
+	 * @return boolean on success or failiure to create
+	 * a new ModelButton
 	*/
 	public boolean newModel(String name) {
 		if (current < 5) {
@@ -62,8 +61,7 @@ public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 		return false;
 	}
 
-	/** 
-	 * EventHandler for ModelButtons array.
+	/** EventHandler for ModelButtons array.
 	 * Switches current model upon button press.
 	 * 
 	 * @param event ModelButton press event

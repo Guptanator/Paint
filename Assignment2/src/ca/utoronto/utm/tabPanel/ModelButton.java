@@ -4,15 +4,13 @@ import ca.utoronto.utm.paint.PaintModel;
 import ca.utoronto.utm.paint.PaintPanel;
 import javafx.scene.control.ToggleButton;
 
-/** 
- * Window for Resizing the Current Canvas in the PaintPanel
+/** Window for Resizing the Current Canvas in the PaintPanel
 */
 public class ModelButton extends ToggleButton {
 	
 	private PaintModel model;
 	
-	/** 
-	 * ModelButton Constructor. Button Text
+	/** ModelButton Constructor. Button Text
 	 * is set to the model's name and the model
 	 * is stored.
 	 * 
@@ -23,8 +21,7 @@ public class ModelButton extends ToggleButton {
 		this.model = model;
 	}
 
-	/** 
-	 * Changes model and canvas size in PaintPanel.
+	/** Changes model and canvas size in PaintPanel.
 	 * Updates the model.
 	 * 
 	 * @param panel Current PaintPanel

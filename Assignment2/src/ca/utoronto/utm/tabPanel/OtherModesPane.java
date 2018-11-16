@@ -12,15 +12,16 @@ import ca.utoronto.utm.shapes.EraserBrushStrategy;
 import ca.utoronto.utm.shapes.MoveShapeStrategy;
 import ca.utoronto.utm.shapes.RemoveShapeStrategy;
 
-/**
- * This class is used to hold any transform strategy buttons, it extends vbox since all of the button
+/** This class is used to hold any transform strategy buttons, it extends vbox since all of the button
  * are placed in vertical order.
 */
 public class OtherModesPane extends GridPane implements EventHandler<ActionEvent>{
+	
 	private View view;
-	/**
-	 * This constructor initializes the OtherModesPane with the Move Mode toggle button
-	 * @param view which is an instance of the view class which allows for interfacing with the model.
+	
+	/** This constructor initializes the OtherModesPane with the Move Mode toggle button
+	 * 
+	 * @param view Paint Application View.
 	 */
 	public OtherModesPane(View view) {
 		this.view = view;
@@ -42,13 +43,13 @@ public class OtherModesPane extends GridPane implements EventHandler<ActionEvent
 		this.add(modeButton,1, 1,1,1);
 		
 	}
-	@Override
-	/**
-	 * This function handles the Toggle Button and processes it using a subclass of the transform strategy
-	 * in this class, we call the MoveShapeStrategy which allows us to move the shapes we can create. 
-	 * This function additionally deactivates the transform mode.
-	 * @param ActionEvent event passed from the ToggleButton
+	
+	/** Handles the Toggle Button and allows movement for shapes.
+	 * Also, deactivates the transform mode.
+	 * 
+	 * @param event ButtonEvent triggered by User.
 	 */
+	@Override
 	public void handle(ActionEvent event) {
 		OtherModeButton button = (OtherModeButton)(event.getSource());
 		if (this.view.getPaintPanel().getTStrategy()!=null) {

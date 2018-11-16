@@ -9,17 +9,18 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
-/**
- * This class extends the ToggleButton and allows for additionally functionality and contained image loading.
- * Additionally it adds key features which create a better user experience. 
+/** Allows for additionally functionality and contained image loading.
+ * Adds additional user input Feedback for Toggle Buttons.
 */
 public class shapeChooserButton extends ToggleButton  {
+	
 	String currentType;
 	private Node currentIcon;
-	/**
-	 * This constructor initializes the ToggleButton by calling the default empty constructor and
-	 * setting the variable currentType, image and width of the button
-	 * @param String name the name of the current button
+	
+	/** ShapeChooserButton Constructor. Sets currentType, image and width 
+	 * of the button
+	 * 
+	 * @param name Name of the current button
 	 */
 	public shapeChooserButton(String name) {
 		super();
@@ -29,15 +30,15 @@ public class shapeChooserButton extends ToggleButton  {
 		this.getStylesheets().add("resources/stylesheet.css");
 		this.getStyleClass().add("custom-button");
 	}
-	/**
-	 * This function returns the string contains the currentType of the button
-	 * @return String of the current type of the button
+	
+	/** Returns the currentType of the button
+	 * 
+	 * @return Button Type
 	 */
 	public String currentMode() {
 		return this.currentType;
 	}
-	/**
-	 * This function sets the image of the button based on the current type of the button.
+	/** Sets the image of the button based on the button type.
 	 */
 	private void setImages() {
 		Image currentImage;
@@ -74,28 +75,28 @@ public class shapeChooserButton extends ToggleButton  {
 		}
 		this.setGraphic(this.currentIcon);
 	}
-	/**
-	 * This function sets the button to be inactive (used for UX purposes)
+	
+	/** Sets the button to be inactive (used for UX purposes)
 	 */
 	public void setInactive() {
 		this.setSelected(false);
 	}
-	/**
-	 * This function sets the button to be active (used for UX purposes)
+	
+	/** Sets the button to be active (used for UX purposes)
 	 */
 	public void setActive() {
 		this.setSelected(true);
 	}
-	/**
-	 * This function sets the button icon to be filled (used for UX purposes)
+	
+	/** Sets the button icon to be filled (used for UX purposes)
 	 */
 	public void setFill() {
 		if (this.currentType=="Rectangle" || this.currentType=="Square"||this.currentType=="Circle") {
 			((Shape)(this.currentIcon)).setFill(Color.BLACK);
 		}
 	}
-	/**
-	 * This function sets the button icon to be unfilled (used for UX purposes)
+	
+	/** Sets the button icon to be unfilled (used for UX purposes)
 	 */
 	public void unFill() {
 		if (this.currentType=="Rectangle" || this.currentType=="Square"||this.currentType=="Circle") {
