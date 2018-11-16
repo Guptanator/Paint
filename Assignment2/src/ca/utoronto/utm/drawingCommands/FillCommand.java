@@ -27,6 +27,11 @@ public class FillCommand implements DrawingCommands{
 	public void executeChange(GraphicsContext g) {
 		g.setFill(this.fillColor);
 	}
+	
+	/** 
+	 * This returns the type of the command
+	 * @return the string detailing the type of the button
+	*/
 	@Override
 	public String type() {
 		return "fill";

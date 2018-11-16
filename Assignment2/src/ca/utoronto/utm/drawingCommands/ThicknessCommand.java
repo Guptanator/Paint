@@ -25,10 +25,18 @@ public class ThicknessCommand implements DrawingCommands{
 	public void executeChange(GraphicsContext g) {
 		g.setLineWidth(this.thickness);
 	}
+	/** 
+	 * This returns the type of the command
+	 * @return the string detailing the type of the button
+	*/
 	@Override
 	public String type() {
 		return "thick";
 	}
+	/** 
+	 * This returns the current thickness of the command
+	 * @return the current thickness
+	*/
 	public double getThickness() {
 		return thickness;
 	}

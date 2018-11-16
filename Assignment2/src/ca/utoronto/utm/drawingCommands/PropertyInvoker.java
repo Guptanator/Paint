@@ -41,6 +41,11 @@ public class PropertyInvoker {
 		}
 		//this.commands.clear();
 	}
+	/** 
+	 * This finds the topmost color command and returns the it's color,
+	 * this is important since it drawn as the color
+	 * @return Color the topmost color in the stack
+	*/
 	public Color findColor() {
 		for (int i=(this.commands.size())-1; i>=0;i=i-1) {
 			if (this.commands.get(i).type()=="color") {
@@ -49,6 +54,11 @@ public class PropertyInvoker {
 		}
 		return Color.BLACK;
 	}
+	/** 
+	 * This finds the topmost thickness command and returns the it's value,
+	 * this is important since it drawn as the thickness
+	 * @return Double the topmost thickness attribute
+	*/
 	public Double findThickness() {
 		for (int i=(this.commands.size())-1; i>=0;i=i-1) {
 			if (this.commands.get(i).type()=="thick") {

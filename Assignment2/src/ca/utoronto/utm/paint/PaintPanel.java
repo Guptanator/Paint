@@ -101,7 +101,10 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	/** Activates this class' repaint() function,
 	 * which updates the canvas to show all drawn
 	 * objects.
-	*/
+	 * 
+	 * @param Observable o the required variable for the observer interface
+	 * @param Object arg the required variable for the observer interface
+	*/	
 	@Override
 	public void update(Observable o, Object arg) {
 
@@ -117,7 +120,6 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 * @param t String value that will either be Thin, Normal, or
 	 * Thick.
 	 */
-	
 	public void setThickness(double t) {
 		this.thick = t;
 		this.model.thick = t;
@@ -150,10 +152,18 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	public ShapeManipulatorStrategy getStrategy() {
 		return this.strategy;
 	}
+	/** 
+	 * This returns the current TStrategy
+	 * @return TransformStrategy the current active TransformStrategy
+	*/
 	public TransformStrategy getTStrategy() {
 		return this.TStrategy;
 	}
-
+	/** 
+	 * This sets the current strategy and initializes it's key attributes 
+	 * which are required for drawing/adding shapes
+	 * @param ShapeManipulatorStrategy s the new strategy we want to set
+	*/
 	public void setStrategy(ShapeManipulatorStrategy s) {
 		this.strategy = s;
 		this.strategy.setModel(this.model);
@@ -161,13 +171,24 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy.setFill(this.fillColor);
 		this.strategy.setThickness(this.thick);
 	}
-	
+	/** 
+	 * This sets the current transform strategy and initializes it's key attributes 
+	 * which are required for any transformation, it also manages the display of
+	 * some UI elements
+	 * @param TransformStrategy t the new strategy we want to set
+	 * @param OtherModeButton modeButton the last button we pushed
+	*/
 	public void setTransformMode(TransformStrategy t, OtherModeButton modeButton) {
 		this.TStrategy = t;
 		t.setPanel(this);
 		this.shapeMode = false;
 		this.currentModeButton = modeButton;
 	}
+	/** 
+	 * This does the opposite of the function above, it deactivates the transform strategy
+	 * functionality and reloads the ShapeManipulatorStrategy attributes. Again it
+	 * also manages the display of some UI elements
+	*/
 	public void UnsetTransformMode() {
 		this.TStrategy = null;
 		this.shapeMode = true;
@@ -175,6 +196,11 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		if (this.currentModeButton!=null)this.currentModeButton.setSelected(false);
 	}
 	
+	/** 
+	 * This activates the current strategy mode, either transform or shape manipulator,
+	 * this also ensures we can never have two active strategies.
+	 * @param MouseEvent e the mouse event passed from the display
+	*/
 	@Override
 	public void handle(MouseEvent e) {
 		if (this.shapeMode) {
@@ -200,6 +226,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	
 	/**
 	 * Returns the current Canvas
+	 * @return Canvas the current canvas
 	 */
 	public Canvas getCanvas() {
 		return this.canvas;
@@ -207,13 +234,15 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	
 	/**
 	 * Returns the current View
+	 * @return View the current View
 	 */
 	public View getView() {
 		return this.view;
 	}
 	
 	/**
-	 * Sets model to Current Model
+	 * Sets model to Current Model and performs some initialization.
+	 * @param PaintModel model the new PaintModel
 	 */	
 	public void setModel(PaintModel model) {
 		this.model = model;
