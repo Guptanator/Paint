@@ -48,7 +48,8 @@ public class Line extends Drawable {
 	}
 	
 	/** 
-	 * Returns Last Point
+	 * Gets last point of the line.
+	 * return Point the last corner of the line
 	*/
 	public Point getLast() {
 		return this.last;

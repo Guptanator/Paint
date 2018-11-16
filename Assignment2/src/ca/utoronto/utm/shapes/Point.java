@@ -51,6 +51,8 @@ public class Point extends Drawable {
 
 	/** 
 	 * Returns the X coordinate
+	 * 
+	 * @return int the current x coordinate
 	*/
 	public int getX() {
 		return x;
@@ -59,7 +61,7 @@ public class Point extends Drawable {
 	/** 
 	 * Sets the X coordinate
 	 * 
-	 * @param x Input x position
+	 * @param int x Input x position
 	*/
 	public void setX(int x) {
 		this.x = x;
@@ -67,6 +69,7 @@ public class Point extends Drawable {
 
 	/** 
 	 * Returns the Y coordinate
+	 * @return int the current y value
 	*/
 	public int getY() {
 		return y;
@@ -75,7 +78,7 @@ public class Point extends Drawable {
 	/** 
 	 * Sets the Y coordinate
 	 * 
-	 * @param y Input y position
+	 * @param int y Input y position
 	*/
 	public void setY(int y) {
 		this.y = y;
@@ -90,6 +93,7 @@ public class Point extends Drawable {
 	
 	/** 
 	 * Returns segment
+	 * @return boolean the current segment value
 	*/
 	public boolean isFinal() {
 		return segment;
