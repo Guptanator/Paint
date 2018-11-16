@@ -24,6 +24,10 @@ public class PaintModel extends Observable {
 	private int height;
 	private int width;
 	
+	/** This constructs the PaintModel and sets it's unique name to be
+	 * the inputed String
+	 * @param String name the name of the PaintModel.
+	*/
 	public PaintModel(String name) {
 		this.name = name;
 		this.setChanged();
@@ -64,12 +68,11 @@ public class PaintModel extends Observable {
 	 * the canvas.
 	*/
 	public ArrayList<Drawable> getObjects() {
-		ArrayList<Drawable> newList = (ArrayList<Drawable>)this.allObjects.clone();
-		return newList;
+		return this.allObjects;
 	}
 	/** Returns the topmost value of the stack of the list
 	 * (allObjects) or null if the list is empty.
-	 * @return   top most value of the list (allObjects) or null
+	 * @return top most value of the list (allObjects) or null
 	 * if the list is empty.
 	*/
 	public Drawable removeLast() {
@@ -80,7 +83,7 @@ public class PaintModel extends Observable {
 	}
 	
 	/** 
-	 * Upon call Updates Observers
+	 * Utility function to update all of the Observers
 	*/
 	public void update() {
 		this.setChanged();
@@ -88,13 +91,19 @@ public class PaintModel extends Observable {
 	}
 	
 	/** 
-	 * Removes objects in allOjects
+	 * Removes the object d from the allObjects ArrayList and then updates the model
+	 * @param Drawable d
 	*/
 	public void removeObject(Drawable d) {
 		this.allObjects.remove(d);
 		this.update();
 	}
-	
+	/** 
+	 * Finds the topmost not closed element, and adds the Drawable to directly
+	 * above that element, this is used to avoid issues with the z-level of
+	 * the eraser Squiggle
+	 * @param Drawable d the new Drawable we want to add
+	*/
 	public void addAbove(Drawable d) {
 		int i;
 		for (i=allObjects.size()-1;i>=0;i=i-1) {
@@ -107,6 +116,7 @@ public class PaintModel extends Observable {
 	
 	/** 
 	 * Returns the name of the model
+	 * @return String the name of the model
 	*/
 	public String getName() {
 		return this.name;
@@ -114,6 +124,7 @@ public class PaintModel extends Observable {
 	
 	/** 
 	 * Set height to current height
+	 * @param int h the new height
 	*/
 	public void setHeight(int h) {
 		this.height = h;
@@ -121,6 +132,7 @@ public class PaintModel extends Observable {
 	
 	/** 
 	 * Set Width to current width
+	 * @param int w the new width
 	*/
 	public void setWidth(int w) {
 		this.width = w;
@@ -128,6 +140,7 @@ public class PaintModel extends Observable {
 	
 	/** 
 	 * Return height
+	 * @return int the current height
 	*/
 	public int getHeight() {
 		return this.height;
@@ -135,6 +148,7 @@ public class PaintModel extends Observable {
 	
 	/** 
 	 * Return Width
+	 * @return int the current width
 	*/
 	public int getWidth() {
 		return this.width;

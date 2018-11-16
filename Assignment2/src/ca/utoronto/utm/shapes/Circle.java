@@ -79,7 +79,8 @@ public class Circle extends ClosedShape {
 	}
 
 	/** 
-	 * Type Designation for moving Circle
+	 * Type Designation for the Drawable
+	 * @return String the type of the Drawable
 	*/
 	@Override
 	public String type() {

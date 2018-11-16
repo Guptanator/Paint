@@ -87,7 +87,8 @@ public class Square extends ClosedShape {
 	}
 
 	/** 
-	 * Type Designation for moving Rectangle
+	 * Type Designation for the Drawable
+	 * @return String the type of the Drawable
 	*/
 	@Override
 	public String type() {

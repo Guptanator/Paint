@@ -40,6 +40,7 @@ public class Rectangle extends ClosedShape {
 	
 	/** 
 	 * Returns the Rectangle Start Point/Pivot.
+	 * @return Point starting point of the rectangle
 	*/
 	public Point getStart() {
 		return this.start;
@@ -47,7 +48,7 @@ public class Rectangle extends ClosedShape {
 	
 	/** 
 	 * Returns the Rectangle current corner
-	 * Point
+	 * @return Point the current corner of the rectangle
 	*/
 	public Point getCorner() {
 		return this.corner;
@@ -55,6 +56,7 @@ public class Rectangle extends ClosedShape {
 	
 	/** 
 	 * Sets Corner to fit new Dimensions
+	 * @param Point p the new corner of the rectangle
 	*/
 	public void setCorner(Point p) {
 		this.corner = p;
@@ -62,6 +64,7 @@ public class Rectangle extends ClosedShape {
 	
 	/** 
 	 * Sets height to fit new Dimensions
+	 * @param int h the new height of the rectangles
 	*/
 	public void setHeight(int h) {
 		this.height = h;
@@ -69,6 +72,7 @@ public class Rectangle extends ClosedShape {
 	
 	/** 
 	 * Sets width to fit new Dimensions
+	 * @param int w the new width of the rectangle 
 	*/
 	public void setWidth(int w) {
 		this.width = w;
@@ -89,7 +93,8 @@ public class Rectangle extends ClosedShape {
 	}
 
 	/** 
-	 * Type Designation for moving Rectangle
+	 * Type Designation for the Drawable
+	 * @return String the type of the Drawable
 	*/
 	@Override
 	public String type() {

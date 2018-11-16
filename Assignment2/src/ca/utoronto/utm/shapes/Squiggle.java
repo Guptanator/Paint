@@ -62,7 +62,8 @@ public class Squiggle extends Drawable {
 	}
 
 	/** 
-	 * Type Designation for moving Points
+	 * Type Designation for the Drawable
+	 * @return String the type of the Drawable
 	*/
 	@Override
 	public String type() {
@@ -71,6 +72,7 @@ public class Squiggle extends Drawable {
 	
 	/** 
 	 * Set thickness to current thickness
+	 * @param double thickness the new thickness of the squiggle
 	*/
 	@Override
 	public void setThickness(double thickness) {

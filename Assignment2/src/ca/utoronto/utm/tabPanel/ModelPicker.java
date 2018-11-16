@@ -79,8 +79,4 @@ public class ModelPicker extends HBox implements EventHandler<ActionEvent> {
 	
 		
 	}
-	
-	
-	
-
 }

@@ -138,8 +138,6 @@ public class CanvasPopup extends Stage implements EventHandler<ActionEvent>{
 			this.hide();
 		} else if (((Button) event.getSource()).getText() =="SET SCREEN DIMENSIONS") {
 			this.setScreenSize();
-		}
-		
+		}	
 	}
-	
 }

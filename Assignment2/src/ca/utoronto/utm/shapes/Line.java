@@ -77,7 +77,8 @@ public class Line extends Drawable {
 	}
 
 	/** 
-	 * Type Designation for moving Line
+	 * Type Designation for the Drawable
+	 * @return String the type of the Drawable
 	*/
 	@Override
 	public String type() {

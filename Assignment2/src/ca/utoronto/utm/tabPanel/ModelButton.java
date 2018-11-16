@@ -34,5 +34,4 @@ public class ModelButton extends ToggleButton {
 		panel.changeCanvas(this.model.getHeight(), this.model.getWidth());
 		this.model.update();
 	}
-
 }
