@@ -41,8 +41,6 @@ public class RemoveShapeStrategy extends TransformStrategy {
 	@Override
 	public void terminated() {
 		System.out.println("terminated");
-		this.monitor.setCurrent(currentShape);
 		this.panel.getModel().undoStates.add(this.monitor);
-		
 	}
 }
