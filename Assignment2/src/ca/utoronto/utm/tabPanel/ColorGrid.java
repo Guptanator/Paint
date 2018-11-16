@@ -96,6 +96,11 @@ public class ColorGrid extends TitledPane implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		this.c = Color.TRANSPARENT;
 		this.currColor.setFill(Color.TRANSPARENT);
+		if (this.type=="Fill") {
+        	this.parent.handleMouseClickF(this);
+        } else {
+        	this.parent.handleMouseClickB(this);
+        }
 	}
 	private HBox configureNode() {
 		HBox out = new HBox(10);

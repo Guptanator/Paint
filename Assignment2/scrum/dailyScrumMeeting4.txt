@@ -1,5 +1,5 @@
 # Fill in, commit and push each day.
-# Group Member: FILL THIS IN
+# Group Member: leejon79
 Oct 28, 2018
 	Yesterday :
 	Today     :
@@ -81,11 +81,16 @@ Nov 12, 2018
 	Obstacles : Still studying for CSC236.
 
 Nov 13, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Studying and finishing bug 8.
+	Today     : N/A
+	Obstacles : Studying for 236 test.
 
 Nov 14, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Studying for test.
+	Today     : Made the color picker be in an accordion and set it so you can click grid locations to choose color.
 	Obstacles :
+
+Nov 15, 2018
+	Yesterday : Remaking color picker.
+	Today     : Fixed a bug for setting color as transparent and doing java docs.
+	Obstacles : Time.
