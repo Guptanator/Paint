@@ -23,7 +23,7 @@ import java.util.Stack;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 /** Class that handles the actual drawing of drawable objects
- * onto the canvas as well as the drawing strategies.
+ * onto the canvas as well as the drawing and transforming strategies.
  */
 public class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
 

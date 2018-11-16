@@ -7,6 +7,8 @@ import javafx.scene.canvas.GraphicsContext;
 
 /** Abstract Strategy class for implementation of
  * different shape formation strategies
+ * Abstract Class for the shape construction strategies
+ * implementing the Strategy Design Pattern
 */
 public abstract class ShapeManipulatorStrategy {
 	

@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import ca.utoronto.utm.paint.View;
 
-/** Holds all other Panes.
+/** Holds Tool Panes for Paint Application.
 */
 public class TabPanelParent extends GridPane {
 	
