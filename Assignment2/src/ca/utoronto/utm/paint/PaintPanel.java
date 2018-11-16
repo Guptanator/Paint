@@ -57,10 +57,11 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		// The canvas is transparent, so the background color of the
 		// containing pane serves as the background color of the canvas.
 		this.setStyle("-fx-background-color: white");
-
 		this.addEventHandler(MouseEvent.ANY, this);
 		
 		this.model = model;
+		this.model.setHeight((int)this.canvas.getHeight());
+		this.model.setWidth((int)this.canvas.getWidth());
 		
 		this.model.addObserver(this);
 		
@@ -173,9 +174,6 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.override = false;
 		if (this.currentModeButton!=null)this.currentModeButton.setSelected(false);
 	}
-	public Canvas getCanvas() { 
-		return this.canvas;
-	}
 	
 	@Override
 	public void handle(MouseEvent e) {
@@ -186,8 +184,41 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		}
 	}
 	
+	/**
+	 * Sets canvas dimensions to parameters h,
+	 * w to height and width respectively.
+	 * 
+	 * @param h Input Height
+	 * @param w Input Width
+	 */
 	public void changeCanvas(int h, int w) {
 		this.canvas.setHeight(h);
 		this.canvas.setWidth(w);
+		this.model.setHeight(h);
+		this.model.setWidth(w);
+	}
+	
+	/**
+	 * Returns the current Canvas
+	 */
+	public Canvas getCanvas() {
+		return this.canvas;
+	}
+	
+	/**
+	 * Returns the current View
+	 */
+	public View getView() {
+		return this.view;
+	}
+	
+	/**
+	 * Sets model to Current Model
+	 */	
+	public void setModel(PaintModel model) {
+		this.model = model;
+		this.strategy.setModel(model);
+		this.model.addObserver(this);
+		this.model.update();
 	}
 }
