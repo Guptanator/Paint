@@ -128,8 +128,14 @@ Nov 14, 2018
 	Yesterday : Wrote Doc Strings
 	Today     : Wrote more doc strings for shapes
 	Obstacles : The shape class changed due to re-implementation
+				Had 236 Test so less time to work on docs
 
 Nov 15, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Wrote Doc Strings 
+	Today     : Finished US12: New Canvases and Tabs
+	Obstacles : Trying to go through all the code and 
+			    figure out what everything was interacting
+			    with took some time.
+			    Spent some time with trivial problems
+			    due to under-utilizing testing methods.
+

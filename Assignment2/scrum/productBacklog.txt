@@ -12,15 +12,6 @@ ESTIMATE : 8 hours
 ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
            This needs to be fixed ASAP!
 --------------------------------------------------------------------------
---------------------------------------------------------------------------
-TYPE     : BUG 45 : phamjus1
-NAME     : JavaDocs for Shapes
-OWNER    : 
-PRIORITY : 1
-ESTIMATE : 2 hours
-ISSUE    : Shapes and abstract classes and interfaces pertaining to them should
-		   have JavaDocs
---------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -652,6 +643,15 @@ PRIORITY : 1
 ESTIMATE : 8 hours
 ISSUE    : The current system works but doesn't improve the design of the code, fix it!
 Update: made a couple changes, daniel had a good foundation and I built upon
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 45 : phamjus1
+NAME     : JavaDocs for Shapes
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 2 hours
+ISSUE    : Shapes and abstract classes and interfaces pertaining to them should
+		   have JavaDocs
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 46 : chowd460
