@@ -718,6 +718,14 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Empty button doesn't work at all.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 52 : leejon79
+NAME     : Java docs for color picker stuff.
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Needs to have more java docs.
+--------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
