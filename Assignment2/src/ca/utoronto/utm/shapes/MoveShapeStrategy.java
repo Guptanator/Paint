@@ -19,9 +19,6 @@ public class MoveShapeStrategy extends TransformStrategy {
 	 */
 	public void handleMouse(MouseEvent e) {
 		if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
-			if (currentShape!=null && this.monitor!=null) {
-				this.terminated();
-			}
 			currentShape = this.findElement(e);
 			if (currentShape!=null) {
 				PrepareDeltas(e);
@@ -30,6 +27,10 @@ public class MoveShapeStrategy extends TransformStrategy {
 			}
 		} else if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
 			MoveDrawable(e);
+		} else if (e.getEventType() == MouseEvent.MOUSE_RELEASED) {
+			if (this.currentShape!=null) {
+				this.terminated();
+			}
 		}
 	}
 	/**
@@ -75,6 +76,13 @@ public class MoveShapeStrategy extends TransformStrategy {
 		}
 		this.panel.getModel().update();
 	}
+	/** 
+	 * This is used to handle the termination of the current moving period
+	 * It primary pushes the state change to the undostates list in the model.
+	 *  
+	 * @param e MouseEvent passed by PaintPanel to denote
+	 * user action.
+	*/
 	@Override
 	public void terminated() {
 		System.out.println("terminated");

@@ -18,8 +18,8 @@ import ca.utoronto.utm.shapes.Drawable;
 public class PaintModel extends Observable {
 
 	private ArrayList<Drawable> allObjects = new ArrayList<Drawable>();
-	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
 	public LinkedList<DrawableState> undoStates = new LinkedList<DrawableState>();
+	public LinkedList<DrawableState> redoStates = new LinkedList<DrawableState>();
 	public double thick = 1.0;
 	private String name;
 	private int height;
@@ -44,24 +44,24 @@ public class PaintModel extends Observable {
 		this.allObjects.add(d);
 		this.update();
 	}
-	/** Removes the latest drawn object from the (allObjects) list
-	 * and saves the value into a different list (undone) in case you
-	 * want to undo the undo.
+	/** Removes the latest state object from the undoStates list
+	 * executes it's operation and then adds it to the redo list
 	*/
 	public void Undo() {
-		if (!allObjects.isEmpty()) {
-			this.undone.addFirst(allObjects.remove(allObjects.size()-1));
-			this.update();
+		if (!this.undoStates.isEmpty()) {
+			DrawableState current = this.undoStates.removeLast();
+			current.setModel(this);
+			current.execute();
+			redoStates.addFirst(current);
 		}
 	}
-	/** Removes the first drawable object in the (undone) list
-	 * and places it back to the (allObjects) list of objects 
-	 * to display on canvas.
+	/** Removes the first drawable state from the redoStates list
+	 * and executes it's undo function.
 	*/
 	public void Redo() {
-		if (!undone.isEmpty()) {
-			this.allObjects.add(undone.removeFirst());
-			this.update();
+		if (!this.redoStates.isEmpty()) {
+			DrawableState current = this.redoStates.removeLast();
+			current.executeRedo();
 		}
 	}
 	/** Returns an ArrayList of drawable objects that are to be added to
