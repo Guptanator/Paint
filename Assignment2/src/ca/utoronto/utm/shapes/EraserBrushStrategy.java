@@ -1,5 +1,6 @@
 package ca.utoronto.utm.shapes;
 
+import ca.utoronto.utm.paint.DrawableState;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -17,11 +18,24 @@ public class EraserBrushStrategy extends TransformStrategy {
 		if (this.thickness<5)this.thickness=5;
 		this.thickness = (int)this.panel.getModel().thick*3;
 		GraphicsContext g = this.panel.getCanvas().getGraphicsContext2D();
+		if ((e.getEventType() == MouseEvent.MOUSE_PRESSED) && (c != null)) {
+			this.monitor = new DrawableState("BrushShape");
+			this.monitor.setPrevious(c);
+		}
 		if ((e.getEventType() == MouseEvent.MOUSE_DRAGGED) && (c != null)) {
 			onShapeDrag(e,c,g);
 		}
 		else if ((e.getEventType() == MouseEvent.MOUSE_DRAGGED) && (c == null)) {
 			onNullDrag(e);
+		}
+		if (e.getEventType() == MouseEvent.MOUSE_RELEASED) {
+			if (c!=null) {
+				this.monitor.setCurrent(c);
+				this.terminated();
+			}
+			if (c==null) {
+				this.terminatedNull();
+			}
 		}
 	}
 	/** 
@@ -58,8 +72,20 @@ public class EraserBrushStrategy extends TransformStrategy {
 			g.fillRect(e.getX()-(thickness/2), e.getY()-(thickness/2), this.thickness, this.thickness);
 		}
 	}
+	/** 
+	 * This is used to handle the termination of the current moving period
+	 * It primary pushes the state change to the undostates list in the model.
+	*/
 	@Override
 	public void terminated() {
-		// TODO
+		System.out.println("terminated");
+		this.panel.getModel().undoStates.add(this.monitor);
+	}
+	/** 
+	 * This is used to handle the termination of the current moving period
+	 * It primary pushes the state change to the undostates list in the model.
+	*/
+	public void terminatedNull() {
+		//TODO
 	}
 }

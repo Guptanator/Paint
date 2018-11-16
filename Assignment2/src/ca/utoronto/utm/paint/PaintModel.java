@@ -52,7 +52,7 @@ public class PaintModel extends Observable {
 			DrawableState current = this.undoStates.removeLast();
 			current.setModel(this);
 			current.execute();
-			redoStates.addFirst(current);
+			redoStates.addLast(current);
 		}
 	}
 	/** Removes the first drawable state from the redoStates list

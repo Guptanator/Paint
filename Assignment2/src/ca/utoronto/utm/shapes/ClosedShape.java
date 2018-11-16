@@ -61,6 +61,18 @@ public abstract class ClosedShape extends Drawable {
 	public void addListener(Eraseable e) {
 		this.clearers.add(e);
 	}
+	
+	/** 
+	 * Clears all current listeners
+	*/
+	public ArrayList<Eraseable> clearListeners() {
+		ArrayList<Eraseable> temp = new ArrayList<Eraseable>(); 
+		while(!this.clearers.isEmpty()) {
+			temp.add(this.clearers.remove(0));
+		}
+		return temp;
+	}
+	
 	/** 
 	 * Updates the listeners for the shape
 	 * @param GraphicsContext g redraws all of listeners for the shape.
