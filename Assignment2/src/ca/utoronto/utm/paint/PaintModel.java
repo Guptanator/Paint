@@ -20,6 +20,15 @@ public class PaintModel extends Observable {
 	private ArrayList<Drawable> allObjects = new ArrayList<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
 	public double thick = 1.0;
+	private String name;
+	private int height;
+	private int width;
+	
+	public PaintModel(String name) {
+		this.name = name;
+		this.setChanged();
+		this.notifyObservers();
+	}
 	
 	/** Handles setting the properties to d and adding it
 	 * to the list of drawable objects (allObjects) to draw on canvas.
@@ -70,11 +79,17 @@ public class PaintModel extends Observable {
 		return null;
 	}
 	
+	/** 
+	 * Upon call Updates Observers
+	*/
 	public void update() {
 		this.setChanged();
 		this.notifyObservers();
 	}
 	
+	/** 
+	 * Removes objects in allOjects
+	*/
 	public void removeObject(Drawable d) {
 		this.allObjects.remove(d);
 		this.update();
@@ -88,5 +103,40 @@ public class PaintModel extends Observable {
 			}
 		}
 		allObjects.add(i+1, d);
+	}
+	
+	/** 
+	 * Returns the name of the model
+	*/
+	public String getName() {
+		return this.name;
+	}
+	
+	/** 
+	 * Set height to current height
+	*/
+	public void setHeight(int h) {
+		this.height = h;
+	}
+	
+	/** 
+	 * Set Width to current width
+	*/
+	public void setWidth(int w) {
+		this.width = w;
+	}
+	
+	/** 
+	 * Return height
+	*/
+	public int getHeight() {
+		return this.height;
+	}
+	
+	/** 
+	 * Return Width
+	*/
+	public int getWidth() {
+		return this.width;
 	}
 }
