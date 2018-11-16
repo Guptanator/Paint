@@ -23,6 +23,7 @@ public class MoveShapeStrategy extends TransformStrategy {
 			if (currentShape!=null) {
 				PrepareDeltas(e);
 				this.monitor = new DrawableState("move");
+				this.monitor.setModel(this.panel.getModel());
 				this.monitor.setPrevious(currentShape);
 			}
 		} else if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
