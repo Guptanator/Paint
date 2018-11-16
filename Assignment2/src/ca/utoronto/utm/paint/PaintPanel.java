@@ -193,6 +193,13 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		}
 	}
 	
+	/**
+	 * Sets canvas dimensions to parameters h,
+	 * w to height and width respectively.
+	 * 
+	 * @param h Input Height
+	 * @param w Input Width
+	 */
 	public void changeCanvas(int h, int w) {
 		this.canvas.setHeight(h);
 		this.canvas.setWidth(w);

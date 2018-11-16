@@ -18,6 +18,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/** 
+ * View for the Paint application
+*/
 public class View implements EventHandler<ActionEvent> {
 
 	private PaintModel model;
@@ -34,6 +37,12 @@ public class View implements EventHandler<ActionEvent> {
 		initUI(stage);
 	}
 
+	/** 
+	 * Initializes UI elements on the stage
+	 * for the Paint Application
+	 * 
+	 * @param stage Paint Stage
+	*/
 	private void initUI(Stage stage) {
 		
 		this.stage = stage;
@@ -57,11 +66,18 @@ public class View implements EventHandler<ActionEvent> {
 		stage.setTitle("Paint");
 		stage.show();
 	}
-
+	
+	/** 
+	 * Returns PaintPanel for View
+	*/
 	public PaintPanel getPaintPanel() {
 		return paintPanel;
 	}
 
+	/** 
+	 * Constructs the menu at the top of
+	 * the paint Application
+	*/
 	private MenuBar createMenuBar() {
 
 		MenuBar menuBar = new MenuBar();
@@ -127,6 +143,12 @@ public class View implements EventHandler<ActionEvent> {
 		return menuBar;
 	}
 
+	/** 
+	 * View EventHandler. On menu selection events,
+	 * changes current model or opens new window.
+	 * 
+	 * @param event Menu selected event
+	*/
 	@Override
 	public void handle(ActionEvent event) {
 		System.out.println(((MenuItem)event.getSource()).getText());
