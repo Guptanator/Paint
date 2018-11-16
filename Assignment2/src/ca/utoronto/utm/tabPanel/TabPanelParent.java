@@ -7,10 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import ca.utoronto.utm.paint.View;
 
-/**
- * This class is used to hold all of the other Panes and allows for easier scaling in terms additional
- * features. Furthermore this class extends GridPane since it has the the easiest scaling and allows
- * automatic width scaling depends on the largest item.
+/** Holds all other Panes.
 */
 public class TabPanelParent extends GridPane {
 	
@@ -21,9 +18,11 @@ public class TabPanelParent extends GridPane {
 	private thicknessPopup tp;
 	
 	private OtherModesPane omp;
-	/**
-	 * This constructor creates all of the Sub-panels and adds them to the master pane. 
-	 * @param View view used for passing to the independent views which all require the View.
+	
+	/** TabPanelParent constructor. Creates all Sub-panels and adds them 
+	 * to the master pane.
+	 * 
+	 * @param view Paint Application View
 	 */
 	public TabPanelParent(View view) {
 		this.view = view;
@@ -38,17 +37,17 @@ public class TabPanelParent extends GridPane {
 		this.addPane(this.omp);
 		this.setBackground(new Background(new BackgroundFill(Color.web("#7f8c8d"), null, null)));
 	}
-	/**
-	 * This function allows for adding the panes in an abstracted manner, ensuring there 
-	 * are fewer places for things to break.
-	 * @param Pane p the pane you want to add to the master pane.
+	
+	/** Adds Pane to current row.
+	 * 
+	 * @param p pane to be added to the panel
 	 */
 	private void addPane(Pane p) {
 		this.add(p, 0, currentRow);
 		this.currentRow++;
 	}
-	/**
-	 * This function allows the outside world to set the fill icons in the shapeChooserPanel
+	
+	/** Sets the fill icons in the shapeChooserPanel
 	 * as filled or unfilled.
 	 */
 	public void setFilled() {

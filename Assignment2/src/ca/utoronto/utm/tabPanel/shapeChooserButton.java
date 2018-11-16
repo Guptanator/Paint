@@ -38,6 +38,7 @@ public class shapeChooserButton extends ToggleButton  {
 	public String currentMode() {
 		return this.currentType;
 	}
+	
 	/** Sets the image of the button based on the button type.
 	 */
 	private void setImages() {
