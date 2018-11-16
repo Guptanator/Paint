@@ -118,10 +118,11 @@ public class DrawableState {
 			this.model.getObjects().add(this.listIndex, this.previous);
 		}
 		else if (this.tag=="BrushShape") {
-			((ClosedShape)(this.current)).clearListeners();
+			ArrayList<Eraseable> temp = ((ClosedShape)(this.current)).clearListeners();
 			for (Eraseable e : this.old) {
 				((ClosedShape)(this.current)).addListener(e);
 			}
+			this.old = temp;
 		}
 		this.model.update();
 	}
@@ -146,6 +147,11 @@ public class DrawableState {
 		}
 		else if (this.tag=="remove") {
 			this.model.removeObject(this.previous);
+		}
+		else if (this.tag=="BrushShape") {
+			for (Eraseable e : this.old) {
+				((ClosedShape)(this.current)).addListener(e);
+			}
 		}
 		this.model.update();
 	}

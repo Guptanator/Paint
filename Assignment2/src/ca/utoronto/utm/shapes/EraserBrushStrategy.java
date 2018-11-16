@@ -72,14 +72,20 @@ public class EraserBrushStrategy extends TransformStrategy {
 			g.fillRect(e.getX()-(thickness/2), e.getY()-(thickness/2), this.thickness, this.thickness);
 		}
 	}
+	/** 
+	 * This is used to handle the termination of the current moving period
+	 * It primary pushes the state change to the undostates list in the model.
+	*/
 	@Override
 	public void terminated() {
 		System.out.println("terminated");
 		this.panel.getModel().undoStates.add(this.monitor);
 	}
-	
+	/** 
+	 * This is used to handle the termination of the current moving period
+	 * It primary pushes the state change to the undostates list in the model.
+	*/
 	public void terminatedNull() {
-		System.out.println("terminated");
-		this.panel.getModel().undoStates.add(this.monitor);
+		//TODO
 	}
 }

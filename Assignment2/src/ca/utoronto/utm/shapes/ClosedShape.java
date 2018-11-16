@@ -39,10 +39,12 @@ public abstract class ClosedShape extends Drawable {
 	/** 
 	 * Clears all current listeners
 	*/
-	public void clearListeners() {
+	public ArrayList<Eraseable> clearListeners() {
+		ArrayList<Eraseable> temp = new ArrayList<Eraseable>(); 
 		while(!this.clearers.isEmpty()) {
-			this.clearers.remove(0);
+			temp.add(this.clearers.remove(0));
 		}
+		return temp;
 	}
 	
 	/** 
