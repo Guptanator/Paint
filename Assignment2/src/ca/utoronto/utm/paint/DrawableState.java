@@ -12,6 +12,7 @@ public class DrawableState {
 	private String tag;
 	private PaintModel model;
 	private Point previousMove;
+	private int listIndex;
 	
 	/** 
 	 * This constructor allow you to create the DrawableState
@@ -64,6 +65,9 @@ public class DrawableState {
 				this.previousMove = ((Square)(p)).getCorner().copy();
 			}
 		}
+		if (this.tag=="move") {
+			this.listIndex = this.model.getObjects().indexOf(p);
+		}
 		this.previous=p;
 	}
 	/** 
@@ -100,6 +104,9 @@ public class DrawableState {
 			}
 			this.previousMove=temp;
 		}
+		else if (this.tag=="remove") {
+			this.model.getObjects().add(this.listIndex, this.previous);
+		}
 		this.model.update();
 	}
 	/** 
@@ -120,6 +127,9 @@ public class DrawableState {
 			else if (this.current.type()=="Square") {
 				((Square)(this.current)).setCorner(this.previousMove);
 			}
+		}
+		else if (this.tag=="remove") {
+			this.model.removeObject(this.previous);
 		}
 		this.model.update();
 	}

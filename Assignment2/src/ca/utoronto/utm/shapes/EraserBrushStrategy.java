@@ -60,7 +60,6 @@ public class EraserBrushStrategy extends TransformStrategy {
 	}
 	@Override
 	public void terminated() {
-		// TODO Auto-generated method stub
-		
+		// TODO
 	}
 }
