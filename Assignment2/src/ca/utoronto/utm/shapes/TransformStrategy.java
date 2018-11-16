@@ -2,6 +2,7 @@ package ca.utoronto.utm.shapes;
 
 import java.util.ArrayList;
 
+import ca.utoronto.utm.paint.DrawableState;
 import ca.utoronto.utm.paint.PaintModel;
 import ca.utoronto.utm.paint.PaintPanel;
 import javafx.scene.canvas.GraphicsContext;
@@ -13,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 */
 public abstract class TransformStrategy {
 	protected PaintPanel panel;
+	protected DrawableState monitor;
 	/**
 	 * This function allows the strategy to access the model.
 	 * @param PaintModel p sets the model attribute of the strategy to be the passed in model.
@@ -41,4 +43,5 @@ public abstract class TransformStrategy {
 		}
 		return null;
 	}
+	public abstract void terminated();
 }

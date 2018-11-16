@@ -23,9 +23,35 @@ public abstract class ClosedShape extends Drawable {
 	private boolean isTransparent = false;
 	public ArrayList<Eraseable> clearers = new ArrayList<Eraseable>(); 
 	
+	/** 
+	 * This allows the application to decide if a Drawable is clicked.
+	 * @param MouseEvent e with the information of the clicked pixel
+	 * @return boolean indicating if the shape has been clicked
+	*/
 	public abstract boolean isClicked(MouseEvent e);
+	
+	/** 
+	 * This allows the application to decide if the 
+	 * border of Drawable is clicked.
+	 * @param MouseEvent e with the information of the clicked pixel
+	 * @return boolean indicating if the border has been clicked
+	*/
 	public abstract boolean isHallowClicked(MouseEvent e);
+	
+	/** 
+	 * This allows the application to calculate the difference between
+	 * a value and the centre of the instance.
+	 * @param Double d the different value in the x plane
+	 * @return double the difference between two values
+	*/
 	public abstract double xDifferent(double d);
+	
+	/** 
+	 * This allows the application to calculate the difference between
+	 * a value and the centre of the instance.
+	 * @param Double d the different value in the y plane
+	 * @return double the difference between two values
+	*/
 	public abstract double yDifferent(double d);
 	
 	/** 
@@ -71,12 +97,14 @@ public abstract class ClosedShape extends Drawable {
 	
 	/** 
 	 * Returns true is the shape is a closed shape
+	 * @return boolean returns true for all closed shapes
 	*/
 	public boolean isClosed() {
 		return true;
 	}
 	/** 
 	 * Returns the boolean value of isTransparent
+	 * @return if a shape has a transparent filling
 	*/
 	public boolean isHallow() {
 		return this.isTransparent;

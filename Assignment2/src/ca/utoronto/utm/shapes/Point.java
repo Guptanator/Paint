@@ -137,4 +137,9 @@ public class Point extends Drawable {
 	public String type() {
 		return "Point";
 	}
+	public Point copy() {
+		Point p = new Point(this.x,this.y);
+		return p;
+		
+	}
 }
