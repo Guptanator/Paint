@@ -11,6 +11,8 @@ import javafx.scene.input.MouseEvent;
  * This class should be subclasses for all non shape creating strategies, some additional ideas include
  * moving elements, fill bucket, rotation or object scaling. This abstract class provides a frame work which
  * all TransformStrategies can utilize for their operations.
+ * Abstract Class for Transform Strategies as an implementation
+ *  of the Strategy Design Pattern for shape transformations
 */
 public abstract class TransformStrategy {
 	protected PaintPanel panel;

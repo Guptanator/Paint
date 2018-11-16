@@ -5,6 +5,8 @@ import javafx.scene.canvas.GraphicsContext;
 
 /** Abstract class for commands that change the
  * properties of Drawable objects.
+ * The shared interface for drawing style commands
+ * implementing the Command Design Pattern.
  * 
  * @author Daniel Lee
 */

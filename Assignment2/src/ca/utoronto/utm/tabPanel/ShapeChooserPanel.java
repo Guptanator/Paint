@@ -13,6 +13,7 @@ import ca.utoronto.utm.shapes.SquareStrategy;
 import ca.utoronto.utm.shapes.SquiggleStrategy;
 
 /** The ShapeChooserPanel holds and handles the ShapeChooserButtons
+ * Implements Factory Design Pattern for choice of Strategy
 */
 public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEvent> {
 

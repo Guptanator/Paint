@@ -8,6 +8,8 @@ import ca.utoronto.utm.shapes.Drawable;
 
 /** Class for storing and executing drawing commands to apply
  * to shapes.
+ * Style command invoker implementing the command
+ * design pattern.
  *
  * @author Daniel Lee
  */
