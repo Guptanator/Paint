@@ -12,6 +12,15 @@ ESTIMATE : 8 hours
 ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
            This needs to be fixed ASAP!
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 54 : phamjus1
+NAME     : Design Pattern Docs
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 10 min
+ISSUE    : Add Relevant Design Pattern info to specific classes.
+--------------------------------------------------------------------------
+
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
