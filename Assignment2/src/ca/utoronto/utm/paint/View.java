@@ -18,8 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/** 
- * View for the Paint application
+/** View for the Paint application
 */
 public class View implements EventHandler<ActionEvent> {
 
@@ -31,14 +30,20 @@ public class View implements EventHandler<ActionEvent> {
 	private ModelPicker modelBox;
 	private VBox drawBox;
 	private Stage stage;
+	
+	/** View Constructor. Sets current Model and
+	 * Calls method to initialize UI.
+	 * 
+	 * @param model Current model
+	 * @param stage Paint Stage
+	*/
 	public View(PaintModel model, Stage stage) {
 
 		this.model = model;
 		initUI(stage);
 	}
 
-	/** 
-	 * Initializes UI elements on the stage
+	/** Initializes UI elements on the stage
 	 * for the Paint Application
 	 * 
 	 * @param stage Paint Stage
@@ -67,15 +72,15 @@ public class View implements EventHandler<ActionEvent> {
 		stage.show();
 	}
 	
-	/** 
-	 * Returns PaintPanel for View
+	/** Returns PaintPanel for View
+	 * 
+	 * @return Current PaintPanel
 	*/
 	public PaintPanel getPaintPanel() {
 		return paintPanel;
 	}
 
-	/** 
-	 * Constructs the menu at the top of
+	/** Constructs the menu at the top of
 	 * the paint Application
 	*/
 	private MenuBar createMenuBar() {
@@ -84,7 +89,7 @@ public class View implements EventHandler<ActionEvent> {
 		Menu menu;
 		MenuItem menuItem;
 
-		// A menu for File
+		// File Menu
 
 		menu = new Menu("File");
 
@@ -112,7 +117,7 @@ public class View implements EventHandler<ActionEvent> {
 
 		menuBar.getMenus().add(menu);
 
-		// Another menu for Edit
+		// Edit Menu
 
 		menu = new Menu("Edit");
 
@@ -143,8 +148,7 @@ public class View implements EventHandler<ActionEvent> {
 		return menuBar;
 	}
 
-	/** 
-	 * View EventHandler. On menu selection events,
+	/** View EventHandler. On menu selection events,
 	 * changes current model or opens new window.
 	 * 
 	 * @param event Menu selected event
@@ -165,8 +169,7 @@ public class View implements EventHandler<ActionEvent> {
 			NewCanvasWindow newCanvas = new NewCanvasWindow(this.paintPanel, modelBox);
 		}
 	}
-	/**
-	 * This function allows the outside world to set the fill icons as filled or unfilled.
+	/** Sets the fill icons as filled or unfilled.
 	 */
 	public void setFilled() {
 		this.tabParent.setFilled();

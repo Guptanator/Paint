@@ -17,6 +17,14 @@ public abstract class ShapeManipulatorStrategy {
 	protected PaintModel model;
 	protected Color fillColor = Color.TRANSPARENT;
 	
+	/** 
+	 * MouseEvent Handler called by the PaintPanel which itself
+	 * calls the appropriate method to create or alter
+	 * the stored shape.
+	 *  
+	 * @param e MouseEvent passed by PaintPanel to denote
+	 * user action.
+	*/
 	public abstract void mouseHandle(MouseEvent e);
 	
 	/** 

@@ -4,23 +4,24 @@ import ca.utoronto.utm.paint.View;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Accordion;
-/**
- * This class is used to hold the ColorGrid and handle
+
+/** This class is used to hold the ColorGrid and handle
  * setting a new color to PaintPanel's setColor() and
  * setFill() methods, one for fill color and one to handle
  * border color.
- *
 */
 public class ColorAccordions extends GridPane {
+	
 	private View view;
 	private Accordion accordionBorder;
 	private Accordion accordionFill;
 	private TitledPane CPBorder= new ColorGrid(this.view,"Border",this);
 	private TitledPane CPFill= new ColorGrid(this.view,"Fill",this);
-	/**
-	 * Constructor for ColorAccordion, which is used to hold the accordions
+	
+	/** Constructor for ColorAccordion, which is used to hold the accordions
 	 * that contain a ColorGrid, one for setting fill color and another to
 	 * set the border color.
+	 * 
 	 * @param View view which allows the pane to access the controller.
 	 */
 	public ColorAccordions(View view) {
