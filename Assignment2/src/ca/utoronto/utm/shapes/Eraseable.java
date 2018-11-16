@@ -25,5 +25,8 @@ public class Eraseable {
 		g.setFill(Color.WHITE);
 		g.fillRect(x-(w/2), y-(w/2), w, w);
 	}
-	
+	public Eraseable copy() {
+		Eraseable e = new Eraseable(this.x,this.y,this.w);
+		return e;
+	}
 }

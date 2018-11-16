@@ -1,9 +1,14 @@
 package ca.utoronto.utm.paint;
 
 import ca.utoronto.utm.shapes.Drawable;
+import ca.utoronto.utm.shapes.Eraseable;
 import ca.utoronto.utm.shapes.Point;
 import ca.utoronto.utm.shapes.Rectangle;
+
+import java.util.ArrayList;
+
 import ca.utoronto.utm.shapes.Circle;
+import ca.utoronto.utm.shapes.ClosedShape;
 import ca.utoronto.utm.shapes.Square;
 
 public class DrawableState {
@@ -13,6 +18,7 @@ public class DrawableState {
 	private PaintModel model;
 	private Point previousMove;
 	private int listIndex;
+	public ArrayList<Eraseable> old = new ArrayList<Eraseable>(); 
 	
 	/** 
 	 * This constructor allow you to create the DrawableState
@@ -65,9 +71,13 @@ public class DrawableState {
 				this.previousMove = ((Square)(p)).getCorner().copy();
 			}
 		}
-		if (this.tag=="move") {
-			this.listIndex = this.model.getObjects().indexOf(p);
+		if (this.tag=="BrushShape") {
+			for (Eraseable e : ((ClosedShape)(p)).clearers) {
+				this.old.add(e.copy());
+			}
+			System.out.println(this.old.size());
 		}
+		
 		this.previous=p;
 	}
 	/** 
@@ -106,6 +116,12 @@ public class DrawableState {
 		}
 		else if (this.tag=="remove") {
 			this.model.getObjects().add(this.listIndex, this.previous);
+		}
+		else if (this.tag=="BrushShape") {
+			((ClosedShape)(this.current)).clearListeners();
+			for (Eraseable e : this.old) {
+				((ClosedShape)(this.current)).addListener(e);
+			}
 		}
 		this.model.update();
 	}

@@ -38,6 +38,13 @@ public class RemoveShapeStrategy extends TransformStrategy {
 		this.panel.getModel().removeObject(this.currentShape);
 		this.terminated();
 	}
+	/** 
+	 * This is used to handle the termination of the current moving period
+	 * It primary pushes the state change to the undostates list in the model.
+	 *  
+	 * @param e MouseEvent passed by PaintPanel to denote
+	 * user action.
+	*/
 	@Override
 	public void terminated() {
 		System.out.println("terminated");

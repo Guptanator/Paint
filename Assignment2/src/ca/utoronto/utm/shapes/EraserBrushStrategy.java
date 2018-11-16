@@ -18,9 +18,11 @@ public class EraserBrushStrategy extends TransformStrategy {
 		if (this.thickness<5)this.thickness=5;
 		this.thickness = (int)this.panel.getModel().thick*3;
 		GraphicsContext g = this.panel.getCanvas().getGraphicsContext2D();
-		if ((e.getEventType() == MouseEvent.MOUSE_DRAGGED) && (c != null)) {
+		if ((e.getEventType() == MouseEvent.MOUSE_PRESSED) && (c != null)) {
 			this.monitor = new DrawableState("BrushShape");
 			this.monitor.setPrevious(c);
+		}
+		if ((e.getEventType() == MouseEvent.MOUSE_DRAGGED) && (c != null)) {
 			onShapeDrag(e,c,g);
 		}
 		else if ((e.getEventType() == MouseEvent.MOUSE_DRAGGED) && (c == null)) {
@@ -28,6 +30,7 @@ public class EraserBrushStrategy extends TransformStrategy {
 		}
 		if (e.getEventType() == MouseEvent.MOUSE_RELEASED) {
 			if (c!=null) {
+				this.monitor.setCurrent(c);
 				this.terminated();
 			}
 			if (c==null) {
@@ -72,12 +75,11 @@ public class EraserBrushStrategy extends TransformStrategy {
 	@Override
 	public void terminated() {
 		System.out.println("terminated");
-		//this.monitor.setCurrent(currentShape);
 		this.panel.getModel().undoStates.add(this.monitor);
 	}
+	
 	public void terminatedNull() {
 		System.out.println("terminated");
-		//this.monitor.setCurrent(currentShape);
 		this.panel.getModel().undoStates.add(this.monitor);
 	}
 }
