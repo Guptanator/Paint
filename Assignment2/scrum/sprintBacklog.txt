@@ -776,3 +776,11 @@ PRIORITY : 1
 ESTIMATE : 2 hours
 ISSUE    : Time to wrap up the last of the JavaDocs
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 51 : leejon79
+NAME     : Empty button for color picker is not working.
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Empty button doesn't work at all.
+--------------------------------------------------------------------------

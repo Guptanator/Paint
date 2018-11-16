@@ -710,6 +710,14 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : The slider throws an exception when moved too far to the left
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 51 : leejon79
+NAME     : Empty button for color picker is not working.
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 1 hours
+ISSUE    : Empty button doesn't work at all.
+--------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################
 
