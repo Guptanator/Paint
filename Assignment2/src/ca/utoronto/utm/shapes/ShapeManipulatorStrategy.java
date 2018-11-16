@@ -17,13 +17,20 @@ public abstract class ShapeManipulatorStrategy {
 	protected PaintModel model;
 	protected Color fillColor = Color.TRANSPARENT;
 	
+	/** 
+	 * This function should handle all relevant mouse
+	 * based operations dealing with the creation
+	 * and feedback of a shape.
+	 *  
+	 *  @param MouseEvent e 
+	*/
 	public abstract void mouseHandle(MouseEvent e);
 	
 	/** 
 	 * Sets PaintModel model in instance
 	 * to current PaintModel
 	 *  
-	 *  @param p Current PaintModel
+	 *  @param PaintModel p sets the model attribute 
 	*/
 	public void setModel(PaintModel p) {
 		this.model = p;
@@ -32,9 +39,9 @@ public abstract class ShapeManipulatorStrategy {
 	
 	/** 
 	 * Sets Color color in instance
-	 * to current color
+	 * to the passed in Color
 	 *  
-	 *  @param c Current color
+	 *  @param Color c the new color for the strategy
 	*/
 	public void setColor(Color c) {
 		this.color = c;
@@ -42,19 +49,18 @@ public abstract class ShapeManipulatorStrategy {
 	
 	/** 
 	 * Sets double thickness in instance
-	 * to current thickness
+	 * to new thickness
 	 *  
-	 *  @param t Current thickness
+	 *  @param Double t the new thickness for the strategy
 	*/
 	public void setThickness(double t) {
 		this.thickness = t;
 	}
 	
 	/** 
-	 * Sets boolean fill in instance
-	 * to current fill setting
+	 * Sets fillColor to be the new passed in color
 	 *  
-	 *  @param fillColor 
+	 *  @param Color fillColor the new color for the fill of the shape
 	*/
 	public void setFill(Color fillColor) {
 			this.fillColor = fillColor;

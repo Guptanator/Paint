@@ -40,8 +40,7 @@ public class Circle extends ClosedShape {
 	}
 
 	/** 
-	 * Returns the centre point of the Circle
-	 * 
+	 * Returns the centre Point of the Circle
 	 * @return Point the current center of the circle
 	*/
 	public Point getCentre() {
@@ -49,9 +48,8 @@ public class Circle extends ClosedShape {
 	}
 
 	/** 
-	 * Sets the centre point of the Circle
-	 * 
-	 * @param Point centre new centre point of the circle
+	 * Sets the centre Point of the Circle
+	 * @param Point centre new Point of the circle
 	*/
 	public void setCentre(Point centre) {
 		this.centre = centre;
