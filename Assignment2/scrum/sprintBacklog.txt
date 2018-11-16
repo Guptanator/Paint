@@ -800,3 +800,11 @@ PRIORITY : 1
 ESTIMATE : 3 hours
 ISSUE    : Final Check for Java Doc Completion and Quality
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 54 : phamjus1
+NAME     : Design Pattern Docs
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 10 min
+ISSUE    : Add Relevant Design Pattern info to specific classes.
+--------------------------------------------------------------------------
