@@ -19,6 +19,7 @@ public class PaintModel extends Observable {
 
 	private ArrayList<Drawable> allObjects = new ArrayList<Drawable>();
 	private LinkedList<Drawable> undone = new LinkedList<Drawable>();
+	public LinkedList<DrawableState> undoStates = new LinkedList<DrawableState>();
 	public double thick = 1.0;
 	private String name;
 	private int height;
@@ -39,6 +40,7 @@ public class PaintModel extends Observable {
 	 * @param d Drawable that will be added to the canvas.
 	*/
 	public void addDrawable(Drawable d) {
+		this.undoStates.addLast(new DrawableState(null,d,"add"));
 		this.allObjects.add(d);
 		this.update();
 	}
@@ -111,6 +113,7 @@ public class PaintModel extends Observable {
 				break;
 			}
 		}
+		this.undoStates.addLast(new DrawableState(null,d,"add"));
 		allObjects.add(i+1, d);
 	}
 	

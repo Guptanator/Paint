@@ -193,6 +193,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	 * also manages the display of some UI elements
 	*/
 	public void UnsetTransformMode() {
+		this.TStrategy.terminated();
 		this.TStrategy = null;
 		this.shapeMode = true;
 		this.override = false;

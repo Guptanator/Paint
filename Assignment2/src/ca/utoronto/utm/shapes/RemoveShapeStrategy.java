@@ -31,4 +31,9 @@ public class RemoveShapeStrategy extends TransformStrategy {
 	public void removeShape() {
 		this.panel.getModel().removeObject(this.currentShape);
 	}
+	@Override
+	public void terminated() {
+		// TODO Auto-generated method stub
+		
+	}
 }

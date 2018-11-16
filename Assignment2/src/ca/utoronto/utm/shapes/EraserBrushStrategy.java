@@ -58,4 +58,9 @@ public class EraserBrushStrategy extends TransformStrategy {
 			g.fillRect(e.getX()-(thickness/2), e.getY()-(thickness/2), this.thickness, this.thickness);
 		}
 	}
+	@Override
+	public void terminated() {
+		// TODO Auto-generated method stub
+		
+	}
 }

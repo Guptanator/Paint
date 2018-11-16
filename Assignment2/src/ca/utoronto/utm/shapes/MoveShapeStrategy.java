@@ -1,5 +1,6 @@
 package ca.utoronto.utm.shapes;
 
+import ca.utoronto.utm.paint.DrawableState;
 import javafx.scene.input.MouseEvent;
 /**
  * This strategy is used to handle mouse input when the the Move Shapes mode is selected. We utilize
@@ -18,8 +19,15 @@ public class MoveShapeStrategy extends TransformStrategy {
 	 */
 	public void handleMouse(MouseEvent e) {
 		if (e.getEventType() == MouseEvent.MOUSE_PRESSED) {
+			if (currentShape!=null && this.monitor!=null) {
+				this.terminated();
+			}
 			currentShape = this.findElement(e);
-			if (currentShape!=null)PrepareDeltas(e);
+			if (currentShape!=null) {
+				PrepareDeltas(e);
+				this.monitor = new DrawableState("move");
+				this.monitor.setPrevious(currentShape);
+			}
 		} else if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {
 			MoveDrawable(e);
 		}
@@ -66,5 +74,11 @@ public class MoveShapeStrategy extends TransformStrategy {
 			s.setCorner(new Point((int)newX, (int)newY));
 		}
 		this.panel.getModel().update();
+	}
+	@Override
+	public void terminated() {
+		System.out.println("terminated");
+		this.monitor.setCurrent(currentShape);
+		this.panel.getModel().undoStates.add(this.monitor);
 	}
 }
