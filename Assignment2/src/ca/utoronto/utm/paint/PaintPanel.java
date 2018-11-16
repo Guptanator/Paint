@@ -145,15 +145,22 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	
 	/**
 	 * Returns the current ShapeManipulatorStrategy (strategy).
-	 * @param this.strategy ShapeManipulatorStrategy
+	 * @return ShapeManipulatorStrategy this.strategy returns.
 	 */
 	public ShapeManipulatorStrategy getStrategy() {
 		return this.strategy;
 	}
+	/**
+	 * Returns the current TransformStrategy (strategy).
+	 * @return TransformStrategy this.Tstrategy returns.
+	 */
 	public TransformStrategy getTStrategy() {
 		return this.TStrategy;
 	}
-
+	/**
+	 * Sets the properties to the given ShapeManipulatorStategy.
+	 * @param ShapeManipulatorStrategy this.strategy
+	 */
 	public void setStrategy(ShapeManipulatorStrategy s) {
 		this.strategy = s;
 		this.strategy.setModel(this.model);
@@ -161,7 +168,6 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy.setFill(this.fillColor);
 		this.strategy.setThickness(this.thick);
 	}
-	
 	public void setTransformMode(TransformStrategy t, OtherModeButton modeButton) {
 		this.TStrategy = t;
 		t.setPanel(this);

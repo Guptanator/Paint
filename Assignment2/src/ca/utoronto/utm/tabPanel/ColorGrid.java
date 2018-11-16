@@ -16,8 +16,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 /**
- * This class extends the GridPane and is used hold the colorPicker. Additionally it passes the color
- * the the PaintPanel controller.
+ * This class extends the TitledPane and is used to
+ * pass a color a color to a ColorAccordion's mouse
+ * clicker event handler. Also sets a grid of colors
+ * in a grid pane as well as adding a button for a
+ * transparent color setting.
  *
 */
 public class ColorGrid extends TitledPane implements EventHandler<ActionEvent>{
@@ -29,8 +32,11 @@ public class ColorGrid extends TitledPane implements EventHandler<ActionEvent>{
 	private ColorAccordions parent;
 	private Rectangle currColor;
 	/**
-	 * 
+	 * Constructor for ColorGrid. Creates the grid pane for colors
+	 * and a button that sets the color to transparent.
 	 * @param View view which allows the pane to access the controller.
+	 * @param String name to determine where the color is being set to.
+	 * @param ColorAccordions parent which calls this grid.
 	 */
 	public ColorGrid(View view, String name,ColorAccordions parent){
 		this.clear = new Button("Empty");
@@ -71,6 +77,12 @@ public class ColorGrid extends TitledPane implements EventHandler<ActionEvent>{
 		this.GP.add(this.clear, 0, row+2,3,1);
 		this.setContent(GP);
 	}
+	/**
+	 * Handler for mouse clicking events for each cell of
+	 * the color grid pane so that they change the the set color
+	 * to the grid pane cell's color.
+	 * @param MouseEvent e tracks the mouse actions.
+	 */
 	private void handleMouseClick (MouseEvent e) {
 		Node source = (Node)e.getSource() ;
         Integer colIndex = GridPane.getColumnIndex(source);
@@ -78,7 +90,6 @@ public class ColorGrid extends TitledPane implements EventHandler<ActionEvent>{
         for (Node node : GP.getChildren()) {
             if (GridPane.getColumnIndex(node) == colIndex && GridPane.getRowIndex(node) == rowIndex) {
             	this.c = (Color) ((Shape) node).getFill();
-            	//this.setExpanded(false);this is controlling the panes closing/opening
             }
         }
         this.currColor.setFill(this.c);
@@ -88,10 +99,18 @@ public class ColorGrid extends TitledPane implements EventHandler<ActionEvent>{
         	this.parent.handleMouseClickB(this);
         }
     }
+	/**
+	 * Getter method for this.c (the stored color).
+	 * @return Color this.c is returned, which is the chosen color.
+	 */
 	public Color getColor() {
 		return this.c;
 	}
-
+	/**
+	 * Handler for the Empty button so that we can set the color to
+	 * transparent.
+	 * @param ActionEvent event for when the Empty button is clicked.
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		this.c = Color.TRANSPARENT;
@@ -102,6 +121,11 @@ public class ColorGrid extends TitledPane implements EventHandler<ActionEvent>{
         	this.parent.handleMouseClickB(this);
         }
 	}
+	/**
+	 * Changes the color of the accordion icon to reflect the current
+	 * selected color.
+	 * @return HBox out, and HBox which holds the icon that represents the currently selected color.
+	 */
 	private HBox configureNode() {
 		HBox out = new HBox(10);
 		Image currentImage = null;

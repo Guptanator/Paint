@@ -151,7 +151,6 @@ public class View implements EventHandler<ActionEvent> {
 	*/
 	@Override
 	public void handle(ActionEvent event) {
-		System.out.println(((MenuItem)event.getSource()).getText());
 		if (((MenuItem)event.getSource()).getText()=="Undo") {
 			model.Undo();
 		}
