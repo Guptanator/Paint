@@ -13,13 +13,14 @@ ISSUE    : Currently undo and redo do not work for erasing and moving shapes.
            This needs to be fixed ASAP!
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 53 : phamjus1
-NAME     : Java docs Proofreading
+TYPE     : BUG 54 : phamjus1
+NAME     : Design Pattern Docs
 OWNER    : 
 PRIORITY : 1
-ESTIMATE : 1 hours
-ISSUE    : Final Check for Java Doc Completion and Quality
+ESTIMATE : 10 min
+ISSUE    : Add Relevant Design Pattern info to specific classes.
 --------------------------------------------------------------------------
+
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 --------------------------------------------------------------------------
@@ -716,6 +717,14 @@ OWNER    :
 PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Needs to have more java docs.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 53 : phamjus1
+NAME     : Java docs Proofreading
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : Final Check for Java Doc Completion and Quality
 --------------------------------------------------------------------------
 
 # OMITTED USER STORIES/BUGS BELOW   ###########################################

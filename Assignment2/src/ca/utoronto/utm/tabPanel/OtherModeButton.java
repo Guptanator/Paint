@@ -4,14 +4,17 @@ import ca.utoronto.utm.shapes.TransformStrategy;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 
+/** Button for switching to TransformStrategies.
+ */
 public class OtherModeButton extends ToggleButton {
+	
 	private TransformStrategy strategy;
 
-	/**
-	 * Extends a new ToggleButton which allows the user to switch between TransformStrategies
-	 * @param ImageView view The image which is displayed by the button
-	 * @param TransformStrategy t The strategy that this button holds
-	 * @param Int width view The assigned width for this button.
+	/**Extends a new ToggleButton which allows the user to switch between TransformStrategies
+	 * 
+	 * @param image The image which is displayed by the button
+	 * @param t The strategy that this button holds
+	 * @param width The assigned width for this button.
 	 */
 	public OtherModeButton(ImageView image, TransformStrategy t,int width) {
 		super();
@@ -21,9 +24,9 @@ public class OtherModeButton extends ToggleButton {
 		this.getStylesheets().add("resources/stylesheet.css");
 		this.getStyleClass().add("custom-button");
 	}
-	/**
-	 * Allows the outside world to access the current strategy
-	 * @return TransformStrategy the strategy held by this button
+	/** Returns current strategy.
+	 * 
+	 * @return Stored TransformStrategy
 	 */
 	public TransformStrategy getStrategy() {
 		return this.strategy;

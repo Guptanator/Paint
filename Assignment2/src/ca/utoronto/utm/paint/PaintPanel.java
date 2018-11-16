@@ -22,10 +22,8 @@ import java.util.Observer;
 import java.util.Stack;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-/**
- * Class that handles the actual drawing of drawable objects
+/** Class that handles the actual drawing of drawable objects
  * onto the canvas as well as the drawing strategies.
- * 
  */
 public class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
 
@@ -45,10 +43,12 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 	private double thick = 1.0;
 	public boolean shapeMode=true;
 	public boolean override = false;
-	/** Constructor for PaintPanel that sets up and initializes the canvas.
+	
+	/** Constructor for PaintPanel. Sets up and initializes the canvas.
+	 * 
 	 * @param model PaintModel that handles the creation and destruction
 	 * of drawable objects.
-	 * @param view View 
+	 * @param view View of Paint Application
 	*/
 	public PaintPanel(PaintModel model, View view) {
 		
@@ -72,37 +72,29 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy.setFill(this.fillColor);
 		this.strategy.setThickness(1.0);
 	}
-	/** The method that handles the constant redrawing of
-	 * all stored drawable objects and putting them back on
-	 * the canvas.
+	
+	/** Handles the constant redrawing of all stored drawable 
+	 * objects and putting them back on the canvas.
 	*/
 	public void repaint() {
-
 		GraphicsContext g = this.canvas.getGraphicsContext2D();
 
-		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
-		
-		// Draw Lines
 
 		for (Drawable current: this.model.getObjects()) {
 			current.draw(g);
 		}
-			
 	}
+	
 	/** Returns the stored PaintModel.
-	 * @return getModel PaintModel
+	 * 
+	 * @return Current PaintModel
 	*/
-	public PaintModel getModel()
-	{
+	public PaintModel getModel() {
 		return this.model;
 	}
-	/** Activates this class' repaint() function,
-	 * which updates the canvas to show all drawn
-	 * objects.
-	 * 
-	 * @param Observable o the required variable for the observer interface
-	 * @param Object arg the required variable for the observer interface
+	
+	/** Updates the canvas to show all drawn objects.
 	*/	
 	@Override
 	public void update(Observable o, Object arg) {
@@ -111,21 +103,18 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.repaint();
 	}
 
-	/**
-	 * Changes the thickness value and stores it in the
-	 * ShapeManipulatorStrategy strategy based on a String (t)
-	 * to be either Thin (1.0 thickness), Normal (5.0 thickness),
-	 * or Thick (10.0 thickness).
-	 * @param t String value that will either be Thin, Normal, or
-	 * Thick.
+	/** Changes the thickness value in panel, current model
+	 * and current Strategy.
+	 * 
+	 * @param t Selected Thickness
 	 */
 	public void setThickness(double t) {
 		this.thick = t;
 		this.model.thick = t;
 		this.strategy.setThickness(t);
 	}
-	/**
-	 * Changes the color value in the model
+	/** Changes the color value in the model
+	 * 
 	 * @param c Color that will change the drawable
 	 * color.
 	 */
@@ -134,8 +123,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy.setColor(c);
 	}
 	
-	/**
-	 * Changes the fill color value in the model
+	/** Changes the fill color value in the model
+	 * 
 	 * @param c Color that will change the drawable
 	 * color.
 	 */
@@ -144,26 +133,26 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy.setFill(c);
 	}
 	
-	/**
-	 * Returns the current ShapeManipulatorStrategy (strategy).
-	 * @return ShapeManipulatorStrategy this.strategy returns.
+	/** Returns the current ShapeManipulatorStrategy.
+	 * 
+	 * @return Current Strategy
 	 */
 	public ShapeManipulatorStrategy getStrategy() {
 		return this.strategy;
 	}
 	
-	/** 
-	 * This returns the current TStrategy
-	 * @return TransformStrategy the current active TransformStrategy
+	/** Returns the current TStrategy
+	 * 
+	 * @return The current active TransformStrategy
 	*/
 	public TransformStrategy getTStrategy() {
 		return this.TStrategy;
 	}
 	
-	/** 
-	 * This sets the current strategy and initializes it's key attributes 
-	 * which are required for drawing/adding shapes
-	 * @param ShapeManipulatorStrategy s the new strategy we want to set
+	/** Sets the current strategy and initializes it's key attributes 
+	 * required for drawing/adding shapes
+	 * 
+	 * @param s New Strategy
 	*/
 	public void setStrategy(ShapeManipulatorStrategy s) {
 		this.strategy = s;
@@ -173,12 +162,12 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.strategy.setThickness(this.thick);
 	}
 	
-	/** 
-	 * This sets the current transform strategy and initializes it's key attributes 
-	 * which are required for any transformation, it also manages the display of
+	/** Sets the current transform strategy and initializes it's key attributes 
+	 * which are required for any transformation. Also manages the display of
 	 * some UI elements
-	 * @param TransformStrategy t the new strategy we want to set
-	 * @param OtherModeButton modeButton the last button we pushed
+	 * 
+	 * @param t New TransformStrategy
+	 * @param modeButton the last button pressed
 	*/
 	public void setTransformMode(TransformStrategy t, OtherModeButton modeButton) {
 		this.TStrategy = t;
@@ -187,10 +176,8 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.currentModeButton = modeButton;
 	}
 	
-	/** 
-	 * This does the opposite of the function above, it deactivates the transform strategy
-	 * functionality and reloads the ShapeManipulatorStrategy attributes. Again it
-	 * also manages the display of some UI elements
+	/** Deactivates the transform strategy functionality and reloads the 
+	 * ShapeManipulatorStrategy attributes. Also manages the display of some UI elements.
 	*/
 	public void UnsetTransformMode() {
 		this.TStrategy = null;
@@ -199,10 +186,10 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		if (this.currentModeButton!=null)this.currentModeButton.setSelected(false);
 	}
 	
-	/** 
-	 * This activates the current strategy mode, either transform or shape manipulator,
-	 * this also ensures we can never have two active strategies.
-	 * @param MouseEvent e the mouse event passed from the display
+	/** Activates the current strategy mode, either transform or shape manipulator.
+	 * Ensures that no two strategies are active.
+	 * 
+	 * @param MouseEvent e the mouse event passed from the user
 	*/
 	@Override
 	public void handle(MouseEvent e) {
@@ -213,9 +200,7 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		}
 	}
 	
-	/**
-	 * Sets canvas dimensions to parameters h,
-	 * w to height and width respectively.
+	/** Sets canvas dimensions to the input length
 	 * 
 	 * @param h Input Height
 	 * @param w Input Width
@@ -227,25 +212,26 @@ public class PaintPanel extends StackPane implements Observer, EventHandler<Mous
 		this.model.setWidth(w);
 	}
 	
-	/**
-	 * Returns the current Canvas
-	 * @return Canvas the current canvas
+	/** Returns the current Canvas
+	 * 
+	 * @return The current canvas
 	 */
 	public Canvas getCanvas() {
 		return this.canvas;
 	}
 	
-	/**
-	 * Returns the current View
-	 * @return View the current View
+	/** Returns the current View
+	 * 
+	 * @return The current View
 	 */
 	public View getView() {
 		return this.view;
 	}
 	
-	/**
-	 * Sets model to Current Model and performs some initialization.
-	 * @param PaintModel model the new PaintModel
+	/** Sets Input model to Current Model and adds Panel
+	 * as Observer.
+	 * 
+	 * @param model New PaintModel
 	 */	
 	public void setModel(PaintModel model) {
 		this.model = model;

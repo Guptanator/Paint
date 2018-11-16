@@ -16,21 +16,19 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-/**
- * This call is used to hold and display elements relating to the thickness manipulating elements
+/** Holds and displays elements relating to the thickness manipulation
 */
 public class thicknessPopup extends VBox implements ChangeListener<Number>{
 	
-	/**
-	 * Hold and initializes elements relating the thickness options, this is current 3 buttons
-	 * but this will be changing to a slider soon.
-	 * @param View view used to communicating with the controller
-	 */
-	final Slider thickness;
-	final Label  thicknessCaption;
-	double thicknessValue;
-	View view;
+	private final Slider thickness;
+	private final Label  thicknessCaption;
+	private double thicknessValue;
+	private View view;
 	
+	/** Hold and initializes elements relating the thickness options.
+	 * 
+	 * @param view Paint Application View
+	 */
 	public thicknessPopup(View view){
 	
 		this.view = view;
@@ -51,11 +49,8 @@ public class thicknessPopup extends VBox implements ChangeListener<Number>{
 		this.getChildren().addAll(this.thicknessCaption,this.thickness);
 		this.thickness.valueProperty().addListener(this);
 	}
-	/**
-	 * This handles the changing the of the thickness from the slider
-	 * @param ObservableValue observable the observable value passed from the handler
-	 * @param Number oldValue the new value
-	 * @param Number newValue the new value
+	
+	/** Handles the changes to the thickness from the slider
 	 */
 	@Override
 	public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {

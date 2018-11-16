@@ -12,16 +12,7 @@ public class SquiggleStrategy extends ShapeManipulatorStrategy {
 	
 
 	private Squiggle shape;
-	
-	
-	/** 
-	 * MouseEvent Handler called by the PaintPanel which itself
-	 * calls the appropriate method to create or alter
-	 * the Squiggle shape.
-	 *  
-	 * @param e MouseEvent passed by PaintPanel to denote
-	 * user action.
-	*/
+
 	@Override
 	public void mouseHandle(MouseEvent e) {
 		if (e.getEventType() == MouseEvent.MOUSE_DRAGGED) {

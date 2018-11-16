@@ -11,8 +11,7 @@ import ca.utoronto.utm.drawingCommands.ThicknessCommand;
 import javafx.scene.paint.Color;
 import ca.utoronto.utm.shapes.Drawable;
 
-/**
- * The class that handles the creation and destruction
+/** The class that handles the creation and destruction
  * of drawable objects.
  */
 public class PaintModel extends Observable {
@@ -25,9 +24,10 @@ public class PaintModel extends Observable {
 	private int height;
 	private int width;
 	
-	/** This constructs the PaintModel and sets it's unique name to be
+	/** PaintModel Constructor. Sets it's name to be
 	 * the inputed String
-	 * @param String name the name of the PaintModel.
+	 * 
+	 * @param name The name of the PaintModel.
 	*/
 	public PaintModel(String name) {
 		this.name = name;
@@ -35,8 +35,9 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 	}
 	
-	/** Handles setting the properties to d and adding it
-	 * to the list of drawable objects (allObjects) to draw on canvas.
+	/** Adds a drawable to the list of drawable objects 
+	 * (allObjects) to draw on canvas.
+	 * 
 	 * @param d Drawable that will be added to the canvas.
 	*/
 	public void addDrawable(Drawable d) {
@@ -44,6 +45,7 @@ public class PaintModel extends Observable {
 		this.allObjects.add(d);
 		this.update();
 	}
+
 	/** Removes the latest state object from the undoStates list
 	 * executes it's operation and then adds it to the redo list
 	*/
@@ -55,6 +57,7 @@ public class PaintModel extends Observable {
 			redoStates.addLast(current);
 		}
 	}
+	
 	/** Removes the first drawable state from the redoStates list
 	 * and executes it's undo function.
 	*/
@@ -64,18 +67,21 @@ public class PaintModel extends Observable {
 			current.executeRedo();
 		}
 	}
-	/** Returns an ArrayList of drawable objects that are to be added to
-	 * the canvas.
-	 * @return getObjects ArrayList<Drawable> of objects to put onto
-	 * the canvas.
+	
+	/** Returns an ArrayList of drawable objects that are drawn to the
+	 * Canvas
+	 * 
+	 * @return getObjects ArrayList<Drawable> of objects
 	*/
 	public ArrayList<Drawable> getObjects() {
 		return this.allObjects;
 	}
+	
 	/** Returns the topmost value of the stack of the list
 	 * (allObjects) or null if the list is empty.
-	 * @return top most value of the list (allObjects) or null
-	 * if the list is empty.
+	 * 
+	 * @return Drawable Object or Null if allObjects
+	 * is empty.
 	*/
 	public Drawable removeLast() {
 		if (this.allObjects.size() > 0) {
@@ -84,27 +90,27 @@ public class PaintModel extends Observable {
 		return null;
 	}
 	
-	/** 
-	 * Utility function to update all of the Observers
+	/** Utility function to update Observers
 	*/
 	public void update() {
 		this.setChanged();
 		this.notifyObservers();
 	}
 	
-	/** 
-	 * Removes the object d from the allObjects ArrayList and then updates the model
-	 * @param Drawable d
+	/** Removes Specified Drawable from the allObjects ArrayList and then updates the model
+	 * 
+	 * @param d Selected Drawable
 	*/
 	public void removeObject(Drawable d) {
 		this.allObjects.remove(d);
 		this.update();
 	}
-	/** 
-	 * Finds the topmost not closed element, and adds the Drawable to directly
-	 * above that element, this is used to avoid issues with the z-level of
-	 * the eraser Squiggle
-	 * @param Drawable d the new Drawable we want to add
+	
+	/** Finds the topmost not closed element, and adds the Drawable
+	 * above that element in the list, this is used to avoid issues with 
+	 * the z-level of the eraser Squiggle
+	 * 
+	 * @param d Drawable to be added
 	*/
 	public void addAbove(Drawable d) {
 		int i;
@@ -117,41 +123,41 @@ public class PaintModel extends Observable {
 		allObjects.add(i+1, d);
 	}
 	
-	/** 
-	 * Returns the name of the model
-	 * @return String the name of the model
+	/** Returns the name of the model
+	 * 
+	 * @return The name of the model
 	*/
 	public String getName() {
 		return this.name;
 	}
 	
-	/** 
-	 * Set height to current height
-	 * @param int h the new height
+	/** Set height to current height.
+	 * 
+	 * @param h New height
 	*/
 	public void setHeight(int h) {
 		this.height = h;
 	}
 	
-	/** 
-	 * Set Width to current width
-	 * @param int w the new width
+	/** Set Width to current width
+	 * 
+	 * @param w New width
 	*/
 	public void setWidth(int w) {
 		this.width = w;
 	}
 	
-	/** 
-	 * Return height
-	 * @return int the current height
+	/**  Returns height.
+	 * 
+	 * @return The current height
 	*/
 	public int getHeight() {
 		return this.height;
 	}
 	
-	/** 
-	 * Return Width
-	 * @return int the current width
+	/** Returns Width.
+	 * 
+	 * @return the current width
 	*/
 	public int getWidth() {
 		return this.width;

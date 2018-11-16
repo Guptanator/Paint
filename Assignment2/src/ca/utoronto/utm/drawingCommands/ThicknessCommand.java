@@ -2,39 +2,42 @@ package ca.utoronto.utm.drawingCommands;
 
 import ca.utoronto.utm.shapes.Drawable;
 import javafx.scene.canvas.GraphicsContext;
-/**
- * Command for choosing the line thickness for shapes.
+
+/** Command for choosing the line thickness for shapes.
  *
  * @author Daniel Lee
  */
 public class ThicknessCommand implements DrawingCommands{
+	
 	private double thickness;
-	/** Constructor for ThicknessCommand, which is used to set
-	 * the line thickness for shapes.
+	
+	/** Constructor for ThicknessCommand. Sets
+	 * thickness.
 	 *  
-	 * @param thick Double value that denotes the line
-	 * thickness value of the new shapes.
+	 * @param thickness Double that denotes the line
+	 * thickness of the new shapes.
 	*/
-	public ThicknessCommand(double thick)
-	{
-		this.thickness = thick;
+	public ThicknessCommand(double thickness) {
+		this.thickness = thickness;
 	}
-	/** Changes the line thickness value for shape d when called.
+	
+	/** Sets the current thickness to change in the
+	 * GraphicsContext
+	 * 
+	 * @param g GraphicsContext used to set thickness
 	*/
 	@Override
 	public void executeChange(GraphicsContext g) {
 		g.setLineWidth(this.thickness);
 	}
-	/** 
-	 * This returns the type of the command
-	 * @return the string detailing the type of the button
-	*/
+	
 	@Override
 	public String type() {
 		return "thick";
 	}
-	/** 
-	 * This returns the current thickness of the command
+	
+	/** This returns the current thickness of the command
+	 * 
 	 * @return the current thickness
 	*/
 	public double getThickness() {

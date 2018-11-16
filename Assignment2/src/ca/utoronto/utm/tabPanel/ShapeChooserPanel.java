@@ -12,8 +12,7 @@ import ca.utoronto.utm.shapes.RectangleStrategy;
 import ca.utoronto.utm.shapes.SquareStrategy;
 import ca.utoronto.utm.shapes.SquiggleStrategy;
 
-/**
- * The ShapeChooserPanel extends GridPane and is used to hold and handle the ShapeChooserButtons
+/** The ShapeChooserPanel holds and handles the ShapeChooserButtons
 */
 public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEvent> {
 
@@ -23,10 +22,10 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 	private ArrayList<shapeChooserButton> buttonArray = new ArrayList<shapeChooserButton>();
 	private boolean isFilled = false;
 
-	/**
-	 * This constructor initializes the ShapeChooserPanel by creating 5 ShapeChooserButtons based on the
+	/** This constructor initializes the ShapeChooserPanel by creating 5 ShapeChooserButtons based on the
 	 * constant buttonLabels string
-	 * @param View view, used for interacting with the controller
+	 * 
+	 * @param view Paint Application view
 	 */
 	public ShapeChooserPanel(View view) {
 	
@@ -43,12 +42,12 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 			buttonArray.add(button);
 		}
 	}
-	/**
-	 * This function is used to handle ActionEvents passed from the ShapeChooserButtons, it essentially
-	 * sets the strategy based on the button pushed, this strategy is used in the PaintPanel for all 
-	 * commands related to drawing! Additionally by maintaining which button was last pressed we can keep
-	 * a note of which button to disable.
-	 * @param ActionEvent event is the event passed by the ShapeChooserButtons.
+	
+	/** Handles ActionEvents passed from the ShapeChooserButtons.
+	 * Sets the strategy based on the button pushed for use in the PaintPanel with all 
+	 * commands related to drawing. Also maintains last event pressed.
+	 * 
+	 * @param event User button press event
 	 */
 	@Override
 	public void handle(ActionEvent event) {
@@ -76,8 +75,8 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 		lastCommand = command;
 		this.view.getPaintPanel().UnsetTransformMode();
 	}
-	/**
-	 * This parameter sets the buttons icons to be filled or unfilled depending the the state of the toggle
+	
+	/** Sets the buttons icons to be filled or unfilled depending the the state of the toggle
 	 * button.
 	 */
 	public void setButtonsFill() {

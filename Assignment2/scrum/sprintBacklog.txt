@@ -792,3 +792,11 @@ PRIORITY : 1
 ESTIMATE : 1 hours
 ISSUE    : Needs to have more java docs.
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 53 : phamjus1
+NAME     : Java docs Proofreading
+OWNER    : 
+PRIORITY : 1
+ESTIMATE : 3 hours
+ISSUE    : Final Check for Java Doc Completion and Quality
+--------------------------------------------------------------------------

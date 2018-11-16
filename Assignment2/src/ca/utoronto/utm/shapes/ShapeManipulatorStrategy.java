@@ -5,10 +5,8 @@ import javafx.scene.paint.Color;
 import ca.utoronto.utm.paint.PaintModel;
 import javafx.scene.canvas.GraphicsContext;
 
-/** 
- * Abstract Strategy class for implementation of
+/** Abstract Strategy class for implementation of
  * different shape formation strategies
- *  
 */
 public abstract class ShapeManipulatorStrategy {
 	
@@ -17,17 +15,16 @@ public abstract class ShapeManipulatorStrategy {
 	protected PaintModel model;
 	protected Color fillColor = Color.TRANSPARENT;
 	
-	/** 
-	 * This function should handle all relevant mouse
-	 * based operations dealing with the creation
-	 * and feedback of a shape.
+	/** MouseEvent Handler called by the PaintPanel which itself
+	 * calls the appropriate method to create or alter
+	 * the stored shape.
 	 *  
-	 *  @param MouseEvent e 
+	 * @param e MouseEvent passed by PaintPanel to denote
+	 * user action.
 	*/
 	public abstract void mouseHandle(MouseEvent e);
 	
-	/** 
-	 * Sets PaintModel model in instance
+	/** Sets PaintModel model in instance
 	 * to current PaintModel
 	 *  
 	 *  @param PaintModel p sets the model attribute 
@@ -37,8 +34,7 @@ public abstract class ShapeManipulatorStrategy {
 		this.model.update();
 	}
 	
-	/** 
-	 * Sets Color color in instance
+	/** Sets Color color in instance
 	 * to the passed in Color
 	 *  
 	 *  @param Color c the new color for the strategy
@@ -47,8 +43,7 @@ public abstract class ShapeManipulatorStrategy {
 		this.color = c;
 	}
 	
-	/** 
-	 * Sets double thickness in instance
+	/** Sets double thickness in instance
 	 * to new thickness
 	 *  
 	 *  @param Double t the new thickness for the strategy
@@ -57,8 +52,7 @@ public abstract class ShapeManipulatorStrategy {
 		this.thickness = t;
 	}
 	
-	/** 
-	 * Sets fillColor to be the new passed in color
+	/** Sets fillColor to be the new passed in color
 	 *  
 	 *  @param Color fillColor the new color for the fill of the shape
 	*/

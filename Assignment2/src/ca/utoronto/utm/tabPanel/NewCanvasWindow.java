@@ -19,8 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/** 
- * Window for Creating new Models for PaintPanel
+/** Window for Creating new Models for PaintPanel
 */
 public class NewCanvasWindow extends Stage implements EventHandler<ActionEvent>{
 	
@@ -37,13 +36,12 @@ public class NewCanvasWindow extends Stage implements EventHandler<ActionEvent>{
 	private final int MAXWIDTH = 1920;
 	private final int MAXHEIGHT = 1080;
 	
-	/** 
-	 * CanvasPopup Constructor setting the dimensions and
+	/** CanvasPopup Constructor setting the dimensions and
 	 * layout of the window. Also sets buttons to be detectable
 	 * by the event handler.
 	 *  
 	 * @param p PaintPanel whose canvas is currently being resized
-	 * @param modelPicker ModelPicker HBox that holds changable models
+	 * @param modelPicker ModelPicker HBox that holds changeable models
 	*/
 	public NewCanvasWindow(PaintPanel p, ModelPicker modelPicker) {
 		this.setTitle("New Canvas");
@@ -111,12 +109,10 @@ public class NewCanvasWindow extends Stage implements EventHandler<ActionEvent>{
 			
 	}
 
-	/** 
-	 * Detects Current Display device and populates
+	/** Detects Current Display device and populates
 	 * canvas height and width TextFields with device resolution.
 	 * If display is higher resolution than the max dimension constants,
 	 * will populate with max values instead.
-	 * 
 	*/
 	private void setScreenSize() {
 		GraphicsDevice gdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -136,8 +132,7 @@ public class NewCanvasWindow extends Stage implements EventHandler<ActionEvent>{
 	
 
 
-	/** 
-	 * Button Event Handler. Calls methods based on button
+	/** Button Event Handler. Calls methods based on button
 	 * press and will either set create new model, populate dimension
 	 * TextFields or close window.
 	 *  
